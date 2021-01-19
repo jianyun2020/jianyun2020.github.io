@@ -4,7 +4,7 @@ export default {
     title: 'jianyuns\'Blog',
     description: '欢迎来到我的博客',
     blog: {
-        root: '/posts/',
+        root: '/blog/',
         social: {
             github: 'jianyun2020',
             email: 'sujianyun2020@163.com',
