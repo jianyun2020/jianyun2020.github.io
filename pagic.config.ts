@@ -4,7 +4,6 @@ export default {
     plugins: ['blog'],
     title: 'jianyuns\'Blog',
     description: '欢迎来到我的博客',
-    root: '/blog/',
     blog: {
         root: '/posts/',
         social: {
