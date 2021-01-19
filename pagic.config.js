@@ -3,7 +3,8 @@ export default {
     theme: 'blog',
     plugins: ['blog'],
     title: 'jianyuns\'Blog',
-    description: '欢迎来到我的博客',
+    description: '欢迎来到我的博客。',
+    head: React.createElement("link", { rel: "icon", type: "image/png", href: "/favicon.png" }),
     blog: {
         root: '/posts/',
         social: {
