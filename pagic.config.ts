@@ -1,5 +1,5 @@
 export default {
-    srcDir: '',
+    srcDir: 'src',
     theme: 'blog',
     plugins: ['blog'],
     title: 'jianyuns\'Blog',
