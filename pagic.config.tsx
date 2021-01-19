@@ -1,9 +1,12 @@
+import { React } from 'https://deno.land/x/pagic@v1.1.1/mod.ts';
+
 export default {
     srcDir: 'src',
     theme: 'blog',
     plugins: ['blog'],
     title: 'jianyuns\'Blog',
-    description: '欢迎来到我的博客',
+    description: '欢迎来到我的博客。',
+    head: <link rel="icon" type="image/png" href="/favicon.png" />,
     blog: {
         root: '/posts/',
         social: {
