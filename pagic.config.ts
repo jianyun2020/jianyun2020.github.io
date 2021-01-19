@@ -1,4 +1,5 @@
 export default {
+    srcDir: '',
     theme: 'blog',
     plugins: ['blog'],
     title: 'jianyuns\'Blog',
