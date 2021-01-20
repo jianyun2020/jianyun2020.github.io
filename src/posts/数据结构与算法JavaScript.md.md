@@ -3,7 +3,7 @@ categories:
     - 数据结构与算法
 tags:
     - JavaScript
-	- 数据结构与算法
+    - 数据结构与算法
 ---
 
 # 数据结构与算法JavaScript
@@ -16,3 +16,5 @@ JavaScript 中的数组是一种特殊的对象， 用来表示偏移量的索�
 语言中的数组高。
 JavaScript 中的数组， 严格来说应该称作对象， 是特殊的 JavaScript 对象， 在内部被归类为数
 组。 由于 Array 在 JavaScript 中被当作对象， 因此它有许多属性和方法可以在编程时使用。
+
+![](./images/test.png)
