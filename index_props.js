@@ -36,7 +36,7 @@ export default {
                 "title": "数据结构与算法JavaScript",
                 "link": "posts/数据结构与算法JavaScript.md.html",
                 "date": "2021-01-20T05:13:02.000Z",
-                "updated": "2021-01-20T10:19:35.000Z",
+                "updated": "2021-01-20T10:56:10.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
