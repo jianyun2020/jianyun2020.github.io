@@ -35,7 +35,7 @@ export default {
                 "title": "数据结构与算法JavaScript",
                 "link": "posts/数据结构与算法JavaScript.md.html",
                 "date": "2021-01-20T05:13:02.000Z",
-                "updated": "2021-01-20T05:45:28.000Z",
+                "updated": "2021-01-20T10:19:35.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -47,8 +47,7 @@ export default {
                     "JavaScript",
                     "数据结构与算法"
                 ],
-                "excerpt": "数组 JavaScript 中的数组是一种特殊的对象， 用来表示偏移量的索引是该对象的属性， 索引可 能是整数。 然而， 这些数字索引在内部被转换为字符串类型， 这是因为 JavaScript 对象中 的属性名必须是字符串。 数组在 JavaScrip...",
-                "cover": "./images/test.png"
+                "excerpt": "数组 JavaScript 中的数组是一种特殊的对象， 用来表示偏移量的索引是该对象的属性， 索引可 能是整数。 然而， 这些数字索引在内部被转换为字符串类型， 这是因为 JavaScript 对象中 的属性名必须是字符串。 数组在 JavaScrip..."
             }
         ],
         "categories": [
