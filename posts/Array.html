@@ -1,0 +1,195 @@
+<!doctype html><html class="" data-reactroot=""><head><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="欢迎来到我的博客。"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">数据结构与算法JavaScript-数组 · jianyuns&#x27;Blog</title>
+<link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/><link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><a class="czs-menu-l show_on_mobile aside_button_open" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a><a class="show_on_mobile aside_button_text" href="/">jianyuns&#x27;Blog</a><aside class="hide_on_mobile"><a class="czs-menu-l show_on_mobile aside_button_close" href="#" style="background-image:url(&quot;/assets/czs-close-l.svg&quot;)"></a><h1><a href="/">jianyuns&#x27;Blog</a></h1><p class="description">欢迎来到我的博客。</p><ul class="social list_style_none"><li class="flex_center"><a class="czs-github-logo" href="https://github.com/jianyun2020" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="flex_center"><a class="czs-message-l" href="mailto:sujianyun2020@163.com" target="_blank" style="background-image:url(&quot;/assets/czs-message-l.svg&quot;)"></a></li><li style="flex-grow:1"></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul><nav><ul class="menu list_style_none"><li><a class="flex_center" href="/"><span class="czs-home-l" style="background-image:url(&quot;/assets/czs-home-l.svg&quot;)"></span>首页</a></li><li><a class="flex_center" href="/categories/"><span class="czs-category-l" style="background-image:url(&quot;/assets/czs-category-l.svg&quot;)"></span>分类</a></li><li><a class="flex_center" href="/tags/"><span class="czs-tag-l" style="background-image:url(&quot;/assets/czs-tag-l.svg&quot;)"></span>标签</a></li><li><a class="flex_center" href="/about/"><span class="czs-about-l" style="background-image:url(&quot;/assets/czs-about-l.svg&quot;)"></span>关于</a></li><li><a class="flex_center" href="/archives/"><span class="czs-box-l" style="background-image:url(&quot;/assets/czs-box-l.svg&quot;)"></span>归档</a></li></ul></nav></aside><section class="main"><h1>数据结构与算法JavaScript-数组</h1><div class="main_post_meta"><time dateTime="Wed Jan 20 2021 05:13:02 GMT+0000 (UTC)">2021-01-21</time> · <!-- -->jianyun2020</div><article><h2 id="%E6%95%B0%E7%BB%84">数组<a class="anchor" href="#%E6%95%B0%E7%BB%84">§</a></h2>
+<p>JavaScript 中的数组是一种特殊的对象， 用来表示偏移量的索引是该对象的属性， 索引可
+能是整数。 然而， 这些数字索引在内部被转换为字符串类型， 这是因为 JavaScript 对象中
+的属性名必须是字符串。 数组在 JavaScript 中只是一种特殊的对象， 所以效率上不如其他
+语言中的数组高。
+JavaScript 中的数组， 严格来说应该称作对象， 是特殊的 JavaScript 对象， 在内部被归类为数
+组。 由于 Array 在 JavaScript 中被当作对象， 因此它有许多属性和方法可以在编程时使用。</p>
+<h2 id="%E4%BD%BF%E7%94%A8%E6%95%B0%E7%BB%84">使用数组<a class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%95%B0%E7%BB%84">§</a></h2>
+<h3 id="%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84">创建数组<a class="anchor" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84">§</a></h3>
+<p>两种方式：</p>
+<ul>
+<li>通过[ ]操作符（推荐）</li>
+</ul>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// arr1.length显示0</span>
+<span class="token keyword">let</span> arr2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// arr2.length显示4</span>
+</code></pre>
+<ul>
+<li>通过Array的构造函数</li>
+</ul>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> arr1 <span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">.</span><span class="token known-class-name class-name">Array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// arr1.length显示0</span>
+<span class="token keyword">let</span> arr2 <span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">.</span><span class="token known-class-name class-name">Array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// arr2.length显示3</span>
+<span class="token keyword">let</span> arr3 <span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">.</span><span class="token known-class-name class-name">Array</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// arr3.length显示10</span>
+</code></pre>
+<p><em>特性：脚本语言中的元素不必是同一种数据类型。</em></p>
+<p>可通过Array.isArray()来判断一个对象是否是数组。</p>
+<h3 id="%E8%AF%BB%E5%86%99%E6%95%B0%E7%BB%84">读写数组<a class="anchor" href="#%E8%AF%BB%E5%86%99%E6%95%B0%E7%BB%84">§</a></h3>
+<p>求数组中元素的和：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numbers<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    sum <span class="token operator">+=</span> numbers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 53</span>
+</code></pre>
+<h3 id="%E7%94%B1%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%94%9F%E6%88%90%E6%95%B0%E7%BB%84">由字符串生成数组<a class="anchor" href="#%E7%94%B1%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%94%9F%E6%88%90%E6%95%B0%E7%BB%84">§</a></h3>
+<p>通过字符串对象的split()方法也可以生成数组：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> setence <span class="token operator">=</span> <span class="token string">"Hello Array"</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> setence<span class="token punctuation">.</span><span class="token method function property-access">split</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 通过空格分割</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [ 'Hello', 'Array' ]</span>
+</code></pre>
+<h3 id="%E5%AF%B9%E6%95%B0%E7%BB%84%E7%9A%84%E6%95%B4%E4%BD%93%E6%80%A7%E6%93%8D%E4%BD%9C">对数组的整体性操作<a class="anchor" href="#%E5%AF%B9%E6%95%B0%E7%BB%84%E7%9A%84%E6%95%B4%E4%BD%93%E6%80%A7%E6%93%8D%E4%BD%9C">§</a></h3>
+<p>将一个数组赋值给另一个数组：此时，只是为被赋值的数组增加了一个新的引用，当修改原数组中的值时，被赋值数组中的值也跟着改变。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> samenums <span class="token operator">=</span> nums<span class="token punctuation">;</span>
+nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>samenums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 4</span>
+</code></pre>
+<p>这种行为被称为<strong>浅复制</strong>，更好的方案是使用<strong>深复制</strong>，将原数组中的每一个元素都赋值一份到新数组中。可以写一个深复制函数来实现：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">deepCopy</span><span class="token punctuation">(</span><span class="token parameter">arr1<span class="token punctuation">,</span> arr2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr1<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        arr2<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arr1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>这样，修改原数组中的元素时，新数组中的元素不会改变。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> samesums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">deepCopy</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> samesums<span class="token punctuation">)</span><span class="token punctuation">;</span>
+nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>samesums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span>
+</code></pre>
+<h2 id="%E5%AD%98%E5%8F%96%E5%87%BD%E6%95%B0">存取函数<a class="anchor" href="#%E5%AD%98%E5%8F%96%E5%87%BD%E6%95%B0">§</a></h2>
+<p>JavaScript提供了用来访问数组元素的函数，叫做<strong>存取函数</strong>,这些函数返回目标数组的某种变体。</p>
+<h3 id="%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0">查找元素<a class="anchor" href="#%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0">§</a></h3>
+<p>indexOf( )：用来查找传入的参数在目标数组中是否存在。存在返回索引，不存在返回-1。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Bob'</span><span class="token punctuation">,</span> <span class="token string">'Lily'</span><span class="token punctuation">,</span> <span class="token string">'David'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>names<span class="token punctuation">.</span><span class="token method function property-access">indexOf</span><span class="token punctuation">(</span><span class="token string">'Bob'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>names<span class="token punctuation">.</span><span class="token method function property-access">indexOf</span><span class="token punctuation">(</span><span class="token string">'Faker'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// -1</span>
+</code></pre>
+<p>如果数组中包含多个相同的元素，indexOf( )函数总是返回第一个元素的索引；lastIndexOf( )则返回最后一个元素的索引。</p>
+<h3 id="%E6%95%B0%E7%BB%84%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8%E7%A4%BA">数组的字符串表示<a class="anchor" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A1%A8%E7%A4%BA">§</a></h3>
+<p>join( )和toString( )方法可以将数组转化为字符串，数组各元素之间用逗号隔开。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Hello'</span><span class="token punctuation">,</span> <span class="token string">'World'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> arr1 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> arr2 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token method function property-access">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>arr1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hello, World</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>arr2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hello, World</span>
+<span class="token comment">// join()方法可以传入替换默认逗号的字符</span>
+<span class="token keyword">const</span> arr3 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>arr3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hello-World</span>
+</code></pre>
+<h3 id="%E7%94%B1%E5%B7%B2%E6%9C%89%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA%E6%96%B0%E6%95%B0%E7%BB%84">由已有数组创建新数组<a class="anchor" href="#%E7%94%B1%E5%B7%B2%E6%9C%89%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA%E6%96%B0%E6%95%B0%E7%BB%84">§</a></h3>
+<p>concat()：合并多个数组创建一个新数组
+工作原理：发起者是一个数组，参数是另一个数组。作为参数的数组中的所有元素都被连接到发起者元素的后边</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> arr2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> arr3 <span class="token operator">=</span> arr1<span class="token punctuation">.</span><span class="token method function property-access">concat</span><span class="token punctuation">(</span>arr2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>arr3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [1, 2, 3, 4]</span>
+</code></pre>
+<p>splice()：截取一个数组的子集创建一个新数组
+工作原理：第一个参数是截取的起始索引，第二个参数是截取的长度</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> arr2 <span class="token operator">=</span> arr1<span class="token punctuation">.</span><span class="token method function property-access">splice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>arr2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [2, 3]</span>
+</code></pre>
+<h2 id="%E5%8F%AF%E5%8F%98%E5%87%BD%E6%95%B0">可变函数<a class="anchor" href="#%E5%8F%AF%E5%8F%98%E5%87%BD%E6%95%B0">§</a></h2>
+<p>通过可变函数，可以不必引用数组中的某个元素，就能改变数组的内容。</p>
+<h3 id="%E4%B8%BA%E6%95%B0%E7%BB%84%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0">为数组添加元素<a class="anchor" href="#%E4%B8%BA%E6%95%B0%E7%BB%84%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0">§</a></h3>
+<p>push()：将一个元素添加到数组末尾</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+nums<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [1, 2, 3, 4]</span>
+
+<span class="token comment">// 也可使用数组的length属性为数组添加元素</span>
+nums<span class="token punctuation">[</span>nums<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [1, 2, 3, 4, 5]</span>
+</code></pre>
+<p>unshift()：将一个元素添加到数组开头</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// 如果不用数组提供的可变函数，则新元素添加进来后，需要把每个元素都相应地后移一个位置</span>
+<span class="token keyword">let</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> newnums <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> i <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token operator">--</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> newnums<span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [0, 1, 2]</span>
+
+<span class="token comment">// 随着数组存储的元素越来越多，上述代码会越来越低效，推荐使用unshift()方法</span>
+<span class="token keyword">let</span> nums2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> newnums2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+nums2<span class="token punctuation">.</span><span class="token method function property-access">unshift</span><span class="token punctuation">(</span>newnums2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>nums2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [0, 1, 2]</span>
+nums2<span class="token punctuation">.</span><span class="token method function property-access">unshift</span><span class="token punctuation">(</span>newnums2<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 可以一次为数组添加多个元素</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>nums2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [0, 1, 2, 0, 1, 2]</span>
+</code></pre>
+<h3 id="%E4%BB%8E%E6%95%B0%E7%BB%84%E4%B8%AD%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0">从数组中删除元素<a class="anchor" href="#%E4%BB%8E%E6%95%B0%E7%BB%84%E4%B8%AD%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0">§</a></h3>
+<p>pop()：删除数组末尾的元素
+``js
+let nums = [1, 2, 3];
+nums.pop();
+console.log(nums); // [1, 2]</p>
+<pre class="language-autoit"><code class="language-autoit">
+如果没有可变函数，从数组中删除第一个元素需要将后续元素各自向前移动一个位置，同样低效
+```js
+let nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token comment">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>let i <span class="token operator">=</span> <span class="token number">0</span><span class="token comment">; i &lt; nums.length; ++i) {</span>
+    nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token comment">;</span>
+}
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token comment">; // [2, 3,]</span>
+</code></pre>
+<p>除了要将后续元素前移一位，还多了一个元素，打印数组中的元素时会发现最后多了一个逗号，推荐使用shift()方法</p>
+<p>shift()：删除数组的第一个元素</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+nums<span class="token punctuation">.</span><span class="token method function property-access">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [2, 3]</span>
+</code></pre>
+<p>pop()和shift()方法都将删掉的元素作为方法的返回值，因此可以使用一个变量来保存删除的元素</p>
+<h3 id="%E4%BB%8E%E6%95%B0%E7%BB%84%E4%B8%AD%E9%97%B4%E4%BD%8D%E7%BD%AE%E6%B7%BB%E5%8A%A0%E5%92%8C%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0">从数组中间位置添加和删除元素<a class="anchor" href="#%E4%BB%8E%E6%95%B0%E7%BB%84%E4%B8%AD%E9%97%B4%E4%BD%8D%E7%BD%AE%E6%B7%BB%E5%8A%A0%E5%92%8C%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0">§</a></h3>
+<p>使用splice()方法为数组添加元素，需提供一下参数：</p>
+<ul>
+<li>起始索引（希望开始添加元素的地方）</li>
+<li>需要删除的元素个数（添加元素时改参数设为0）</li>
+<li>想要添加进数组的元素</li>
+</ul>
+<p>下面的程序在数组中间插入元素：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+nums<span class="token punctuation">.</span><span class="token method function property-access">splice</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+</code></pre>
+<p>下面是使用splice()方法从数组中删除元素：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+nums<span class="token punctuation">.</span><span class="token method function property-access">splice</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [1, 2, 3, 4]</span>
+</code></pre>
+<h3 id="%E4%B8%BA%E6%95%B0%E7%BB%84%E6%8E%92%E5%BA%8F">为数组排序<a class="anchor" href="#%E4%B8%BA%E6%95%B0%E7%BB%84%E6%8E%92%E5%BA%8F">§</a></h3>
+<p>reverse()：将数组中的元素顺序进行反转</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+nums<span class="token punctuation">.</span><span class="token method function property-access">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [3, 2, 1]</span>
+</code></pre>
+<p>sort()：对数组中的元素进行排序</p>
+<p>如果元素是字符串类型，数组的可变方法sort()就很好用</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> names <span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'David'</span><span class="token punctuation">,</span> <span class="token string">'Mike'</span><span class="token punctuation">,</span> <span class="token string">'Bryan'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+names<span class="token punctuation">.</span><span class="token method function property-access">sort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>names<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ['Bryan', 'David', 'Mike']</span>
+</code></pre>
+<p>但如果数组元素是数字类型，sort()方法的排序结果就不能让人满意了</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+nums<span class="token punctuation">.</span><span class="token method function property-access">sort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [1, 100, 2, 200, 3]</span>
+</code></pre>
+<p>sort()方法是按照字典顺序对元素进行排序的，因此它<strong>假定所有元素都是字符串类型</strong>，在上一个例子中，即使元素是数字类型，也被认为是字符串类型。为了让sort()方法也能排序数字类型的元素，可以在调用方法时传入一个大小比较函数，排序时</p></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
