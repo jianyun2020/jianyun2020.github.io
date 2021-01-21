@@ -6,7 +6,7 @@ tags:
     - 数据结构与算法
 ---
 
-# 数据结构与算法JavaScript
+# 数据结构与算法JavaScript-数组
 
 ## 数组
 
@@ -116,3 +116,24 @@ console.log(arr2); // Hello, World
 const arr3 = arr.join('-');
 console.log(arr3); // Hello-World
 ```
+
+### 由已有数组创建新数组
+
+concat()：合并多个数组创建一个新数组
+工作原理：发起者是一个数组，参数是另一个数组。作为参数的数组中的所有元素都被连接到发起者元素的后边
+```js
+let arr1 = [1, 2];
+let arr2 = [3, 4];
+let arr3 = arr1.concat(arr2);
+console.log(arr3); // [1, 2, 3, 4]
+```
+
+splice()：截取一个数组的子集创建一个新数组
+工作原理：第一个参数是截取的起始索引，第二个参数是截取的长度
+```js
+let arr1 = [1, 2, 3, 4];
+let arr2 = arr1.splice(1, 2);
+console.log(arr2); // [2, 3]
+```
+
+## 可变函数
