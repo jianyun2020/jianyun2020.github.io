@@ -36,7 +36,7 @@ export default {
                 "title": "数据结构与算法JavaScript-数组",
                 "link": "posts/Array.html",
                 "date": "2021-01-20T05:13:02.000Z",
-                "updated": "2021-01-21T03:06:45.000Z",
+                "updated": "2021-01-21T06:40:51.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
