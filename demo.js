@@ -1,3 +1,10 @@
-let nums = [3, 100, 2, 1, 200];
-nums.sort();
-console.log(nums); // [1, 100, 2, 200, 3]
+function  yearTemps() {
+    this.dataStore = matrix(12, 4, 0);
+    this.add = add;
+    this.yearAverage = yearAverage;
+    this.monthAverage = monthAverage;
+    this.weekAverage = weekAverage;
+    
+
+} 
+
