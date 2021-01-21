@@ -37,6 +37,10 @@ export default {
         ],
         "categories": [
             {
+                "name": "React",
+                "count": 1
+            },
+            {
                 "name": "数据结构与算法",
                 "count": 1
             }
@@ -44,10 +48,14 @@ export default {
         "tags": [
             {
                 "name": "JavaScript",
-                "count": 1
+                "count": 2
             },
             {
                 "name": "学习笔记",
+                "count": 2
+            },
+            {
+                "name": "React",
                 "count": 1
             },
             {
