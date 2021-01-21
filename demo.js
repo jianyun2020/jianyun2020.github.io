@@ -1,3 +1,3 @@
-let arr1 = [1, 2, 3, 4];
-let arr2 = arr1.splice(1, 2);
-console.log(arr2); // [2, 3]
+let nums = [3, 100, 2, 1, 200];
+nums.sort();
+console.log(nums); // [1, 100, 2, 200, 3]
