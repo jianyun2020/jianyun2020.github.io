@@ -15,6 +15,26 @@ export default {
         "isPost": false,
         "posts": [
             {
+                "pagePath": "posts/List.md",
+                "title": "数据结构与算法JavaScript-列表",
+                "link": "posts/List.html",
+                "date": "2021-01-22T08:08:14.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "数据结构与算法"
+                ],
+                "tags": [
+                    "JavaScript",
+                    "数据结构与算法",
+                    "学习笔记"
+                ],
+                "excerpt": "列表的抽象数据类型定义 方法和方法 说明 listSize(属性) 列表的元素个数 pos(属性) 列表的当前位置 length(属性) 返回列表中元素的个数 clear(方法) 清空列表中的所有元素 toString(方法) 返回列表的字符串形式 getElement(方..."
+            },
+            {
                 "pagePath": "posts/Array.md",
                 "title": "数据结构与算法JavaScript-数组",
                 "link": "posts/Array.html",
@@ -38,29 +58,29 @@ export default {
         "categories": [
             {
                 "name": "React",
-                "count": 1
+                "count": 2
             },
             {
                 "name": "数据结构与算法",
-                "count": 1
+                "count": 2
             }
         ],
         "tags": [
             {
                 "name": "JavaScript",
-                "count": 2
+                "count": 4
             },
             {
                 "name": "学习笔记",
-                "count": 2
+                "count": 4
             },
             {
                 "name": "React",
-                "count": 1
+                "count": 2
             },
             {
                 "name": "数据结构与算法",
-                "count": 1
+                "count": 2
             }
         ]
     }

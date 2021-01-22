@@ -1,34 +1,43 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "categories/README.md",
-    'layoutPath': "categories/_layout.tsx",
-    'outputPath': "categories/index.html",
-    'title': "分类",
+    'pagePath': "posts/元素渲染.md",
+    'layoutPath': "posts/_layout.tsx",
+    'outputPath': "posts/元素渲染.html",
+    'title': "React-元素渲染",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h1>分类</h1>'
+            __html: '<h1>React-元素渲染</h1>\n<p>元素是构成React应用的最小砖块，其描述了你在屏幕上想看到的内容。</p>\n<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">Hello, World</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>\n</code></pre>\n<p>与浏览器的 DOM 元素不同，React 元素是创建开销极小的普通对象。React DOM 会负责更新 DOM 来与 React 元素保持一致。</p>\n<h2 id="%E5%B0%86%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93%E4%B8%BAdom">将一个元素渲染为DOM<a class="anchor" href="#%E5%B0%86%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93%E4%B8%BAdom">§</a></h2>'
         } }),
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'contentTitle': React.createElement("h1", { key: "0" }, "\u5206\u7C7B"),
+    'contentTitle': React.createElement("h1", { key: "0" }, "React-\u5143\u7D20\u6E32\u67D3"),
     'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: ''
+            __html: '<p>元素是构成React应用的最小砖块，其描述了你在屏幕上想看到的内容。</p>\n<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">Hello, World</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>\n</code></pre>\n<p>与浏览器的 DOM 元素不同，React 元素是创建开销极小的普通对象。React DOM 会负责更新 DOM 来与 React 元素保持一致。</p>\n<h2 id="%E5%B0%86%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93%E4%B8%BAdom">将一个元素渲染为DOM<a class="anchor" href="#%E5%B0%86%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93%E4%B8%BAdom">§</a></h2>'
         } }),
-    'toc': null,
-    'author': "sujianyun",
+    'toc': React.createElement("aside", { dangerouslySetInnerHTML: {
+            __html: '<nav class="toc"><ol><li><a href="#%E5%B0%86%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93%E4%B8%BAdom">将一个元素渲染为DOM</a></li></ol></nav>'
+        } }),
+    'author': "jianyun2020",
     'contributors': [
-        "sujianyun",
         "jianyun2020"
     ],
-    'date': "2021-01-19T04:34:29.000Z",
-    'updated': "2021-01-19T07:00:02.000Z",
-    'excerpt': "",
+    'date': "2021-01-22T08:08:14.000Z",
+    'updated': null,
+    'excerpt': "元素是构成React应用的最小砖块，其描述了你在屏幕上想看到的内容。 const element = <h1>Hello, World</h1>; 与浏览器的 DOM 元素不同，React 元素是创建开销极小的普通对象。React DOM 会负责更新 DOM 来与 React 元素保持一...",
     'cover': undefined,
+    'categories': [
+        "React"
+    ],
+    'tags': [
+        "JavaScript",
+        "学习笔记",
+        "React"
+    ],
     'blog': {
-        "isPost": false,
+        "isPost": true,
         "posts": [
             {
                 "pagePath": "posts/List.md",

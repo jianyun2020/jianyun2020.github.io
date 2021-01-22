@@ -1,0 +1,273 @@
+<!doctype html><html class="" data-reactroot=""><head><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="欢迎来到我的博客。"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">数据结构与算法JavaScript-列表 · jianyuns&#x27;Blog</title>
+<link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/><link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><a class="czs-menu-l show_on_mobile aside_button_open" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a><a class="show_on_mobile aside_button_text" href="/">jianyuns&#x27;Blog</a><aside class="hide_on_mobile"><a class="czs-menu-l show_on_mobile aside_button_close" href="#" style="background-image:url(&quot;/assets/czs-close-l.svg&quot;)"></a><h1><a href="/">jianyuns&#x27;Blog</a></h1><p class="description">欢迎来到我的博客。</p><ul class="social list_style_none"><li class="flex_center"><a class="czs-github-logo" href="https://github.com/jianyun2020" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="flex_center"><a class="czs-message-l" href="mailto:sujianyun2020@163.com" target="_blank" style="background-image:url(&quot;/assets/czs-message-l.svg&quot;)"></a></li><li style="flex-grow:1"></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul><nav><ul class="menu list_style_none"><li><a class="flex_center" href="/"><span class="czs-home-l" style="background-image:url(&quot;/assets/czs-home-l.svg&quot;)"></span>首页</a></li><li><a class="flex_center" href="/categories/"><span class="czs-category-l" style="background-image:url(&quot;/assets/czs-category-l.svg&quot;)"></span>分类</a></li><li><a class="flex_center" href="/tags/"><span class="czs-tag-l" style="background-image:url(&quot;/assets/czs-tag-l.svg&quot;)"></span>标签</a></li><li><a class="flex_center" href="/about/"><span class="czs-about-l" style="background-image:url(&quot;/assets/czs-about-l.svg&quot;)"></span>关于</a></li><li><a class="flex_center" href="/archives/"><span class="czs-box-l" style="background-image:url(&quot;/assets/czs-box-l.svg&quot;)"></span>归档</a></li></ul></nav></aside><section class="main"><h1>数据结构与算法JavaScript-列表</h1><div class="main_post_meta"><time dateTime="Fri Jan 22 2021 08:08:14 GMT+0000 (UTC)">2021-01-23</time> · <!-- -->jianyun2020</div><article><h2 id="%E5%88%97%E8%A1%A8%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89">列表的抽象数据类型定义<a class="anchor" href="#%E5%88%97%E8%A1%A8%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89">§</a></h2>
+<div class="table_wrapper"><table>
+<thead>
+<tr>
+<th>方法和方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>listSize(属性)</td>
+<td>列表的元素个数</td>
+</tr>
+<tr>
+<td>pos(属性)</td>
+<td>列表的当前位置</td>
+</tr>
+<tr>
+<td>length(属性)</td>
+<td>返回列表中元素的个数</td>
+</tr>
+<tr>
+<td>clear(方法)</td>
+<td>清空列表中的所有元素</td>
+</tr>
+<tr>
+<td>toString(方法)</td>
+<td>返回列表的字符串形式</td>
+</tr>
+<tr>
+<td>getElement(方法)</td>
+<td>返回当前位置的元素</td>
+</tr>
+<tr>
+<td>insert(方法)</td>
+<td>在现有元素后插入新元素</td>
+</tr>
+<tr>
+<td>append(方法)</td>
+<td>在列表的末尾添加新元素</td>
+</tr>
+<tr>
+<td>remove(方法)</td>
+<td>从列表中删除元素</td>
+</tr>
+<tr>
+<td>front(方法)</td>
+<td>将列表的当前位置移动到第一个元素</td>
+</tr>
+<tr>
+<td>end(方法)</td>
+<td>将列表的当前位置移动到最后一个元素</td>
+</tr>
+<tr>
+<td>prev(方法)</td>
+<td>将当前位置前移一位</td>
+</tr>
+<tr>
+<td>next(方法)</td>
+<td>将当前位置后移一位</td>
+</tr>
+<tr>
+<td>currPos(方法)</td>
+<td>返回列表的当前位置</td>
+</tr>
+<tr>
+<td>moveTo(方法)</td>
+<td>将当前位置移动到指定位置</td>
+</tr>
+<tr>
+<td>find(方法)</td>
+<td>在列表中查找某一元素</td>
+</tr>
+<tr>
+<td>contains(方法)</td>
+<td>判断给定值是否在列表中</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="%E5%AE%9E%E7%8E%B0%E5%88%97%E8%A1%A8%E7%B1%BB">实现列表类<a class="anchor" href="#%E5%AE%9E%E7%8E%B0%E5%88%97%E8%A1%A8%E7%B1%BB">§</a></h2>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">List</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">listSize</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dataStore</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 初始化一个空数组来保存列表</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">clear</span> <span class="token operator">=</span> clear<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">find</span> <span class="token operator">=</span> find<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">toString</span> <span class="token operator">=</span> toString<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">insert</span> <span class="token operator">=</span> insert<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">append</span> <span class="token operator">=</span> append<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">remove</span> <span class="token operator">=</span> remove<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">front</span> <span class="token operator">=</span> front<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">end</span> <span class="token operator">=</span> end<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">prev</span> <span class="token operator">=</span> prev<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">next</span> <span class="token operator">=</span> next<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">=</span> length<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">currPos</span> <span class="token operator">=</span> currPos<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">moveTo</span> <span class="token operator">=</span> moveTo<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">getElement</span> <span class="token operator">=</span> getElement<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">contains</span> <span class="token operator">=</span> contains<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="append%E7%BB%99%E5%88%97%E8%A1%A8%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0">append：给列表添加元素<a class="anchor" href="#append%E7%BB%99%E5%88%97%E8%A1%A8%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0">§</a></h3>
+<p>该方法给列表的下一个位置增加一个新的元素， 这个位置刚好等于变量 listSize 的值：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">append</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dataStore</span><span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">listSize</span><span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> element<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 当新元素就位后，变量listSize加1</span>
+</code></pre>
+<h3 id="find%E5%9C%A8%E5%88%97%E8%A1%A8%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%9F%90%E4%B8%80%E5%85%83%E7%B4%A0">find：在列表中查找某一元素<a class="anchor" href="#find%E5%9C%A8%E5%88%97%E8%A1%A8%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%9F%90%E4%B8%80%E5%85%83%E7%B4%A0">§</a></h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dataStore</span><span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dataStore</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">===</span> element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">return</span> i<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword control-flow">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="remove%E4%BB%8E%E5%88%97%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0">remove：从列表中删除元素<a class="anchor" href="#remove%E4%BB%8E%E5%88%97%E8%A1%A8%E4%B8%AD%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0">§</a></h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> foundAt <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">find</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>foundAt <span class="token operator">></span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dataStore</span><span class="token punctuation">.</span><span class="token method function property-access">splice</span><span class="token punctuation">(</span>foundAt<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">--</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">listSize</span><span class="token punctuation">;</span>
+        <span class="token keyword control-flow">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword control-flow">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="length%E5%88%97%E8%A1%A8%E4%B8%AD%E6%9C%89%E5%A4%9A%E5%B0%91%E4%B8%AA%E5%85%83%E7%B4%A0">length：列表中有多少个元素<a class="anchor" href="#length%E5%88%97%E8%A1%A8%E4%B8%AD%E6%9C%89%E5%A4%9A%E5%B0%91%E4%B8%AA%E5%85%83%E7%B4%A0">§</a></h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">listSize</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="tostring%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0">toString：显示列表中的元素<a class="anchor" href="#tostring%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0">§</a></h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dataStore</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="insert%E5%90%91%E5%88%97%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0">insert：向列表中插入一个元素<a class="anchor" href="#insert%E5%90%91%E5%88%97%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0">§</a></h3>
+<p>insert() 方法需要知道将元素插入到什么位置， 因此现在我们假设插入是指插入到列表中某个元素之后。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token parameter">element<span class="token punctuation">,</span> after</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> insertPos <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">find</span><span class="token punctuation">(</span>after<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>insertPos <span class="token operator">></span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dataStore</span><span class="token punctuation">.</span><span class="token method function property-access">splice</span><span class="token punctuation">(</span>insertPos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">++</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">listSize</span><span class="token punctuation">;</span>
+        <span class="token keyword control-flow">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword control-flow">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="clear%E6%B8%85%E7%A9%BA%E5%88%97%E8%A1%A8%E4%B8%AD%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0">clear：清空列表中所有元素<a class="anchor" href="#clear%E6%B8%85%E7%A9%BA%E5%88%97%E8%A1%A8%E4%B8%AD%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0">§</a></h3>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">delete</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dataStore</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dataStore</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">listSize</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>clear() 方法使用 delete 操作符删除数组 dataStore， 接着在下一行创建一个空数组。 最后一行将 listSize 和 pos 的值设为 1， 表明这是一个新的空列表。</p>
+<h2 id="contains%E5%88%A4%E6%96%AD%E7%BB%99%E5%AE%9A%E5%80%BC%E6%98%AF%E5%90%A6%E5%9C%A8%E5%88%97%E8%A1%A8%E4%B8%AD">contains：判断给定值是否在列表中<a class="anchor" href="#contains%E5%88%A4%E6%96%AD%E7%BB%99%E5%AE%9A%E5%80%BC%E6%98%AF%E5%90%A6%E5%9C%A8%E5%88%97%E8%A1%A8%E4%B8%AD">§</a></h2>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">contains</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dataStore</span><span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dataStore</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">===</span> element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword control-flow">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="%E9%81%8D%E5%8E%86%E5%88%97%E8%A1%A8">遍历列表<a class="anchor" href="#%E9%81%8D%E5%8E%86%E5%88%97%E8%A1%A8">§</a></h3>
+<p>最后的一组方法允许用户在列表上自由移动， 最后一个方法 getElement() 返回列表的当前元素：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">listSize</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">prev</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token operator">--</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">&lt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">listSize</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token operator">++</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">currPos</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">moveTo</span><span class="token punctuation">(</span><span class="token parameter">position</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">pos</span> <span class="token operator">=</span> position<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">getElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">dataStore</span><span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">pos</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="%E4%BD%BF%E7%94%A8%E8%BF%AD%E4%BB%A3%E5%99%A8%E8%AE%BF%E9%97%AE%E5%88%97%E8%A1%A8">使用迭代器访问列表<a class="anchor" href="#%E4%BD%BF%E7%94%A8%E8%BF%AD%E4%BB%A3%E5%99%A8%E8%AE%BF%E9%97%AE%E5%88%97%E8%A1%A8">§</a></h2>
+<p>使用迭代器， 可以不必关心数据的内部存储方式， 以实现对列表的遍历。 前面提到的方法front()、 end()、 prev()、 next() 和 currPos() 就实现了 List 类的一个迭代器。 以下是和使用数组索引的方式相比， 使用迭代器的一些优点。</p>
+<ul>
+<li>访问列表元素时不必关心底层的数据存储结构。</li>
+<li>当为列表添加一个元素时，索引的值就不对了，此时只用更新列表，而不用更新迭代器。</li>
+<li>可以用不同类型的数据存储方式实现List类，迭代器为访问列表里的元素提供了一种统一的方式。</li>
+</ul>
+<p>了解了这些优点后， 来看一个使用迭代器遍历列表的例子：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword control-flow">for</span> <span class="token punctuation">(</span>names<span class="token punctuation">.</span><span class="token method function property-access">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> names<span class="token punctuation">.</span><span class="token method function property-access">currPos</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> names<span class="token punctuation">.</span><span class="token method function property-access">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> names<span class="token punctuation">.</span><span class="token method function property-access">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>names<span class="token punctuation">.</span><span class="token method function property-access">getElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>在 for 循环的一开始， 将列表的当前位置设置为第一个元素。 只要 currPos 的值小于列表的长度， 就一直循环， 每一次循环都调用 next() 方法将当前位置向前移动一位。同理， 还可以从后向前遍历列表， 代码如下：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword control-flow">for</span> <span class="token punctuation">(</span>names<span class="token punctuation">.</span><span class="token method function property-access">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> names<span class="token punctuation">.</span><span class="token method function property-access">currPos</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> names<span class="token punctuation">.</span><span class="token method function property-access">prev</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>names<span class="token punctuation">.</span><span class="token method function property-access">getElement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>循环从列表的最后一个元素开始， 当当前位置大于或等于 0 时， 调用 prev() 方法后移一位。</p>
+<p>迭代器只是用来在列表上随意移动， 而不应该和任何为列表增加或删除元素的方法一起使用。</p>
+<h2 id="%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8E%E5%88%97%E8%A1%A8%E7%9A%84%E5%BA%94%E7%94%A8">一个基于列表的应用<a class="anchor" href="#%E4%B8%80%E4%B8%AA%E5%9F%BA%E4%BA%8E%E5%88%97%E8%A1%A8%E7%9A%84%E5%BA%94%E7%94%A8">§</a></h2>
+<p>为了展示如何使用列表， 我们将实现一个类似 Redbox 的影碟租赁自助查询系统。</p>
+<h3 id="%E8%AF%BB%E5%8F%96%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6">读取文本文件<a class="anchor" href="#%E8%AF%BB%E5%8F%96%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6">§</a></h3>
+<p>为了得到商店内的影碟清单， 我们需要将数据从文件中读进来。 首先， 使用一个文本编辑器输入现有影碟清单， 假设将该文件保存为 films.txt。 该文件的内容如下（这是由 IMDB用户在 2013 年 10 月 5 日选出的 20 部最佳影片）。</p>
+<p>(1) The Shawshank Redemption（《肖申克的救赎》）</p>
+<p>(2) The Godfather（《教父》）</p>
+<p>(3) The Godfather: Part II（《教父 2》）</p>
+<p>(4) Pulp Fiction（《低俗小说》）</p>
+<p>(5) The Good, the Bad and the Ugly（《黄金三镖客》）</p>
+<p>(6) 12 Angry Men（《十二怒汉》 ）</p>
+<p>(7) Schindler’s List（《辛德勒名单》）</p>
+<p>(8) The Dark Knight（《黑暗骑士》）</p>
+<p>(9) The Lord of the Rings: The Return of the King（《指环王： 王者归来》）</p>
+<p>(10) Fight Club（《搏击俱乐部》）</p>
+<p>(11) Star Wars: Episode V - The Empire Strikes Back（《星球大战 5： 帝国反击战》）</p>
+<p>(12) One Flew Over the Cuckoo’s Nest（《飞越疯人院》）</p>
+<p>(13) The Lord of the Rings: The Fellowship of the Ring（《指环王： 护戒使者》）</p>
+<p>(14) Inception（《盗梦空间》）</p>
+<p>(15) Goodfellas（《好家伙》）</p>
+<p>(16) Star Wars（《星球大战》）</p>
+<p>(17) Seven Samurai（《七武士》）</p>
+<p>(18) The Matrix（《黑客帝国》）</p>
+<p>(19) Forrest Gump（《阿甘正传》）</p>
+<p>(20) City of God（《上帝之城》）</p>
+<p>现在， 我们需要一段程序来读取文件内容：(这里通过nodejs的文件读取模块)</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> movies <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token method function property-access">readFileSync</span><span class="token punctuation">(</span><span class="token string">'films.txt'</span><span class="token punctuation">,</span> <span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">split</span><span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>这一行代码做了两件事。 首先， 它通过调用函数 read(films.txt) 读取了文本文件的内容；其次， 它将读进来的内容按照换行符分成了不同行， 然后保存到数组 movies 中。</p>
+<p>这一行代码做了两件事。 首先， 它通过调用函数 read(films.txt) 读取了文本文件的内容；其次， 它将读进来的内容按照换行符分成了不同行， 然后保存到数组 movies 中。这行程序挺管用， 但还谈不上完美。 当读进来的内容被分割成数组后， 换行符被替换成空格。 多一个空格看起来无伤大雅， 但是在比较字符串时却是个灾难。 因此， 我们需要在循环里， 使用 trim() 方法删除每个数组元素末尾的空格。 要是有一个函数能把这些操作封装起来那是再好不过了， 那就让我们定义一个这样的方法吧。 从文件中读入数据， 然后将结果保存到一个数组中：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">createArr</span><span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> movies <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token method function property-access">readFileSync</span><span class="token punctuation">(</span><span class="token string">'films.txt'</span><span class="token punctuation">,</span> <span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">split</span><span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> movies<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        movies<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> movies<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token method function property-access">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword control-flow">return</span> movies<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="%E4%BD%BF%E7%94%A8%E5%88%97%E8%A1%A8%E7%AE%A1%E7%90%86%E5%BD%B1%E7%A2%9F%E7%A7%9F%E8%B5%81">使用列表管理影碟租赁<a class="anchor" href="#%E4%BD%BF%E7%94%A8%E5%88%97%E8%A1%A8%E7%AE%A1%E7%90%86%E5%BD%B1%E7%A2%9F%E7%A7%9F%E8%B5%81">§</a></h3></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
