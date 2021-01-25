@@ -58,29 +58,41 @@ export default {
         "categories": [
             {
                 "name": "React",
-                "count": 2
+                "count": 3
             },
             {
                 "name": "数据结构与算法",
                 "count": 2
+            },
+            {
+                "name": "CSS",
+                "count": 1
             }
         ],
         "tags": [
             {
-                "name": "JavaScript",
-                "count": 4
+                "name": "学习笔记",
+                "count": 6
             },
             {
-                "name": "学习笔记",
-                "count": 4
+                "name": "JavaScript",
+                "count": 5
             },
             {
                 "name": "React",
-                "count": 2
+                "count": 3
             },
             {
                 "name": "数据结构与算法",
                 "count": 2
+            },
+            {
+                "name": "background",
+                "count": 1
+            },
+            {
+                "name": "CSS",
+                "count": 1
             }
         ]
     }

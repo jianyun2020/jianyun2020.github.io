@@ -40,6 +40,46 @@ export default {
         "isPost": true,
         "posts": [
             {
+                "pagePath": "posts/Hook.md",
+                "title": "Hook",
+                "link": "posts/Hook.html",
+                "date": "2021-01-25T07:07:55.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "React"
+                ],
+                "tags": [
+                    "JavaScript",
+                    "学习笔记",
+                    "React"
+                ],
+                "excerpt": "16.8版本新增特性。可以在不编写class的情况下使用state以及其它的React特性。 import React, { useState } from 'react'; function Example() { // 声明一个新的叫做“count”的state变量 const [count, setCount] = useState..."
+            },
+            {
+                "pagePath": "posts/css_background.md",
+                "title": "CSS的background属性详解",
+                "link": "posts/css_background.html",
+                "date": "2021-01-25T07:07:55.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "CSS"
+                ],
+                "tags": [
+                    "CSS",
+                    "学习笔记",
+                    "background"
+                ],
+                "excerpt": "background是一中CSS简写属性，可以在一次声明中定义一个或多个属性：background-clip、background-color、background-image、background-origin、background-position、background-repeat、background-size、background-attac..."
+            },
+            {
                 "pagePath": "posts/List.md",
                 "title": "数据结构与算法JavaScript-列表",
                 "link": "posts/List.html",
@@ -123,29 +163,41 @@ export default {
         "categories": [
             {
                 "name": "React",
-                "count": 2
+                "count": 3
             },
             {
                 "name": "数据结构与算法",
                 "count": 2
+            },
+            {
+                "name": "CSS",
+                "count": 1
             }
         ],
         "tags": [
             {
-                "name": "JavaScript",
-                "count": 4
+                "name": "学习笔记",
+                "count": 6
             },
             {
-                "name": "学习笔记",
-                "count": 4
+                "name": "JavaScript",
+                "count": 5
             },
             {
                 "name": "React",
-                "count": 2
+                "count": 3
             },
             {
                 "name": "数据结构与算法",
                 "count": 2
+            },
+            {
+                "name": "background",
+                "count": 1
+            },
+            {
+                "name": "CSS",
+                "count": 1
             }
         ]
     }
