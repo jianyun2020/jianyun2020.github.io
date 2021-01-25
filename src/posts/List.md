@@ -280,3 +280,20 @@ function createArr(file) {
 ```
 
 ### 使用列表管理影碟租赁
+
+下一步要将数组 movies 中的元素保存到一个列表中。 代码如下:
+```js
+let movieList = new List();
+for (let i = 0; i < movies.length; ++i) {
+    movieList.append(movies[i]);
+}
+```
+
+现在可以写一个函数来显示影碟店里现有的影碟清单了：
+```js
+function displayList(list) {
+    for (list.front(); list.currPos() < list.length(); list.next()) {
+        console.log(list.getElement());
+    }
+}
+```

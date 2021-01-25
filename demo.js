@@ -106,9 +106,33 @@ function getElement() {
 
 function createArr(file) {
     const fs = require('fs');
-    const arr = fs.readFileSync('films.txt', 'utf-8').split('\n');
-    for (let i = 0; i < arr.length; ++i) {
-        arr[i] = arr[i].trim();
+    const movies = fs.readFileSync('films.txt', 'utf-8').split('\n');
+    for (let i = 0; i < movies.length; ++i) {
+        movies[i] = movies[i].trim();
     }
-    return arr;
+    return movies;
 }
+
+const movies = createArr('films.txt');
+
+
+let movieList = new List();
+for (let i = 0; i < movies.length; ++i) {
+    movieList.append(movies[i]);
+}
+
+function displayList(list) {
+    for (list.front(); list.currPos() < list.length(); list.next()) {
+        let flag = false;
+        if (flag) {
+            console.log('hhh')
+            break;
+        }
+        if (list.currPos() === list.length()) {
+            flag = true;
+        }
+        console.log(list.getElement(), list.currPos(), '---', list.next());
+    }
+}
+
+displayList(movieList)
