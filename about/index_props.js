@@ -55,7 +55,7 @@ export default {
                 "title": "CSS的background属性详解",
                 "link": "posts/css_background.html",
                 "date": "2021-01-25T07:07:55.000Z",
-                "updated": null,
+                "updated": "2021-01-25T08:30:22.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"

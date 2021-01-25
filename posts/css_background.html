@@ -112,4 +112,194 @@
 <span class="token comment">/* Special keyword values */</span>
 <span class="token property">background-color</span><span class="token punctuation">:</span> currentColor<span class="token punctuation">;</span>
 <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token color">transparent</span><span class="token punctuation">;</span>
-</code></pre></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
+</code></pre>
+<h3 id="bg-image"><code>&lt;bg-image&gt;</code><a class="anchor" href="#bg-image">§</a></h3>
+<p><code>background-image</code>属性用于为一个元素设置一个或多个背景图像。</p>
+<p>在绘制时，图像以Z方向堆叠的方式进行。先指定的图像会在之后指定的图像上面绘制。因此指定的第一个图像“最接近用户”。</p>
+<p>然后元素的边框border会在它们之上被绘制，而<code>background-color</code>会在它们之下绘制。图像的绘制与盒子以及盒子的边框的关系，需要在CSS属性<code>background-clip</code>和<code>background-origin</code>中定义。</p>
+<p>如果一个指定的图像无法被绘制（比如，被指定的URI所表示的文件无法被加载），浏览器会将此等情况等同于其值被设为<code>none</code>。</p>
+<p><strong>注意： 即使图像是不透明的，背景色在通常情况下并不会被显示，web开发者仍然应该指定<code>background-color</code> 属性。如果图像无法被加载—例如，在网络连接断开的情况下—背景色就会被绘制。</strong></p>
+<h4 id="%E8%AF%AD%E6%B3%95-5">语法<a class="anchor" href="#%E8%AF%AD%E6%B3%95-5">§</a></h4>
+<p>每个背景图像被明确规定为关键字<code>none</code>或是一个<code>&lt;image&gt;</code>值。</p>
+<p>可以提供由逗号分隔的多个值来指定多个背景图像：</p>
+<pre class="language-css"><code class="language-css"><span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to bottom<span class="token punctuation">,</span> <span class="token color"><span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">)</span></span><span class="token punctuation">,</span> <span class="token color"><span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">0.5</span><span class="token punctuation">)</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'test.jpg'</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="%E5%8F%96%E5%80%BC-1">取值<a class="anchor" href="#%E5%8F%96%E5%80%BC-1">§</a></h4>
+<p><code>none</code></p>
+<p>是一个表示无背景图的关键字。</p>
+<p><code>&lt;image&gt;</code></p>
+<p><code>&lt;image&gt;</code>用来标记将要显示的图片，支持多背景设置，背景之间以逗号隔开。</p>
+<h3 id="position"><code>&lt;position&gt;</code><a class="anchor" href="#position">§</a></h3>
+<p><code>background-position</code>为每一个背景图片设置初始位置。这个位置是相对于由<code>background-origin</code>定义的位置图层的。</p>
+<h4 id="%E8%AF%AD%E6%B3%95-6">语法<a class="anchor" href="#%E8%AF%AD%E6%B3%95-6">§</a></h4>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* Keyword values */</span>
+<span class="token property">background-position</span><span class="token punctuation">:</span> top<span class="token punctuation">;</span>
+<span class="token property">background-position</span><span class="token punctuation">:</span> bottom<span class="token punctuation">;</span>
+<span class="token property">background-position</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+<span class="token property">background-position</span><span class="token punctuation">:</span> right<span class="token punctuation">;</span>
+<span class="token property">background-position</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+
+<span class="token comment">/* &lt;percentage> values */</span>
+<span class="token property">background-position</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token unit">%</span> <span class="token number">0</span><span class="token unit">%</span><span class="token punctuation">;</span> <span class="token comment">/* 初始值 */</span>
+
+<span class="token comment">/* &lt;length> values */</span>
+<span class="token property">background-position</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token property">background-position</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">cm</span> <span class="token number">2</span><span class="token unit">cm</span><span class="token punctuation">;</span>
+<span class="token property">background-position</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">ch</span> <span class="token number">8</span><span class="token unit">em</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* Multiple images */</span>
+<span class="token property">background-position</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">0</span><span class="token punctuation">,</span> center<span class="token punctuation">;</span>
+
+<span class="token comment">/* Edge offsets values */</span>
+<span class="token property">background-position</span><span class="token punctuation">:</span> bottom <span class="token number">10</span><span class="token unit">px</span> right <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token property">background-position</span><span class="token punctuation">:</span> right <span class="token number">3</span><span class="token unit">em</span> bottom <span class="token number">10</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token property">background-position</span><span class="token punctuation">:</span> bottom <span class="token number">10</span><span class="token unit">px</span> right<span class="token punctuation">;</span>
+<span class="token property">background-position</span><span class="token punctuation">:</span> top right <span class="token number">10</span><span class="token unit">px</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="%E5%80%BC-2">值<a class="anchor" href="#%E5%80%BC-2">§</a></h4>
+<ul>
+<li>关键字<code>center</code>，用来居中背景图片。</li>
+<li>关键字<code>top, left, bottom, right</code>中的一个。用来指定把这个item放在哪一个边缘。另一个维度被设置成50%,所以这个item被放在指定边缘的中间位置。</li>
+<li><code>&lt;length&gt;</code>和<code>&lt;percentage&gt;</code>。指定相对于左边缘的x坐标，y坐标被设置成50%。</li>
+<li>如果一个值为<code>top</code>或<code>bottom</code>，那么另一个值不应该是<code>top</code>或<code>bottom</code>。</li>
+<li>如果一个值为<code>left</code>或<code>right</code>，那么另一个值不应该是<code>left</code>或<code>right</code>。</li>
+<li>+50px（将图片的左边界对齐容器中的中线）</li>
+<li>0px（图片的左边界与容器左边界重合）</li>
+<li>-100px（将图片相对容器左移100px，这意味着图片中部的100px内容将出现在容器中）</li>
+<li>-200px（将图片相对容器左移200px，这意味着图片右部分的100px内容将出现在容器中）</li>
+<li>-250px（将图片相对容器左移250px，这意味着图片的右边界对齐容器的中线）</li>
+</ul>
+<p>另外需要注意，如果背景图片的大小和容器大小一样，那设置的百分比的值将永远无效，因为“容器和图片的差”为0（图片永远填满容器，并且图片的相对位置和容器的相对位置永远重合）。在这种情况下，需要为偏移使用绝对值（例如px）。</p>
+<p><code>&lt;position&gt;</code></p>
+<p>一个<code>&lt;position&gt;</code>定义一组x/y坐标（相对于一个元素盒子模型的边缘），来放置这个item。它可以被定义为一个值或者两个值。如果被定义为两个值，那么第一个值代表水平位置，第二个值代表垂直位置。如果只指定一个值，那么第二个值默认为center。</p>
+<h3 id="repeat-style"><code>&lt;repeat-style&gt;</code><a class="anchor" href="#repeat-style">§</a></h3>
+<p><code>background-repeat</code>属性定义背景图像的重复方式。背景图像可以沿着水平轴，垂直轴，两个轴重复，或者根本不重复。</p>
+<p>默认情况下，重复的图像被裁剪为元素的大小，但它们可以缩放（使用round）或者均匀的分布（使用space）。</p>
+<h4 id="%E8%AF%AD%E6%B3%95-7">语法<a class="anchor" href="#%E8%AF%AD%E6%B3%95-7">§</a></h4>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* 单值语法 */</span>
+<span class="token property">background-repeat</span><span class="token punctuation">:</span> repeat-x<span class="token punctuation">;</span>
+<span class="token property">background-repeat</span><span class="token punctuation">:</span> repeat-y<span class="token punctuation">;</span>
+<span class="token property">background-repeat</span><span class="token punctuation">:</span> repeat<span class="token punctuation">;</span>
+<span class="token property">background-repeat</span><span class="token punctuation">:</span> space<span class="token punctuation">;</span>
+<span class="token property">background-repeat</span><span class="token punctuation">:</span> round<span class="token punctuation">;</span>
+<span class="token property">background-repeat</span><span class="token punctuation">:</span> no-repeat<span class="token punctuation">;</span>
+
+<span class="token comment">/* 双值语法：水平horizontal | 垂直vertical */</span>
+<span class="token property">background-repeat</span><span class="token punctuation">:</span> repeat space<span class="token punctuation">;</span>
+<span class="token property">background-repeat</span><span class="token punctuation">:</span> repeat repeat<span class="token punctuation">;</span>
+<span class="token property">background-repeat</span><span class="token punctuation">:</span> round space<span class="token punctuation">;</span>
+<span class="token property">background-repeat</span><span class="token punctuation">:</span> no-repeat round<span class="token punctuation">;</span>
+</code></pre>
+<h4 id="%E5%80%BC-3">值<a class="anchor" href="#%E5%80%BC-3">§</a></h4>
+<p><code>repeat-style</code></p>
+<p>单值语法是完整的双值语法的简写：</p>
+<div class="table_wrapper"><table>
+<thead>
+<tr>
+<th>单值</th>
+<th>等价于双值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>repeat-x</td>
+<td>repeat no-repeat</td>
+</tr>
+<tr>
+<td>repeat-y</td>
+<td>no-repeat repeat</td>
+</tr>
+<tr>
+<td>repeat</td>
+<td>repeat repeat</td>
+</tr>
+<tr>
+<td>space</td>
+<td>space space</td>
+</tr>
+<tr>
+<td>round</td>
+<td>round round</td>
+</tr>
+<tr>
+<td>no-repeat</td>
+<td>no-repeat no-repeat</td>
+</tr>
+</tbody>
+</table></div>
+<p>在双值语法中，第一个值表示水平重复行为，第二个值表示垂直重复行为。下面是关于每一个值是怎么工作的具体说明：</p>
+<div class="table_wrapper"><table>
+<thead>
+<tr>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>repeat</td>
+<td>图像会按需重复来覆盖整个背景图片所在的区域，最后一个图像会被裁剪，如果它的大小不合适</td>
+</tr>
+<tr>
+<td>space</td>
+<td>图像会尽可能得重复，但是不会裁剪，第一个和最后一个图像会被固定在元素得相应的边上，同时空白会均匀地分布在图像之间。<code>background-position</code>属性会被忽视，除非只有一个图像能被无裁剪地显示。只在一种情况下裁剪会发生，那就是图像太大了以至于没有足够的空间来完整显示一个图像</td>
+</tr>
+<tr>
+<td>round</td>
+<td>随着允许的空间在尺寸上的增长, 被重复的图像将会伸展(没有空隙), 直到有足够的空间来添加一个图像. 当下一个图像被添加后, 所有的当前的图像会被压缩来腾出空间. 例如, 一个图像原始大小是260px, 重复三次之后, 可能会被伸展到300px, 直到另一个图像被加进来. 这样他们就可能被压缩到225px.</td>
+</tr>
+<tr>
+<td>no-repeat</td>
+<td>图像不会被重复（因为背景图像所在的区域将可能没有完全覆盖），那个没有被重复的背景图像的位置是由<code>background-position</code>属性来决定的。</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="bg-size"><code>&lt;bg-size&gt;</code><a class="anchor" href="#bg-size">§</a></h3>
+<p><code>background-size</code>设置背景图片大小。图片可以保有其原有的尺寸，或者拉伸到新的尺寸，或者在保持原有比例的同时缩放到元素的可用空间尺寸。</p>
+<pre class="language-css"><code class="language-css"><span class="token comment">/* 关键字 */</span>
+<span class="token property">background-size</span><span class="token punctuation">:</span> cover<span class="token punctuation">;</span>
+<span class="token property">background-size</span><span class="token punctuation">:</span> contain<span class="token punctuation">;</span>
+
+<span class="token comment">/* 一个值：这个值指定图片的宽度，图片的高度隐式的为auto */</span>
+<span class="token property">background-size</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token unit">%</span><span class="token punctuation">;</span>
+<span class="token property">background-size</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token unit">em</span><span class="token punctuation">;</span>
+<span class="token property">background-size</span><span class="token punctuation">:</span> <span class="token number">12</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token property">background-size</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+
+<span class="token comment">/* 两个值 */</span>
+<span class="token comment">/* 第一个值指定图片的宽度，第二个值指定图片的高度 */</span>
+<span class="token property">background-size</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token unit">%</span> auto<span class="token punctuation">;</span>
+<span class="token property">background-size</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token unit">em</span> <span class="token number">25</span><span class="token unit">%</span><span class="token punctuation">;</span>
+<span class="token property">background-size</span><span class="token punctuation">:</span> auto <span class="token number">6</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token property">background-size</span><span class="token punctuation">:</span> auto auto<span class="token punctuation">;</span> <span class="token comment">/* 初始值 */</span>
+
+<span class="token comment">/* 逗号分隔的多个值：设置多重背景 */</span>
+<span class="token property">background-size</span><span class="token punctuation">:</span> auto<span class="token punctuation">,</span> auto<span class="token punctuation">;</span>
+<span class="token property">background-size</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token unit">%</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token unit">%</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token unit">%</span><span class="token punctuation">;</span>
+<span class="token property">background-size</span><span class="token punctuation">:</span> <span class="token number">6</span><span class="token unit">px</span><span class="token punctuation">,</span> auto<span class="token punctuation">,</span> contain<span class="token punctuation">;</span>
+</code></pre>
+<p><strong>注意：没有被背景图片覆盖的背景区域仍然会显示用background-color属性设置的背景颜色。此外，如果背景图片设置了透明或者半透明属性，衬在背景图片后面的背景色也会显示出来。</strong></p>
+<h4 id="%E8%AF%AD%E6%B3%95-8">语法<a class="anchor" href="#%E8%AF%AD%E6%B3%95-8">§</a></h4>
+<p>单张图片的背景大小可以使用以下三种方法中的一种来规定：</p>
+<ul>
+<li>使用关键词<code>contain</code></li>
+<li>使用关键词<code>cover</code></li>
+<li>设定宽度和高度值</li>
+</ul>
+<p>当通过宽度和高度值来设定尺寸时，你可以提供一个或两个数值：</p>
+<ul>
+<li>如果仅有一个数值被给定，这个数值作为宽度值大小，高度值将被设定为auto</li>
+<li>如果有两个数值被给定，第一个将作为宽度值大小，第二个作为高度值大小。</li>
+</ul>
+<h4 id="%E5%80%BC-4">值<a class="anchor" href="#%E5%80%BC-4">§</a></h4>
+<p><code>&lt;length&gt;</code></p>
+<p>指定背景图片大小，不能为负值。</p>
+<p><code>&lt;percentage&gt;</code></p>
+<p>指定背景图片相对背景区的百分比。背景区由<code>background-origin</code>设置，默认为盒模型内容区与内边距，也可设置为只有内容区，或者还包括边框。如果<code>attachment</code>为fixed，背景区为浏览器可视区（即视口），不包括滚动条。不能为负值。</p>
+<p><code>auto</code></p>
+<p>以背景图片的比例缩放背景图片。</p>
+<p><code>cover</code></p>
+<p>缩放背景图片以完全覆盖背景区，可能背景图片部分看不见。和contain值相反，cover值尽可能大的缩放背景图像并保持图像的宽高比例（图像不会被压扁）。该背景图以它的全部宽或者高覆盖所在容器。当容器和背景图大小不同时，背景图的左/右或者上/下部分会被裁剪。</p>
+<p><code>contain</code></p>
+<p>缩放背景图片以完全装入背景区，可能背景区部分空白。contain尽可能的缩放背景并保持图像的宽高比例（图像不会被压缩）。该背景图会填充所在的容器。当背景图和容器的大小不同时，容器的空白区域（上/下或者左/右）会显示右<code>background-color</code>设置的背景颜色。</p></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
