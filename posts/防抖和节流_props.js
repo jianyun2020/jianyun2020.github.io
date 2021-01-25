@@ -1,0 +1,259 @@
+import projectConfig from '/pagic.config.js';
+export default {
+    config: { "root": "/", ...projectConfig, branch: 'main' },
+    'pagePath': "posts/防抖和节流.md",
+    'layoutPath': "posts/_layout.tsx",
+    'outputPath': "posts/防抖和节流.html",
+    'title': "防抖和节流",
+    'content': React.createElement("article", { dangerouslySetInnerHTML: {
+            __html: '<h1>防抖和节流</h1>\n<h2 id="%E9%98%B2%E6%8A%96">防抖<a class="anchor" href="#%E9%98%B2%E6%8A%96">§</a></h2>\n<h3 id="%E5%AE%9A%E4%B9%89%E6%8C%87%E8%A7%A6%E5%8F%91%E4%BA%8B%E4%BB%B6%E5%90%8E%E5%9C%A8%E8%A7%84%E5%AE%9A%E6%97%B6%E9%97%B4%E5%86%85%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E5%8F%AA%E8%83%BD%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1%E5%A6%82%E6%9E%9C%E5%9C%A8%E8%A7%84%E5%AE%9A%E6%97%B6%E9%97%B4%E5%86%85%E5%8F%88%E8%A7%A6%E5%8F%91%E4%BA%86%E8%AF%A5%E4%BA%8B%E4%BB%B6%E5%88%99%E4%BC%9A%E9%87%8D%E6%96%B0%E5%BC%80%E5%A7%8B%E7%AE%97%E8%A7%84%E5%AE%9A%E6%97%B6%E9%97%B4%E7%AE%80%E8%80%8C%E8%A8%80%E4%B9%8B%E5%B0%B1%E6%98%AF%E5%BB%B6%E6%97%B6%E6%89%A7%E8%A1%8C">定义：指触发事件后在<strong>规定时间内</strong>回调函数<strong>只能执行一次</strong>，如果在规定时间内又触发了该事件，则会重新开始算规定时间。简而言之就是<strong>延时执行</strong>。<a class="anchor" href="#%E5%AE%9A%E4%B9%89%E6%8C%87%E8%A7%A6%E5%8F%91%E4%BA%8B%E4%BB%B6%E5%90%8E%E5%9C%A8%E8%A7%84%E5%AE%9A%E6%97%B6%E9%97%B4%E5%86%85%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E5%8F%AA%E8%83%BD%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1%E5%A6%82%E6%9E%9C%E5%9C%A8%E8%A7%84%E5%AE%9A%E6%97%B6%E9%97%B4%E5%86%85%E5%8F%88%E8%A7%A6%E5%8F%91%E4%BA%86%E8%AF%A5%E4%BA%8B%E4%BB%B6%E5%88%99%E4%BC%9A%E9%87%8D%E6%96%B0%E5%BC%80%E5%A7%8B%E7%AE%97%E8%A7%84%E5%AE%9A%E6%97%B6%E9%97%B4%E7%AE%80%E8%80%8C%E8%A8%80%E4%B9%8B%E5%B0%B1%E6%98%AF%E5%BB%B6%E6%97%B6%E6%89%A7%E8%A1%8C">§</a></h3>\n<h3 id="%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">应用场景<a class="anchor" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">§</a></h3>\n<p>两个条件：</p>\n<ol>\n<li>如果客户连续的操作会导致频繁的事件回调（可能引起页面卡顿）</li>\n<li>客户只关心“最后一次”操作（也可以理解为停止连续操作后）所返回的结果。</li>\n</ol>\n<p>例如：</p>\n<ul>\n<li>输入搜索联想，用户在不断输入值时，用防抖来节约请求资源。</li>\n<li>按钮点击： 收藏、点赞、爱心等。</li>\n</ul>\n<h3 id="%E5%8E%9F%E7%90%86">原理<a class="anchor" href="#%E5%8E%9F%E7%90%86">§</a></h3>\n<p>通过定时器将回调函数进行延时，如果在规定时间内继续回调，发现存在之前的定时器，则将该定时器清除，并重新设置定时器。这里有个细节，就是后面所有的回调函数都要能访问到之前设置的定时器，这时就需要用到闭包（详情见后边）</p>\n<p>防抖分为两种：</p>\n<ul>\n<li>非立即执行：事件触发-&gt;延时-&gt;执行回调函数；如果在延时中，继续触发事件，则会重新进行延时，在延时结束后执行回调函数。常见的例子：input搜索框，客户输完过一会就会自动搜索。</li>\n<li>立即执行：事件触发-&gt;执行回调函数-&gt;延时；如果在延时中，继续触发事件，则会重新进行延时。在延时结束后，并不会执行回调函数。常见的例子：对于按钮防点击，例如点赞，爱心，收藏等立即有反馈的按钮。</li>\n</ul>\n<p>实现思路：</p>\n<pre class="language-js"><code class="language-js"><span class="token comment">// 非立即执行</span>\n<span class="token comment">// 回调函数</span>\n<span class="token keyword">function</span> <span class="token function">showLog</span><span class="token punctuation">(</span><span class="token parameter">content</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">\'Log: \'</span><span class="token punctuation">,</span> content<span class="token punctuation">)</span><span class="token punctuation">;</span>\n<span class="token punctuation">}</span>\n\n<span class="token comment">/* 包装函数\n* 1.保存定时器标识\n* 2.返回闭包函数：\n*   1）对定时器的判断清除；\n*   2）一般还需要保存函数的参数（一般就是事件返回的对象）和上下文（定时器存在this隐式丢失：详情见【我不知*      道的js 上】）\n* 不建议通过定义一个全局变量来替闭包保存定时器标识。\n*/</span>\n<span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token parameter">fun<span class="token punctuation">,</span> delay<span class="token operator">=</span><span class="token number">500</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token comment">// let timer = null 保存定时器</span>\n    <span class="token keyword control-flow">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n        <span class="token keyword">let</span> that <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>\n        <span class="token keyword">let</span> _args <span class="token operator">=</span> args<span class="token punctuation">;</span>\n        <span class="token comment">// 这里对定时器的设置有两种方法，第一种就是将定时器保存在函数（函数也是对象）的属性上</span>\n        <span class="token comment">// 这种写法很简便，但不常用</span>\n        <span class="token function">clearTimeout</span><span class="token punctuation">(</span>fun<span class="token punctuation">.</span><span class="token property-access">timer</span><span class="token punctuation">)</span><span class="token punctuation">;</span>\n        fun<span class="token punctuation">.</span><span class="token property-access">timer</span> <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n            fun<span class="token punctuation">.</span><span class="token method function property-access">call</span><span class="token punctuation">(</span>that<span class="token punctuation">,</span> _args<span class="token punctuation">)</span><span class="token punctuation">;</span>\n        <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>\n        <span class="token comment">// 另一种写法是比较常见的</span>\n        <span class="token comment">// if (timer) clearTimeout(timer); 相比上面的方法，这里多一个判断</span>\n        <span class="token comment">// timer = setTimeout(function() {</span>\n        <span class="token comment">//     fun.call(that, _args);</span>\n        <span class="token comment">// }, delay);</span>\n    <span class="token punctuation">}</span>\n<span class="token punctuation">}</span>\n\n<span class="token comment">// 接着用变量保存debounce返回的带有延时功能的函数</span>\n<span class="token keyword">let</span> debounceShowLog <span class="token operator">=</span> <span class="token function">debounce</span><span class="token punctuation">(</span>showLog<span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>\n\n<span class="token comment">// 最后添加事件监听，回调debounceShowLog并传入事件返回的对象</span>\n<span class="token keyword">let</span> input <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">\'debounce\'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>\ninput<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">\'keyup\'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token function">debounceShowLog</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token property-access">target</span><span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>\n<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>\n\n\n<span class="token comment">// 立即执行</span>\n<span class="token comment">// 定时器中不再包含回调函数，而是在回调函数执行后，仅起到延时和重置定时器标识的作用</span>\n<span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token parameter">fun<span class="token punctuation">,</span> delay<span class="token operator">=</span><span class="token number">500</span><span class="token punctuation">,</span> immediate<span class="token operator">=</span><span class="token boolean">true</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword null nil">null</span><span class="token punctuation">;</span> <span class="token comment">// 保存定时器</span>\n    <span class="token keyword control-flow">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n        <span class="token keyword">let</span> that <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>\n        <span class="token keyword">let</span> _args <span class="token operator">=</span> args<span class="token punctuation">;</span>\n        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 不管是否立即执行都需要先清空定时器</span>\n        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>immediate<span class="token punctuation">)</span> <span class="token punctuation">{</span>\n            <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>timer<span class="token punctuation">)</span> fun<span class="token punctuation">.</span><span class="token method function property-access">apply</span><span class="token punctuation">(</span>that<span class="token punctuation">,</span> _args<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 如果定时器不存在，则说明延时已过，可以立即执行函数</span>\n            timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 不管上一个延时是否完成，都需要重置定时器</span>\n                timer <span class="token operator">=</span> <span class="token keyword null nil">null</span><span class="token punctuation">;</span> <span class="token comment">// 到时间后，定时器自动设为null，不仅方便判断定时器状态还能避免内存泄漏</span>\n            <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span>\n        <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>\n            <span class="token comment">// 如果是非立即执行，则重新设定定时器，并将回调函数放入其中</span>\n            timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n                fun<span class="token punctuation">.</span><span class="token method function property-access">call</span><span class="token punctuation">(</span>that<span class="token punctuation">,</span> _args<span class="token punctuation">)</span><span class="token punctuation">;</span>\n            <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>\n        <span class="token punctuation">}</span>\n    <span class="token punctuation">}</span>\n<span class="token punctuation">}</span>\n</code></pre>'
+        } }),
+    'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
+    'script': React.createElement(React.Fragment, null,
+        React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
+        React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
+        React.createElement("script", { src: "/index.js", type: "module" })),
+    'contentTitle': React.createElement("h1", { key: "0" }, "\u9632\u6296\u548C\u8282\u6D41"),
+    'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
+            __html: '<h2 id="%E9%98%B2%E6%8A%96">防抖<a class="anchor" href="#%E9%98%B2%E6%8A%96">§</a></h2>\n<h3 id="%E5%AE%9A%E4%B9%89%E6%8C%87%E8%A7%A6%E5%8F%91%E4%BA%8B%E4%BB%B6%E5%90%8E%E5%9C%A8%E8%A7%84%E5%AE%9A%E6%97%B6%E9%97%B4%E5%86%85%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E5%8F%AA%E8%83%BD%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1%E5%A6%82%E6%9E%9C%E5%9C%A8%E8%A7%84%E5%AE%9A%E6%97%B6%E9%97%B4%E5%86%85%E5%8F%88%E8%A7%A6%E5%8F%91%E4%BA%86%E8%AF%A5%E4%BA%8B%E4%BB%B6%E5%88%99%E4%BC%9A%E9%87%8D%E6%96%B0%E5%BC%80%E5%A7%8B%E7%AE%97%E8%A7%84%E5%AE%9A%E6%97%B6%E9%97%B4%E7%AE%80%E8%80%8C%E8%A8%80%E4%B9%8B%E5%B0%B1%E6%98%AF%E5%BB%B6%E6%97%B6%E6%89%A7%E8%A1%8C">定义：指触发事件后在<strong>规定时间内</strong>回调函数<strong>只能执行一次</strong>，如果在规定时间内又触发了该事件，则会重新开始算规定时间。简而言之就是<strong>延时执行</strong>。<a class="anchor" href="#%E5%AE%9A%E4%B9%89%E6%8C%87%E8%A7%A6%E5%8F%91%E4%BA%8B%E4%BB%B6%E5%90%8E%E5%9C%A8%E8%A7%84%E5%AE%9A%E6%97%B6%E9%97%B4%E5%86%85%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E5%8F%AA%E8%83%BD%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1%E5%A6%82%E6%9E%9C%E5%9C%A8%E8%A7%84%E5%AE%9A%E6%97%B6%E9%97%B4%E5%86%85%E5%8F%88%E8%A7%A6%E5%8F%91%E4%BA%86%E8%AF%A5%E4%BA%8B%E4%BB%B6%E5%88%99%E4%BC%9A%E9%87%8D%E6%96%B0%E5%BC%80%E5%A7%8B%E7%AE%97%E8%A7%84%E5%AE%9A%E6%97%B6%E9%97%B4%E7%AE%80%E8%80%8C%E8%A8%80%E4%B9%8B%E5%B0%B1%E6%98%AF%E5%BB%B6%E6%97%B6%E6%89%A7%E8%A1%8C">§</a></h3>\n<h3 id="%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">应用场景<a class="anchor" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">§</a></h3>\n<p>两个条件：</p>\n<ol>\n<li>如果客户连续的操作会导致频繁的事件回调（可能引起页面卡顿）</li>\n<li>客户只关心“最后一次”操作（也可以理解为停止连续操作后）所返回的结果。</li>\n</ol>\n<p>例如：</p>\n<ul>\n<li>输入搜索联想，用户在不断输入值时，用防抖来节约请求资源。</li>\n<li>按钮点击： 收藏、点赞、爱心等。</li>\n</ul>\n<h3 id="%E5%8E%9F%E7%90%86">原理<a class="anchor" href="#%E5%8E%9F%E7%90%86">§</a></h3>\n<p>通过定时器将回调函数进行延时，如果在规定时间内继续回调，发现存在之前的定时器，则将该定时器清除，并重新设置定时器。这里有个细节，就是后面所有的回调函数都要能访问到之前设置的定时器，这时就需要用到闭包（详情见后边）</p>\n<p>防抖分为两种：</p>\n<ul>\n<li>非立即执行：事件触发-&gt;延时-&gt;执行回调函数；如果在延时中，继续触发事件，则会重新进行延时，在延时结束后执行回调函数。常见的例子：input搜索框，客户输完过一会就会自动搜索。</li>\n<li>立即执行：事件触发-&gt;执行回调函数-&gt;延时；如果在延时中，继续触发事件，则会重新进行延时。在延时结束后，并不会执行回调函数。常见的例子：对于按钮防点击，例如点赞，爱心，收藏等立即有反馈的按钮。</li>\n</ul>\n<p>实现思路：</p>\n<pre class="language-js"><code class="language-js"><span class="token comment">// 非立即执行</span>\n<span class="token comment">// 回调函数</span>\n<span class="token keyword">function</span> <span class="token function">showLog</span><span class="token punctuation">(</span><span class="token parameter">content</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">\'Log: \'</span><span class="token punctuation">,</span> content<span class="token punctuation">)</span><span class="token punctuation">;</span>\n<span class="token punctuation">}</span>\n\n<span class="token comment">/* 包装函数\n* 1.保存定时器标识\n* 2.返回闭包函数：\n*   1）对定时器的判断清除；\n*   2）一般还需要保存函数的参数（一般就是事件返回的对象）和上下文（定时器存在this隐式丢失：详情见【我不知*      道的js 上】）\n* 不建议通过定义一个全局变量来替闭包保存定时器标识。\n*/</span>\n<span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token parameter">fun<span class="token punctuation">,</span> delay<span class="token operator">=</span><span class="token number">500</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token comment">// let timer = null 保存定时器</span>\n    <span class="token keyword control-flow">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n        <span class="token keyword">let</span> that <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>\n        <span class="token keyword">let</span> _args <span class="token operator">=</span> args<span class="token punctuation">;</span>\n        <span class="token comment">// 这里对定时器的设置有两种方法，第一种就是将定时器保存在函数（函数也是对象）的属性上</span>\n        <span class="token comment">// 这种写法很简便，但不常用</span>\n        <span class="token function">clearTimeout</span><span class="token punctuation">(</span>fun<span class="token punctuation">.</span><span class="token property-access">timer</span><span class="token punctuation">)</span><span class="token punctuation">;</span>\n        fun<span class="token punctuation">.</span><span class="token property-access">timer</span> <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n            fun<span class="token punctuation">.</span><span class="token method function property-access">call</span><span class="token punctuation">(</span>that<span class="token punctuation">,</span> _args<span class="token punctuation">)</span><span class="token punctuation">;</span>\n        <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>\n        <span class="token comment">// 另一种写法是比较常见的</span>\n        <span class="token comment">// if (timer) clearTimeout(timer); 相比上面的方法，这里多一个判断</span>\n        <span class="token comment">// timer = setTimeout(function() {</span>\n        <span class="token comment">//     fun.call(that, _args);</span>\n        <span class="token comment">// }, delay);</span>\n    <span class="token punctuation">}</span>\n<span class="token punctuation">}</span>\n\n<span class="token comment">// 接着用变量保存debounce返回的带有延时功能的函数</span>\n<span class="token keyword">let</span> debounceShowLog <span class="token operator">=</span> <span class="token function">debounce</span><span class="token punctuation">(</span>showLog<span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>\n\n<span class="token comment">// 最后添加事件监听，回调debounceShowLog并传入事件返回的对象</span>\n<span class="token keyword">let</span> input <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">\'debounce\'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>\ninput<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">\'keyup\'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token function">debounceShowLog</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token property-access">target</span><span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>\n<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>\n\n\n<span class="token comment">// 立即执行</span>\n<span class="token comment">// 定时器中不再包含回调函数，而是在回调函数执行后，仅起到延时和重置定时器标识的作用</span>\n<span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token parameter">fun<span class="token punctuation">,</span> delay<span class="token operator">=</span><span class="token number">500</span><span class="token punctuation">,</span> immediate<span class="token operator">=</span><span class="token boolean">true</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword null nil">null</span><span class="token punctuation">;</span> <span class="token comment">// 保存定时器</span>\n    <span class="token keyword control-flow">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n        <span class="token keyword">let</span> that <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>\n        <span class="token keyword">let</span> _args <span class="token operator">=</span> args<span class="token punctuation">;</span>\n        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 不管是否立即执行都需要先清空定时器</span>\n        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>immediate<span class="token punctuation">)</span> <span class="token punctuation">{</span>\n            <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>timer<span class="token punctuation">)</span> fun<span class="token punctuation">.</span><span class="token method function property-access">apply</span><span class="token punctuation">(</span>that<span class="token punctuation">,</span> _args<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 如果定时器不存在，则说明延时已过，可以立即执行函数</span>\n            timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 不管上一个延时是否完成，都需要重置定时器</span>\n                timer <span class="token operator">=</span> <span class="token keyword null nil">null</span><span class="token punctuation">;</span> <span class="token comment">// 到时间后，定时器自动设为null，不仅方便判断定时器状态还能避免内存泄漏</span>\n            <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span>\n        <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>\n            <span class="token comment">// 如果是非立即执行，则重新设定定时器，并将回调函数放入其中</span>\n            timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n                fun<span class="token punctuation">.</span><span class="token method function property-access">call</span><span class="token punctuation">(</span>that<span class="token punctuation">,</span> _args<span class="token punctuation">)</span><span class="token punctuation">;</span>\n            <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>\n        <span class="token punctuation">}</span>\n    <span class="token punctuation">}</span>\n<span class="token punctuation">}</span>\n</code></pre>'
+        } }),
+    'toc': React.createElement("aside", { dangerouslySetInnerHTML: {
+            __html: '<nav class="toc"><ol><li><a href="#%E9%98%B2%E6%8A%96">防抖</a><ol><li><a href="#%E5%AE%9A%E4%B9%89%E6%8C%87%E8%A7%A6%E5%8F%91%E4%BA%8B%E4%BB%B6%E5%90%8E%E5%9C%A8%E8%A7%84%E5%AE%9A%E6%97%B6%E9%97%B4%E5%86%85%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E5%8F%AA%E8%83%BD%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1%E5%A6%82%E6%9E%9C%E5%9C%A8%E8%A7%84%E5%AE%9A%E6%97%B6%E9%97%B4%E5%86%85%E5%8F%88%E8%A7%A6%E5%8F%91%E4%BA%86%E8%AF%A5%E4%BA%8B%E4%BB%B6%E5%88%99%E4%BC%9A%E9%87%8D%E6%96%B0%E5%BC%80%E5%A7%8B%E7%AE%97%E8%A7%84%E5%AE%9A%E6%97%B6%E9%97%B4%E7%AE%80%E8%80%8C%E8%A8%80%E4%B9%8B%E5%B0%B1%E6%98%AF%E5%BB%B6%E6%97%B6%E6%89%A7%E8%A1%8C">定义：指触发事件后在规定时间内回调函数只能执行一次，如果在规定时间内又触发了该事件，则会重新开始算规定时间。简而言之就是延时执行。</a></li><li><a href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">应用场景</a></li><li><a href="#%E5%8E%9F%E7%90%86">原理</a></li></ol></li></ol></nav>'
+        } }),
+    'author': "jianyun2020",
+    'contributors': [
+        "jianyun2020"
+    ],
+    'date': "2021-01-25T10:51:54.000Z",
+    'updated': null,
+    'excerpt': "防抖 定义：指触发事件后在规定时间内回调函数只能执行一次，如果在规定时间内又触发了该事件，则会重新开始算规定时间。简而言之就是延时执行。 应用场景 两个条件： 1. 如果客户连续的操作会导致频繁的事件回调（可能引起页面...",
+    'cover': undefined,
+    'categories': [
+        "面试"
+    ],
+    'tags': [
+        "面试",
+        "防抖和节流"
+    ],
+    'blog': {
+        "isPost": true,
+        "posts": [
+            {
+                "pagePath": "posts/防抖和节流.md",
+                "title": "防抖和节流",
+                "link": "posts/防抖和节流.html",
+                "date": "2021-01-25T10:51:54.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "面试"
+                ],
+                "tags": [
+                    "面试",
+                    "防抖和节流"
+                ],
+                "excerpt": "防抖 定义：指触发事件后在规定时间内回调函数只能执行一次，如果在规定时间内又触发了该事件，则会重新开始算规定时间。简而言之就是延时执行。 应用场景 两个条件： 1. 如果客户连续的操作会导致频繁的事件回调（可能引起页面..."
+            },
+            {
+                "pagePath": "posts/css_渐变.md",
+                "title": "CSS渐变",
+                "link": "posts/css_渐变.html",
+                "date": "2021-01-25T09:32:57.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "CSS"
+                ],
+                "tags": [
+                    "CSS",
+                    "学习笔记",
+                    "渐变"
+                ],
+                "excerpt": "CSS渐变<image>类型的一种特殊类型<gradient>表示，由两种或多种颜色之间的渐进过渡组成。有三种类型的渐变： - 线性（由linear-gradient()函数创建） - 径向（由radial-gradient()函数创建） - 圆锥（由conic-gradient()函数创...",
+                "cover": "./images/deg.png"
+            },
+            {
+                "pagePath": "posts/Hook.md",
+                "title": "Hook",
+                "link": "posts/Hook.html",
+                "date": "2021-01-25T07:07:55.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "React"
+                ],
+                "tags": [
+                    "JavaScript",
+                    "学习笔记",
+                    "React"
+                ],
+                "excerpt": "16.8版本新增特性。可以在不编写class的情况下使用state以及其它的React特性。 import React, { useState } from 'react'; function Example() { // 声明一个新的叫做“count”的state变量 const [count, setCount] = useState..."
+            },
+            {
+                "pagePath": "posts/css_background.md",
+                "title": "CSS的background属性详解",
+                "link": "posts/css_background.html",
+                "date": "2021-01-25T07:07:55.000Z",
+                "updated": "2021-01-25T08:30:22.000Z",
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "CSS"
+                ],
+                "tags": [
+                    "CSS",
+                    "学习笔记",
+                    "background"
+                ],
+                "excerpt": "background是一中CSS简写属性，可以在一次声明中定义一个或多个属性：background-clip、background-color、background-image、background-origin、background-position、background-repeat、background-size、background-attac..."
+            },
+            {
+                "pagePath": "posts/List.md",
+                "title": "数据结构与算法JavaScript-列表",
+                "link": "posts/List.html",
+                "date": "2021-01-22T08:08:14.000Z",
+                "updated": "2021-01-25T02:27:19.000Z",
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "数据结构与算法"
+                ],
+                "tags": [
+                    "JavaScript",
+                    "数据结构与算法",
+                    "学习笔记"
+                ],
+                "excerpt": "列表的抽象数据类型定义 方法和方法 说明 listSize(属性) 列表的元素个数 pos(属性) 列表的当前位置 length(属性) 返回列表中元素的个数 clear(方法) 清空列表中的所有元素 toString(方法) 返回列表的字符串形式 getElement(方..."
+            },
+            {
+                "pagePath": "posts/元素渲染.md",
+                "title": "React-元素渲染",
+                "link": "posts/元素渲染.html",
+                "date": "2021-01-22T08:08:14.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "React"
+                ],
+                "tags": [
+                    "JavaScript",
+                    "学习笔记",
+                    "React"
+                ],
+                "excerpt": "元素是构成React应用的最小砖块，其描述了你在屏幕上想看到的内容。 const element = <h1>Hello, World</h1>; 与浏览器的 DOM 元素不同，React 元素是创建开销极小的普通对象。React DOM 会负责更新 DOM 来与 React 元素保持一..."
+            },
+            {
+                "pagePath": "posts/JSX简介.md",
+                "title": "React-JSX简介",
+                "link": "posts/JSX简介.html",
+                "date": "2021-01-21T07:25:11.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "React"
+                ],
+                "tags": [
+                    "JavaScript",
+                    "学习笔记",
+                    "React"
+                ],
+                "excerpt": "考虑如下变量声明： const element = <h1>Hello, world!</h1>; 这个有趣的标签语法既不是字符串也不是 HTML。它被称为 JSX，是一个 JavaScript 的语法扩展。 在JSX中嵌入表达式 const name = 'Bob'; const element = <h1>Hello..."
+            },
+            {
+                "pagePath": "posts/Array.md",
+                "title": "数据结构与算法JavaScript-数组",
+                "link": "posts/Array.html",
+                "date": "2021-01-20T05:13:02.000Z",
+                "updated": "2021-01-21T06:40:51.000Z",
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "数据结构与算法"
+                ],
+                "tags": [
+                    "JavaScript",
+                    "数据结构与算法",
+                    "学习笔记"
+                ],
+                "excerpt": "数组 JavaScript 中的数组是一种特殊的对象， 用来表示偏移量的索引是该对象的属性， 索引可 能是整数。 然而， 这些数字索引在内部被转换为字符串类型， 这是因为 JavaScript 对象中 的属性名必须是字符串。 数组在 JavaScrip..."
+            }
+        ],
+        "categories": [
+            {
+                "name": "React",
+                "count": 3
+            },
+            {
+                "name": "CSS",
+                "count": 2
+            },
+            {
+                "name": "数据结构与算法",
+                "count": 2
+            },
+            {
+                "name": "面试",
+                "count": 1
+            }
+        ],
+        "tags": [
+            {
+                "name": "学习笔记",
+                "count": 7
+            },
+            {
+                "name": "JavaScript",
+                "count": 5
+            },
+            {
+                "name": "React",
+                "count": 3
+            },
+            {
+                "name": "CSS",
+                "count": 2
+            },
+            {
+                "name": "数据结构与算法",
+                "count": 2
+            },
+            {
+                "name": "background",
+                "count": 1
+            },
+            {
+                "name": "渐变",
+                "count": 1
+            },
+            {
+                "name": "防抖和节流",
+                "count": 1
+            },
+            {
+                "name": "面试",
+                "count": 1
+            }
+        ]
+    }
+};

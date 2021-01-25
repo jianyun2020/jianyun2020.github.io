@@ -67,6 +67,10 @@ export default {
             {
                 "name": "数据结构与算法",
                 "count": 2
+            },
+            {
+                "name": "面试",
+                "count": 1
             }
         ],
         "tags": [
@@ -96,6 +100,14 @@ export default {
             },
             {
                 "name": "渐变",
+                "count": 1
+            },
+            {
+                "name": "防抖和节流",
+                "count": 1
+            },
+            {
+                "name": "面试",
                 "count": 1
             }
         ]

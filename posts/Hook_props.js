@@ -38,6 +38,25 @@ export default {
         "isPost": true,
         "posts": [
             {
+                "pagePath": "posts/防抖和节流.md",
+                "title": "防抖和节流",
+                "link": "posts/防抖和节流.html",
+                "date": "2021-01-25T10:51:54.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "面试"
+                ],
+                "tags": [
+                    "面试",
+                    "防抖和节流"
+                ],
+                "excerpt": "防抖 定义：指触发事件后在规定时间内回调函数只能执行一次，如果在规定时间内又触发了该事件，则会重新开始算规定时间。简而言之就是延时执行。 应用场景 两个条件： 1. 如果客户连续的操作会导致频繁的事件回调（可能引起页面..."
+            },
+            {
                 "pagePath": "posts/css_渐变.md",
                 "title": "CSS渐变",
                 "link": "posts/css_渐变.html",
@@ -191,6 +210,10 @@ export default {
             {
                 "name": "数据结构与算法",
                 "count": 2
+            },
+            {
+                "name": "面试",
+                "count": 1
             }
         ],
         "tags": [
@@ -220,6 +243,14 @@ export default {
             },
             {
                 "name": "渐变",
+                "count": 1
+            },
+            {
+                "name": "防抖和节流",
+                "count": 1
+            },
+            {
+                "name": "面试",
                 "count": 1
             }
         ]

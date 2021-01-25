@@ -1,38 +1,37 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "tags/background/",
+    'pagePath': "tags/面试/",
     'layoutPath': "archives/_layout.tsx",
-    'outputPath': "tags/background/index.html",
+    'outputPath': "tags/面试/index.html",
     'head': null,
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'title': "background",
+    'title': "面试",
     'content': null,
     'blog': {
         "isPost": false,
         "posts": [
             {
-                "pagePath": "posts/css_background.md",
-                "title": "CSS的background属性详解",
-                "link": "posts/css_background.html",
-                "date": "2021-01-25T07:07:55.000Z",
-                "updated": "2021-01-25T08:30:22.000Z",
+                "pagePath": "posts/防抖和节流.md",
+                "title": "防抖和节流",
+                "link": "posts/防抖和节流.html",
+                "date": "2021-01-25T10:51:54.000Z",
+                "updated": null,
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "CSS"
+                    "面试"
                 ],
                 "tags": [
-                    "CSS",
-                    "学习笔记",
-                    "background"
+                    "面试",
+                    "防抖和节流"
                 ],
-                "excerpt": "background是一中CSS简写属性，可以在一次声明中定义一个或多个属性：background-clip、background-color、background-image、background-origin、background-position、background-repeat、background-size、background-attac..."
+                "excerpt": "防抖 定义：指触发事件后在规定时间内回调函数只能执行一次，如果在规定时间内又触发了该事件，则会重新开始算规定时间。简而言之就是延时执行。 应用场景 两个条件： 1. 如果客户连续的操作会导致频繁的事件回调（可能引起页面..."
             }
         ],
         "categories": [
