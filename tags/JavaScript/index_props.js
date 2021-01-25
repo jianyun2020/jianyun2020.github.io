@@ -121,18 +121,18 @@ export default {
                 "count": 3
             },
             {
-                "name": "数据结构与算法",
+                "name": "CSS",
                 "count": 2
             },
             {
-                "name": "CSS",
-                "count": 1
+                "name": "数据结构与算法",
+                "count": 2
             }
         ],
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 6
+                "count": 7
             },
             {
                 "name": "JavaScript",
@@ -143,6 +143,10 @@ export default {
                 "count": 3
             },
             {
+                "name": "CSS",
+                "count": 2
+            },
+            {
                 "name": "数据结构与算法",
                 "count": 2
             },
@@ -151,7 +155,7 @@ export default {
                 "count": 1
             },
             {
-                "name": "CSS",
+                "name": "渐变",
                 "count": 1
             }
         ]

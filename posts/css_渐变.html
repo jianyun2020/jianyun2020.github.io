@@ -1,0 +1,66 @@
+<!doctype html><html class="" data-reactroot=""><head><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="欢迎来到我的博客。"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">CSS渐变 · jianyuns&#x27;Blog</title>
+<link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/><link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><a class="czs-menu-l show_on_mobile aside_button_open" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a><a class="show_on_mobile aside_button_text" href="/">jianyuns&#x27;Blog</a><aside class="hide_on_mobile"><a class="czs-menu-l show_on_mobile aside_button_close" href="#" style="background-image:url(&quot;/assets/czs-close-l.svg&quot;)"></a><h1><a href="/">jianyuns&#x27;Blog</a></h1><p class="description">欢迎来到我的博客。</p><ul class="social list_style_none"><li class="flex_center"><a class="czs-github-logo" href="https://github.com/jianyun2020" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="flex_center"><a class="czs-message-l" href="mailto:sujianyun2020@163.com" target="_blank" style="background-image:url(&quot;/assets/czs-message-l.svg&quot;)"></a></li><li style="flex-grow:1"></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul><nav><ul class="menu list_style_none"><li><a class="flex_center" href="/"><span class="czs-home-l" style="background-image:url(&quot;/assets/czs-home-l.svg&quot;)"></span>首页</a></li><li><a class="flex_center" href="/categories/"><span class="czs-category-l" style="background-image:url(&quot;/assets/czs-category-l.svg&quot;)"></span>分类</a></li><li><a class="flex_center" href="/tags/"><span class="czs-tag-l" style="background-image:url(&quot;/assets/czs-tag-l.svg&quot;)"></span>标签</a></li><li><a class="flex_center" href="/about/"><span class="czs-about-l" style="background-image:url(&quot;/assets/czs-about-l.svg&quot;)"></span>关于</a></li><li><a class="flex_center" href="/archives/"><span class="czs-box-l" style="background-image:url(&quot;/assets/czs-box-l.svg&quot;)"></span>归档</a></li></ul></nav></aside><section class="main"><h1>CSS渐变</h1><div class="main_post_meta"><time dateTime="Mon Jan 25 2021 09:32:57 GMT+0000 (UTC)">2021-01-26</time> · <!-- -->jianyun2020</div><article><p>CSS渐变<code>&lt;image&gt;</code>类型的一种特殊类型<code>&lt;gradient&gt;</code>表示，由两种或多种颜色之间的渐进过渡组成。有三种类型的渐变：</p>
+<ul>
+<li>线性（由<code>linear-gradient()</code>函数创建）</li>
+<li>径向（由<code>radial-gradient()</code>函数创建）</li>
+<li>圆锥（由<code>conic-gradient()</code>函数创建）</li>
+</ul>
+<p>还可以使用<code>repeating-linear-gradient</code>和<code>repeating-radial-gradient</code>函数创建重复渐变</p>
+<p>渐变可以在任何使用<code>&lt;image&gt;</code>的地方使用，例如在背景中。由于渐变是动态生成的，因此它们可以消除对传统用于实现类似效果的栅格图像文件的需求。此外，由于渐变是由浏览器生成的，因此在放大时它们看起来比栅格图像更好，并且可以动态调整大小。</p>
+<h2 id="%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%98">线性渐变<a class="anchor" href="#%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%98">§</a></h2>
+<h3 id="%E5%9F%BA%E7%A1%80%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%98">基础线性渐变<a class="anchor" href="#%E5%9F%BA%E7%A1%80%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%98">§</a></h3>
+<p>指定的颜色被称为<strong>色标</strong>，可指定两个或多个色标。</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.simple-linear</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span><span class="token color">blue</span><span class="token punctuation">,</span> <span class="token color">pink</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="%E6%94%B9%E5%8F%98%E6%B8%90%E5%8F%98%E6%96%B9%E5%90%91">改变渐变方向<a class="anchor" href="#%E6%94%B9%E5%8F%98%E6%B8%90%E5%8F%98%E6%96%B9%E5%90%91">§</a></h3>
+<p>默认情况下，线性渐变的方向是从上到下，可以指定一个值来改变渐进方向。</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.horizontal-gradient</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to right<span class="token punctuation">,</span> <span class="token color">blue</span><span class="token punctuation">,</span> park<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="%E5%AF%B9%E8%A7%92%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%98">对角线性渐变<a class="anchor" href="#%E5%AF%B9%E8%A7%92%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%98">§</a></h3>
+<p>可以设置渐变方向从一个对角到另一个对角。</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.diagonal-gradient</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to bottom right<span class="token punctuation">,</span> <span class="token color">blue</span><span class="token punctuation">,</span> <span class="token color">pink</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="%E8%AE%BE%E7%BD%AE%E6%B8%90%E5%8F%98%E8%A7%92%E5%BA%A6">设置渐变角度<a class="anchor" href="#%E8%AE%BE%E7%BD%AE%E6%B8%90%E5%8F%98%E8%A7%92%E5%BA%A6">§</a></h3>
+<p>通过设置一个具体的角度来更精确的控制渐变方向。</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.angled-gradient</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span><span class="token number">70</span><span class="token unit">deg</span><span class="token punctuation">,</span> <span class="token color">blue</span><span class="token punctuation">,</span> <span class="token color">pink</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>在使用角度的时候，<code>0deg</code>代表渐变方向从上到下，<code>90deg</code>代表渐变方向从左至右，诸如此类正角度都属于顺时针方向。而负角度意味着逆时针方向。</p>
+<p><img src="./images/deg.png" alt=""></p>
+<h3 id="%E9%A2%9C%E8%89%B2%E7%BB%88%E6%AD%A2%E4%BD%8D%E7%BD%AE">颜色终止位置<a class="anchor" href="#%E9%A2%9C%E8%89%B2%E7%BB%88%E6%AD%A2%E4%BD%8D%E7%BD%AE">§</a></h3>
+<p>可以通过给每个颜色设置0， 1%或者2%或者其它的绝对数值来调整它们的位置。如果将位置设置为百分数，0%表示起始点，而100%表示终点，但是如果需要的话你也可以设置这个范围之外的其它值来达到想要的效果。如果有些位置你没有明确设置，那么它会被自动计算，第一种颜色会在0%处停止，而最后一种颜色是100%，至于其它颜色则是在它邻近的两种颜色的中间停止。</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.multicolor-linear</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to left<span class="token punctuation">,</span> <span class="token color">lime</span> <span class="token number">28</span><span class="token unit">px</span><span class="token punctuation">,</span> <span class="token color">red</span> <span class="token number">77</span><span class="token unit">%</span><span class="token punctuation">,</span> <span class="token color">cyan</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="%E5%88%9B%E5%BB%BA%E5%AE%9E%E7%BA%BF">创建实线<a class="anchor" href="#%E5%88%9B%E5%BB%BA%E5%AE%9E%E7%BA%BF">§</a></h3>
+<p>要在两种颜色之间创建一条硬线，即创建一个条纹而不是逐渐过渡，可以将相邻的颜色停止设置为相同的位置。在此示例中，两种颜色在50%标记处共享一个颜色停止点，即渐变的一半：</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.striped</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to bottom left<span class="token punctuation">,</span> <span class="token color">cyan</span> <span class="token number">50</span><span class="token unit">%</span><span class="token punctuation">,</span> <span class="token color">palegoldenrod</span> <span class="token number">50</span><span class="token unit">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><img src="./images/striped.png" alt=""></p>
+<h3 id="%E6%B8%90%E5%8F%98%E6%8F%90%E7%A4%BA">渐变提示<a class="anchor" href="#%E6%B8%90%E5%8F%98%E6%8F%90%E7%A4%BA">§</a></h3>
+<p>默认情况下，渐变会平滑地从一种颜色过渡到另一种颜色。可以通过设置一个值来将渐变的中心点移动到指定位置。如下例中，我们将渐变的中心点由50%设为10%:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector"><span class="token class">.color-hint</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span><span class="token color">blue</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token unit">%</span><span class="token punctuation">,</span> <span class="token color">pink</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><img src="./images/hint.png" alt=""></p></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

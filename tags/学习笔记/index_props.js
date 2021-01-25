@@ -15,6 +15,27 @@ export default {
         "isPost": false,
         "posts": [
             {
+                "pagePath": "posts/css_渐变.md",
+                "title": "CSS渐变",
+                "link": "posts/css_渐变.html",
+                "date": "2021-01-25T09:32:57.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "CSS"
+                ],
+                "tags": [
+                    "CSS",
+                    "学习笔记",
+                    "渐变"
+                ],
+                "excerpt": "CSS渐变<image>类型的一种特殊类型<gradient>表示，由两种或多种颜色之间的渐进过渡组成。有三种类型的渐变： - 线性（由linear-gradient()函数创建） - 径向（由radial-gradient()函数创建） - 圆锥（由conic-gradient()函数创...",
+                "cover": "./images/deg.png"
+            },
+            {
                 "pagePath": "posts/Hook.md",
                 "title": "Hook",
                 "link": "posts/Hook.html",
@@ -141,18 +162,18 @@ export default {
                 "count": 3
             },
             {
-                "name": "数据结构与算法",
+                "name": "CSS",
                 "count": 2
             },
             {
-                "name": "CSS",
-                "count": 1
+                "name": "数据结构与算法",
+                "count": 2
             }
         ],
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 6
+                "count": 7
             },
             {
                 "name": "JavaScript",
@@ -163,6 +184,10 @@ export default {
                 "count": 3
             },
             {
+                "name": "CSS",
+                "count": 2
+            },
+            {
                 "name": "数据结构与算法",
                 "count": 2
             },
@@ -171,7 +196,7 @@ export default {
                 "count": 1
             },
             {
-                "name": "CSS",
+                "name": "渐变",
                 "count": 1
             }
         ]
