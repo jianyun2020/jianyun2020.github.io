@@ -50,13 +50,13 @@ export default {
             },
             {
                 "name": "面试",
-                "count": 1
+                "count": 2
             }
         ],
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 8
+                "count": 9
             },
             {
                 "name": "JavaScript",
@@ -75,7 +75,15 @@ export default {
                 "count": 2
             },
             {
+                "name": "面试",
+                "count": 2
+            },
+            {
                 "name": "background",
+                "count": 1
+            },
+            {
+                "name": "垃圾回收机制",
                 "count": 1
             },
             {
@@ -84,10 +92,6 @@ export default {
             },
             {
                 "name": "防抖和节流",
-                "count": 1
-            },
-            {
-                "name": "面试",
                 "count": 1
             }
         ]

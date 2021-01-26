@@ -40,11 +40,30 @@ export default {
         "isPost": true,
         "posts": [
             {
+                "pagePath": "posts/垃圾回收机制.md",
+                "link": "posts/垃圾回收机制.html",
+                "date": "2021-01-26T03:09:41.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "面试"
+                ],
+                "tags": [
+                    "面试",
+                    "学习笔记",
+                    "垃圾回收机制"
+                ],
+                "excerpt": ""
+            },
+            {
                 "pagePath": "posts/防抖和节流.md",
                 "title": "防抖和节流",
                 "link": "posts/防抖和节流.html",
                 "date": "2021-01-25T10:51:54.000Z",
-                "updated": "2021-01-26T03:06:56.000Z",
+                "updated": "2021-01-26T03:09:41.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -216,13 +235,13 @@ export default {
             },
             {
                 "name": "面试",
-                "count": 1
+                "count": 2
             }
         ],
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 8
+                "count": 9
             },
             {
                 "name": "JavaScript",
@@ -241,7 +260,15 @@ export default {
                 "count": 2
             },
             {
+                "name": "面试",
+                "count": 2
+            },
+            {
                 "name": "background",
+                "count": 1
+            },
+            {
+                "name": "垃圾回收机制",
                 "count": 1
             },
             {
@@ -250,10 +277,6 @@ export default {
             },
             {
                 "name": "防抖和节流",
-                "count": 1
-            },
-            {
-                "name": "面试",
                 "count": 1
             }
         ]

@@ -44,7 +44,7 @@
 * 1.保存定时器标识
 * 2.返回闭包函数：
 *   1）对定时器的判断清除；
-*   2）一般还需要保存函数的参数（一般就是事件返回的对象）和上下文（定时器存在this隐式丢失：详情见【我不知*      道的js 上】）
+*   2）一般还需要保存函数的参数（一般就是事件返回的对象）和上下文（定时器存在this隐式丢失：详情见【我不知*道的js 上】）
 * 不建议通过定义一个全局变量来替闭包保存定时器标识。
 */</span>
 <span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token parameter">fun<span class="token punctuation">,</span> delay<span class="token operator">=</span><span class="token number">500</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
