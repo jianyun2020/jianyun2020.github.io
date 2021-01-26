@@ -41,22 +41,22 @@ export default {
                 "count": 3
             },
             {
+                "name": "面试",
+                "count": 3
+            },
+            {
                 "name": "CSS",
                 "count": 2
             },
             {
                 "name": "数据结构与算法",
                 "count": 2
-            },
-            {
-                "name": "面试",
-                "count": 2
             }
         ],
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 9
+                "count": 10
             },
             {
                 "name": "JavaScript",
@@ -67,15 +67,15 @@ export default {
                 "count": 3
             },
             {
+                "name": "面试",
+                "count": 3
+            },
+            {
                 "name": "CSS",
                 "count": 2
             },
             {
                 "name": "数据结构与算法",
-                "count": 2
-            },
-            {
-                "name": "面试",
                 "count": 2
             },
             {
@@ -88,6 +88,10 @@ export default {
             },
             {
                 "name": "渐变",
+                "count": 1
+            },
+            {
+                "name": "跨域",
                 "count": 1
             },
             {

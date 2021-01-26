@@ -38,6 +38,26 @@ export default {
         "isPost": true,
         "posts": [
             {
+                "pagePath": "posts/跨域及常见解决办法.md",
+                "title": "跨域及常见解决方法",
+                "link": "posts/跨域及常见解决办法.html",
+                "date": "2021-01-26T10:06:49.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "面试"
+                ],
+                "tags": [
+                    "面试",
+                    "学习笔记",
+                    "跨域"
+                ],
+                "excerpt": "什么是跨域 跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，这里跨域是广义的。 广义的跨域： 1. 资源跳转：A链接、重定向、表单提交 2. 资源嵌入：<link>、<script>、<img>、<frame>等dom标签，还有样式中backgrou..."
+            },
+            {
                 "pagePath": "posts/垃圾回收机制.md",
                 "title": "垃圾回收机制",
                 "link": "posts/垃圾回收机制.html",
@@ -226,22 +246,22 @@ export default {
                 "count": 3
             },
             {
+                "name": "面试",
+                "count": 3
+            },
+            {
                 "name": "CSS",
                 "count": 2
             },
             {
                 "name": "数据结构与算法",
                 "count": 2
-            },
-            {
-                "name": "面试",
-                "count": 2
             }
         ],
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 9
+                "count": 10
             },
             {
                 "name": "JavaScript",
@@ -252,15 +272,15 @@ export default {
                 "count": 3
             },
             {
+                "name": "面试",
+                "count": 3
+            },
+            {
                 "name": "CSS",
                 "count": 2
             },
             {
                 "name": "数据结构与算法",
-                "count": 2
-            },
-            {
-                "name": "面试",
                 "count": 2
             },
             {
@@ -273,6 +293,10 @@ export default {
             },
             {
                 "name": "渐变",
+                "count": 1
+            },
+            {
+                "name": "跨域",
                 "count": 1
             },
             {

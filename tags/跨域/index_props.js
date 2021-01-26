@@ -1,59 +1,38 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "categories/CSS/",
+    'pagePath': "tags/跨域/",
     'layoutPath': "archives/_layout.tsx",
-    'outputPath': "categories/CSS/index.html",
+    'outputPath': "tags/跨域/index.html",
     'head': null,
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'title': "CSS",
+    'title': "跨域",
     'content': null,
     'blog': {
         "isPost": false,
         "posts": [
             {
-                "pagePath": "posts/css_渐变.md",
-                "title": "CSS渐变",
-                "link": "posts/css_渐变.html",
-                "date": "2021-01-25T09:32:57.000Z",
+                "pagePath": "posts/跨域及常见解决办法.md",
+                "title": "跨域及常见解决方法",
+                "link": "posts/跨域及常见解决办法.html",
+                "date": "2021-01-26T10:06:49.000Z",
                 "updated": null,
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "CSS"
+                    "面试"
                 ],
                 "tags": [
-                    "CSS",
+                    "面试",
                     "学习笔记",
-                    "渐变"
+                    "跨域"
                 ],
-                "excerpt": "CSS渐变<image>类型的一种特殊类型<gradient>表示，由两种或多种颜色之间的渐进过渡组成。有三种类型的渐变： - 线性（由linear-gradient()函数创建） - 径向（由radial-gradient()函数创建） - 圆锥（由conic-gradient()函数创...",
-                "cover": "./images/deg.png"
-            },
-            {
-                "pagePath": "posts/css_background.md",
-                "title": "CSS的background属性详解",
-                "link": "posts/css_background.html",
-                "date": "2021-01-25T07:07:55.000Z",
-                "updated": "2021-01-25T08:30:22.000Z",
-                "author": "jianyun2020",
-                "contributors": [
-                    "jianyun2020"
-                ],
-                "categories": [
-                    "CSS"
-                ],
-                "tags": [
-                    "CSS",
-                    "学习笔记",
-                    "background"
-                ],
-                "excerpt": "background是一中CSS简写属性，可以在一次声明中定义一个或多个属性：background-clip、background-color、background-image、background-origin、background-position、background-repeat、background-size、background-attac..."
+                "excerpt": "什么是跨域 跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，这里跨域是广义的。 广义的跨域： 1. 资源跳转：A链接、重定向、表单提交 2. 资源嵌入：<link>、<script>、<img>、<frame>等dom标签，还有样式中backgrou..."
             }
         ],
         "categories": [
