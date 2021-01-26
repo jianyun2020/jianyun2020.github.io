@@ -32,9 +32,10 @@ export default {
         "posts": [
             {
                 "pagePath": "posts/垃圾回收机制.md",
+                "title": "垃圾回收机制",
                 "link": "posts/垃圾回收机制.html",
                 "date": "2021-01-26T03:09:41.000Z",
-                "updated": null,
+                "updated": "2021-01-26T06:08:48.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -47,7 +48,8 @@ export default {
                     "学习笔记",
                     "垃圾回收机制"
                 ],
-                "excerpt": ""
+                "excerpt": "JavaScript具有自动垃圾收集机制(GC:GarbageCollection)，也就是说，执行环境会负责管理代码执行过程中使用的内存。开发人员不用再关心内存使用问题，所需内存的分配以及无用内存的回收完全实现了自动管理。 内存生命周期 JS环...",
+                "cover": "./images/markandsweep.png"
             },
             {
                 "pagePath": "posts/防抖和节流.md",
