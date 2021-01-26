@@ -15,6 +15,26 @@ export default {
         "isPost": false,
         "posts": [
             {
+                "pagePath": "posts/防抖和节流.md",
+                "title": "防抖和节流",
+                "link": "posts/防抖和节流.html",
+                "date": "2021-01-25T10:51:54.000Z",
+                "updated": "2021-01-26T03:06:56.000Z",
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "面试"
+                ],
+                "tags": [
+                    "面试",
+                    "防抖和节流",
+                    "学习笔记"
+                ],
+                "excerpt": " - 相同：在不影响客户体验的前提下，将频繁的回调函数，进行次数缩减，避免大量计算导致页的页面卡顿。 - 不同：防抖是将多次执行变为最后一次执行，节流是将多次执行变为在规定时间内只执行一次。 防抖 定义：指触发事件后在..."
+            },
+            {
                 "pagePath": "posts/css_渐变.md",
                 "title": "CSS渐变",
                 "link": "posts/css_渐变.html",
@@ -177,7 +197,7 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 7
+                "count": 8
             },
             {
                 "name": "JavaScript",

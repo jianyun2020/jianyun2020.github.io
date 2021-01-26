@@ -77,7 +77,7 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 7
+                "count": 8
             },
             {
                 "name": "JavaScript",
