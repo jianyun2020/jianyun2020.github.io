@@ -39,7 +39,7 @@ export default {
         "categories": [
             {
                 "name": "面试",
-                "count": 4
+                "count": 5
             },
             {
                 "name": "React",
@@ -61,19 +61,19 @@ export default {
             },
             {
                 "name": "JavaScript",
-                "count": 5
+                "count": 6
             },
             {
                 "name": "面试",
-                "count": 4
+                "count": 5
+            },
+            {
+                "name": "CSS",
+                "count": 3
             },
             {
                 "name": "React",
                 "count": 3
-            },
-            {
-                "name": "CSS",
-                "count": 2
             },
             {
                 "name": "数据结构与算法",
@@ -81,6 +81,10 @@ export default {
             },
             {
                 "name": "background",
+                "count": 1
+            },
+            {
+                "name": "HTML",
                 "count": 1
             },
             {
