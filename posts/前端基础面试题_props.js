@@ -6,7 +6,7 @@ export default {
     'outputPath': "posts/前端基础面试题.html",
     'title': "HTML篇",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h1>HTML篇</h1>\n<p>jasd fas df adsf a</p>\n<h1>CSS篇</h1>\n<p>可考虑</p>'
+            __html: '<h1>HTML篇</h1>\n<h1>CSS篇</h1>'
         } }),
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'script': React.createElement(React.Fragment, null,
@@ -15,7 +15,7 @@ export default {
         React.createElement("script", { src: "/index.js", type: "module" })),
     'contentTitle': React.createElement("h1", { key: "0" }, "HTML\u7BC7"),
     'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<p>jasd fas df adsf a</p>\n<h1>CSS篇</h1>\n<p>可考虑</p>'
+            __html: '<h1>CSS篇</h1>'
         } }),
     'toc': null,
     'author': "jianyun2020",
@@ -23,8 +23,8 @@ export default {
         "jianyun2020"
     ],
     'date': "2021-01-27T07:14:50.000Z",
-    'updated': null,
-    'excerpt': "jasd fas df adsf a CSS篇 可考虑",
+    'updated': "2021-01-27T23:34:37.000Z",
+    'excerpt': "CSS篇",
     'cover': undefined,
     'categories': [
         "面试"
@@ -43,7 +43,7 @@ export default {
                 "title": "HTML篇",
                 "link": "posts/前端基础面试题.html",
                 "date": "2021-01-27T07:14:50.000Z",
-                "updated": null,
+                "updated": "2021-01-27T23:34:37.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -57,7 +57,7 @@ export default {
                     "CSS",
                     "JavaScript"
                 ],
-                "excerpt": "jasd fas df adsf a CSS篇 可考虑"
+                "excerpt": "CSS篇"
             },
             {
                 "pagePath": "posts/前端本地存储.md",
