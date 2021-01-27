@@ -15,6 +15,26 @@ export default {
         "isPost": false,
         "posts": [
             {
+                "pagePath": "posts/前端本地存储.md",
+                "title": "前端本地存储",
+                "link": "posts/前端本地存储.html",
+                "date": "2021-01-27T03:51:39.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "面试"
+                ],
+                "tags": [
+                    "面试",
+                    "学习笔记",
+                    "前端本地存储"
+                ],
+                "excerpt": "cookie 作用 cookie是纯文本，没有可执行代码。存储数据，当用户访问了某个网站（网页）的时候，我们就可以通过cookie来向访问者电脑上存储数据，或者某些网站为了辨别用户身份、进行session跟踪而储存在用户本地终端上的数据（..."
+            },
+            {
                 "pagePath": "posts/跨域及常见解决办法.md",
                 "title": "跨域及常见解决方法",
                 "link": "posts/跨域及常见解决办法.html",
@@ -219,11 +239,11 @@ export default {
         ],
         "categories": [
             {
-                "name": "React",
-                "count": 3
+                "name": "面试",
+                "count": 4
             },
             {
-                "name": "面试",
+                "name": "React",
                 "count": 3
             },
             {
@@ -238,18 +258,18 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 10
+                "count": 11
             },
             {
                 "name": "JavaScript",
                 "count": 5
             },
             {
-                "name": "React",
-                "count": 3
+                "name": "面试",
+                "count": 4
             },
             {
-                "name": "面试",
+                "name": "React",
                 "count": 3
             },
             {
@@ -262,6 +282,10 @@ export default {
             },
             {
                 "name": "background",
+                "count": 1
+            },
+            {
+                "name": "前端本地存储",
                 "count": 1
             },
             {

@@ -1,38 +1,38 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "tags/background/",
+    'pagePath': "tags/前端本地存储/",
     'layoutPath': "archives/_layout.tsx",
-    'outputPath': "tags/background/index.html",
+    'outputPath': "tags/前端本地存储/index.html",
     'head': null,
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'title': "background",
+    'title': "前端本地存储",
     'content': null,
     'blog': {
         "isPost": false,
         "posts": [
             {
-                "pagePath": "posts/css_background.md",
-                "title": "CSS的background属性详解",
-                "link": "posts/css_background.html",
-                "date": "2021-01-25T07:07:55.000Z",
-                "updated": "2021-01-25T08:30:22.000Z",
+                "pagePath": "posts/前端本地存储.md",
+                "title": "前端本地存储",
+                "link": "posts/前端本地存储.html",
+                "date": "2021-01-27T03:51:39.000Z",
+                "updated": null,
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "CSS"
+                    "面试"
                 ],
                 "tags": [
-                    "CSS",
+                    "面试",
                     "学习笔记",
-                    "background"
+                    "前端本地存储"
                 ],
-                "excerpt": "background是一中CSS简写属性，可以在一次声明中定义一个或多个属性：background-clip、background-color、background-image、background-origin、background-position、background-repeat、background-size、background-attac..."
+                "excerpt": "cookie 作用 cookie是纯文本，没有可执行代码。存储数据，当用户访问了某个网站（网页）的时候，我们就可以通过cookie来向访问者电脑上存储数据，或者某些网站为了辨别用户身份、进行session跟踪而储存在用户本地终端上的数据（..."
             }
         ],
         "categories": [

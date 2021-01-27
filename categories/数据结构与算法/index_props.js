@@ -57,11 +57,11 @@ export default {
         ],
         "categories": [
             {
-                "name": "React",
-                "count": 3
+                "name": "面试",
+                "count": 4
             },
             {
-                "name": "面试",
+                "name": "React",
                 "count": 3
             },
             {
@@ -76,18 +76,18 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 10
+                "count": 11
             },
             {
                 "name": "JavaScript",
                 "count": 5
             },
             {
-                "name": "React",
-                "count": 3
+                "name": "面试",
+                "count": 4
             },
             {
-                "name": "面试",
+                "name": "React",
                 "count": 3
             },
             {
@@ -100,6 +100,10 @@ export default {
             },
             {
                 "name": "background",
+                "count": 1
+            },
+            {
+                "name": "前端本地存储",
                 "count": 1
             },
             {

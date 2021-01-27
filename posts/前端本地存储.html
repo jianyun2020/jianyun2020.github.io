@@ -1,0 +1,185 @@
+<!doctype html><html class="" data-reactroot=""><head><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="此博客主要用来记录一些学习笔记，方便以后复查。"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">前端本地存储 · jianyuns&#x27;Blog</title>
+<link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/><link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><a class="czs-menu-l show_on_mobile aside_button_open" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a><a class="show_on_mobile aside_button_text" href="/">jianyuns&#x27;Blog</a><aside class="hide_on_mobile"><a class="czs-menu-l show_on_mobile aside_button_close" href="#" style="background-image:url(&quot;/assets/czs-close-l.svg&quot;)"></a><h1><a href="/">jianyuns&#x27;Blog</a></h1><p class="description">此博客主要用来记录一些学习笔记，方便以后复查。</p><ul class="social list_style_none"><li class="flex_center"><a class="czs-github-logo" href="https://github.com/jianyun2020" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="flex_center"><a class="czs-message-l" href="mailto:sujianyun2020@163.com" target="_blank" style="background-image:url(&quot;/assets/czs-message-l.svg&quot;)"></a></li><li style="flex-grow:1"></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul><nav><ul class="menu list_style_none"><li><a class="flex_center" href="/"><span class="czs-home-l" style="background-image:url(&quot;/assets/czs-home-l.svg&quot;)"></span>首页</a></li><li><a class="flex_center" href="/categories/"><span class="czs-category-l" style="background-image:url(&quot;/assets/czs-category-l.svg&quot;)"></span>分类</a></li><li><a class="flex_center" href="/tags/"><span class="czs-tag-l" style="background-image:url(&quot;/assets/czs-tag-l.svg&quot;)"></span>标签</a></li><li><a class="flex_center" href="/about/"><span class="czs-about-l" style="background-image:url(&quot;/assets/czs-about-l.svg&quot;)"></span>关于</a></li><li><a class="flex_center" href="/archives/"><span class="czs-box-l" style="background-image:url(&quot;/assets/czs-box-l.svg&quot;)"></span>归档</a></li></ul></nav></aside><section class="main"><h1>前端本地存储</h1><div class="main_post_meta"><time dateTime="Wed Jan 27 2021 03:51:39 GMT+0000 (UTC)">2021-01-28</time> · <!-- -->jianyun2020</div><article><h2 id="cookie">cookie<a class="anchor" href="#cookie">§</a></h2>
+<p><strong>作用</strong></p>
+<p><code>cookie</code>是纯文本，没有可执行代码。存储数据，当用户访问了某个网站（网页）的时候，我们就可以通过cookie来向访问者电脑上存储数据，或者某些网站为了辨别用户身份、进行session跟踪而储存在用户本地终端上的数据（通常经过加密）</p>
+<p><strong>如何工作</strong></p>
+<p>当网页要发http请求时，浏览器会先检查是否有相应的cookie，有则自动添加在request header中的cookie字段中。这些是浏览器自动帮我们做的，而且每一次http请求浏览器都会自动帮我们做。这个特点很重要，因为这关系到“什么样的数据适合存储在cookie中”。</p>
+<p>存储在cookie中的数据，每次都会被浏览器自动放在http请求中，如果这些数据并不是每个请求都需要发给服务端的数据，浏览器这设置自动处理无疑增加了网络开销；但如果这些数据是每个请求都需要发给服务端的数据（比如身份认证信息），浏览器这设置自动处理就大大免去了重复添加操作。所以对于那种设置“每次请求都要携带的信息（最典型的就是身份认证信息）”就特别适合放在cookie中，其他类型的数据就不适合了。</p>
+<p><strong>特征</strong></p>
+<ol>
+<li>不同的浏览器cookie存放的位置不一样，也不能通用。</li>
+<li>cookie的存储是以域名形式进行区分的，不同的域下存储的cookie是独立的。</li>
+<li>我们可以设置cookie生效的域（当前设置cookie所在域的子域），也就是说，我们能够操作的cookie是当前域以及当前域下的所有子域。</li>
+<li>一个域名下存放的cookie的个数是有限制的，不同的浏览器存放的个数不一样,一般为20个。</li>
+<li>每个cookie存放的内容大小也是有限制的，不同的浏览器存放大小不一样，一般为4KB。</li>
+<li>cookie也可以设置过期的时间，默认是会话结束的时候，当时间到期自动销毁。</li>
+</ol>
+<p><strong>Cookie主要用于以下三个方面：</strong></p>
+<ul>
+<li>会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）</li>
+<li>个性化设置（如用户自定义设置、主题等）</li>
+<li>浏览器行为跟踪（如跟踪分析用户行为等）</li>
+</ul>
+<p><strong>设置</strong></p>
+<ul>
+<li>客户端设置:</li>
+</ul>
+<pre class="language-js"><code class="language-js"><span class="token comment">// document.cookie = '名字=值';</span>
+<span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">cookie</span> <span class="token operator">=</span> <span class="token string">'username=David; domain=baike.baidu.com'</span>    <span class="token comment">//并且设置了生效域,在设置这些属性时，属性之间由一个分号和一个空格隔开。</span>
+
+<span class="token comment">//当我们需要设置多个cookie时</span>
+<span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">cookie</span> <span class="token operator">=</span> <span class="token string">"name=Bob"</span><span class="token punctuation">;</span>
+<span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">cookie</span> <span class="token operator">=</span> <span class="token string">"age=18"</span><span class="token punctuation">;</span>
+<span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">cookie</span> <span class="token operator">=</span> <span class="token string">"class=A2"</span><span class="token punctuation">;</span>
+</code></pre>
+<p><em>注意： 客户端可以设置cookie下列选项：expires(过期时间)、domain(服务器域名)、path(域名下的哪些路径可以接受Cookie)、secure（有条件：只有在https协议的网页中，客户端设置secure类型的 cookie 才能成功），但无法设置HttpOnly选项。</em></p>
+<ul>
+<li>服务器端设置:</li>
+</ul>
+<p>不管你是请求一个资源文件（如 html/js/css/图片），还是发送一个ajax请求，服务端都会返回response。而response header中有一项叫<code>set-cookie</code>，是服务端专门用来设置cookie的。</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Set-Cookie 消息头是一个字符串，其格式如下（中括号中的部分是可选的）</span>
+<span class="token known-class-name class-name">Set</span><span class="token operator">-</span><span class="token maybe-class-name">Cookie</span><span class="token operator">:</span> value<span class="token punctuation">[</span><span class="token punctuation">;</span> expires<span class="token operator">=</span>date<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">;</span> domain<span class="token operator">=</span>domain<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">;</span> path<span class="token operator">=</span>path<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">;</span> secure<span class="token punctuation">]</span>
+</code></pre>
+<p><em>注意：一个set-Cookie字段只能设置一个cookie，当你要想设置多个 cookie，需要添加同样多的set-Cookie字段。 
+服务端可以设置cookie 的所有选项：<code>expires、domain、path、secure、HttpOnly</code>
+通过 Set-Cookie 指定的这些可选项只会在浏览器端使用，而不会被发送至服务器端。</em></p>
+<p><strong>读取</strong></p>
+<p>我们通过<code>document.cookie</code>来获取当前网站下的cookie的时候，得到的字符串形式的值，它包含了当前网站下所有的cookie（为避免跨域脚本(xss)攻击，这个方法只能获取非 <code>HttpOnly</code> 类型的cookie）。它会把所有的cookie通过一个分号+空格的形式串联起来，例如username=David; job=coding</p>
+<p><strong>修改cookie</strong></p>
+<p>要想修改一个cookie，只需要重新赋值就行，旧的值会被新的值覆盖。 但要注意一点，在设置新cookie时，path/domain这几个选项一定要旧cookie 保持一样。否则不会修改旧值，而是添加了一个新的 cookie。</p>
+<p><strong>删除</strong></p>
+<p>把要删除的cookie的过期时间设置成已过去的时间,path/domain/这几个选项一定要旧cookie 保持一样。</p>
+<p><strong>注意</strong></p>
+<ul>
+<li>cookie虽然是个字符串，但这个字符串中<code>逗号、分号、空格</code>被当做了特殊符号。所以当cookie的 key 和 value 中含有这3个特殊字符时，需要对其进行额外编码，可以用<code>encodeURIComponent/decodeURIComponent</code>或者<code>encodeURI/decodeURI</code>，至于<code>escape</code>和<code>unescape</code>已被废弃。</li>
+<li>什么时候 cookie 会被覆盖：name/domain/path 这3个字段都相同的时候；</li>
+</ul>
+<h3 id="expires">expires<a class="anchor" href="#expires">§</a></h3>
+<p><code>expires</code>选项用来设置“cookie 什么时间内有效”。<strong>expires其实是cookie失效日期</strong>，expires必须是 <code>GMT 格式</code>的时间（可以通过 <code>new Date().toGMTString()</code>或者<code>new Date().toUTCString()</code> 来获得 ）。</p>
+<p>如expires=Thu, 25 Feb 2016 04:18:00 GMT表示cookie讲在2016年2月25日4:18分之后失效，对于失效的cookie浏览器会清空。如果没有设置该选项，则默认有效期为session，即会话cookie。这种cookie在浏览器关闭后就没有了。</p>
+<blockquote>
+<p><code>expires</code> 是 <code>http/1.0</code>协议中的选项，在新的<code>http/1.1</code>协议中expires已经由 <code>max-age</code> 选项代替，两者的作用都是限制cookie 的有效时间。expires的值是一个时间点（cookie失效时刻= expires），而max-age 的值是一个以<code>秒为单位</code>时间段（<code>cookie失效时刻= 创建时刻 + max-age</code>）。另外，max-age 的默认值是 -1(即有效期为 session )；若max-age有三种可能值：负数、0、正数。负数：有效期session；0：删除cookie；正数：有效期为创建时刻+ max-age</p>
+</blockquote>
+<h3 id="domain-%E5%92%8C-path">domain 和 path<a class="anchor" href="#domain-%E5%92%8C-path">§</a></h3>
+<p><code>domain</code>是域名，<code>path</code>是路径，两者加起来就构成了 <code>URL</code>，domain和path一起来限制 cookie 能被哪些 URL 访问。</p>
+<p>一句话概括：某cookie的 domain为“<a href="http://baidu.com">baidu.com</a>”, path为“/ ”，若请求的URL(URL 可以是js/html/img/css资源请求，但不包括 XHR 请求)的域名是“<a href="http://baidu.com">baidu.com</a>”或其子域如“<a href="http://api.baidu.com">api.baidu.com</a>”、“<a href="http://dev.api.baidu.com">dev.api.baidu.com</a>”，且 URL 的路径是“/ ”或子路径“/home”、“/home/login”，则浏览器会将此 cookie 添加到该请求的 cookie 头部中。</p>
+<p>所以domain和path这2个选项共同决定了cookie何时被浏览器自动添加到请求头部中发送出去。如果没有设置这两个选项，则会使用默认值。domain的默认值为设置该cookie的网页所在的域名，path默认值为设置该cookie的网页所在的目录。</p>
+<h3 id="secure">secure<a class="anchor" href="#secure">§</a></h3>
+<p>通常 cookie 信息都是使用HTTP连接传递数据，这种传递方式很容易被查看，所以 cookie 存储的信息容易被窃取。假如 cookie 中所传递的内容比较重要，那么就要求使用加密的数据传输。</p>
+<p>secure选项用来设置cookie只在确保安全的请求中才会发送。当请求是HTTPS或者其他安全协议时，包含 secure 选项的 cookie 才能被发送至服务器。</p>
+<p><code>document.cookie = &quot;username=David; secure&quot;</code></p>
+<p>把cookie设置为secure，只保证 cookie 与服务器之间的数据传输过程加密，而保存在本地的 cookie文件并不加密。就算设置了secure 属性也并不代表他人不能看到你机器本地保存的 cookie 信息。 机密且敏感的信息绝不应该在 cookie 中存储或传输，因为 cookie 的整个机制原本都是不安全的</p>
+<p>注意：如果想在客户端即网页中通过 js 去设置secure类型的 cookie，必须保证网页是https协议的。在http协议的网页中是无法设置secure类型cookie的。</p>
+<h3 id="httponly">httpOnly<a class="anchor" href="#httponly">§</a></h3>
+<p>这个选项用来设置cookie是否能通过 js 去访问。默认情况下，cookie不会带httpOnly选项(即为空)，所以默认情况下，客户端是可以通过js代码去访问（包括读取、修改、删除等）这个cookie的。当cookie带httpOnly选项时，客户端则无法通过js代码去访问（包括读取、修改、删除等）这个cookie, 避免跨域脚本(xss)攻击，此时只能通过服务端来设置。</p>
+<h3 id="%E7%AC%AC%E4%B8%89%E6%96%B9cookie">第三方cookie<a class="anchor" href="#%E7%AC%AC%E4%B8%89%E6%96%B9cookie">§</a></h3>
+<p>通常cookie的域和浏览器地址的域匹配，这被称为第一方cookie。那么第三方cookie就是cookie的域和地址栏中的域不匹配，这种cookie通常被用在第三方广告网站。为了跟踪用户的浏览记录，并且根据收集的用户的浏览习惯，给用户推送相关的广告。</p>
+<h3 id="session%E5%92%8Ccookie%E5%8C%BA%E5%88%AB">session和cookie区别<a class="anchor" href="#session%E5%92%8Ccookie%E5%8C%BA%E5%88%AB">§</a></h3>
+<ul>
+<li>session保存在服务器，cookie保存在客户端</li>
+<li>session中保存的时对象，cookie保存的是字符串</li>
+<li>session不能区分路径，同一个用户访问一个网站期间，所有的session在任何一个地方都可以访问</li>
+<li>cookie如果设置路径，则在某些地方不能访问</li>
+<li>session需要借助cookie才能正常工作，如果禁用cookie,session则失效</li>
+<li>客户端会在发送请求的时候，自动将本地存活的cookie封装在信息头发送给服务器</li>
+</ul>
+<h2 id="session%E5%92%8Ccookie%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">session和cookie应用场景<a class="anchor" href="#session%E5%92%8Ccookie%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">§</a></h2>
+<ul>
+<li>session上下文机制，针对每一个用户，通过sessionid来区分不同客户</li>
+<li>session是以cookie或url重写为基础的，默认使用cookie实现，系统会创造一个名为sessionid的输出cookie</li>
+<li>重要状态走session,不重要走cookie,登陆信息用session，购物车用cookie</li>
+</ul>
+<h2 id="localstorage%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8">localStorage（本地存储）<a class="anchor" href="#localstorage%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8">§</a></h2>
+<p>HTML5新方法，仅IE8及以上浏览器兼容。</p>
+<p><strong>特点</strong></p>
+<ul>
+<li>生命周期：持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。</li>
+<li>存储的信息在同一域中是共享的。</li>
+<li>当本页操作（新增、修改、删除）了localStorage的时候，本页面不会触发storage事件,但是别的页面会触发storage事件。</li>
+<li>大小：据说是5M（跟浏览器厂商有关系）</li>
+<li>在非IE下的浏览中可以本地打开。IE浏览器要在服务器中打开。</li>
+<li>localStorage本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡</li>
+<li>localStorage受同源策略的限制</li>
+</ul>
+<p><strong>设置</strong></p>
+<pre class="language-js"><code class="language-js"><span class="token dom variable">localStorage</span><span class="token punctuation">.</span><span class="token method function property-access">setItem</span><span class="token punctuation">(</span><span class="token string">'username'</span><span class="token punctuation">,</span> <span class="token string">'David'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>获取</strong></p>
+<pre class="language-js"><code class="language-js"><span class="token dom variable">localStorage</span><span class="token punctuation">.</span><span class="token method function property-access">getItem</span><span class="token punctuation">(</span><span class="token string">'username'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 也可以获取键名  </span>
+<span class="token dom variable">localStorage</span><span class="token punctuation">.</span><span class="token method function property-access">key</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">// 获取第一个键名</span>
+</code></pre>
+<p><strong>删除</strong></p>
+<pre class="language-js"><code class="language-js"><span class="token dom variable">localStorage</span><span class="token punctuation">.</span><span class="token method function property-access">removeItem</span><span class="token punctuation">(</span><span class="token string">'username'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 也可以一次性清除所有存储</span>
+<span class="token dom variable">localStorage</span><span class="token punctuation">.</span><span class="token method function property-access">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>storage事件</strong></p>
+<p>当storage发生改变的时候触发。</p>
+<p>注意： 当前页面对storage的操作会触发其他页面的storage事件  事件的回调函数中有一个参数event,是一个StorageEvent对象，提供了一些实用的属性,如下表：</p>
+<div class="table_wrapper"><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>String</td>
+<td>添加，删除或修改的命名密钥</td>
+</tr>
+<tr>
+<td>oldValue</td>
+<td>Any</td>
+<td>先前的值（现已覆盖）；如果添加了新项目，则为null</td>
+</tr>
+<tr>
+<td>newValue</td>
+<td>Any</td>
+<td>新值；如果添加了项目，则为null</td>
+</tr>
+<tr>
+<td>url/uri</td>
+<td>String</td>
+<td>调用触发此更改的方法的页面</td>
+</tr>
+</tbody>
+</table></div>
+<p>补充:js跨页面触发事件，利用storage监听事件 触发storage事件的条件：</p>
+<ul>
+<li>同一浏览器打开了两个同源页面</li>
+<li>其中一个页面修改了localStorage</li>
+<li>另一个网页注册了这个事件</li>
+</ul>
+<h2 id="sessionstorage">sessionStorage<a class="anchor" href="#sessionstorage">§</a></h2>
+<p>跟localStorage差不多，也是本地存储，会话本地存储</p>
+<p><strong>特点</strong></p>
+<ul>
+<li>用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一页面，数据仍然存在。关闭窗口后，sessionStorage即被销毁，或者在新窗口打开同源的另一个页面，sessionStorage也是没有的。</li>
+</ul>
+<h2 id="cookielocalstoragesessionstorage%E5%8C%BA%E5%88%AB">cookie、localStorage、sessionStorage区别<a class="anchor" href="#cookielocalstoragesessionstorage%E5%8C%BA%E5%88%AB">§</a></h2>
+<ul>
+<li>相同：在本地（浏览器端）存储数据</li>
+<li>不同：
+<ul>
+<li>localStorage只要在相同的协议、相同的主机名、相同的端口下，就能读取/修改到同一份localStorage数据。</li>
+<li>sessionStorage比localStorage更严苛一点，除了协议、主机名、端口外，还要求在同一窗口（也就是浏览器的标签页）下。</li>
+<li>localStorage是永久存储，除非手动删除。</li>
+<li>sessionStorage当会话结束（当前页面关闭的时候，自动销毁）</li>
+<li>cookie的数据会在每一次发送http请求的时候，同时发送给服务器而localStorage、sessionStorage不会。</li>
+</ul>
+</li>
+</ul></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
