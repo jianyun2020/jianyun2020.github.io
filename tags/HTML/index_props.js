@@ -19,7 +19,7 @@ export default {
                 "title": "HTML篇",
                 "link": "posts/前端基础面试题.html",
                 "date": "2021-01-27T07:14:50.000Z",
-                "updated": "2021-01-27T23:34:37.000Z",
+                "updated": "2021-01-27T23:46:43.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -33,7 +33,7 @@ export default {
                     "CSS",
                     "JavaScript"
                 ],
-                "excerpt": "CSS篇"
+                "excerpt": "add CSS篇"
             }
         ],
         "categories": [
