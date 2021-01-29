@@ -32,6 +32,25 @@ export default {
         "isPost": false,
         "posts": [
             {
+                "pagePath": "posts/React笔记.md",
+                "title": "React学习笔记",
+                "link": "posts/React笔记.html",
+                "date": "2021-01-29T14:58:22.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "React"
+                ],
+                "tags": [
+                    "React",
+                    "学习笔记"
+                ],
+                "excerpt": " 1. 在html中简易使用jsx语法时，需要引入babel插件，同时设置<script type=\"text/babel\"></script> 2. js语法创建虚拟DOM：React.createElement('h1', {id: 'test'}, 'Hello, React') 3. 关于虚拟DOM： 1. 本质就是Object类型..."
+            },
+            {
                 "pagePath": "posts/2021-1-29.md",
                 "title": "每日总结",
                 "link": "posts/2021-1-29.html",
@@ -274,12 +293,12 @@ export default {
         ],
         "categories": [
             {
-                "name": "面试",
+                "name": "React",
                 "count": 4
             },
             {
-                "name": "React",
-                "count": 3
+                "name": "面试",
+                "count": 4
             },
             {
                 "name": "CSS",
@@ -297,19 +316,19 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 11
+                "count": 12
             },
             {
                 "name": "JavaScript",
                 "count": 5
             },
             {
-                "name": "面试",
+                "name": "React",
                 "count": 4
             },
             {
-                "name": "React",
-                "count": 3
+                "name": "面试",
+                "count": 4
             },
             {
                 "name": "CSS",

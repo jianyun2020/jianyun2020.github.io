@@ -1,40 +1,37 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "posts/元素渲染.md",
+    'pagePath': "posts/React笔记.md",
     'layoutPath': "posts/_layout.tsx",
-    'outputPath': "posts/元素渲染.html",
-    'title': "React-元素渲染",
+    'outputPath': "posts/React笔记.html",
+    'title': "React学习笔记",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h1>React-元素渲染</h1>\n<p>元素是构成React应用的最小砖块，其描述了你在屏幕上想看到的内容。</p>\n<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">Hello, World</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>\n</code></pre>\n<p>与浏览器的 DOM 元素不同，React 元素是创建开销极小的普通对象。React DOM 会负责更新 DOM 来与 React 元素保持一致。</p>\n<h2 id="%E5%B0%86%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93%E4%B8%BAdom">将一个元素渲染为DOM<a class="anchor" href="#%E5%B0%86%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93%E4%B8%BAdom">§</a></h2>'
+            __html: '<h1>React学习笔记</h1>\n<ol>\n<li>在html中简易使用jsx语法时，需要引入babel插件，同时设置<code>&lt;script type=&quot;text/babel&quot;&gt;&lt;/script&gt;</code></li>\n<li>js语法创建虚拟DOM：<code>React.createElement(\'h1\', {id: \'test\'}, \'Hello, React\')</code></li>\n<li>关于虚拟DOM：\n<ol>\n<li>本质就是Object类型的对象</li>\n<li>虚拟DOM是React内部用，无需真实DOM上那么多属性</li>\n<li>虚拟DOM最终会被转换为真实DOM</li>\n</ol>\n</li>\n<li>JSX语法规则：\n<ol>\n<li>定义虚拟DOM时，不要加引号，如<code>&lt;h1&gt;我是虚拟DOM&lt;/h1&gt;</code></li>\n<li>标签中混入js表达式时需要用<code>{}</code></li>\n<li>添加类名时需要用小驼峰<code>className</code>，不要用<code>class</code></li>\n<li>使用内联样式<code>style</code>时，需要使用<code>{{}}</code>，里边的<code>{}</code>表示对象。如<code>{{color: \'red\'; fontSize: \'px\'}}</code>，里边的属性需要使用小驼峰替代<code>-</code>的写法</li>\n<li>只能有一个跟标签</li>\n<li>标签必须闭合</li>\n<li>标签的首字母：\n<ol>\n<li>如果是小写字母开头，则将标签转为html中同名标签，如果html中没有对应标签，则报错</li>\n<li>如果是大写字母开头，react就去渲染对应组件，若组件未定义，则报错</li>\n</ol>\n</li>\n</ol>\n</li>\n</ol>'
         } }),
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'contentTitle': React.createElement("h1", { key: "0" }, "React-\u5143\u7D20\u6E32\u67D3"),
+    'contentTitle': React.createElement("h1", { key: "0" }, "React\u5B66\u4E60\u7B14\u8BB0"),
     'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<p>元素是构成React应用的最小砖块，其描述了你在屏幕上想看到的内容。</p>\n<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">Hello, World</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>\n</code></pre>\n<p>与浏览器的 DOM 元素不同，React 元素是创建开销极小的普通对象。React DOM 会负责更新 DOM 来与 React 元素保持一致。</p>\n<h2 id="%E5%B0%86%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93%E4%B8%BAdom">将一个元素渲染为DOM<a class="anchor" href="#%E5%B0%86%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93%E4%B8%BAdom">§</a></h2>'
+            __html: '<ol>\n<li>在html中简易使用jsx语法时，需要引入babel插件，同时设置<code>&lt;script type=&quot;text/babel&quot;&gt;&lt;/script&gt;</code></li>\n<li>js语法创建虚拟DOM：<code>React.createElement(\'h1\', {id: \'test\'}, \'Hello, React\')</code></li>\n<li>关于虚拟DOM：\n<ol>\n<li>本质就是Object类型的对象</li>\n<li>虚拟DOM是React内部用，无需真实DOM上那么多属性</li>\n<li>虚拟DOM最终会被转换为真实DOM</li>\n</ol>\n</li>\n<li>JSX语法规则：\n<ol>\n<li>定义虚拟DOM时，不要加引号，如<code>&lt;h1&gt;我是虚拟DOM&lt;/h1&gt;</code></li>\n<li>标签中混入js表达式时需要用<code>{}</code></li>\n<li>添加类名时需要用小驼峰<code>className</code>，不要用<code>class</code></li>\n<li>使用内联样式<code>style</code>时，需要使用<code>{{}}</code>，里边的<code>{}</code>表示对象。如<code>{{color: \'red\'; fontSize: \'px\'}}</code>，里边的属性需要使用小驼峰替代<code>-</code>的写法</li>\n<li>只能有一个跟标签</li>\n<li>标签必须闭合</li>\n<li>标签的首字母：\n<ol>\n<li>如果是小写字母开头，则将标签转为html中同名标签，如果html中没有对应标签，则报错</li>\n<li>如果是大写字母开头，react就去渲染对应组件，若组件未定义，则报错</li>\n</ol>\n</li>\n</ol>\n</li>\n</ol>'
         } }),
-    'toc': React.createElement("aside", { dangerouslySetInnerHTML: {
-            __html: '<nav class="toc"><ol><li><a href="#%E5%B0%86%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93%E4%B8%BAdom">将一个元素渲染为DOM</a></li></ol></nav>'
-        } }),
+    'toc': null,
     'author': "jianyun2020",
     'contributors': [
         "jianyun2020"
     ],
-    'date': "2021-01-22T08:08:14.000Z",
+    'date': "2021-01-29T14:58:22.000Z",
     'updated': null,
-    'excerpt': "元素是构成React应用的最小砖块，其描述了你在屏幕上想看到的内容。 const element = <h1>Hello, World</h1>; 与浏览器的 DOM 元素不同，React 元素是创建开销极小的普通对象。React DOM 会负责更新 DOM 来与 React 元素保持一...",
+    'excerpt': " 1. 在html中简易使用jsx语法时，需要引入babel插件，同时设置<script type=\"text/babel\"></script> 2. js语法创建虚拟DOM：React.createElement('h1', {id: 'test'}, 'Hello, React') 3. 关于虚拟DOM： 1. 本质就是Object类型...",
     'cover': undefined,
     'categories': [
         "React"
     ],
     'tags': [
-        "JavaScript",
-        "学习笔记",
-        "React"
+        "React",
+        "学习笔记"
     ],
     'blog': {
         "isPost": true,

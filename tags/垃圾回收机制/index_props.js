@@ -38,12 +38,12 @@ export default {
         ],
         "categories": [
             {
-                "name": "面试",
+                "name": "React",
                 "count": 4
             },
             {
-                "name": "React",
-                "count": 3
+                "name": "面试",
+                "count": 4
             },
             {
                 "name": "CSS",
@@ -61,19 +61,19 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 11
+                "count": 12
             },
             {
                 "name": "JavaScript",
                 "count": 5
             },
             {
-                "name": "面试",
+                "name": "React",
                 "count": 4
             },
             {
-                "name": "React",
-                "count": 3
+                "name": "面试",
+                "count": 4
             },
             {
                 "name": "CSS",
