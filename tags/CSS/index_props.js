@@ -15,27 +15,6 @@ export default {
         "isPost": false,
         "posts": [
             {
-                "pagePath": "posts/前端基础面试题.md",
-                "title": "HTML篇",
-                "link": "posts/前端基础面试题.html",
-                "date": "2021-01-27T07:14:50.000Z",
-                "updated": "2021-01-27T23:46:43.000Z",
-                "author": "jianyun2020",
-                "contributors": [
-                    "jianyun2020"
-                ],
-                "categories": [
-                    "面试"
-                ],
-                "tags": [
-                    "面试",
-                    "HTML",
-                    "CSS",
-                    "JavaScript"
-                ],
-                "excerpt": "add CSS篇"
-            },
-            {
                 "pagePath": "posts/css_渐变.md",
                 "title": "CSS渐变",
                 "link": "posts/css_渐变.html",
@@ -80,7 +59,7 @@ export default {
         "categories": [
             {
                 "name": "面试",
-                "count": 5
+                "count": 4
             },
             {
                 "name": "React",
@@ -93,6 +72,10 @@ export default {
             {
                 "name": "数据结构与算法",
                 "count": 2
+            },
+            {
+                "name": "每日总结",
+                "count": 1
             }
         ],
         "tags": [
@@ -102,19 +85,19 @@ export default {
             },
             {
                 "name": "JavaScript",
-                "count": 6
-            },
-            {
-                "name": "面试",
                 "count": 5
             },
             {
-                "name": "CSS",
-                "count": 3
+                "name": "面试",
+                "count": 4
             },
             {
                 "name": "React",
                 "count": 3
+            },
+            {
+                "name": "CSS",
+                "count": 2
             },
             {
                 "name": "数据结构与算法",
@@ -125,15 +108,15 @@ export default {
                 "count": 1
             },
             {
-                "name": "HTML",
-                "count": 1
-            },
-            {
                 "name": "前端本地存储",
                 "count": 1
             },
             {
                 "name": "垃圾回收机制",
+                "count": 1
+            },
+            {
+                "name": "每日总结",
                 "count": 1
             },
             {

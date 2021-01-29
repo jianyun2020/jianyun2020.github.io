@@ -1,63 +1,57 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "posts/前端基础面试题.md",
+    'pagePath': "posts/2021-1-29.md",
     'layoutPath': "posts/_layout.tsx",
-    'outputPath': "posts/前端基础面试题.html",
-    'title': "HTML篇",
+    'outputPath': "posts/2021-1-29.html",
+    'title': "每日总结",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h1>HTML篇</h1>\n<p>add</p>\n<h1>CSS篇</h1>'
+            __html: '<h1>每日总结</h1>'
         } }),
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'contentTitle': React.createElement("h1", { key: "0" }, "HTML\u7BC7"),
+    'contentTitle': React.createElement("h1", { key: "0" }, "\u6BCF\u65E5\u603B\u7ED3"),
     'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<p>add</p>\n<h1>CSS篇</h1>'
+            __html: ''
         } }),
     'toc': null,
     'author': "jianyun2020",
     'contributors': [
         "jianyun2020"
     ],
-    'date': "2021-01-27T07:14:50.000Z",
-    'updated': "2021-01-27T23:46:43.000Z",
-    'excerpt': "add CSS篇",
+    'date': "2021-01-29T11:38:40.000Z",
+    'updated': null,
+    'excerpt': "",
     'cover': undefined,
     'categories': [
-        "面试"
+        "每日总结"
     ],
     'tags': [
-        "面试",
-        "HTML",
-        "CSS",
-        "JavaScript"
+        "每日总结"
     ],
     'blog': {
         "isPost": true,
         "posts": [
             {
-                "pagePath": "posts/前端基础面试题.md",
-                "title": "HTML篇",
-                "link": "posts/前端基础面试题.html",
-                "date": "2021-01-27T07:14:50.000Z",
-                "updated": "2021-01-27T23:46:43.000Z",
+                "pagePath": "posts/2021-1-29.md",
+                "title": "每日总结",
+                "link": "posts/2021-1-29.html",
+                "date": "2021-01-29T11:38:40.000Z",
+                "updated": null,
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "面试"
+                    "每日总结"
                 ],
                 "tags": [
-                    "面试",
-                    "HTML",
-                    "CSS",
-                    "JavaScript"
+                    "每日总结"
                 ],
-                "excerpt": "add CSS篇"
+                "excerpt": ""
             },
             {
                 "pagePath": "posts/前端本地存储.md",
@@ -285,7 +279,7 @@ export default {
         "categories": [
             {
                 "name": "面试",
-                "count": 5
+                "count": 4
             },
             {
                 "name": "React",
@@ -298,6 +292,10 @@ export default {
             {
                 "name": "数据结构与算法",
                 "count": 2
+            },
+            {
+                "name": "每日总结",
+                "count": 1
             }
         ],
         "tags": [
@@ -307,19 +305,19 @@ export default {
             },
             {
                 "name": "JavaScript",
-                "count": 6
-            },
-            {
-                "name": "面试",
                 "count": 5
             },
             {
-                "name": "CSS",
-                "count": 3
+                "name": "面试",
+                "count": 4
             },
             {
                 "name": "React",
                 "count": 3
+            },
+            {
+                "name": "CSS",
+                "count": 2
             },
             {
                 "name": "数据结构与算法",
@@ -330,15 +328,15 @@ export default {
                 "count": 1
             },
             {
-                "name": "HTML",
-                "count": 1
-            },
-            {
                 "name": "前端本地存储",
                 "count": 1
             },
             {
                 "name": "垃圾回收机制",
+                "count": 1
+            },
+            {
+                "name": "每日总结",
                 "count": 1
             },
             {

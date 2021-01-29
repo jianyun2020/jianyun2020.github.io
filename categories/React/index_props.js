@@ -78,7 +78,7 @@ export default {
         "categories": [
             {
                 "name": "面试",
-                "count": 5
+                "count": 4
             },
             {
                 "name": "React",
@@ -91,6 +91,10 @@ export default {
             {
                 "name": "数据结构与算法",
                 "count": 2
+            },
+            {
+                "name": "每日总结",
+                "count": 1
             }
         ],
         "tags": [
@@ -100,19 +104,19 @@ export default {
             },
             {
                 "name": "JavaScript",
-                "count": 6
-            },
-            {
-                "name": "面试",
                 "count": 5
             },
             {
-                "name": "CSS",
-                "count": 3
+                "name": "面试",
+                "count": 4
             },
             {
                 "name": "React",
                 "count": 3
+            },
+            {
+                "name": "CSS",
+                "count": 2
             },
             {
                 "name": "数据结构与算法",
@@ -123,15 +127,15 @@ export default {
                 "count": 1
             },
             {
-                "name": "HTML",
-                "count": 1
-            },
-            {
                 "name": "前端本地存储",
                 "count": 1
             },
             {
                 "name": "垃圾回收机制",
+                "count": 1
+            },
+            {
+                "name": "每日总结",
                 "count": 1
             },
             {
