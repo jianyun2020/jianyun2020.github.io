@@ -22,7 +22,7 @@
 <li>JSX语法规则：
 <ol>
 <li>定义虚拟DOM时，不要加引号，如<code>&lt;h1&gt;我是虚拟DOM&lt;/h1&gt;</code></li>
-<li>标签中混入js表达式时需要用<code>{}</code></li>
+<li>标签中混入<strong>js表达式</strong>时需要用<code>{}</code></li>
 <li>添加类名时需要用小驼峰<code>className</code>，不要用<code>class</code></li>
 <li>使用内联样式<code>style</code>时，需要使用<code>{{}}</code>，里边的<code>{}</code>表示对象。如<code>{{color: 'red'; fontSize: 'px'}}</code>，里边的属性需要使用小驼峰替代<code>-</code>的写法</li>
 <li>只能有一个跟标签</li>
@@ -33,6 +33,27 @@
 <li>如果是大写字母开头，react就去渲染对应组件，若组件未定义，则报错</li>
 </ol>
 </li>
+</ol>
+</li>
+<li>js语句（代码）与js表达式
+<ol>
+<li>js语句：
+<ol>
+<li><code>if () {}</code></li>
+<li><code>for () {}</code></li>
+<li><code>switch () {}</code></li>
+<li>...</li>
+</ol>
+</li>
+<li>js表达式
+<ol>
+<li><code>a</code></li>
+<li><code>a+b</code></li>
+<li><code>arr.map()</code></li>
+<li><code>function test () {}</code></li>
+</ol>
+</li>
+<li>总结：js表达式有返回值，能直接赋值给变量</li>
 </ol>
 </li>
 </ol></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
