@@ -36,3 +36,13 @@ tags:
       3. `arr.map()`
       4. `function test () {}`
    3. 总结：js表达式有返回值，能直接赋值给变量
+6. 函数定义的组件：执行`ReactDOM.render(<MyComponent />, ...)`之后发生了什么？
+   1. React解析组件标签，找到了`MyComponent`组件
+   2. 发现组件使用函数定义，随后调用该函数，将返回的虚拟DOM转为真实DOM，随后呈现在页面中
+7. 类定义的组件：执行`ReactDOM.render(<MyComponent />, ...)`之后发生了什么？
+   1. React解析组件标签，找到了`MyComponent`组件
+   2. 发现组件使用类定义，随后`new`出来该类的实例，并通过实例调用原型上的`render()`方法
+   3. 将render返回的虚拟DOM转为真实DOM，随后呈现在页面中
+8. 组件`实例`的三大核心属性：
+   1. `state`:
+      1. 不可直接更改，需要借助内置的API`setState({})`
