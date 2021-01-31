@@ -63,7 +63,7 @@ export default {
                 "title": "每日总结",
                 "link": "posts/2021-1-29.html",
                 "date": "2021-01-29T11:38:40.000Z",
-                "updated": "2021-01-31T15:13:26.000Z",
+                "updated": "2021-01-31T15:15:06.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -74,7 +74,7 @@ export default {
                 "tags": [
                     "每日总结"
                 ],
-                "excerpt": "太菜"
+                "excerpt": "周末时间利用"
             },
             {
                 "pagePath": "posts/前端本地存储.md",
