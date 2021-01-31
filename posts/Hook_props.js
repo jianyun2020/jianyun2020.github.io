@@ -42,7 +42,7 @@ export default {
                 "title": "React学习笔记",
                 "link": "posts/React笔记.html",
                 "date": "2021-01-29T14:58:22.000Z",
-                "updated": "2021-01-29T15:38:17.000Z",
+                "updated": "2021-01-31T15:13:26.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -61,7 +61,7 @@ export default {
                 "title": "每日总结",
                 "link": "posts/2021-1-29.html",
                 "date": "2021-01-29T11:38:40.000Z",
-                "updated": null,
+                "updated": "2021-01-31T15:13:26.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -72,7 +72,7 @@ export default {
                 "tags": [
                     "每日总结"
                 ],
-                "excerpt": ""
+                "excerpt": "太菜"
             },
             {
                 "pagePath": "posts/前端本地存储.md",

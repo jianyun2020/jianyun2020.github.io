@@ -56,4 +56,26 @@
 <li>总结：js表达式有返回值，能直接赋值给变量</li>
 </ol>
 </li>
+<li>函数定义的组件：执行<code>ReactDOM.render(&lt;MyComponent /&gt;, ...)</code>之后发生了什么？
+<ol>
+<li>React解析组件标签，找到了<code>MyComponent</code>组件</li>
+<li>发现组件使用函数定义，随后调用该函数，将返回的虚拟DOM转为真实DOM，随后呈现在页面中</li>
+</ol>
+</li>
+<li>类定义的组件：执行<code>ReactDOM.render(&lt;MyComponent /&gt;, ...)</code>之后发生了什么？
+<ol>
+<li>React解析组件标签，找到了<code>MyComponent</code>组件</li>
+<li>发现组件使用类定义，随后<code>new</code>出来该类的实例，并通过实例调用原型上的<code>render()</code>方法</li>
+<li>将render返回的虚拟DOM转为真实DOM，随后呈现在页面中</li>
+</ol>
+</li>
+<li>组件<code>实例</code>的三大核心属性：
+<ol>
+<li><code>state</code>:
+<ol>
+<li>不可直接更改，需要借助内置的API<code>setState({})</code></li>
+</ol>
+</li>
+</ol>
+</li>
 </ol></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

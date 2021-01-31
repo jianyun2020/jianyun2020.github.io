@@ -6,7 +6,7 @@ export default {
     'outputPath': "posts/2021-1-29.html",
     'title': "每日总结",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h1>每日总结</h1>'
+            __html: '<h1>每日总结</h1>\n<p>太菜</p>'
         } }),
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'script': React.createElement(React.Fragment, null,
@@ -15,7 +15,7 @@ export default {
         React.createElement("script", { src: "/index.js", type: "module" })),
     'contentTitle': React.createElement("h1", { key: "0" }, "\u6BCF\u65E5\u603B\u7ED3"),
     'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: ''
+            __html: '<p>太菜</p>'
         } }),
     'toc': null,
     'author': "jianyun2020",
@@ -23,8 +23,8 @@ export default {
         "jianyun2020"
     ],
     'date': "2021-01-29T11:38:40.000Z",
-    'updated': null,
-    'excerpt': "",
+    'updated': "2021-01-31T15:13:26.000Z",
+    'excerpt': "太菜",
     'cover': undefined,
     'categories': [
         "每日总结"
@@ -40,7 +40,7 @@ export default {
                 "title": "React学习笔记",
                 "link": "posts/React笔记.html",
                 "date": "2021-01-29T14:58:22.000Z",
-                "updated": "2021-01-29T15:38:17.000Z",
+                "updated": "2021-01-31T15:13:26.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -59,7 +59,7 @@ export default {
                 "title": "每日总结",
                 "link": "posts/2021-1-29.html",
                 "date": "2021-01-29T11:38:40.000Z",
-                "updated": null,
+                "updated": "2021-01-31T15:13:26.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -70,7 +70,7 @@ export default {
                 "tags": [
                     "每日总结"
                 ],
-                "excerpt": ""
+                "excerpt": "太菜"
             },
             {
                 "pagePath": "posts/前端本地存储.md",

@@ -6,7 +6,7 @@ export default {
     'outputPath': "posts/React笔记.html",
     'title': "React学习笔记",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h1>React学习笔记</h1>\n<ol>\n<li>在html中简易使用jsx语法时，需要引入babel插件，同时设置<code>&lt;script type=&quot;text/babel&quot;&gt;&lt;/script&gt;</code></li>\n<li>js语法创建虚拟DOM：<code>React.createElement(\'h1\', {id: \'test\'}, \'Hello, React\')</code></li>\n<li>关于虚拟DOM：\n<ol>\n<li>本质就是Object类型的对象</li>\n<li>虚拟DOM是React内部用，无需真实DOM上那么多属性</li>\n<li>虚拟DOM最终会被转换为真实DOM</li>\n</ol>\n</li>\n<li>JSX语法规则：\n<ol>\n<li>定义虚拟DOM时，不要加引号，如<code>&lt;h1&gt;我是虚拟DOM&lt;/h1&gt;</code></li>\n<li>标签中混入<strong>js表达式</strong>时需要用<code>{}</code></li>\n<li>添加类名时需要用小驼峰<code>className</code>，不要用<code>class</code></li>\n<li>使用内联样式<code>style</code>时，需要使用<code>{{}}</code>，里边的<code>{}</code>表示对象。如<code>{{color: \'red\'; fontSize: \'px\'}}</code>，里边的属性需要使用小驼峰替代<code>-</code>的写法</li>\n<li>只能有一个跟标签</li>\n<li>标签必须闭合</li>\n<li>标签的首字母：\n<ol>\n<li>如果是小写字母开头，则将标签转为html中同名标签，如果html中没有对应标签，则报错</li>\n<li>如果是大写字母开头，react就去渲染对应组件，若组件未定义，则报错</li>\n</ol>\n</li>\n</ol>\n</li>\n<li>js语句（代码）与js表达式\n<ol>\n<li>js语句：\n<ol>\n<li><code>if () {}</code></li>\n<li><code>for () {}</code></li>\n<li><code>switch () {}</code></li>\n<li>...</li>\n</ol>\n</li>\n<li>js表达式\n<ol>\n<li><code>a</code></li>\n<li><code>a+b</code></li>\n<li><code>arr.map()</code></li>\n<li><code>function test () {}</code></li>\n</ol>\n</li>\n<li>总结：js表达式有返回值，能直接赋值给变量</li>\n</ol>\n</li>\n</ol>'
+            __html: '<h1>React学习笔记</h1>\n<ol>\n<li>在html中简易使用jsx语法时，需要引入babel插件，同时设置<code>&lt;script type=&quot;text/babel&quot;&gt;&lt;/script&gt;</code></li>\n<li>js语法创建虚拟DOM：<code>React.createElement(\'h1\', {id: \'test\'}, \'Hello, React\')</code></li>\n<li>关于虚拟DOM：\n<ol>\n<li>本质就是Object类型的对象</li>\n<li>虚拟DOM是React内部用，无需真实DOM上那么多属性</li>\n<li>虚拟DOM最终会被转换为真实DOM</li>\n</ol>\n</li>\n<li>JSX语法规则：\n<ol>\n<li>定义虚拟DOM时，不要加引号，如<code>&lt;h1&gt;我是虚拟DOM&lt;/h1&gt;</code></li>\n<li>标签中混入<strong>js表达式</strong>时需要用<code>{}</code></li>\n<li>添加类名时需要用小驼峰<code>className</code>，不要用<code>class</code></li>\n<li>使用内联样式<code>style</code>时，需要使用<code>{{}}</code>，里边的<code>{}</code>表示对象。如<code>{{color: \'red\'; fontSize: \'px\'}}</code>，里边的属性需要使用小驼峰替代<code>-</code>的写法</li>\n<li>只能有一个跟标签</li>\n<li>标签必须闭合</li>\n<li>标签的首字母：\n<ol>\n<li>如果是小写字母开头，则将标签转为html中同名标签，如果html中没有对应标签，则报错</li>\n<li>如果是大写字母开头，react就去渲染对应组件，若组件未定义，则报错</li>\n</ol>\n</li>\n</ol>\n</li>\n<li>js语句（代码）与js表达式\n<ol>\n<li>js语句：\n<ol>\n<li><code>if () {}</code></li>\n<li><code>for () {}</code></li>\n<li><code>switch () {}</code></li>\n<li>...</li>\n</ol>\n</li>\n<li>js表达式\n<ol>\n<li><code>a</code></li>\n<li><code>a+b</code></li>\n<li><code>arr.map()</code></li>\n<li><code>function test () {}</code></li>\n</ol>\n</li>\n<li>总结：js表达式有返回值，能直接赋值给变量</li>\n</ol>\n</li>\n<li>函数定义的组件：执行<code>ReactDOM.render(&lt;MyComponent /&gt;, ...)</code>之后发生了什么？\n<ol>\n<li>React解析组件标签，找到了<code>MyComponent</code>组件</li>\n<li>发现组件使用函数定义，随后调用该函数，将返回的虚拟DOM转为真实DOM，随后呈现在页面中</li>\n</ol>\n</li>\n<li>类定义的组件：执行<code>ReactDOM.render(&lt;MyComponent /&gt;, ...)</code>之后发生了什么？\n<ol>\n<li>React解析组件标签，找到了<code>MyComponent</code>组件</li>\n<li>发现组件使用类定义，随后<code>new</code>出来该类的实例，并通过实例调用原型上的<code>render()</code>方法</li>\n<li>将render返回的虚拟DOM转为真实DOM，随后呈现在页面中</li>\n</ol>\n</li>\n<li>组件<code>实例</code>的三大核心属性：\n<ol>\n<li><code>state</code>:\n<ol>\n<li>不可直接更改，需要借助内置的API<code>setState({})</code></li>\n</ol>\n</li>\n</ol>\n</li>\n</ol>'
         } }),
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'script': React.createElement(React.Fragment, null,
@@ -15,7 +15,7 @@ export default {
         React.createElement("script", { src: "/index.js", type: "module" })),
     'contentTitle': React.createElement("h1", { key: "0" }, "React\u5B66\u4E60\u7B14\u8BB0"),
     'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<ol>\n<li>在html中简易使用jsx语法时，需要引入babel插件，同时设置<code>&lt;script type=&quot;text/babel&quot;&gt;&lt;/script&gt;</code></li>\n<li>js语法创建虚拟DOM：<code>React.createElement(\'h1\', {id: \'test\'}, \'Hello, React\')</code></li>\n<li>关于虚拟DOM：\n<ol>\n<li>本质就是Object类型的对象</li>\n<li>虚拟DOM是React内部用，无需真实DOM上那么多属性</li>\n<li>虚拟DOM最终会被转换为真实DOM</li>\n</ol>\n</li>\n<li>JSX语法规则：\n<ol>\n<li>定义虚拟DOM时，不要加引号，如<code>&lt;h1&gt;我是虚拟DOM&lt;/h1&gt;</code></li>\n<li>标签中混入<strong>js表达式</strong>时需要用<code>{}</code></li>\n<li>添加类名时需要用小驼峰<code>className</code>，不要用<code>class</code></li>\n<li>使用内联样式<code>style</code>时，需要使用<code>{{}}</code>，里边的<code>{}</code>表示对象。如<code>{{color: \'red\'; fontSize: \'px\'}}</code>，里边的属性需要使用小驼峰替代<code>-</code>的写法</li>\n<li>只能有一个跟标签</li>\n<li>标签必须闭合</li>\n<li>标签的首字母：\n<ol>\n<li>如果是小写字母开头，则将标签转为html中同名标签，如果html中没有对应标签，则报错</li>\n<li>如果是大写字母开头，react就去渲染对应组件，若组件未定义，则报错</li>\n</ol>\n</li>\n</ol>\n</li>\n<li>js语句（代码）与js表达式\n<ol>\n<li>js语句：\n<ol>\n<li><code>if () {}</code></li>\n<li><code>for () {}</code></li>\n<li><code>switch () {}</code></li>\n<li>...</li>\n</ol>\n</li>\n<li>js表达式\n<ol>\n<li><code>a</code></li>\n<li><code>a+b</code></li>\n<li><code>arr.map()</code></li>\n<li><code>function test () {}</code></li>\n</ol>\n</li>\n<li>总结：js表达式有返回值，能直接赋值给变量</li>\n</ol>\n</li>\n</ol>'
+            __html: '<ol>\n<li>在html中简易使用jsx语法时，需要引入babel插件，同时设置<code>&lt;script type=&quot;text/babel&quot;&gt;&lt;/script&gt;</code></li>\n<li>js语法创建虚拟DOM：<code>React.createElement(\'h1\', {id: \'test\'}, \'Hello, React\')</code></li>\n<li>关于虚拟DOM：\n<ol>\n<li>本质就是Object类型的对象</li>\n<li>虚拟DOM是React内部用，无需真实DOM上那么多属性</li>\n<li>虚拟DOM最终会被转换为真实DOM</li>\n</ol>\n</li>\n<li>JSX语法规则：\n<ol>\n<li>定义虚拟DOM时，不要加引号，如<code>&lt;h1&gt;我是虚拟DOM&lt;/h1&gt;</code></li>\n<li>标签中混入<strong>js表达式</strong>时需要用<code>{}</code></li>\n<li>添加类名时需要用小驼峰<code>className</code>，不要用<code>class</code></li>\n<li>使用内联样式<code>style</code>时，需要使用<code>{{}}</code>，里边的<code>{}</code>表示对象。如<code>{{color: \'red\'; fontSize: \'px\'}}</code>，里边的属性需要使用小驼峰替代<code>-</code>的写法</li>\n<li>只能有一个跟标签</li>\n<li>标签必须闭合</li>\n<li>标签的首字母：\n<ol>\n<li>如果是小写字母开头，则将标签转为html中同名标签，如果html中没有对应标签，则报错</li>\n<li>如果是大写字母开头，react就去渲染对应组件，若组件未定义，则报错</li>\n</ol>\n</li>\n</ol>\n</li>\n<li>js语句（代码）与js表达式\n<ol>\n<li>js语句：\n<ol>\n<li><code>if () {}</code></li>\n<li><code>for () {}</code></li>\n<li><code>switch () {}</code></li>\n<li>...</li>\n</ol>\n</li>\n<li>js表达式\n<ol>\n<li><code>a</code></li>\n<li><code>a+b</code></li>\n<li><code>arr.map()</code></li>\n<li><code>function test () {}</code></li>\n</ol>\n</li>\n<li>总结：js表达式有返回值，能直接赋值给变量</li>\n</ol>\n</li>\n<li>函数定义的组件：执行<code>ReactDOM.render(&lt;MyComponent /&gt;, ...)</code>之后发生了什么？\n<ol>\n<li>React解析组件标签，找到了<code>MyComponent</code>组件</li>\n<li>发现组件使用函数定义，随后调用该函数，将返回的虚拟DOM转为真实DOM，随后呈现在页面中</li>\n</ol>\n</li>\n<li>类定义的组件：执行<code>ReactDOM.render(&lt;MyComponent /&gt;, ...)</code>之后发生了什么？\n<ol>\n<li>React解析组件标签，找到了<code>MyComponent</code>组件</li>\n<li>发现组件使用类定义，随后<code>new</code>出来该类的实例，并通过实例调用原型上的<code>render()</code>方法</li>\n<li>将render返回的虚拟DOM转为真实DOM，随后呈现在页面中</li>\n</ol>\n</li>\n<li>组件<code>实例</code>的三大核心属性：\n<ol>\n<li><code>state</code>:\n<ol>\n<li>不可直接更改，需要借助内置的API<code>setState({})</code></li>\n</ol>\n</li>\n</ol>\n</li>\n</ol>'
         } }),
     'toc': null,
     'author': "jianyun2020",
@@ -23,7 +23,7 @@ export default {
         "jianyun2020"
     ],
     'date': "2021-01-29T14:58:22.000Z",
-    'updated': "2021-01-29T15:38:17.000Z",
+    'updated': "2021-01-31T15:13:26.000Z",
     'excerpt': " 1. 在html中简易使用jsx语法时，需要引入babel插件，同时设置<script type=\"text/babel\"></script> 2. js语法创建虚拟DOM：React.createElement('h1', {id: 'test'}, 'Hello, React') 3. 关于虚拟DOM： 1. 本质就是Object类型...",
     'cover': undefined,
     'categories': [
@@ -41,7 +41,7 @@ export default {
                 "title": "React学习笔记",
                 "link": "posts/React笔记.html",
                 "date": "2021-01-29T14:58:22.000Z",
-                "updated": "2021-01-29T15:38:17.000Z",
+                "updated": "2021-01-31T15:13:26.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -60,7 +60,7 @@ export default {
                 "title": "每日总结",
                 "link": "posts/2021-1-29.html",
                 "date": "2021-01-29T11:38:40.000Z",
-                "updated": null,
+                "updated": "2021-01-31T15:13:26.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -71,7 +71,7 @@ export default {
                 "tags": [
                     "每日总结"
                 ],
-                "excerpt": ""
+                "excerpt": "太菜"
             },
             {
                 "pagePath": "posts/前端本地存储.md",
