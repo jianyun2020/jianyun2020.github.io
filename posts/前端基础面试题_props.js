@@ -1,18 +1,44 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "tags/学习笔记/",
-    'layoutPath': "archives/_layout.tsx",
-    'outputPath': "tags/学习笔记/index.html",
-    'head': null,
+    'pagePath': "posts/前端基础面试题.md",
+    'layoutPath': "posts/_layout.tsx",
+    'outputPath': "posts/前端基础面试题.html",
+    'title': "HTML篇",
+    'content': React.createElement("article", { dangerouslySetInnerHTML: {
+            __html: '<h1>HTML篇</h1>\n<h2 id="%E8%AF%B4%E8%AF%B4title%E5%92%8Calt%E5%B1%9E%E6%80%A7">说说title和alt属性<a class="anchor" href="#%E8%AF%B4%E8%AF%B4title%E5%92%8Calt%E5%B1%9E%E6%80%A7">§</a></h2>\n<h2 id="html5%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E7%89%B9%E6%80%A7%E7%A7%BB%E9%99%A4%E4%BA%86%E5%93%AA%E4%BA%9B%E5%85%83%E7%B4%A0">HTML5有哪些新特性、移除了哪些元素<a class="anchor" href="#html5%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E7%89%B9%E6%80%A7%E7%A7%BB%E9%99%A4%E4%BA%86%E5%93%AA%E4%BA%9B%E5%85%83%E7%B4%A0">§</a></h2>\n<h2 id="iframe%E6%9C%89%E9%82%A3%E4%BA%9B%E7%BC%BA%E7%82%B9">iframe有那些缺点？<a class="anchor" href="#iframe%E6%9C%89%E9%82%A3%E4%BA%9B%E7%BC%BA%E7%82%B9">§</a></h2>\n<h2 id="html-w3c%E7%9A%84%E6%A0%87%E5%87%86">HTML W3C的标准<a class="anchor" href="#html-w3c%E7%9A%84%E6%A0%87%E5%87%86">§</a></h2>\n<h2 id="doctype%E4%BD%9C%E7%94%A8-%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%B7%B7%E6%9D%82%E6%A8%A1%E5%BC%8F%E5%A6%82%E4%BD%95%E5%8C%BA%E5%88%86%E5%AE%83%E4%BB%AC%E6%9C%89%E4%BD%95%E6%84%8F%E4%B9%89">Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?<a class="anchor" href="#doctype%E4%BD%9C%E7%94%A8-%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%B7%B7%E6%9D%82%E6%A8%A1%E5%BC%8F%E5%A6%82%E4%BD%95%E5%8C%BA%E5%88%86%E5%AE%83%E4%BB%AC%E6%9C%89%E4%BD%95%E6%84%8F%E4%B9%89">§</a></h2>\n<h2 id="html%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7global-attribute%E6%9C%89%E5%93%AA%E4%BA%9B">HTML全局属性(global attribute)有哪些<a class="anchor" href="#html%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7global-attribute%E6%9C%89%E5%93%AA%E4%BA%9B">§</a></h2>\n<h2 id="viewport%E7%9A%84content%E5%B1%9E%E6%80%A7%E4%BD%9C%E7%94%A8">viewport的content属性作用<a class="anchor" href="#viewport%E7%9A%84content%E5%B1%9E%E6%80%A7%E4%BD%9C%E7%94%A8">§</a></h2>\n<h2 id="divcss%E7%9A%84%E5%B8%83%E5%B1%80%E8%BE%83table%E5%B8%83%E5%B1%80%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%82%B9">div+css的布局较table布局有什么优点<a class="anchor" href="#divcss%E7%9A%84%E5%B8%83%E5%B1%80%E8%BE%83table%E5%B8%83%E5%B1%80%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%82%B9">§</a></h2>\n<h2 id="src%E4%B8%8Ehref%E7%9A%84%E5%8C%BA%E5%88%AB">src与href的区别<a class="anchor" href="#src%E4%B8%8Ehref%E7%9A%84%E5%8C%BA%E5%88%AB">§</a></h2>\n<h1>CSS篇</h1>\n<h2 id="link-%E4%B8%8E-import-%E7%9A%84%E5%8C%BA%E5%88%AB">link 与 @import 的区别<a class="anchor" href="#link-%E4%B8%8E-import-%E7%9A%84%E5%8C%BA%E5%88%AB">§</a></h2>\n<h2 id="bfc-%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8">BFC 有什么用<a class="anchor" href="#bfc-%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8">§</a></h2>\n<h2 id=""><a class="anchor" href="#">§</a></h2>'
+        } }),
+    'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'title': "学习笔记",
-    'content': null,
+    'contentTitle': React.createElement("h1", { key: "0" }, "HTML\u7BC7"),
+    'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
+            __html: '<h2 id="%E8%AF%B4%E8%AF%B4title%E5%92%8Calt%E5%B1%9E%E6%80%A7">说说title和alt属性<a class="anchor" href="#%E8%AF%B4%E8%AF%B4title%E5%92%8Calt%E5%B1%9E%E6%80%A7">§</a></h2>\n<h2 id="html5%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E7%89%B9%E6%80%A7%E7%A7%BB%E9%99%A4%E4%BA%86%E5%93%AA%E4%BA%9B%E5%85%83%E7%B4%A0">HTML5有哪些新特性、移除了哪些元素<a class="anchor" href="#html5%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E7%89%B9%E6%80%A7%E7%A7%BB%E9%99%A4%E4%BA%86%E5%93%AA%E4%BA%9B%E5%85%83%E7%B4%A0">§</a></h2>\n<h2 id="iframe%E6%9C%89%E9%82%A3%E4%BA%9B%E7%BC%BA%E7%82%B9">iframe有那些缺点？<a class="anchor" href="#iframe%E6%9C%89%E9%82%A3%E4%BA%9B%E7%BC%BA%E7%82%B9">§</a></h2>\n<h2 id="html-w3c%E7%9A%84%E6%A0%87%E5%87%86">HTML W3C的标准<a class="anchor" href="#html-w3c%E7%9A%84%E6%A0%87%E5%87%86">§</a></h2>\n<h2 id="doctype%E4%BD%9C%E7%94%A8-%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%B7%B7%E6%9D%82%E6%A8%A1%E5%BC%8F%E5%A6%82%E4%BD%95%E5%8C%BA%E5%88%86%E5%AE%83%E4%BB%AC%E6%9C%89%E4%BD%95%E6%84%8F%E4%B9%89">Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?<a class="anchor" href="#doctype%E4%BD%9C%E7%94%A8-%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%B7%B7%E6%9D%82%E6%A8%A1%E5%BC%8F%E5%A6%82%E4%BD%95%E5%8C%BA%E5%88%86%E5%AE%83%E4%BB%AC%E6%9C%89%E4%BD%95%E6%84%8F%E4%B9%89">§</a></h2>\n<h2 id="html%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7global-attribute%E6%9C%89%E5%93%AA%E4%BA%9B">HTML全局属性(global attribute)有哪些<a class="anchor" href="#html%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7global-attribute%E6%9C%89%E5%93%AA%E4%BA%9B">§</a></h2>\n<h2 id="viewport%E7%9A%84content%E5%B1%9E%E6%80%A7%E4%BD%9C%E7%94%A8">viewport的content属性作用<a class="anchor" href="#viewport%E7%9A%84content%E5%B1%9E%E6%80%A7%E4%BD%9C%E7%94%A8">§</a></h2>\n<h2 id="divcss%E7%9A%84%E5%B8%83%E5%B1%80%E8%BE%83table%E5%B8%83%E5%B1%80%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%82%B9">div+css的布局较table布局有什么优点<a class="anchor" href="#divcss%E7%9A%84%E5%B8%83%E5%B1%80%E8%BE%83table%E5%B8%83%E5%B1%80%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%82%B9">§</a></h2>\n<h2 id="src%E4%B8%8Ehref%E7%9A%84%E5%8C%BA%E5%88%AB">src与href的区别<a class="anchor" href="#src%E4%B8%8Ehref%E7%9A%84%E5%8C%BA%E5%88%AB">§</a></h2>\n<h1>CSS篇</h1>\n<h2 id="link-%E4%B8%8E-import-%E7%9A%84%E5%8C%BA%E5%88%AB">link 与 @import 的区别<a class="anchor" href="#link-%E4%B8%8E-import-%E7%9A%84%E5%8C%BA%E5%88%AB">§</a></h2>\n<h2 id="bfc-%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8">BFC 有什么用<a class="anchor" href="#bfc-%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8">§</a></h2>\n<h2 id=""><a class="anchor" href="#">§</a></h2>'
+        } }),
+    'toc': React.createElement("aside", { dangerouslySetInnerHTML: {
+            __html: '<nav class="toc"><ol><li><a href="#%E8%AF%B4%E8%AF%B4title%E5%92%8Calt%E5%B1%9E%E6%80%A7">说说title和alt属性</a></li><li><a href="#html5%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B0%E7%89%B9%E6%80%A7%E7%A7%BB%E9%99%A4%E4%BA%86%E5%93%AA%E4%BA%9B%E5%85%83%E7%B4%A0">HTML5有哪些新特性、移除了哪些元素</a></li><li><a href="#iframe%E6%9C%89%E9%82%A3%E4%BA%9B%E7%BC%BA%E7%82%B9">iframe有那些缺点？</a></li><li><a href="#html-w3c%E7%9A%84%E6%A0%87%E5%87%86">HTML W3C的标准</a></li><li><a href="#doctype%E4%BD%9C%E7%94%A8-%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E4%B8%8E%E6%B7%B7%E6%9D%82%E6%A8%A1%E5%BC%8F%E5%A6%82%E4%BD%95%E5%8C%BA%E5%88%86%E5%AE%83%E4%BB%AC%E6%9C%89%E4%BD%95%E6%84%8F%E4%B9%89">Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</a></li><li><a href="#html%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7global-attribute%E6%9C%89%E5%93%AA%E4%BA%9B">HTML全局属性(global attribute)有哪些</a></li><li><a href="#viewport%E7%9A%84content%E5%B1%9E%E6%80%A7%E4%BD%9C%E7%94%A8">viewport的content属性作用</a></li><li><a href="#divcss%E7%9A%84%E5%B8%83%E5%B1%80%E8%BE%83table%E5%B8%83%E5%B1%80%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%82%B9">div+css的布局较table布局有什么优点</a></li><li><a href="#src%E4%B8%8Ehref%E7%9A%84%E5%8C%BA%E5%88%AB">src与href的区别</a></li><li><a href="#link-%E4%B8%8E-import-%E7%9A%84%E5%8C%BA%E5%88%AB">link 与 @import 的区别</a></li><li><a href="#bfc-%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8">BFC 有什么用</a></li><li><a href="#"></a></li></ol></nav>'
+        } }),
+    'author': "jianyun2020",
+    'contributors': [
+        "jianyun2020"
+    ],
+    'date': "2021-01-27T07:14:50.000Z",
+    'updated': "2021-02-01T04:46:51.000Z",
+    'excerpt': "说说title和alt属性 HTML5有哪些新特性、移除了哪些元素 iframe有那些缺点？ HTML W3C的标准 Doctype作用? 严格模式与混杂模式如何区分？它们有何意义? HTML全局属性(global attribute)有哪些 viewport的content属性作用 div+c...",
+    'cover': undefined,
+    'categories': [
+        "面试"
+    ],
+    'tags': [
+        "面试",
+        "HTML",
+        "CSS",
+        "JavaScript"
+    ],
     'blog': {
-        "isPost": false,
+        "isPost": true,
         "posts": [
             {
                 "pagePath": "posts/UE4.md",
@@ -52,6 +78,45 @@ export default {
                     "学习笔记"
                 ],
                 "excerpt": " 1. 在html中简易使用jsx语法时，需要引入babel插件，同时设置<script type=\"text/babel\"></script> 2. js语法创建虚拟DOM：React.createElement('h1', {id: 'test'}, 'Hello, React') 3. 关于虚拟DOM： 1. 本质就是Object类型..."
+            },
+            {
+                "pagePath": "posts/2021-1-29.md",
+                "title": "每日总结",
+                "link": "posts/2021-1-29.html",
+                "date": "2021-01-29T11:38:40.000Z",
+                "updated": "2021-01-31T15:15:06.000Z",
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "每日总结"
+                ],
+                "tags": [
+                    "每日总结"
+                ],
+                "excerpt": "周末时间利用"
+            },
+            {
+                "pagePath": "posts/前端基础面试题.md",
+                "title": "HTML篇",
+                "link": "posts/前端基础面试题.html",
+                "date": "2021-01-27T07:14:50.000Z",
+                "updated": "2021-02-01T04:46:51.000Z",
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "面试"
+                ],
+                "tags": [
+                    "面试",
+                    "HTML",
+                    "CSS",
+                    "JavaScript"
+                ],
+                "excerpt": "说说title和alt属性 HTML5有哪些新特性、移除了哪些元素 iframe有那些缺点？ HTML W3C的标准 Doctype作用? 严格模式与混杂模式如何区分？它们有何意义? HTML全局属性(global attribute)有哪些 viewport的content属性作用 div+c..."
             },
             {
                 "pagePath": "posts/前端本地存储.md",

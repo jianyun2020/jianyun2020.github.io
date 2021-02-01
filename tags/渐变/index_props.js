@@ -38,11 +38,11 @@ export default {
         ],
         "categories": [
             {
-                "name": "React",
-                "count": 4
+                "name": "面试",
+                "count": 5
             },
             {
-                "name": "面试",
+                "name": "React",
                 "count": 4
             },
             {
@@ -52,6 +52,10 @@ export default {
             {
                 "name": "数据结构与算法",
                 "count": 2
+            },
+            {
+                "name": "UE4",
+                "count": 1
             },
             {
                 "name": "每日总结",
@@ -61,10 +65,14 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 12
+                "count": 13
             },
             {
                 "name": "JavaScript",
+                "count": 6
+            },
+            {
+                "name": "面试",
                 "count": 5
             },
             {
@@ -72,12 +80,8 @@ export default {
                 "count": 4
             },
             {
-                "name": "面试",
-                "count": 4
-            },
-            {
                 "name": "CSS",
-                "count": 2
+                "count": 3
             },
             {
                 "name": "数据结构与算法",
@@ -85,6 +89,14 @@ export default {
             },
             {
                 "name": "background",
+                "count": 1
+            },
+            {
+                "name": "HTML",
+                "count": 1
+            },
+            {
+                "name": "UE4",
                 "count": 1
             },
             {

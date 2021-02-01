@@ -37,6 +37,26 @@ export default {
         "isPost": true,
         "posts": [
             {
+                "pagePath": "posts/UE4.md",
+                "title": "UE4学习笔记",
+                "link": "posts/UE4.html",
+                "date": "2021-02-01T04:46:51.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "UE4"
+                ],
+                "tags": [
+                    "UE4",
+                    "学习笔记"
+                ],
+                "excerpt": " 1. 常用快捷键 ",
+                "cover": "images/shortcut_key1.png"
+            },
+            {
                 "pagePath": "posts/React笔记.md",
                 "title": "React学习笔记",
                 "link": "posts/React笔记.html",
@@ -72,6 +92,27 @@ export default {
                     "每日总结"
                 ],
                 "excerpt": "周末时间利用"
+            },
+            {
+                "pagePath": "posts/前端基础面试题.md",
+                "title": "HTML篇",
+                "link": "posts/前端基础面试题.html",
+                "date": "2021-01-27T07:14:50.000Z",
+                "updated": "2021-02-01T04:46:51.000Z",
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "面试"
+                ],
+                "tags": [
+                    "面试",
+                    "HTML",
+                    "CSS",
+                    "JavaScript"
+                ],
+                "excerpt": "说说title和alt属性 HTML5有哪些新特性、移除了哪些元素 iframe有那些缺点？ HTML W3C的标准 Doctype作用? 严格模式与混杂模式如何区分？它们有何意义? HTML全局属性(global attribute)有哪些 viewport的content属性作用 div+c..."
             },
             {
                 "pagePath": "posts/前端本地存储.md",
@@ -298,11 +339,11 @@ export default {
         ],
         "categories": [
             {
-                "name": "React",
-                "count": 4
+                "name": "面试",
+                "count": 5
             },
             {
-                "name": "面试",
+                "name": "React",
                 "count": 4
             },
             {
@@ -312,6 +353,10 @@ export default {
             {
                 "name": "数据结构与算法",
                 "count": 2
+            },
+            {
+                "name": "UE4",
+                "count": 1
             },
             {
                 "name": "每日总结",
@@ -321,10 +366,14 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 12
+                "count": 13
             },
             {
                 "name": "JavaScript",
+                "count": 6
+            },
+            {
+                "name": "面试",
                 "count": 5
             },
             {
@@ -332,12 +381,8 @@ export default {
                 "count": 4
             },
             {
-                "name": "面试",
-                "count": 4
-            },
-            {
                 "name": "CSS",
-                "count": 2
+                "count": 3
             },
             {
                 "name": "数据结构与算法",
@@ -345,6 +390,14 @@ export default {
             },
             {
                 "name": "background",
+                "count": 1
+            },
+            {
+                "name": "HTML",
+                "count": 1
+            },
+            {
+                "name": "UE4",
                 "count": 1
             },
             {

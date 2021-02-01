@@ -1,38 +1,38 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "tags/前端本地存储/",
+    'pagePath': "categories/UE4/",
     'layoutPath': "archives/_layout.tsx",
-    'outputPath': "tags/前端本地存储/index.html",
+    'outputPath': "categories/UE4/index.html",
     'head': null,
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'title': "前端本地存储",
+    'title': "UE4",
     'content': null,
     'blog': {
         "isPost": false,
         "posts": [
             {
-                "pagePath": "posts/前端本地存储.md",
-                "title": "前端本地存储",
-                "link": "posts/前端本地存储.html",
-                "date": "2021-01-27T03:51:39.000Z",
+                "pagePath": "posts/UE4.md",
+                "title": "UE4学习笔记",
+                "link": "posts/UE4.html",
+                "date": "2021-02-01T04:46:51.000Z",
                 "updated": null,
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "面试"
+                    "UE4"
                 ],
                 "tags": [
-                    "面试",
-                    "学习笔记",
-                    "前端本地存储"
+                    "UE4",
+                    "学习笔记"
                 ],
-                "excerpt": "cookie 作用 cookie是纯文本，没有可执行代码。存储数据，当用户访问了某个网站（网页）的时候，我们就可以通过cookie来向访问者电脑上存储数据，或者某些网站为了辨别用户身份、进行session跟踪而储存在用户本地终端上的数据（..."
+                "excerpt": " 1. 常用快捷键 ",
+                "cover": "images/shortcut_key1.png"
             }
         ],
         "categories": [

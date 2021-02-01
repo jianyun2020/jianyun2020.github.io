@@ -1,18 +1,40 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "tags/学习笔记/",
-    'layoutPath': "archives/_layout.tsx",
-    'outputPath': "tags/学习笔记/index.html",
-    'head': null,
+    'pagePath': "posts/UE4.md",
+    'layoutPath': "posts/_layout.tsx",
+    'outputPath': "posts/UE4.html",
+    'title': "UE4学习笔记",
+    'content': React.createElement("article", { dangerouslySetInnerHTML: {
+            __html: '<h1>UE4学习笔记</h1>\n<ol>\n<li>常用快捷键</li>\n</ol>\n<p><img src="images/shortcut_key1.png" alt=""></p>\n<p><img src="images/shortcut_key2.png" alt=""></p>\n<p><img src="images/shortcut_key3.png" alt=""></p>'
+        } }),
+    'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'title': "学习笔记",
-    'content': null,
+    'contentTitle': React.createElement("h1", { key: "0" }, "UE4\u5B66\u4E60\u7B14\u8BB0"),
+    'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
+            __html: '<ol>\n<li>常用快捷键</li>\n</ol>\n<p><img src="images/shortcut_key1.png" alt=""></p>\n<p><img src="images/shortcut_key2.png" alt=""></p>\n<p><img src="images/shortcut_key3.png" alt=""></p>'
+        } }),
+    'toc': null,
+    'author': "jianyun2020",
+    'contributors': [
+        "jianyun2020"
+    ],
+    'date': "2021-02-01T04:46:51.000Z",
+    'updated': null,
+    'excerpt': " 1. 常用快捷键 ",
+    'cover': "images/shortcut_key1.png",
+    'categories': [
+        "UE4"
+    ],
+    'tags': [
+        "UE4",
+        "学习笔记"
+    ],
     'blog': {
-        "isPost": false,
+        "isPost": true,
         "posts": [
             {
                 "pagePath": "posts/UE4.md",
@@ -52,6 +74,45 @@ export default {
                     "学习笔记"
                 ],
                 "excerpt": " 1. 在html中简易使用jsx语法时，需要引入babel插件，同时设置<script type=\"text/babel\"></script> 2. js语法创建虚拟DOM：React.createElement('h1', {id: 'test'}, 'Hello, React') 3. 关于虚拟DOM： 1. 本质就是Object类型..."
+            },
+            {
+                "pagePath": "posts/2021-1-29.md",
+                "title": "每日总结",
+                "link": "posts/2021-1-29.html",
+                "date": "2021-01-29T11:38:40.000Z",
+                "updated": "2021-01-31T15:15:06.000Z",
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "每日总结"
+                ],
+                "tags": [
+                    "每日总结"
+                ],
+                "excerpt": "周末时间利用"
+            },
+            {
+                "pagePath": "posts/前端基础面试题.md",
+                "title": "HTML篇",
+                "link": "posts/前端基础面试题.html",
+                "date": "2021-01-27T07:14:50.000Z",
+                "updated": "2021-02-01T04:46:51.000Z",
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "面试"
+                ],
+                "tags": [
+                    "面试",
+                    "HTML",
+                    "CSS",
+                    "JavaScript"
+                ],
+                "excerpt": "说说title和alt属性 HTML5有哪些新特性、移除了哪些元素 iframe有那些缺点？ HTML W3C的标准 Doctype作用? 严格模式与混杂模式如何区分？它们有何意义? HTML全局属性(global attribute)有哪些 viewport的content属性作用 div+c..."
             },
             {
                 "pagePath": "posts/前端本地存储.md",
