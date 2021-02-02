@@ -44,7 +44,7 @@ export default {
                 "title": "UE4学习笔记",
                 "link": "posts/UE4.html",
                 "date": "2021-02-01T04:46:51.000Z",
-                "updated": null,
+                "updated": "2021-02-02T04:59:50.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -56,7 +56,7 @@ export default {
                     "UE4",
                     "学习笔记"
                 ],
-                "excerpt": " 1. 常用快捷键 ",
+                "excerpt": " 1. 常用快捷键 2. 变更路线节点：Reroute Node",
                 "cover": "images/shortcut_key1.png"
             },
             {
