@@ -73,9 +73,90 @@
 <ol>
 <li><code>state</code>:
 <ol>
-<li>不可直接更改，需要借助内置的API<code>setState({})</code></li>
+<li>初始化状态（不用构造器）：<code>state = {}</code></li>
+<li>不可直接更改，需要借助内置的API：<code>setState({})</code></li>
 </ol>
 </li>
+<li><code>props</code>
+<ol>
+<li>批量传递标签属性：<code>{...p}</code>
+2.对props进行限制：</li>
 </ol>
+<pre class="language-jsx"><code class="language-jsx">  <span class="token comment">// prop-types.js</span>
+  <span class="token keyword">static</span> propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
+     name<span class="token operator">:</span> <span class="token maybe-class-name">PropTypes</span><span class="token punctuation">.</span><span class="token property-access">string</span><span class="token punctuation">.</span><span class="token property-access">isRequired</span><span class="token punctuation">,</span>
+     age<span class="token operator">:</span> <span class="token maybe-class-name">PropTypes</span><span class="token punctuation">.</span><span class="token property-access">number</span><span class="token punctuation">,</span>
+     fun<span class="token operator">:</span> <span class="token maybe-class-name">PropTypes</span><span class="token punctuation">.</span><span class="token property-access">func</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">static</span> defaultProps <span class="token operator">=</span> <span class="token punctuation">{</span>
+     age<span class="token operator">:</span> <span class="token number">18</span>
+  <span class="token punctuation">}</span>
+
+</code></pre>
+<ol start="3">
+<li>props是只读的，不能更改</li>
+<li>构造器是否接受<code>props</code>,是否传给<code>super</code>,取决于：是否希望在构造器中通过<code>this</code>访问<code>props</code></li>
+</ol>
+</li>
+<li><code>refs</code>
+<ol>
+<li>字符串形式的<code>ref</code>：<code>&lt;input ref='input1' /&gt;</code> (效率不高，不推荐，可能废弃)</li>
+<li>回调函数形式<code>ref</code>：<code>&lt;input ref={(currentNode) =&gt; {this.input1 = currentNode}}/&gt;</code>
+<ul>
+<li>回调函数执行次数问题
+<ul>
+<li>内联函数：更新过程会被执行两次, 第一次传参<code>null</code>, 第二次传参<code>DOM元素</code>, 这是因为在每次渲染时会创建一个新的函数实例，所以 React 清空旧的 ref 并且设置新的</li>
+<li>class的绑定函数可以避免上述问题</li>
+</ul>
+<pre class="language-jsx"><code class="language-jsx">   <span class="token function-variable function">func</span> <span class="token operator">=</span> <span class="token parameter">c</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">input1</span> <span class="token operator">=</span> c<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+   <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;input ref={this.func} /></span><span class="token template-punctuation string">`</span></span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><code>createRef</code></li>
+</ol>
+<pre class="language-js"><code class="language-js">   <span class="token comment">// React.createRef调用后可以返回一个容器，该容器可以存储被ref所标识的节点，该容器是“专人专用”的</span>
+   myRef <span class="token operator">=</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">createRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+   <span class="token function-variable function">showData</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">myRef</span><span class="token punctuation">.</span><span class="token property-access">current</span><span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ol>
+</li>
+<li>展开运算符: <code>...</code>常用的几种用法
+<ol>
+<li>在数组中使用</li>
+</ol>
+<pre class="language-js"><code class="language-js">   <span class="token keyword">let</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+   <span class="token keyword">let</span> arr2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+   <span class="token keyword">let</span> arr3 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token spread operator">...</span>arr1<span class="token punctuation">,</span> <span class="token spread operator">...</span>arr2<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 连接数组 [1, 2, 3, 4, 5, 6]</span>
+</code></pre>
+<ol start="2">
+<li>在函数中使用</li>
+</ol>
+<pre class="language-js"><code class="language-js">   <span class="token keyword">function</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token parameter"><span class="token spread operator">...</span>numbers</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword control-flow">return</span> numbers<span class="token punctuation">.</span><span class="token method function property-access">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">preValue<span class="token punctuation">,</span> currentValue</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+         <span class="token keyword control-flow">return</span> preValue <span class="token operator">+</span> currentValue<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+</code></pre>
+<ol start="3">
+<li>构造字面量对象时使用展开语法</li>
+</ol>
+<pre class="language-js"><code class="language-js">   <span class="token keyword">let</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token operator">:</span> <span class="token string">'tom'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">19</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+   <span class="token keyword">let</span> person2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token spread operator">...</span>person<span class="token punctuation">}</span><span class="token punctuation">;</span>
+   <span class="token comment">// console.log(...person); // 报错，展开运算符不能展开对象</span>
+   person<span class="token punctuation">.</span><span class="token property-access">name</span> <span class="token operator">=</span> <span class="token string">'jerry'</span><span class="token punctuation">;</span>
+   <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>person2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// {name: 'tom', age: 19}</span>
+   <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// {name: 'jerry', age: 19}</span>
+
+   <span class="token comment">// 合并</span>
+   <span class="token keyword">let</span> person3 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token spread operator">...</span>person<span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'jack'</span><span class="token punctuation">,</span> address<span class="token operator">:</span> <span class="token string">'地球'</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+   <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>person3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// {name: 'jack', age: 19, address: '地球'}</span>
+</code></pre>
 </li>
 </ol></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
