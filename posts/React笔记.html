@@ -218,4 +218,35 @@
 </code></pre>
 <ul>
 <li>函数的柯里化：通过函数调用继续返回函数的方式，实现多次接收参数最后统一处理的函数编码形式</li>
-</ul></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
+</ul>
+<ol start="13">
+<li>React的生命周期</li>
+</ol>
+<p>生命周期回调函数 &lt;=&gt; 生命周期钩子函数 &lt;=&gt; 生命周期函数 &lt;=&gt; 生命周期钩子</p>
+<p><strong>卸载组件：</strong>
+<code>React.unmountComponentAtNode(document.getElementById('root'))</code></p>
+<p><img src="images/lifeold.png" alt=""></p>
+<ul>
+<li>初始化阶段：由<code>React.render()</code>触发---初次渲染
+<ul>
+<li><code>constructor()</code></li>
+<li><code>componentWillMount()</code></li>
+<li><code>render()</code></li>
+<li><code>componentDidMount()</code>===&gt;常用：一般在这个钩子中做一些初始化的事，例如：开启定时器、订阅消息、发送网络请求</li>
+</ul>
+</li>
+<li>更新阶段：由组件内部<code>this.setState()</code>或<code>父组件render</code>触发
+<ul>
+<li><code>shouldComponentUpdate()</code></li>
+<li><code>componentWillUpdate()</code></li>
+<li><code>render()</code>===&gt;必须使用</li>
+<li><code>componentDidUpdate()</code></li>
+</ul>
+</li>
+<li>卸载阶段：由<code>React.unmountComponentAtNode()</code>触发
+<ul>
+<li><code>componentWillUnmount()</code>===&gt;常用：一般在这个钩子中做一些收尾的事，例如：关闭定时器、取消订阅</li>
+</ul>
+</li>
+</ul>
+<p><img src="images/lifenew.png" alt=""></p></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
