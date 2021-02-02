@@ -157,3 +157,27 @@ handleFormData(dataType, event) {
 ```
 
 - 函数的柯里化：通过函数调用继续返回函数的方式，实现多次接收参数最后统一处理的函数编码形式
+
+13. React的生命周期
+
+生命周期回调函数 <=> 生命周期钩子函数 <=> 生命周期函数 <=> 生命周期钩子
+
+**卸载组件：**
+`React.unmountComponentAtNode(document.getElementById('root'))`
+
+![](images/lifeold.png)
+
+- 初始化阶段：由`React.render()`触发---初次渲染
+  - `constructor()`
+  - `componentWillMount()`
+  - `render()`
+  - `componentDidMount()`===>常用：一般在这个钩子中做一些初始化的事，例如：开启定时器、订阅消息、发送网络请求
+- 更新阶段：由组件内部`this.setState()`或`父组件render`触发
+  - `shouldComponentUpdate()`
+  - `componentWillUpdate()`
+  - `render()`===>必须使用
+  - `componentDidUpdate()`
+- 卸载阶段：由`React.unmountComponentAtNode()`触发
+  - `componentWillUnmount()`===>常用：一般在这个钩子中做一些收尾的事，例如：关闭定时器、取消订阅
+
+![](images/lifenew.png)
