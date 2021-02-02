@@ -159,4 +159,63 @@
    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>person3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// {name: 'jack', age: 19, address: '地球'}</span>
 </code></pre>
 </li>
-</ol></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
+<li>React中的事件处理</li>
+</ol>
+<ul>
+<li>通过onXxx属性指定事件处理函数（注意大小写）
+<ul>
+<li>React使用的是自定义（合成）事件，而不是使用的原生DOM事件————为了更好的兼容性</li>
+<li>React中的事件是通过事件委托方式处理的（委托给组件最外层的元素）————为了更高效</li>
+</ul>
+</li>
+<li>通过event.target得到发生事件的DOM元素对象————不要过渡的使用ref</li>
+</ul>
+<pre class="language-js"><code class="language-js">   <span class="token function-variable function">showData</span> <span class="token operator">=</span> <span class="token parameter">event</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span><span class="token property-access">target</span><span class="token punctuation">.</span><span class="token property-access">value</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+   <span class="token operator">&lt;</span>input onBlur<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">showData</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+</code></pre>
+<ol start="11">
+<li>受控组件和非受控组件</li>
+</ol>
+<ul>
+<li>非受控组件：现用现取</li>
+<li>受控组件：随着输入维护状态(State)--推荐</li>
+</ul>
+<ol start="12">
+<li>高阶函数和函数柯里化</li>
+</ol>
+<ul>
+<li>高阶函数：如果一个函数符合下面2个规范中的任何一个，那该函数就是高阶函数
+<ul>
+<li>若A函数接收的<code>参数是一个函数</code>，那么A就可以称为高阶函数</li>
+<li>若A函数，调用的<code>返回值依然是一个函数</code>，那么A就可以称为高阶函数</li>
+<li>常见的高阶函数：<code>Promise</code>,<code>setTimeout</code>,<code>arr.map()</code></li>
+</ul>
+</li>
+</ul>
+<pre class="language-js"><code class="language-js"><span class="token comment">// 柯里化方式</span>
+<span class="token function">handleFormData</span><span class="token punctuation">(</span><span class="token parameter">dataType</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+         <span class="token punctuation">[</span>dataType<span class="token punctuation">]</span><span class="token operator">:</span> event<span class="token punctuation">.</span><span class="token property-access">target</span><span class="token punctuation">.</span><span class="token property-access">value</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">&lt;</span>input onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">handleFormData</span><span class="token punctuation">(</span><span class="token string">'username'</span><span class="token punctuation">)</span><span class="token punctuation">}</span> type<span class="token operator">=</span><span class="token string">"text"</span> name<span class="token operator">=</span><span class="token string">"username"</span><span class="token operator">/</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>input onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">handleFormData</span><span class="token punctuation">(</span><span class="token string">'password'</span><span class="token punctuation">)</span><span class="token punctuation">}</span> type<span class="token operator">=</span><span class="token string">"password"</span> name<span class="token operator">=</span><span class="token string">"password"</span><span class="token operator">/</span><span class="token operator">></span>
+
+<span class="token comment">// 非柯里化方式</span>
+<span class="token function">handleFormData</span><span class="token punctuation">(</span><span class="token parameter">dataType<span class="token punctuation">,</span> event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token punctuation">[</span>dataType<span class="token punctuation">]</span><span class="token operator">:</span> event<span class="token punctuation">.</span><span class="token property-access">target</span><span class="token punctuation">.</span><span class="token property-access">value</span>
+   <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">&lt;</span>input onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token parameter">event</span> <span class="token arrow operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">handleFormData</span><span class="token punctuation">(</span><span class="token string">'username'</span><span class="token punctuation">,</span> event<span class="token punctuation">)</span><span class="token punctuation">}</span> type<span class="token operator">=</span><span class="token string">"text"</span> name<span class="token operator">=</span><span class="token string">"username"</span><span class="token operator">/</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>input onChange<span class="token operator">=</span><span class="token punctuation">{</span><span class="token parameter">event</span> <span class="token arrow operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">handleFormData</span><span class="token punctuation">(</span><span class="token string">'password'</span><span class="token punctuation">,</span> event<span class="token punctuation">)</span><span class="token punctuation">}</span> type<span class="token operator">=</span><span class="token string">"password"</span> name<span class="token operator">=</span><span class="token string">"password"</span><span class="token operator">/</span><span class="token operator">></span>
+</code></pre>
+<ul>
+<li>函数的柯里化：通过函数调用继续返回函数的方式，实现多次接收参数最后统一处理的函数编码形式</li>
+</ul></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
