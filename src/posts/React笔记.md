@@ -112,3 +112,48 @@ tags:
       let person3 = {...person, name: 'jack', address: '地球'};
       console.log(person3); // {name: 'jack', age: 19, address: '地球'}
    ```
+10. React中的事件处理
+   - 通过onXxx属性指定事件处理函数（注意大小写）
+      - React使用的是自定义（合成）事件，而不是使用的原生DOM事件————为了更好的兼容性
+      - React中的事件是通过事件委托方式处理的（委托给组件最外层的元素）————为了更高效
+   - 通过event.target得到发生事件的DOM元素对象————不要过渡的使用ref
+   ```js
+      showData = event => {
+         console.log(event.target.value);
+      }
+      <input onBlur={this.showData} />
+   ```
+11. 受控组件和非受控组件
+- 非受控组件：现用现取
+- 受控组件：随着输入维护状态(State)--推荐
+
+12. 高阶函数和函数柯里化
+- 高阶函数：如果一个函数符合下面2个规范中的任何一个，那该函数就是高阶函数
+   - 若A函数接收的`参数是一个函数`，那么A就可以称为高阶函数
+   - 若A函数，调用的`返回值依然是一个函数`，那么A就可以称为高阶函数
+   - 常见的高阶函数：`Promise`,`setTimeout`,`arr.map()`
+```js
+// 柯里化方式
+handleFormData(dataType) {
+   return (event) => {
+      this.setState({
+         [dataType]: event.target.value
+      })
+   }
+}
+
+<input onChange={this.handleFormData('username')} type="text" name="username"/>
+<input onChange={this.handleFormData('password')} type="password" name="password"/>
+
+// 非柯里化方式
+handleFormData(dataType, event) {
+   this.setState({
+      [dataType]: event.target.value
+   })
+}
+
+<input onChange={event => this.handleFormData('username', event)} type="text" name="username"/>
+<input onChange={event => this.handleFormData('password', event)} type="password" name="password"/>
+```
+
+- 函数的柯里化：通过函数调用继续返回函数的方式，实现多次接收参数最后统一处理的函数编码形式
