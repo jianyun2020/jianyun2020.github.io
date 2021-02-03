@@ -385,4 +385,54 @@
 </li>
 </ol>
 </li>
+<li>
+<p>React路由：</p>
+<ol>
+<li><code>react-router-dom</code></li>
+<li>明确好界面的导航区和展示区</li>
+<li>导航区的a标签改为<code>&lt;Link to=&quot;/xxx&quot;&gt;Demo&lt;/Link&gt;</code>,<code>&lt;NavLink activeClassName={active-style}&gt;&lt;/NavLink&gt;</code></li>
+<li>展示区写<code>Route</code>标签进行路径匹配:<code>&lt;Route path=&quot;/xxx' component={Demo} /&gt;</code></li>
+<li>在<code>&lt;App /&gt;</code>的最外侧包裹<code>&lt;BrowserRouter&gt;</code>或<code>&lt;HashRouter&gt;</code></li>
+</ol>
+</li>
+<li>
+<p>一般组件和路由组件</p>
+<ol>
+<li>写法不同：
+<ol>
+<li>一般组件：<code>&lt;Demo /&gt;</code></li>
+<li>路由组件：<code>&lt;Route path=&quot;/demo&quot; component={Demo}&gt;</code></li>
+</ol>
+</li>
+<li>存放位置不同
+<ol>
+<li>一般组件：<code>components</code></li>
+<li>路由组件：<code>pages</code></li>
+</ol>
+</li>
+<li>接收到的<code>props</code>不同
+<ol>
+<li>一般组件：写组件标签时传递了什么，就能收到什么</li>
+<li>路由组件：接收到三个固定的属性<pre class="language-autoit"><code class="language-autoit">history<span class="token punctuation">:</span>
+   go<span class="token punctuation">:</span> f <span class="token function">go</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+   goBack<span class="token punctuation">:</span> f <span class="token function">goBack</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+   goForward<span class="token punctuation">:</span> f <span class="token function">goForWard</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+   push<span class="token punctuation">:</span> f <span class="token function">push</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> state<span class="token punctuation">)</span>
+   replace<span class="token punctuation">:</span> f <span class="token function">replace</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> state<span class="token punctuation">)</span>
+
+location<span class="token punctuation">:</span> 
+   pathname<span class="token punctuation">:</span> <span class="token string">"/about"</span>
+   search<span class="token punctuation">:</span> <span class="token string">""</span>
+   state<span class="token punctuation">:</span> undefined
+
+match<span class="token punctuation">:</span> 
+   params<span class="token punctuation">:</span> {}
+   path<span class="token punctuation">:</span> <span class="token string">"/about"</span>
+   url<span class="token punctuation">:</span> <span class="token string">"/about"</span>
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+</li>
 </ol></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
