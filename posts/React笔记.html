@@ -324,5 +324,65 @@
 <li>
 <p><code>uuid</code>和<code>nanoid</code>库，用于生成唯一的ID值</p>
 </li>
-<li></li>
+<li>
+<p>todoList案例相关知识点：</p>
+<ol>
+<li>拆分组件、实现静态组件，注意：<code>className</code>、<code>style</code>的写法</li>
+<li>动态初始化列表，如果确定将数据放在哪个组件的<code>state</code>中?
+<ol>
+<li>某个组件使用：放在其自身的<code>state</code>中</li>
+<li>某些组件使用：放在他们共同的父组件<code>state</code>中（官方称为：状态提升）</li>
+</ol>
+</li>
+<li>关于父子组件之间通信：
+<ol>
+<li>父组件给子组件传递数据：通过<code>props</code>传递</li>
+<li>子组件给父组件传递数据：通过<code>props</code>传递，要求父组件提前给子组件传递一个函数</li>
+</ol>
+</li>
+<li>注意<code>defaultChecked</code>和<code>checked</code>的区别，类似的还有<code>defaultValue</code>和<code>value</code>：<code>default</code>开头的只在初次渲染起作用。</li>
+<li>状态在哪里，操作状态的方法就在哪里</li>
+</ol>
+</li>
+<li>
+<p><code>axios</code></p>
+<ol>
+<li>封装<code>XmlHttpRequest</code>对象的<code>ajax</code></li>
+<li><code>promise</code>风格</li>
+<li>可以在浏览器端和node服务端使用</li>
+</ol>
+</li>
+<li>
+<p>React配置代理</p>
+<ol>
+<li>
+<p>方式一:</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// package.json</span>
+<span class="token string">"proxy"</span><span class="token operator">:</span> <span class="token string">"<a class="token url-link" href="http://localhost:5000">http://localhost:5000</a>"</span>  <span class="token comment">// 3000端口没有的才转发给5000</span>
+</code></pre>
+</li>
+<li>
+<p>方式二：</p>
+<pre class="language-js"><code class="language-js">   <span class="token comment">// src/setupProxy.js</span>
+   <span class="token comment">// common js</span>
+   <span class="token keyword">const</span> proxy <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http-proxy-middleware'</span><span class="token punctuation">)</span>
+
+   module<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">app</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      app<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span>
+         <span class="token function">proxy</span><span class="token punctuation">(</span><span class="token operator">/</span>api1<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            target<span class="token operator">:</span> <span class="token string">'<a class="token url-link" href="http://localhost:5000">http://localhost:5000</a>'</span><span class="token punctuation">,</span>
+            changeOrigin<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 控制服务器收到的请求头中Host字段的值</span>
+            pathRewrite<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token string">'^/api1'</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">}</span>
+         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+         <span class="token function">proxy</span><span class="token punctuation">(</span><span class="token operator">/</span>api2<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            target<span class="token operator">:</span> <span class="token string">'<a class="token url-link" href="http://localhost:5001">http://localhost:5001</a>'</span><span class="token punctuation">,</span>
+            changeOrigin<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            pathRewrite<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token string">'^/api2'</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">}</span>
+         <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">)</span>
+   <span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ol>
+</li>
 </ol></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
