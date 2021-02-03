@@ -222,4 +222,47 @@ handleFormData(dataType, event) {
 
 16. `uuid`和`nanoid`库，用于生成唯一的ID值
 
-17. 
+17.  todoList案例相关知识点：
+     1.   拆分组件、实现静态组件，注意：`className`、`style`的写法
+     2.   动态初始化列表，如果确定将数据放在哪个组件的`state`中?
+          1.   某个组件使用：放在其自身的`state`中
+          2.   某些组件使用：放在他们共同的父组件`state`中（官方称为：状态提升）
+     3.   关于父子组件之间通信：
+          1.   父组件给子组件传递数据：通过`props`传递
+          2.   子组件给父组件传递数据：通过`props`传递，要求父组件提前给子组件传递一个函数
+     4.   注意`defaultChecked`和`checked`的区别，类似的还有`defaultValue`和`value`：`default`开头的只在初次渲染起作用。
+     5.   状态在哪里，操作状态的方法就在哪里
+
+18. `axios`
+    1.  封装`XmlHttpRequest`对象的`ajax`
+    2.  `promise`风格
+    3.  可以在浏览器端和node服务端使用
+
+19. React配置代理
+    1.  方式一:
+         ```js
+         // package.json
+         "proxy": "http://localhost:5000"  // 3000端口没有的才转发给5000
+         ```
+    2. 方式二：
+
+         ```js
+            // src/setupProxy.js
+            // common js
+            const proxy = require('http-proxy-middleware')
+
+            module.exports = function(app) {
+               app.use(
+                  proxy(/api1, {
+                     target: 'http://localhost:5000',
+                     changeOrigin: true, // 控制服务器收到的请求头中Host字段的值
+                     pathRewrite: {'^/api1': ''}
+                  }),
+                  proxy(/api2, {
+                     target: 'http://localhost:5001',
+                     changeOrigin: true,
+                     pathRewrite: {'^/api2': ''}
+                  })
+               )
+            }
+         ```
