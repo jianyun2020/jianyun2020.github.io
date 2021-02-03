@@ -266,3 +266,39 @@ handleFormData(dataType, event) {
                )
             }
          ```
+
+20. React路由：
+    1.  `react-router-dom`
+    2.  明确好界面的导航区和展示区
+    3.  导航区的a标签改为`<Link to="/xxx">Demo</Link>`,`<NavLink activeClassName={active-style}></NavLink>`
+    4.  展示区写`Route`标签进行路径匹配:`<Route path="/xxx' component={Demo} />`
+    5.  在`<App />`的最外侧包裹`<BrowserRouter>`或`<HashRouter>`
+
+21. 一般组件和路由组件
+    1.  写法不同：
+        1.  一般组件：`<Demo />`
+        2.  路由组件：`<Route path="/demo" component={Demo}>`
+    2.  存放位置不同
+        1.  一般组件：`components`
+        2.  路由组件：`pages`
+    3.  接收到的`props`不同
+        1.  一般组件：写组件标签时传递了什么，就能收到什么
+        2.  路由组件：接收到三个固定的属性
+            ```
+            history:
+               go: f go(n)
+               goBack: f goBack()
+               goForward: f goForWard()
+               push: f push(path, state)
+               replace: f replace(path, state)
+            
+            location: 
+               pathname: "/about"
+               search: ""
+               state: undefined
+            
+            match: 
+               params: {}
+               path: "/about"
+               url: "/about"
+            ```
