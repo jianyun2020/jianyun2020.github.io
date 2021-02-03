@@ -218,4 +218,8 @@ handleFormData(dataType, event) {
   - 最好使用每条数据的唯一标识作为key，比如id、手机号、身份证号、学号等唯一标识
   - 如果确定只是简单的展示数据，用index也是可以的
 
-15. 
+15. 安装React脚手架：`npm install -g create-react-app`
+
+16. `uuid`和`nanoid`库，用于生成唯一的ID值
+
+17. 
