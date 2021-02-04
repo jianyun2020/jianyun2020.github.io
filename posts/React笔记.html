@@ -386,6 +386,30 @@
 </ol>
 </li>
 <li>
+<p>连续解构赋值</p>
+</li>
+</ol>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> obj  <span class="token operator">=</span> <span class="token punctuation">{</span>a<span class="token operator">:</span> <span class="token punctuation">{</span>b<span class="token operator">:</span> <span class="token punctuation">{</span>c<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span>a<span class="token operator">:</span><span class="token punctuation">{</span>b<span class="token operator">:</span><span class="token punctuation">{</span>c<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span> <span class="token comment">// c: 1</span>
+
+<span class="token comment">// 同时重命名</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span>a<span class="token operator">:</span><span class="token punctuation">{</span>b<span class="token operator">:</span><span class="token punctuation">{</span>c<span class="token operator">:</span>data<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span> <span class="token comment">// data: 1</span>
+</code></pre>
+<ol start="21">
+<li>
+<p>消息订阅与发布机制：<code>PubSubJS</code></p>
+<ol>
+<li><code>npm install pubsub-js</code></li>
+<li><code>import PubSub from 'pubsub-js'</code></li>
+<li>订阅消息<code>let token = PubSub.subscribe('msgName', (data) =&gt; {...})</code></li>
+<li>发布消息<code>PubSub.publish('msgName', data)</code></li>
+<li>取消订阅<code>PubSub.unsubscribe(token)</code></li>
+</ol>
+</li>
+<li>
+<p><code>Fetch</code>:原生函数，不再使用<code>XmlHttpRequest</code>对象提交<code>ajax</code>请求，老版本浏览器可能不支持（关注分离的设计思想）</p>
+</li>
+<li>
 <p>React路由：</p>
 <ol>
 <li><code>react-router-dom</code></li>
@@ -461,19 +485,17 @@ match<span class="token punctuation">:</span>
 <p><code>&lt;Redirect&gt;</code>的使用</p>
 <ol>
 <li>一般卸载所有路由注册的最下方，当所有路由都无法匹配时，跳转到Redirect指定的路由</li>
-<li>
-<pre class="language-js"><code class="language-js"></code></pre>
-</li>
+<li></li>
 </ol>
 </li>
 </ol>
-   <Switch>
-      <Route path="/about" components={About} />
-      <Route path="/home" components={Home} />
-      <Redirect to="/about" />
-   </Switch>
-```
-<ol start="27">
+<pre class="language-js"><code class="language-js">   <span class="token operator">&lt;</span><span class="token maybe-class-name">Switch</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token maybe-class-name">Route</span> path<span class="token operator">=</span><span class="token string">"/about"</span> components<span class="token operator">=</span><span class="token punctuation">{</span><span class="token maybe-class-name">About</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token maybe-class-name">Route</span> path<span class="token operator">=</span><span class="token string">"/home"</span> components<span class="token operator">=</span><span class="token punctuation">{</span><span class="token maybe-class-name">Home</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token maybe-class-name">Redirect</span> to<span class="token operator">=</span><span class="token string">"/about"</span> <span class="token operator">/</span><span class="token operator">></span>
+   <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token maybe-class-name">Switch</span><span class="token operator">></span>
+</code></pre>
+<ol start="30">
 <li>嵌套路由</li>
 </ol>
 <ul>
