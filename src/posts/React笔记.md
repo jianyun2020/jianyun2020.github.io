@@ -266,3 +266,24 @@ handleFormData(dataType, event) {
                )
             }
          ```
+
+20. 连续解构赋值
+
+```js
+let obj  = {a: {b: {c: 1}}};
+const {a:{b:{c}}} = obj; // c: 1
+
+// 同时重命名
+const {a:{b:{c:data}}} = obj; // data: 1
+```
+
+21. 消息订阅与发布机制：`PubSubJS`
+    1.  `npm install pubsub-js`
+    2.  `import PubSub from 'pubsub-js'`
+    3.  订阅消息`let token = PubSub.subscribe('msgName', (data) => {...})`
+    4.  发布消息`PubSub.publish('msgName', data)`
+    5.  取消订阅`PubSub.unsubscribe(token)`
+
+22. `Fetch`:原生函数，不再使用`XmlHttpRequest`对象提交`ajax`请求，老版本浏览器可能不支持（关注分离的设计思想）
+
+23. 
