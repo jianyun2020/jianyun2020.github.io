@@ -286,4 +286,67 @@ const {a:{b:{c:data}}} = obj; // data: 1
 
 22. `Fetch`:原生函数，不再使用`XmlHttpRequest`对象提交`ajax`请求，老版本浏览器可能不支持（关注分离的设计思想）
 
-23. 
+23. React路由：
+    1.  `react-router-dom`
+    2.  明确好界面的导航区和展示区
+    3.  导航区的a标签改为`<Link to="/xxx">Demo</Link>`,`<NavLink activeClassName={active-style}></NavLink>`
+    4.  展示区写`Route`标签进行路径匹配:`<Route path="/xxx' component={Demo} />`
+    5.  在`<App />`的最外侧包裹`<BrowserRouter>`或`<HashRouter>`
+
+24. 一般组件和路由组件
+    1.  写法不同：
+        1.  一般组件：`<Demo />`
+        2.  路由组件：`<Route path="/demo" component={Demo}>`
+    2.  存放位置不同
+        1.  一般组件：`components`
+        2.  路由组件：`pages`
+    3.  接收到的`props`不同
+        1.  一般组件：写组件标签时传递了什么，就能收到什么
+        2.  路由组件：接收到三个固定的属性
+            ```
+            history:
+               go: f go(n)
+               goBack: f goBack()
+               goForward: f goForWard()
+               push: f push(path, state)
+               replace: f replace(path, state)
+            
+            location: 
+               pathname: "/about"
+               search: ""
+               state: undefined
+            
+            match: 
+               params: {}
+               path: "/about"
+               url: "/about"
+            ```
+
+25. 解决多级路径刷新页面样式丢失问题
+    1.  public/index.html中引入样式不用相对路径`./`,而是用绝对路径`/`（常用）
+    2.  public/index.html中引入样式用`%PUBLIC_URL%`(常用)
+    3.  使用`HashRouter`
+
+26. `<Switch></Switch>`解决路由多次匹配问题（单一匹配，提高效率）
+
+27. 封装`<MyNavLink></MyNavLink>`: `this.props.children`,`{...props}`
+
+28. 路由的模糊匹配和严格匹配（`exact`）
+    1. 默认使用模糊匹配（输入的路径和必须包含匹配的路径，且顺序要一致）
+    2. 开启严格匹配`<Route exact path="/demo" component={Demo} />`
+    3. 严格模式不要随便开启，需要再开启，有些时候开启会导致无法继续匹配二级路由
+
+29. `<Redirect>`的使用
+    1.  一般卸载所有路由注册的最下方，当所有路由都无法匹配时，跳转到Redirect指定的路由
+    2.  
+```js
+   <Switch>
+      <Route path="/about" components={About} />
+      <Route path="/home" components={Home} />
+      <Redirect to="/about" />
+   </Switch>
+```
+
+30. 嵌套路由
+- 注册子路由时要写上父路由的`path`
+- 路由的匹配是按照路由注册的顺序进行的
