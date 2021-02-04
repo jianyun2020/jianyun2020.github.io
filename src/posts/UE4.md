@@ -18,3 +18,7 @@ tags:
 
 
 2. 变更路线节点：`Reroute Node`
+
+3. `Execute Console Command`命令
+   1. 设置分辨率`r.setRes 1920x1080`
+   2. 
