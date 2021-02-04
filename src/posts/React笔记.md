@@ -302,3 +302,31 @@ handleFormData(dataType, event) {
                path: "/about"
                url: "/about"
             ```
+
+22. 解决多级路径刷新页面样式丢失问题
+    1.  public/index.html中引入样式不用相对路径`./`,而是用绝对路径`/`（常用）
+    2.  public/index.html中引入样式用`%PUBLIC_URL%`(常用)
+    3.  使用`HashRouter`
+
+23. `<Switch></Switch>`解决路由多次匹配问题（单一匹配，提高效率）
+
+24. 封装`<MyNavLink></MyNavLink>`: `this.props.children`,`{...props}`
+
+25. 路由的模糊匹配和严格匹配（`exact`）
+    1. 默认使用模糊匹配（输入的路径和必须包含匹配的路径，且顺序要一致）
+    2. 开启严格匹配`<Route exact path="/demo" component={Demo} />`
+    3. 严格模式不要随便开启，需要再开启，有些时候开启会导致无法继续匹配二级路由
+
+26. `<Redirect>`的使用
+    1.  一般卸载所有路由注册的最下方，当所有路由都无法匹配时，跳转到Redirect指定的路由
+    2.  ```js
+   <Switch>
+      <Route path="/about" components={About} />
+      <Route path="/home" components={Home} />
+      <Redirect to="/about" />
+   </Switch>
+```
+
+27. 嵌套路由
+- 注册子路由时要写上父路由的`path`
+- 路由的匹配是按照路由注册的顺序进行的
