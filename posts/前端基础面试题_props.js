@@ -45,7 +45,7 @@ export default {
                 "title": "UE4学习笔记",
                 "link": "posts/UE4.html",
                 "date": "2021-02-01T04:46:51.000Z",
-                "updated": "2021-02-04T09:29:39.000Z",
+                "updated": "2021-02-05T02:12:44.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -57,7 +57,7 @@ export default {
                     "UE4",
                     "学习笔记"
                 ],
-                "excerpt": " 1. 常用快捷键 2. 变更路线节点：Reroute Node 3. Execute Console Command命令 1. 设置分辨率r.setRes 1920x1080 2. ",
+                "excerpt": " 1. 常用快捷键 2. 变更路线节点：Reroute Node 3. Execute Console Command命令 1. 设置分辨率r.setRes 1920x1080 1.",
                 "cover": "images/shortcut_key1.png"
             },
             {
