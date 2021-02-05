@@ -6,7 +6,7 @@ export default {
     'outputPath': "posts/UE4.html",
     'title': "UE4学习笔记",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h1>UE4学习笔记</h1>\n<ol>\n<li>常用快捷键</li>\n</ol>\n<p><img src="images/shortcut_key1.png" alt=""></p>\n<p><img src="images/shortcut_key2.png" alt=""></p>\n<p><img src="images/shortcut_key3.png" alt=""></p>\n<ol start="2">\n<li>\n<p>变更路线节点：<code>Reroute Node</code></p>\n</li>\n<li>\n<p><code>Execute Console Command</code>命令</p>\n<ol>\n<li>设置分辨率<code>r.setRes 1920x1080</code>\n1.</li>\n</ol>\n</li>\n</ol>'
+            __html: '<h1>UE4学习笔记</h1>\n<ol>\n<li>常用快捷键</li>\n</ol>\n<p><img src="images/shortcut_key1.png" alt=""></p>\n<p><img src="images/shortcut_key2.png" alt=""></p>\n<p><img src="images/shortcut_key3.png" alt=""></p>\n<ol start="2">\n<li>\n<p>变更路线节点：<code>Reroute Node</code></p>\n</li>\n<li>\n<p><code>Execute Console Command</code>命令</p>\n<ol>\n<li>设置分辨率<code>r.setRes 1920x1080</code></li>\n</ol>\n</li>\n</ol>'
         } }),
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'script': React.createElement(React.Fragment, null,
@@ -15,7 +15,7 @@ export default {
         React.createElement("script", { src: "/index.js", type: "module" })),
     'contentTitle': React.createElement("h1", { key: "0" }, "UE4\u5B66\u4E60\u7B14\u8BB0"),
     'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<ol>\n<li>常用快捷键</li>\n</ol>\n<p><img src="images/shortcut_key1.png" alt=""></p>\n<p><img src="images/shortcut_key2.png" alt=""></p>\n<p><img src="images/shortcut_key3.png" alt=""></p>\n<ol start="2">\n<li>\n<p>变更路线节点：<code>Reroute Node</code></p>\n</li>\n<li>\n<p><code>Execute Console Command</code>命令</p>\n<ol>\n<li>设置分辨率<code>r.setRes 1920x1080</code>\n1.</li>\n</ol>\n</li>\n</ol>'
+            __html: '<ol>\n<li>常用快捷键</li>\n</ol>\n<p><img src="images/shortcut_key1.png" alt=""></p>\n<p><img src="images/shortcut_key2.png" alt=""></p>\n<p><img src="images/shortcut_key3.png" alt=""></p>\n<ol start="2">\n<li>\n<p>变更路线节点：<code>Reroute Node</code></p>\n</li>\n<li>\n<p><code>Execute Console Command</code>命令</p>\n<ol>\n<li>设置分辨率<code>r.setRes 1920x1080</code></li>\n</ol>\n</li>\n</ol>'
         } }),
     'toc': null,
     'author': "jianyun2020",
@@ -23,8 +23,8 @@ export default {
         "jianyun2020"
     ],
     'date': "2021-02-01T04:46:51.000Z",
-    'updated': "2021-02-05T02:12:44.000Z",
-    'excerpt': " 1. 常用快捷键 2. 变更路线节点：Reroute Node 3. Execute Console Command命令 1. 设置分辨率r.setRes 1920x1080 1.",
+    'updated': "2021-02-05T03:56:38.000Z",
+    'excerpt': " 1. 常用快捷键 2. 变更路线节点：Reroute Node 3. Execute Console Command命令 1. 设置分辨率r.setRes 1920x1080",
     'cover': "images/shortcut_key1.png",
     'categories': [
         "UE4"
@@ -41,7 +41,7 @@ export default {
                 "title": "UE4学习笔记",
                 "link": "posts/UE4.html",
                 "date": "2021-02-01T04:46:51.000Z",
-                "updated": "2021-02-05T02:12:44.000Z",
+                "updated": "2021-02-05T03:56:38.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -53,7 +53,7 @@ export default {
                     "UE4",
                     "学习笔记"
                 ],
-                "excerpt": " 1. 常用快捷键 2. 变更路线节点：Reroute Node 3. Execute Console Command命令 1. 设置分辨率r.setRes 1920x1080 1.",
+                "excerpt": " 1. 常用快捷键 2. 变更路线节点：Reroute Node 3. Execute Console Command命令 1. 设置分辨率r.setRes 1920x1080",
                 "cover": "images/shortcut_key1.png"
             },
             {
