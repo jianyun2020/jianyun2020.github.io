@@ -38,3 +38,4 @@ tags:
 
 1. `Set Timer by Event`：设定一个计时器来执行事件委托，设置已经存在的计时器（如设置自身）将会更新参数。
 2. `Clear and Invalidate Timer by Handle`：手动清除设置的定时器
+3. `Quit Game`：退出游戏
