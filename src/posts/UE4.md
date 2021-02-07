@@ -39,3 +39,9 @@ tags:
 1. `Set Timer by Event`：设定一个计时器来执行事件委托，设置已经存在的计时器（如设置自身）将会更新参数。
 2. `Clear and Invalidate Timer by Handle`：手动清除设置的定时器
 3. `Quit Game`：退出游戏
+4. `Is Valid`：如果对象可用（不为`null`或者`not pending kill`则返回`true`
+5. `Get Player Camera Manager`：返回指定玩家索引的玩家摄像机管理器
+6. `Get Camera Rotation`：返回相机的当前旋转
+7. `Break Rotator`：将旋转器分解为以度为单位的侧倾角（Roll），俯仰角（Pitch）和偏航角（Yaw）
+8. `Set Render Transform Angle`：设置渲染变换角度
+9. `Set Style`：设置按钮的样式
