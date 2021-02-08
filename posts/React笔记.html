@@ -501,4 +501,36 @@ match<span class="token punctuation">:</span>
 <ul>
 <li>注册子路由时要写上父路由的<code>path</code></li>
 <li>路由的匹配是按照路由注册的顺序进行的</li>
-</ul></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
+</ul>
+<ol start="31">
+<li>向路由组件传递参数
+<ol>
+<li><code>params</code>参数
+<ol>
+<li>路由链接（携带参数）：<code>&lt;Link to=&quot;/demo/test/tom/18&quot;&gt;详情&lt;/Link&gt;</code></li>
+<li>注册路由（声明接收）：<code>&lt;Route path=&quot;/demo/test/:name/:age&quot; component={Test}&gt;</code></li>
+<li>接收参数：<code>const {name, age} = this.props.match.params</code></li>
+</ol>
+</li>
+<li><code>search</code>参数
+<ol>
+<li>路由链接（携带参数）：<code>&lt;Link to=&quot;/demo/test?name=tom&amp;age=18&quot;&gt;详情&lt;/Link&gt;</code></li>
+<li>注册路由（无需声明，正常注册即可）：<code>&lt;Route path=&quot;/demo/test&quot; component={Test} /&gt;</code></li>
+<li>接收参数：<code>const {search} = this.props.location</code></li>
+<li>获取到的<code>search</code>是<code>urlencoded</code>编码字符串，需要借助<code>querystring</code>解析<pre class="language-js"><code class="language-js">   <span class="token keyword module">import</span> <span class="token imports">qs</span> <span class="token keyword module">from</span> <span class="token string">'querystring'</span>
+   <span class="token keyword">let</span> <span class="token punctuation">{</span>name<span class="token punctuation">,</span> age<span class="token punctuation">}</span> <span class="token operator">=</span> qs<span class="token punctuation">.</span><span class="token method function property-access">parse</span><span class="token punctuation">(</span>search<span class="token punctuation">.</span><span class="token method function property-access">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// search.slice(1) 是为了去掉开头的 ?</span>
+</code></pre>
+</li>
+</ol>
+</li>
+<li><code>state</code>参数
+<ol>
+<li>路由链接（携带参数）：<code>&lt;Link to={{path: '/demo/test', state: {name: 'tom', age: 18}}}&gt;详情&lt;/Link&gt;</code></li>
+<li>注册路由（无需声明，正常注册即可）：<code>&lt;Route path=&quot;/demo/test&quot; component={Test} /&gt;</code></li>
+<li>接收参数：<code>this.props.location.state</code></li>
+<li>备注：刷新也可以保留住参数</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
