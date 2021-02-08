@@ -60,7 +60,7 @@ export default {
                 "title": "React学习笔记",
                 "link": "posts/React笔记.html",
                 "date": "2021-01-29T14:58:22.000Z",
-                "updated": "2021-02-08T10:35:27.000Z",
+                "updated": "2021-02-08T10:43:46.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
