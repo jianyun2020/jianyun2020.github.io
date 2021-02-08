@@ -44,4 +44,17 @@
 <li><code>Break Rotator</code>：将旋转器分解为以度为单位的侧倾角（Roll），俯仰角（Pitch）和偏航角（Yaw）</li>
 <li><code>Set Render Transform Angle</code>：设置渲染变换角度</li>
 <li><code>Set Style</code>：设置按钮的样式</li>
-</ol></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
+<li><code>Play Animation</code>：播放动画</li>
+</ol>
+<h2 id="%E5%85%B3%E5%8D%A1%E6%B5%81%E9%80%81level-streaming">关卡流送（Level Streaming)<a class="anchor" href="#%E5%85%B3%E5%8D%A1%E6%B5%81%E9%80%81level-streaming">§</a></h2>
+<p>在游戏时异步加载和卸载关卡，降低内存使用率，创建无缝的世界场景。</p>
+<h3 id="%E4%B8%96%E7%95%8C%E5%9C%BA%E6%99%AF%E6%9E%84%E6%88%90world-composition">世界场景构成（World Composition）<a class="anchor" href="#%E4%B8%96%E7%95%8C%E5%9C%BA%E6%99%AF%E6%9E%84%E6%88%90world-composition">§</a></h3>
+<p>世界场景构成用于创建大型场景的特定关卡流送形式。关卡分布在平面网格中，并在玩家靠近时流入。</p>
+<h4 id="%E6%BF%80%E6%B4%BB%E4%B8%96%E7%95%8C%E5%9C%BA%E6%99%AF%E6%9E%84%E6%88%90">激活世界场景构成<a class="anchor" href="#%E6%BF%80%E6%B4%BB%E4%B8%96%E7%95%8C%E5%9C%BA%E6%99%AF%E6%9E%84%E6%88%90">§</a></h4>
+<ol>
+<li>启用<code>世界场景设置(World Settings)</code>中的<code>启用世界场景构成(Enable World Composition)</code>标记来激活</li>
+<li>禁用<code>世界场景原点移位(World origin shifting)</code>：关闭<code>启用世界场景构成(Enable World Composition)</code></li>
+</ol>
+<p><img src="images/worldcomposition1.png" alt=""></p>
+<h4 id="%E5%85%B3%E5%8D%A1%E5%B1%82%E7%BA%A7levels-hierarchy">关卡层级(Levels Hierarchy)<a class="anchor" href="#%E5%85%B3%E5%8D%A1%E5%B1%82%E7%BA%A7levels-hierarchy">§</a></h4>
+<p>&quot;关卡&quot;窗口中的条目表示世界场景的层级。</p></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
