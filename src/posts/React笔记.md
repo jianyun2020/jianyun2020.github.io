@@ -350,3 +350,23 @@ const {a:{b:{c:data}}} = obj; // data: 1
 30. 嵌套路由
 - 注册子路由时要写上父路由的`path`
 - 路由的匹配是按照路由注册的顺序进行的
+
+31. 向路由组件传递参数
+    1.  `params`参数
+        1.  路由链接（携带参数）：`<Link to="/demo/test/tom/18">详情</Link>`
+        2.  注册路由（声明接收）：`<Route path="/demo/test/:name/:age" component={Test}>`
+        3.  接收参数：`const {name, age} = this.props.match.params`
+    2.  `search`参数
+        1.  路由链接（携带参数）：`<Link to="/demo/test?name=tom&age=18">详情</Link>`
+        2.  注册路由（无需声明，正常注册即可）：`<Route path="/demo/test" component={Test} />`
+        3.  接收参数：`const {search} = this.props.location`
+        4.  获取到的`search`是`urlencoded`编码字符串，需要借助`querystring`解析
+            ```js
+               import qs from 'querystring'
+               let {name, age} = qs.parse(search.slice(1)) // search.slice(1) 是为了去掉开头的 ?
+            ```
+    3.  `state`参数
+        1.  路由链接（携带参数）：`<Link to={{path: '/demo/test', state: {name: 'tom', age: 18}}}>详情</Link>`
+        2.  注册路由（无需声明，正常注册即可）：`<Route path="/demo/test" component={Test} />`
+        3.  接收参数：`this.props.location.state`
+        4.  备注：刷新也可以保留住参数
