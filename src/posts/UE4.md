@@ -45,3 +45,25 @@ tags:
 7. `Break Rotator`：将旋转器分解为以度为单位的侧倾角（Roll），俯仰角（Pitch）和偏航角（Yaw）
 8. `Set Render Transform Angle`：设置渲染变换角度
 9. `Set Style`：设置按钮的样式
+10. `Play Animation`：播放动画
+
+
+## 关卡流送（Level Streaming)
+
+在游戏时异步加载和卸载关卡，降低内存使用率，创建无缝的世界场景。
+
+### 世界场景构成（World Composition）
+
+世界场景构成用于创建大型场景的特定关卡流送形式。关卡分布在平面网格中，并在玩家靠近时流入。
+
+#### 激活世界场景构成
+
+1. 启用`世界场景设置(World Settings)`中的`启用世界场景构成(Enable World Composition)`标记来激活
+2. 禁用`世界场景原点移位(World origin shifting)`：关闭`启用世界场景构成(Enable World Composition)`
+
+![](images/worldcomposition1.png)
+
+#### 关卡层级(Levels Hierarchy)
+
+"关卡"窗口中的条目表示世界场景的层级。
+
