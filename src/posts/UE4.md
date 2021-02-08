@@ -46,6 +46,8 @@ tags:
 8. `Set Render Transform Angle`：设置渲染变换角度
 9. `Set Style`：设置按钮的样式
 10. `Play Animation`：播放动画
+11. `Load Stream Level`：加载流送关卡
+12. `Unload Stream Level`：卸载流送关卡
 
 
 ## 关卡流送（Level Streaming)
