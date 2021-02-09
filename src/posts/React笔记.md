@@ -374,3 +374,12 @@ const {a:{b:{c:data}}} = obj; // data: 1
 32. `push`和`replace`
 
 33. 编程式路由导航
+
+借助`this.props.history`对象上的API对操作路由跳转、前进、后退
+
+- `this.props.history push()`
+- `this.props.history.replace()`
+- `this.props.history.goBack()`
+- `this.props.history.goForward()`
+- `this.props.history.go()`
+
