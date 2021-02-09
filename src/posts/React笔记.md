@@ -484,7 +484,7 @@ export default withRouter(Demo)
       2. `dispatch(action)`：分发action，触发reducer调用，产生新的state
       3. `subscribe(listener)`：注册监听，当产生了新的state时，自动调用
 
-### 项目应用
+### 项目简单应用
 
 1. 去除组件自身需要共享的状态
 2. 建立文件夹和文件
@@ -555,4 +555,39 @@ export const createDecrementAction = data => ({type: DECREMENT, data})
 // 定义action对象中type类型的常量值
 export const INCREMENT = 'increment'
 export const DECREMENT = 'decrement'
+```
+
+### `Action`类型
+
+- 同步`action：Object`
+
+- 异步`action：Function`
+
+异步action使用：
+
+1. 明确：延迟的动作不想交给组件自身，想交给action
+2. 何时需要异步action：想要对状态进行操作，但是具体的数据靠异步任务返回（非必须)
+3. 具体编码
+
+```js
+// 安装redux-thunk，并配置在store中
+// yarn add redux-thunk
+// store.js
+import { createStore, applyMiddleware } from 'redux'
+import countReducer from './count_reducer'
+import thunk from 'redux-thunk'
+
+export default createStore(countReducer, applyMiddleware(thunk))
+
+// count_action.js
+// 同步action
+export const createIncrementAction = data => ({type: INCREMENT, data})
+// 异步action
+export const createIncrementAsyncAction = (data, time) = {
+   return (dispatch) => {
+      setTimeout(() => {
+         dispatch(createIncrementAction(data))
+      },time)
+   } 
+}
 ```
