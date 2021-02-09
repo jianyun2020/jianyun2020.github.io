@@ -684,7 +684,7 @@ match<span class="token punctuation">:</span>
 </ol>
 </li>
 </ol>
-<h3 id="%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8">项目应用<a class="anchor" href="#%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8">§</a></h3>
+<h3 id="%E9%A1%B9%E7%9B%AE%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8">项目简单应用<a class="anchor" href="#%E9%A1%B9%E7%9B%AE%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8">§</a></h3>
 <ol>
 <li>去除组件自身需要共享的状态</li>
 <li>建立文件夹和文件</li>
@@ -749,4 +749,40 @@ store<span class="token punctuation">.</span><span class="token method function 
 <pre class="language-js"><code class="language-js"><span class="token comment">// 定义action对象中type类型的常量值</span>
 <span class="token keyword module">export</span> <span class="token keyword">const</span> <span class="token constant">INCREMENT</span> <span class="token operator">=</span> <span class="token string">'increment'</span>
 <span class="token keyword module">export</span> <span class="token keyword">const</span> <span class="token constant">DECREMENT</span> <span class="token operator">=</span> <span class="token string">'decrement'</span>
+</code></pre>
+<h3 id="action%E7%B1%BB%E5%9E%8B"><code>Action</code>类型<a class="anchor" href="#action%E7%B1%BB%E5%9E%8B">§</a></h3>
+<ul>
+<li>
+<p>同步<code>action：Object</code></p>
+</li>
+<li>
+<p>异步<code>action：Function</code></p>
+</li>
+</ul>
+<p>异步action使用：</p>
+<ol>
+<li>明确：延迟的动作不想交给组件自身，想交给action</li>
+<li>何时需要异步action：想要对状态进行操作，但是具体的数据靠异步任务返回（非必须)</li>
+<li>具体编码</li>
+</ol>
+<pre class="language-js"><code class="language-js"><span class="token comment">// 安装redux-thunk，并配置在store中</span>
+<span class="token comment">// yarn add redux-thunk</span>
+<span class="token comment">// store.js</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> createStore<span class="token punctuation">,</span> applyMiddleware <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'redux'</span>
+<span class="token keyword module">import</span> <span class="token imports">countReducer</span> <span class="token keyword module">from</span> <span class="token string">'./count_reducer'</span>
+<span class="token keyword module">import</span> <span class="token imports">thunk</span> <span class="token keyword module">from</span> <span class="token string">'redux-thunk'</span>
+
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token function">createStore</span><span class="token punctuation">(</span>countReducer<span class="token punctuation">,</span> <span class="token function">applyMiddleware</span><span class="token punctuation">(</span>thunk<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">// count_action.js</span>
+<span class="token comment">// 同步action</span>
+<span class="token keyword module">export</span> <span class="token keyword">const</span> <span class="token function-variable function">createIncrementAction</span> <span class="token operator">=</span> <span class="token parameter">data</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>type<span class="token operator">:</span> <span class="token constant">INCREMENT</span><span class="token punctuation">,</span> data<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">// 异步action</span>
+<span class="token keyword module">export</span> <span class="token keyword">const</span> createIncrementAsyncAction <span class="token operator">=</span> <span class="token punctuation">(</span>data<span class="token punctuation">,</span> time<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+   <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span><span class="token parameter">dispatch</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+         <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">createIncrementAction</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>time<span class="token punctuation">)</span>
+   <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
 </code></pre></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
