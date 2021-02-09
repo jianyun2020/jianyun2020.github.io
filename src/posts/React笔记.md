@@ -639,6 +639,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(CountUI)
 
 ### 容器组件优化
 
+1. 简写`mapStateToProps`和`mapDispatchToProps`
 ```js
 // src/containers/Count/index.jsx
 import { connect } from 'react-redux'
@@ -653,4 +654,19 @@ export default connect(
       incrementAsync: createIncrementAsyncAction,
    }
 )(CountUI)
+```
+
+2. `Provider`：将`store`传递给所有容器组件
+
+```js
+...
+import {Provider} from 'react-redux'
+import store from './redux/store'
+
+ReactDOM.render(
+   <Provider store={store}>
+      <App />
+   </Provider>,
+   document.getElementById('root')
+)
 ```
