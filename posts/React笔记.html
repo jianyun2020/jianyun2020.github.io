@@ -763,6 +763,8 @@ store<span class="token punctuation">.</span><span class="token method function 
 <ol>
 <li>明确：延迟的动作不想交给组件自身，想交给action</li>
 <li>何时需要异步action：想要对状态进行操作，但是具体的数据靠异步任务返回（非必须)</li>
+<li>创建action的函数不再返回一般对象，而是返回一个函数，该函数中写异步任务</li>
+<li>异步action不是必须要写的，完全可以自己等待异步任务的结果后再去分发同步action</li>
 <li>具体编码</li>
 </ol>
 <pre class="language-js"><code class="language-js"><span class="token comment">// 安装redux-thunk，并配置在store中</span>
@@ -785,4 +787,42 @@ store<span class="token punctuation">.</span><span class="token method function 
       <span class="token punctuation">}</span><span class="token punctuation">,</span>time<span class="token punctuation">)</span>
    <span class="token punctuation">}</span> 
 <span class="token punctuation">}</span>
+</code></pre>
+<h3 id="react-redux"><code>react-redux</code><a class="anchor" href="#react-redux">§</a></h3>
+<p><img src="images/react_redux.png" alt=""></p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// 安装react-redux</span>
+<span class="token comment">// yarn add react-redux</span>
+<span class="token comment">// 创建容器组件</span>
+<span class="token comment">// src/containers/Count/index.jsx</span>
+
+<span class="token comment">// 引入Count的UI组件</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">CountUI</span></span> <span class="token keyword module">from</span> <span class="token string">'../../components/Count'</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span>createIncrementAction<span class="token punctuation">,</span> createDecrementAction<span class="token punctuation">,</span> createIncrementAsyncAction<span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'../../redux/count_action'</span>
+<span class="token comment">// 引入connect用于连接UI组件与redux</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span>connect<span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'react-redux'</span>
+
+<span class="token comment">/*
+   1.mapStateToProps函数返回一个对象
+   2.返回的对象中的key就作为传递给UI组件props的key，value就作为传递给UI组件props的value
+   3.mapStateToProps用于传递状态
+*/</span>
+<span class="token keyword">function</span> <span class="token function">mapStateToProps</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>count<span class="token operator">:</span> state<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/*
+   1.mapDispatchToProps函数返回的是一个对象
+   2.返回的对象中的key就作为传递给UI组件props的key，value就作为传递给UI组件props的value
+   3.mapDispatchToProps用于传递操作状态的方法
+*/</span>
+<span class="token keyword">function</span> <span class="token function">mapDispatchToProps</span><span class="token punctuation">(</span><span class="token parameter">dispatch</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+      <span class="token function-variable function">increment</span><span class="token operator">:</span> <span class="token parameter">number</span> <span class="token arrow operator">=></span> <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">createIncrementAction</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">decrement</span><span class="token operator">:</span> <span class="token parameter">number</span> <span class="token arrow operator">=></span> <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">createDecrementAction</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">incrementAsync</span><span class="token operator">:</span> <span class="token parameter">number</span> <span class="token arrow operator">=></span> <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">createIncrementAsyncAction</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">)</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 使用connect()()创建并暴露一个Count的容器组件</span>
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token function">connect</span><span class="token punctuation">(</span>mapStateToProps<span class="token punctuation">,</span> mapDispatchToProps<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token maybe-class-name">CountUI</span><span class="token punctuation">)</span>
 </code></pre></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
