@@ -602,6 +602,7 @@ export const createIncrementAsyncAction = (data, time) = {
 // 安装react-redux
 // yarn add react-redux
 // 创建容器组件
+
 // src/containers/Count/index.jsx
 
 // 引入Count的UI组件
@@ -634,4 +635,22 @@ function mapDispatchToProps(dispatch) {
 
 // 使用connect()()创建并暴露一个Count的容器组件
 export default connect(mapStateToProps, mapDispatchToProps)(CountUI)
+```
+
+### 容器组件优化
+
+```js
+// src/containers/Count/index.jsx
+import { connect } from 'react-redux'
+import CountUI from '../../components/Count'
+import {createIncrementAction, createDecrementAction, createIncrementAsyncAction} from '../../redux/count_action'
+
+export default connect(
+   state => ({ count: state }),
+   {
+      increment: createIncrementAction,
+      decrement: createDecrementAction,
+      incrementAsync: createIncrementAsyncAction,
+   }
+)(CountUI)
 ```
