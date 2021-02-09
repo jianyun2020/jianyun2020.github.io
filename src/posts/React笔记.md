@@ -395,3 +395,91 @@ export default withRouter(Demo)
 // withRouter可以加工一般组件，让一般组件具备路由组件所特有的API
 // withRouter的返回值是一个新组件
 ```
+
+35. `BrowserRouter`与`HashRouter`的区别
+    1.  底层原理不一样：
+        1.  `BrowserRouter`使用的是H5的history API，不兼容IE9以下版本。
+        2.  `HashRouter`使用的是URL的哈希值
+    2.  path表现形式不一样
+        1.  `BrowserRouter`的路径中没有`#`，例如：`localhost:3000/demo/test`
+        2.  `HashRouter`的路径中包含`#`，例如：`localhost:3000/#/demo/test`
+    3.  刷新后对路由`state`参数的影响
+        1.  `BrowserRouter`没有任何影响，因为state保存在history对象中。
+        2.  `HashRouter`刷新后会导致路由state参数的丢失。
+    4.  备注：`HashRouter`可以用于解决一些路径错误相关的问题。
+
+36. `antd`的按需引入+自定义主题
+    1.  安装依赖：`yarn add react-app-rewired customize-cra babel-plugin-import less less-loader`
+    2.  修改`package.json`
+
+         ```json
+            ...
+            "scripts": {
+               "start": "react-app-rewired start",
+               "build": "react-app-rewired build",
+               "test": "react-app-rewired test",
+               "eject": "react-scripts eject"
+            },
+            ...
+         ```
+    3. 根目录下创建`config-overrides.js`
+
+         ```js
+            // 配置具体的修改规则
+            const { override, fixBabelImports, addLessLoader } = require('customize-cra');
+
+            module.exports = override(
+               fixBabelImports('import', {
+                  libraryName: 'antd',
+                  libraryDirectory: 'es',
+                  style: true,
+               }),
+               addLessLoader({
+                  lessOptions: {
+                     javascriptEnabled: true,
+                     modifyVars: { '@primary-color': 'green' },
+                  }
+               })
+            )
+         ```
+    4. 备注：不用在组件里亲自引入样式了，即：`import 'antd/dist/antd.css`应该删掉
+
+## `Redux`
+
+`redux`是一个专门用于做状态管理的JS库（不是react插件库）
+
+作用：集中式管理react应用中多个组件**共享**的状态
+
+**什么情况下需要使用redux**
+
+- 某个组件的状态，需要让其他组件可以随时拿到（共享）。
+- 一个组件需要改变另一个组件的状态（通信）。
+- 总体原则：能不用就不用，如果不用比较吃力才考虑使用。
+
+**Redux原理图**
+
+![](images/redux01.png)
+
+### redux的三个核心概念
+
+1. `action`
+   1. 动作的对象
+   2. 包含2个属性
+      1. type：标识属性，值为字符串，唯一，必要属性
+      2. data：数据属性，值类型任意，可选属性
+   3. 例子：`{type: 'ADD_STUDENT', data: { name: 'tom', age: 18 }}`
+
+2. `reducer`
+   1. 用于初始化状态、加工状态
+   2. 加工时，根据旧的`state`和`action`，产生新的`state`的`纯函数`
+
+3. `store`
+   1. 将`state`、`action`、`reducer`联系在一起的对象
+   2. 如何得到此对象？
+      1. `import {createStore} from 'redux'`
+      2. `import reducer from './reducers'`
+      3. `const store = createStore(reducer)`
+   3. 此对象的功能？
+      1. `getState()`：得到state
+      2. `dispatch(action)`：分发action，触发reducer调用，产生新的state
+      3. `subscribe(listener)`：注册监听，当产生了新的state时，自动调用
