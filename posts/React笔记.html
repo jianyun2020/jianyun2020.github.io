@@ -560,4 +560,127 @@ match<span class="token punctuation">:</span>
 
 <span class="token comment">// withRouter可以加工一般组件，让一般组件具备路由组件所特有的API</span>
 <span class="token comment">// withRouter的返回值是一个新组件</span>
-</code></pre></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
+</code></pre>
+<ol start="35">
+<li>
+<p><code>BrowserRouter</code>与<code>HashRouter</code>的区别</p>
+<ol>
+<li>底层原理不一样：
+<ol>
+<li><code>BrowserRouter</code>使用的是H5的history API，不兼容IE9以下版本。</li>
+<li><code>HashRouter</code>使用的是URL的哈希值</li>
+</ol>
+</li>
+<li>path表现形式不一样
+<ol>
+<li><code>BrowserRouter</code>的路径中没有<code>#</code>，例如：<code>localhost:3000/demo/test</code></li>
+<li><code>HashRouter</code>的路径中包含<code>#</code>，例如：<code>localhost:3000/#/demo/test</code></li>
+</ol>
+</li>
+<li>刷新后对路由<code>state</code>参数的影响
+<ol>
+<li><code>BrowserRouter</code>没有任何影响，因为state保存在history对象中。</li>
+<li><code>HashRouter</code>刷新后会导致路由state参数的丢失。</li>
+</ol>
+</li>
+<li>备注：<code>HashRouter</code>可以用于解决一些路径错误相关的问题。</li>
+</ol>
+</li>
+<li>
+<p><code>antd</code>的按需引入+自定义主题</p>
+<ol>
+<li>
+<p>安装依赖：<code>yarn add react-app-rewired customize-cra babel-plugin-import less less-loader</code></p>
+</li>
+<li>
+<p>修改<code>package.json</code></p>
+<pre class="language-json"><code class="language-json">   ...
+   <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"react-app-rewired start"</span><span class="token punctuation">,</span>
+      <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"react-app-rewired build"</span><span class="token punctuation">,</span>
+      <span class="token property">"test"</span><span class="token operator">:</span> <span class="token string">"react-app-rewired test"</span><span class="token punctuation">,</span>
+      <span class="token property">"eject"</span><span class="token operator">:</span> <span class="token string">"react-scripts eject"</span>
+   <span class="token punctuation">}</span><span class="token punctuation">,</span>
+   ...
+</code></pre>
+</li>
+<li>
+<p>根目录下创建<code>config-overrides.js</code></p>
+<pre class="language-js"><code class="language-js">   <span class="token comment">// 配置具体的修改规则</span>
+   <span class="token keyword">const</span> <span class="token punctuation">{</span> override<span class="token punctuation">,</span> fixBabelImports<span class="token punctuation">,</span> addLessLoader <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'customize-cra'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token function">override</span><span class="token punctuation">(</span>
+      <span class="token function">fixBabelImports</span><span class="token punctuation">(</span><span class="token string">'import'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+         libraryName<span class="token operator">:</span> <span class="token string">'antd'</span><span class="token punctuation">,</span>
+         libraryDirectory<span class="token operator">:</span> <span class="token string">'es'</span><span class="token punctuation">,</span>
+         style<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token function">addLessLoader</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+         lessOptions<span class="token operator">:</span> <span class="token punctuation">{</span>
+            javascriptEnabled<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            modifyVars<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token string">'@primary-color'</span><span class="token operator">:</span> <span class="token string">'green'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+         <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+   <span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li>
+<p>备注：不用在组件里亲自引入样式了，即：<code>import 'antd/dist/antd.css</code>应该删掉</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="redux"><code>Redux</code><a class="anchor" href="#redux">§</a></h2>
+<p><code>redux</code>是一个专门用于做状态管理的JS库（不是react插件库）</p>
+<p>作用：集中式管理react应用中多个组件<strong>共享</strong>的状态</p>
+<p><strong>什么情况下需要使用redux</strong></p>
+<ul>
+<li>某个组件的状态，需要让其他组件可以随时拿到（共享）。</li>
+<li>一个组件需要改变另一个组件的状态（通信）。</li>
+<li>总体原则：能不用就不用，如果不用比较吃力才考虑使用。</li>
+</ul>
+<p><strong>Redux原理图</strong></p>
+<p><img src="images/redux01.png" alt=""></p>
+<h3 id="redux%E7%9A%84%E4%B8%89%E4%B8%AA%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5">redux的三个核心概念<a class="anchor" href="#redux%E7%9A%84%E4%B8%89%E4%B8%AA%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5">§</a></h3>
+<ol>
+<li>
+<p><code>action</code></p>
+<ol>
+<li>动作的对象</li>
+<li>包含2个属性
+<ol>
+<li>type：标识属性，值为字符串，唯一，必要属性</li>
+<li>data：数据属性，值类型任意，可选属性</li>
+</ol>
+</li>
+<li>例子：<code>{type: 'ADD_STUDENT', data: { name: 'tom', age: 18 }}</code></li>
+</ol>
+</li>
+<li>
+<p><code>reducer</code></p>
+<ol>
+<li>用于初始化状态、加工状态</li>
+<li>加工时，根据旧的<code>state</code>和<code>action</code>，产生新的<code>state</code>的<code>纯函数</code></li>
+</ol>
+</li>
+<li>
+<p><code>store</code></p>
+<ol>
+<li>将<code>state</code>、<code>action</code>、<code>reducer</code>联系在一起的对象</li>
+<li>如何得到此对象？
+<ol>
+<li><code>import {createStore} from 'redux'</code></li>
+<li><code>import reducer from './reducers'</code></li>
+<li><code>const store = createStore(reducer)</code></li>
+</ol>
+</li>
+<li>此对象的功能？
+<ol>
+<li><code>getState()</code>：得到state</li>
+<li><code>dispatch(action)</code>：分发action，触发reducer调用，产生新的state</li>
+<li><code>subscribe(listener)</code>：注册监听，当产生了新的state时，自动调用</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
