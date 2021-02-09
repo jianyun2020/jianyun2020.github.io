@@ -483,3 +483,76 @@ export default withRouter(Demo)
       1. `getState()`：得到state
       2. `dispatch(action)`：分发action，触发reducer调用，产生新的state
       3. `subscribe(listener)`：注册监听，当产生了新的state时，自动调用
+
+### 项目应用
+
+1. 去除组件自身需要共享的状态
+2. 建立文件夹和文件
+
+```js
+-src
+--redux
+---store.js
+---count_reducer.js
+---constant.js
+---count_action.js
+```
+3. `store.js`
+
+```js
+import { createStore } from 'redux'
+import countReducer from './count_reducer'
+export default createStore(countReducer)
+```
+
+4. `count_reducer.js`
+
+```js
+import { INCREMENT, DECREMENT } from './constant'
+
+const initPreState = 0
+export default function countReducer(preState=initPreState, action) {
+   const { type, data } = action
+   switch(type) {
+      case INCREMENT:
+         return preState + data
+      case DECREMENT:
+         return preState - data
+      default:
+         return preState
+   }
+}
+```
+
+5. 在`index.js`中检测store中状态的改变，一旦发生改变重新渲染`<App />`
+
+备注：redux只负责管理状态，至于状态的改变驱动着页面的展示，需要自己写。
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+import store from 'redux'
+
+ReactDOM.render(<App />, document.getElementById('root'))
+
+store.subscribe(() => {
+   ReactDOM.render(<App />, document.getElementById('root'))
+})
+```
+
+6.  `count_action.js`
+
+```js
+// 专门用于创建action对象
+import { INCREMENT, DECREMENT } from './constant'
+export const createIncrementAction = data => ({type: INCREMENT, data})
+export const createDecrementAction = data => ({type: DECREMENT, data})
+```
+
+7. `constant.js`
+
+```js
+// 定义action对象中type类型的常量值
+export const INCREMENT = 'increment'
+export const DECREMENT = 'decrement'
+```
