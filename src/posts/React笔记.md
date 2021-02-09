@@ -383,3 +383,15 @@ const {a:{b:{c:data}}} = obj; // data: 1
 - `this.props.history.goForward()`
 - `this.props.history.go()`
 
+34. `withRouter`
+
+```js
+import {withRouter} from 'react-router-dom'
+
+class Demo extends ...
+
+export default withRouter(Demo)
+
+// withRouter可以加工一般组件，让一般组件具备路由组件所特有的API
+// withRouter的返回值是一个新组件
+```
