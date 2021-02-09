@@ -793,6 +793,7 @@ store<span class="token punctuation">.</span><span class="token method function 
 <pre class="language-js"><code class="language-js"><span class="token comment">// 安装react-redux</span>
 <span class="token comment">// yarn add react-redux</span>
 <span class="token comment">// 创建容器组件</span>
+
 <span class="token comment">// src/containers/Count/index.jsx</span>
 
 <span class="token comment">// 引入Count的UI组件</span>
@@ -825,4 +826,19 @@ store<span class="token punctuation">.</span><span class="token method function 
 
 <span class="token comment">// 使用connect()()创建并暴露一个Count的容器组件</span>
 <span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token function">connect</span><span class="token punctuation">(</span>mapStateToProps<span class="token punctuation">,</span> mapDispatchToProps<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token maybe-class-name">CountUI</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="%E5%AE%B9%E5%99%A8%E7%BB%84%E4%BB%B6%E4%BC%98%E5%8C%96">容器组件优化<a class="anchor" href="#%E5%AE%B9%E5%99%A8%E7%BB%84%E4%BB%B6%E4%BC%98%E5%8C%96">§</a></h3>
+<pre class="language-js"><code class="language-js"><span class="token comment">// src/containers/Count/index.jsx</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> connect <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'react-redux'</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">CountUI</span></span> <span class="token keyword module">from</span> <span class="token string">'../../components/Count'</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span>createIncrementAction<span class="token punctuation">,</span> createDecrementAction<span class="token punctuation">,</span> createIncrementAsyncAction<span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">'../../redux/count_action'</span>
+
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token function">connect</span><span class="token punctuation">(</span>
+   <span class="token parameter">state</span> <span class="token arrow operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span> count<span class="token operator">:</span> state <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+   <span class="token punctuation">{</span>
+      increment<span class="token operator">:</span> createIncrementAction<span class="token punctuation">,</span>
+      decrement<span class="token operator">:</span> createDecrementAction<span class="token punctuation">,</span>
+      incrementAsync<span class="token operator">:</span> createIncrementAsyncAction<span class="token punctuation">,</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token maybe-class-name">CountUI</span><span class="token punctuation">)</span>
 </code></pre></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
