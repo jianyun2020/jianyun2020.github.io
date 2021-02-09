@@ -567,7 +567,9 @@ export const DECREMENT = 'decrement'
 
 1. 明确：延迟的动作不想交给组件自身，想交给action
 2. 何时需要异步action：想要对状态进行操作，但是具体的数据靠异步任务返回（非必须)
-3. 具体编码
+3. 创建action的函数不再返回一般对象，而是返回一个函数，该函数中写异步任务
+4. 异步action不是必须要写的，完全可以自己等待异步任务的结果后再去分发同步action
+5. 具体编码
 
 ```js
 // 安装redux-thunk，并配置在store中
@@ -590,4 +592,46 @@ export const createIncrementAsyncAction = (data, time) = {
       },time)
    } 
 }
+```
+
+### `react-redux`
+
+![](images/react_redux.png)
+
+```js
+// 安装react-redux
+// yarn add react-redux
+// 创建容器组件
+// src/containers/Count/index.jsx
+
+// 引入Count的UI组件
+import CountUI from '../../components/Count'
+import {createIncrementAction, createDecrementAction, createIncrementAsyncAction} from '../../redux/count_action'
+// 引入connect用于连接UI组件与redux
+import {connect} from 'react-redux'
+
+/*
+   1.mapStateToProps函数返回一个对象
+   2.返回的对象中的key就作为传递给UI组件props的key，value就作为传递给UI组件props的value
+   3.mapStateToProps用于传递状态
+*/
+function mapStateToProps(state) {
+   return {count: state}
+}
+
+/*
+   1.mapDispatchToProps函数返回的是一个对象
+   2.返回的对象中的key就作为传递给UI组件props的key，value就作为传递给UI组件props的value
+   3.mapDispatchToProps用于传递操作状态的方法
+*/
+function mapDispatchToProps(dispatch) {
+   return {
+      increment: number => dispatch(createIncrementAction(number)),
+      decrement: number => dispatch(createDecrementAction(number)),
+      incrementAsync: number => dispatch(createIncrementAsyncAction(number))
+   }
+}
+
+// 使用connect()()创建并暴露一个Count的容器组件
+export default connect(mapStateToProps, mapDispatchToProps)(CountUI)
 ```
