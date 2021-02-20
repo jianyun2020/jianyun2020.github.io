@@ -48,6 +48,8 @@ tags:
 10. `Play Animation`：播放动画
 11. `Load Stream Level`：加载流送关卡
 12. `Unload Stream Level`：卸载流送关卡
+13. `Get Player Controller`：返回玩家控制器的索引
+14. `Set Show Mouse Cursor`：设置是否显示鼠标
 
 
 ## 关卡流送（Level Streaming)
