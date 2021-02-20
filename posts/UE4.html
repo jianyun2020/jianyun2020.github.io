@@ -61,4 +61,64 @@
 </ol>
 <p><img src="images/worldcomposition1.png" alt=""></p>
 <h4 id="%E5%85%B3%E5%8D%A1%E5%B1%82%E7%BA%A7levels-hierarchy">关卡层级(Levels Hierarchy)<a class="anchor" href="#%E5%85%B3%E5%8D%A1%E5%B1%82%E7%BA%A7levels-hierarchy">§</a></h4>
-<p>&quot;关卡&quot;窗口中的条目表示世界场景的层级。</p></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
+<p>&quot;关卡&quot;窗口中的条目表示世界场景的层级。</p>
+<h2 id="umg%E6%8E%A7%E4%BB%B6">UMG控件<a class="anchor" href="#umg%E6%8E%A7%E4%BB%B6">§</a></h2>
+<h3 id="%E5%85%AC%E5%85%B1%E5%B1%9E%E6%80%A7">公共属性<a class="anchor" href="#%E5%85%AC%E5%85%B1%E5%B1%9E%E6%80%A7">§</a></h3>
+<ul>
+<li>
+<p><code>Slot</code>：</p>
+<ul>
+<li><code>Canvas Panel</code>中的<code>Slot</code>：设置控件在屏幕显示的位置和大小</li>
+<li><code>Overlay</code>中的<code>Slot</code>：设置控件相对父级的位置</li>
+</ul>
+</li>
+<li>
+<p><code>Tool Tip Text</code>：提示文字，可以绑定自定义UMG</p>
+</li>
+<li>
+<p><code>Visiblity</code>：可视性</p>
+<ul>
+<li><code>Visible</code></li>
+<li><code>Collapsed</code>：隐藏且不占位置</li>
+<li><code>Hidden</code>：隐藏且占位置</li>
+<li><code>Not Hit-Testable(Self &amp; All Child)</code>：可见但无交互</li>
+<li><code>Not Hit-Testable(Self Only)</code>：可见但子级可交互</li>
+</ul>
+</li>
+<li>
+<p><code>Transform</code>：设置控件的位移缩放等属性</p>
+<ul>
+<li><code>piovt</code>用来设置中心点</li>
+</ul>
+</li>
+<li>
+<p><code>Clipping</code>：裁切</p>
+</li>
+<li>
+<p><code>Is Volatile</code>：是否缓存控件</p>
+</li>
+<li>
+<p><code>Navigation</code>：手柄导航属性</p>
+</li>
+</ul>
+<h3 id="common%E4%B8%AD%E7%9A%84%E6%8E%A7%E4%BB%B6"><code>Common</code>中的控件<a class="anchor" href="#common%E4%B8%AD%E7%9A%84%E6%8E%A7%E4%BB%B6">§</a></h3>
+<ul>
+<li>
+<p><code>Border</code>：可放图片，可以有一个子集</p>
+</li>
+<li>
+<p><code>Button</code>：</p>
+</li>
+<li>
+<p><code>Check Box</code>：复选框</p>
+</li>
+<li>
+<p><code>Image</code>：无子集</p>
+</li>
+<li>
+<p><code>Named Slot</code>：在用户创建的UMG下放置，相当于占位，可以让用户创建的UMG放置子集</p>
+</li>
+<li>
+<p><code>Progress Bar</code>：</p>
+</li>
+</ul></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
