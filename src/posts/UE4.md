@@ -102,7 +102,7 @@ tags:
 
 - `Border`：可放图片，可以有一个子集
 
-- `Button`： 
+- `Button`：按钮，点击事件
 
 - `Check Box`：复选框
 
@@ -110,4 +110,54 @@ tags:
 
 - `Named Slot`：在用户创建的UMG下放置，相当于占位，可以让用户创建的UMG放置子集
 
-- `Progress Bar`：
+- `Progress Bar`：进度条
+
+- `Rich Text Block`：富文本
+
+- `Slider`：滑动条
+
+- `Text`：文字
+
+### `Panel`中的控件
+
+- `Canvas Panel`：
+
+- `Horizontal Box`：横向排列
+
+- `Vertical Box`：竖向排列
+
+- `Overlay`：重叠
+
+- `Size Box`：可覆盖子控件的原始尺寸
+
+- `Scale Box`：缩放框
+
+- `Scroll Box`：带滚动条
+
+- `Uniform Grid Panel`：可宫格排列
+
+- `Grid Panel`：宫格化排列，制作背包
+
+- `Safe Zone`：异形屏幕的安全区
+
+- `Widget Switcher`：控件切换器，像页签，子控件不能太多，会卡死
+
+- `Wrap Box`：可以让子控件换行
+
+### `Input`中的控件
+
+- `ComboBox`：下拉列表
+
+- `Editable Text`：可编辑文本
+
+- `Editable Text(Multi-Line)`：可换行的可编辑文本 (按shift + Enter换行)
+
+- `Text Box`：文本输入框
+
+- `Text Box (Multi-Line)`：多行文本输入框
+
+- `Spin Box`：可拖动缩放框
+
+### `Lists`中的控件
+
+- `List View`：
