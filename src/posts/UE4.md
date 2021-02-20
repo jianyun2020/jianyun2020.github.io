@@ -71,3 +71,43 @@ tags:
 
 "关卡"窗口中的条目表示世界场景的层级。
 
+
+## UMG控件
+
+### 公共属性
+
+- `Slot`：
+  - `Canvas Panel`中的`Slot`：设置控件在屏幕显示的位置和大小
+  - `Overlay`中的`Slot`：设置控件相对父级的位置
+
+- `Tool Tip Text`：提示文字，可以绑定自定义UMG
+
+- `Visiblity`：可视性
+  - `Visible`
+  - `Collapsed`：隐藏且不占位置
+  - `Hidden`：隐藏且占位置
+  - `Not Hit-Testable(Self & All Child)`：可见但无交互
+  - `Not Hit-Testable(Self Only)`：可见但子级可交互
+
+- `Transform`：设置控件的位移缩放等属性
+  - `piovt`用来设置中心点
+
+- `Clipping`：裁切
+
+- `Is Volatile`：是否缓存控件
+
+- `Navigation`：手柄导航属性
+
+### `Common`中的控件
+
+- `Border`：可放图片，可以有一个子集
+
+- `Button`： 
+
+- `Check Box`：复选框
+
+- `Image`：无子集
+
+- `Named Slot`：在用户创建的UMG下放置，相当于占位，可以让用户创建的UMG放置子集
+
+- `Progress Bar`：
