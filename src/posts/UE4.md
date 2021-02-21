@@ -50,9 +50,10 @@ tags:
 12. `Unload Stream Level`：卸载流送关卡
 13. `Get Player Controller`：返回玩家控制器的索引
 14. `Set Show Mouse Cursor`：设置是否显示鼠标
+15. `Get Parent`：获取当前控件的父控件
 
 
-## 关卡流送（Level Streaming)
+## 关卡流送（Level Streaming）
 
 在游戏时异步加载和卸载关卡，降低内存使用率，创建无缝的世界场景。
 
