@@ -52,6 +52,7 @@ tags:
 14. `Set Show Mouse Cursor`：设置是否显示鼠标
 15. `Get Parent`：获取当前控件的父控件
 16. `Get Children Count`：获取当前容器控件中的子控件数量
+17. `Get Children At`：通过索引获取当前控件
 
 
 ## 关卡流送（Level Streaming）
