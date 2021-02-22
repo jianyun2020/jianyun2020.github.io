@@ -53,7 +53,24 @@ tags:
 15. `Get Parent`：获取当前控件的父控件
 16. `Get Children Count`：获取当前容器控件中的子控件数量（需要通过`Get Parent`获取）
 17. `Get Children At`：通过索引获取对应的控件（需要通过`Get Parent`获取）
+18. `Set Is Enabled`：设置控件是否可以和用户交互
+    
+### `Button`
 
+1. `Set Style`：设置按钮的倍增背景色
+
+### `Text`
+
+1. `Set Text`：设置`Text`控件的text
+2. `Set Color and Opacity`：设置`Text`控件字体的颜色和透明度
+
+### `Panel`
+
+1. `Get All Children`：获取`Panel`下的所有子控件
+
+### `Array`
+
+1. `GET`：
 
 ## 关卡流送（Level Streaming）
 
