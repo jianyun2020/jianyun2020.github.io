@@ -70,7 +70,12 @@ tags:
 
 ### `Array`
 
-1. `GET`：
+1. `GET`：输入一个数组和一个索引，返回该索引对应元素的拷贝
+
+### `Animation`
+
+1. `Is Animation Playing`：判断一个动画是否播放
+2. `Reverse Animation`：如果动画已播放，则反转播放动画
 
 ## 关卡流送（Level Streaming）
 
