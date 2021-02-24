@@ -41,15 +41,12 @@ tags:
 2. `Clear and Invalidate Timer by Handle`：手动清除设置的定时器
 3. `Quit Game`：退出游戏
 4. `Is Valid`：如果对象可用（不为`null`或者`not pending kill`则返回`true`
-5. `Get Player Camera Manager`：返回指定玩家索引的玩家摄像机管理器
-6. `Get Camera Rotation`：返回相机的当前旋转
 7. `Break Rotator`：将旋转器分解为以度为单位的侧倾角（Roll），俯仰角（Pitch）和偏航角（Yaw）
 8. `Set Render Transform Angle`：设置渲染变换角度
 9. `Set Style`：设置按钮的样式
 10. `Play Animation`：播放动画
 11. `Load Stream Level`：加载流送关卡
 12. `Unload Stream Level`：卸载流送关卡
-13. `Get Player Controller`：返回玩家控制器的索引
 14. `Set Show Mouse Cursor`：设置是否显示鼠标
 15. `Get Parent`：获取当前控件的父控件
 16. `Get Children Count`：获取当前容器控件中的子控件数量（需要通过`Get Parent`获取）
@@ -59,6 +56,23 @@ tags:
 ### `Appearance`
 
 1. `Set Brush from Texture`：设置图片
+
+### `Slot`
+
+1. `Slot as Canvas Slot`：将子对象上的插槽对象作为`画布插槽`获取，从而允许你操纵布局信息
+
+### `Layout`
+
+#### `Canvas Slot`
+
+1. `set Position`：设置插槽的位置
+
+### `Game`
+
+1. `Get Player Controller`：返回玩家控制器的索引
+   1. `Get HUD`：获取当前的屏幕
+2. `Get Player Camera Manager`：返回指定玩家索引的玩家摄像机管理器
+   1. `Get Camera Rotation`：返回相机的当前旋转
 
 ### `Math`
 
