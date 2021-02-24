@@ -55,7 +55,19 @@ tags:
 16. `Get Children Count`：获取当前容器控件中的子控件数量（需要通过`Get Parent`获取）
 17. `Get Children At`：通过索引获取对应的控件（需要通过`Get Parent`获取）
 18. `Set Is Enabled`：设置控件是否可以和用户交互
-    
+
+### `Appearance`
+
+1. `Set Brush from Texture`：设置图片
+
+### `Math`
+
+#### `Float`
+
+1. `Truncate`：四舍五入
+2. `Map Range Unclamped`：从一个范围映射到另一个范围
+  
+
 ### `Button`
 
 1. `Set Style`：设置按钮的倍增背景色
