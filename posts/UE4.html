@@ -40,15 +40,12 @@
 <li><code>Clear and Invalidate Timer by Handle</code>：手动清除设置的定时器</li>
 <li><code>Quit Game</code>：退出游戏</li>
 <li><code>Is Valid</code>：如果对象可用（不为<code>null</code>或者<code>not pending kill</code>则返回<code>true</code></li>
-<li><code>Get Player Camera Manager</code>：返回指定玩家索引的玩家摄像机管理器</li>
-<li><code>Get Camera Rotation</code>：返回相机的当前旋转</li>
 <li><code>Break Rotator</code>：将旋转器分解为以度为单位的侧倾角（Roll），俯仰角（Pitch）和偏航角（Yaw）</li>
 <li><code>Set Render Transform Angle</code>：设置渲染变换角度</li>
 <li><code>Set Style</code>：设置按钮的样式</li>
 <li><code>Play Animation</code>：播放动画</li>
 <li><code>Load Stream Level</code>：加载流送关卡</li>
 <li><code>Unload Stream Level</code>：卸载流送关卡</li>
-<li><code>Get Player Controller</code>：返回玩家控制器的索引</li>
 <li><code>Set Show Mouse Cursor</code>：设置是否显示鼠标</li>
 <li><code>Get Parent</code>：获取当前控件的父控件</li>
 <li><code>Get Children Count</code>：获取当前容器控件中的子控件数量（需要通过<code>Get Parent</code>获取）</li>
@@ -58,6 +55,28 @@
 <h3 id="appearance"><code>Appearance</code><a class="anchor" href="#appearance">§</a></h3>
 <ol>
 <li><code>Set Brush from Texture</code>：设置图片</li>
+</ol>
+<h3 id="slot"><code>Slot</code><a class="anchor" href="#slot">§</a></h3>
+<ol>
+<li><code>Slot as Canvas Slot</code>：将子对象上的插槽对象作为<code>画布插槽</code>获取，从而允许你操纵布局信息</li>
+</ol>
+<h3 id="layout"><code>Layout</code><a class="anchor" href="#layout">§</a></h3>
+<h4 id="canvas-slot"><code>Canvas Slot</code><a class="anchor" href="#canvas-slot">§</a></h4>
+<ol>
+<li><code>set Position</code>：设置插槽的位置</li>
+</ol>
+<h3 id="game"><code>Game</code><a class="anchor" href="#game">§</a></h3>
+<ol>
+<li><code>Get Player Controller</code>：返回玩家控制器的索引
+<ol>
+<li><code>Get HUD</code>：获取当前的屏幕</li>
+</ol>
+</li>
+<li><code>Get Player Camera Manager</code>：返回指定玩家索引的玩家摄像机管理器
+<ol>
+<li><code>Get Camera Rotation</code>：返回相机的当前旋转</li>
+</ol>
+</li>
 </ol>
 <h3 id="math"><code>Math</code><a class="anchor" href="#math">§</a></h3>
 <h4 id="float"><code>Float</code><a class="anchor" href="#float">§</a></h4>
