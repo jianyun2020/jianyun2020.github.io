@@ -40,7 +40,7 @@ export default {
                 "title": "UE4学习笔记",
                 "link": "posts/UE4.html",
                 "date": "2021-02-01T04:46:51.000Z",
-                "updated": "2021-02-23T08:47:20.000Z",
+                "updated": "2021-02-24T03:29:00.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -52,7 +52,7 @@ export default {
                     "UE4",
                     "学习笔记"
                 ],
-                "excerpt": " 1. 常用快捷键 2. 变更路线节点：Reroute Node 3. Execute Console Command命令 1. 设置分辨率r.setRes 1920x1080 UE4像素流送系统 特点： 1. 流送并非播放预先录制的视频片段，而是播放虚幻引擎实时生成的渲染帧和音频。 2. ...",
+                "excerpt": " 1. 常用快捷键 2. 变更路线节点：Reroute Node 3. Execute Console Command命令 1. 设置分辨率r.setRes 1920x1080 2. r.ScreenPercentage 200：双倍渲染 UE4像素流送系统 特点： 1. 流送并非播放预先录制的视频片段，而是播放...",
                 "cover": "images/shortcut_key1.png"
             },
             {
