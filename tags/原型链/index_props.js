@@ -1,38 +1,37 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "tags/UE4/",
+    'pagePath': "tags/原型链/",
     'layoutPath': "archives/_layout.tsx",
-    'outputPath': "tags/UE4/index.html",
+    'outputPath': "tags/原型链/index.html",
     'head': null,
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'title': "UE4",
+    'title': "原型链",
     'content': null,
     'blog': {
         "isPost": false,
         "posts": [
             {
-                "pagePath": "posts/UE4.md",
-                "title": "UE4学习笔记",
-                "link": "posts/UE4.html",
-                "date": "2021-02-01T04:46:51.000Z",
-                "updated": "2021-02-24T08:54:19.000Z",
+                "pagePath": "posts/原型链.md",
+                "link": "posts/原型链.html",
+                "date": "2021-02-25T14:45:38.000Z",
+                "updated": null,
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "UE4"
+                    "面试"
                 ],
                 "tags": [
-                    "UE4",
-                    "学习笔记"
+                    "面试",
+                    "原型链",
+                    "JavaScript"
                 ],
-                "excerpt": " 1. 常用快捷键 2. 变更路线节点：Reroute Node 3. Execute Console Command命令 1. 设置分辨率r.setRes 1920x1080 2. r.ScreenPercentage 200：双倍渲染 UE4像素流送系统 特点： 1. 流送并非播放预先录制的视频片段，而是播放...",
-                "cover": "images/shortcut_key1.png"
+                "excerpt": ""
             }
         ],
         "categories": [

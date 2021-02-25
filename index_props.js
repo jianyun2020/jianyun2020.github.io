@@ -32,6 +32,25 @@ export default {
         "isPost": false,
         "posts": [
             {
+                "pagePath": "posts/原型链.md",
+                "link": "posts/原型链.html",
+                "date": "2021-02-25T14:45:38.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "面试"
+                ],
+                "tags": [
+                    "面试",
+                    "原型链",
+                    "JavaScript"
+                ],
+                "excerpt": ""
+            },
+            {
                 "pagePath": "posts/UE4.md",
                 "title": "UE4学习笔记",
                 "link": "posts/UE4.html",
@@ -336,7 +355,7 @@ export default {
         "categories": [
             {
                 "name": "面试",
-                "count": 5
+                "count": 6
             },
             {
                 "name": "React",
@@ -366,11 +385,11 @@ export default {
             },
             {
                 "name": "JavaScript",
-                "count": 6
+                "count": 7
             },
             {
                 "name": "面试",
-                "count": 5
+                "count": 6
             },
             {
                 "name": "React",
@@ -398,6 +417,10 @@ export default {
             },
             {
                 "name": "前端本地存储",
+                "count": 1
+            },
+            {
+                "name": "原型链",
                 "count": 1
             },
             {

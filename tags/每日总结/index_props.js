@@ -36,7 +36,7 @@ export default {
         "categories": [
             {
                 "name": "面试",
-                "count": 5
+                "count": 6
             },
             {
                 "name": "React",
@@ -66,11 +66,11 @@ export default {
             },
             {
                 "name": "JavaScript",
-                "count": 6
+                "count": 7
             },
             {
                 "name": "面试",
-                "count": 5
+                "count": 6
             },
             {
                 "name": "React",
@@ -98,6 +98,10 @@ export default {
             },
             {
                 "name": "前端本地存储",
+                "count": 1
+            },
+            {
+                "name": "原型链",
                 "count": 1
             },
             {
