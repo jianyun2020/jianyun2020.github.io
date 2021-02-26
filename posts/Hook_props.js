@@ -42,7 +42,7 @@ export default {
                 "title": "Golang基础",
                 "link": "posts/Golang基础.html",
                 "date": "2021-02-26T04:55:47.000Z",
-                "updated": null,
+                "updated": "2021-02-26T05:36:43.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -53,7 +53,7 @@ export default {
                 "tags": [
                     "学习笔记"
                 ],
-                "excerpt": ""
+                "excerpt": "基本语法 package main import \"fmt\" func main() { // 此括号不能写在单独行 fmt.Println(\"Hello Go~\") } 格式化字符串 Go语言使用fmt.Sprintf格式化字符串并赋值给新串 package main import \"fmt\" func main() { // %d表示整..."
             },
             {
                 "pagePath": "posts/原型链.md",

@@ -9,4 +9,188 @@
       document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
     }
   </script>
-</head><body><a class="czs-menu-l show_on_mobile aside_button_open" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a><a class="show_on_mobile aside_button_text" href="/">jianyuns&#x27;Blog</a><aside class="hide_on_mobile"><a class="czs-menu-l show_on_mobile aside_button_close" href="#" style="background-image:url(&quot;/assets/czs-close-l.svg&quot;)"></a><h1><a href="/">jianyuns&#x27;Blog</a></h1><p class="description">此博客主要用来记录一些学习笔记，方便以后复查。</p><ul class="social list_style_none"><li class="flex_center"><a class="czs-github-logo" href="https://github.com/jianyun2020" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="flex_center"><a class="czs-message-l" href="mailto:sujianyun2020@163.com" target="_blank" style="background-image:url(&quot;/assets/czs-message-l.svg&quot;)"></a></li><li style="flex-grow:1"></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul><nav><ul class="menu list_style_none"><li><a class="flex_center" href="/"><span class="czs-home-l" style="background-image:url(&quot;/assets/czs-home-l.svg&quot;)"></span>首页</a></li><li><a class="flex_center" href="/categories/"><span class="czs-category-l" style="background-image:url(&quot;/assets/czs-category-l.svg&quot;)"></span>分类</a></li><li><a class="flex_center" href="/tags/"><span class="czs-tag-l" style="background-image:url(&quot;/assets/czs-tag-l.svg&quot;)"></span>标签</a></li><li><a class="flex_center" href="/about/"><span class="czs-about-l" style="background-image:url(&quot;/assets/czs-about-l.svg&quot;)"></span>关于</a></li><li><a class="flex_center" href="/archives/"><span class="czs-box-l" style="background-image:url(&quot;/assets/czs-box-l.svg&quot;)"></span>归档</a></li></ul></nav></aside><section class="main"><h1>Golang基础</h1><div class="main_post_meta"><time dateTime="Fri Feb 26 2021 04:55:47 GMT+0000 (UTC)">2021-02-27</time> · <!-- -->jianyun2020</div><article></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
+</head><body><a class="czs-menu-l show_on_mobile aside_button_open" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a><a class="show_on_mobile aside_button_text" href="/">jianyuns&#x27;Blog</a><aside class="hide_on_mobile"><a class="czs-menu-l show_on_mobile aside_button_close" href="#" style="background-image:url(&quot;/assets/czs-close-l.svg&quot;)"></a><h1><a href="/">jianyuns&#x27;Blog</a></h1><p class="description">此博客主要用来记录一些学习笔记，方便以后复查。</p><ul class="social list_style_none"><li class="flex_center"><a class="czs-github-logo" href="https://github.com/jianyun2020" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="flex_center"><a class="czs-message-l" href="mailto:sujianyun2020@163.com" target="_blank" style="background-image:url(&quot;/assets/czs-message-l.svg&quot;)"></a></li><li style="flex-grow:1"></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul><nav><ul class="menu list_style_none"><li><a class="flex_center" href="/"><span class="czs-home-l" style="background-image:url(&quot;/assets/czs-home-l.svg&quot;)"></span>首页</a></li><li><a class="flex_center" href="/categories/"><span class="czs-category-l" style="background-image:url(&quot;/assets/czs-category-l.svg&quot;)"></span>分类</a></li><li><a class="flex_center" href="/tags/"><span class="czs-tag-l" style="background-image:url(&quot;/assets/czs-tag-l.svg&quot;)"></span>标签</a></li><li><a class="flex_center" href="/about/"><span class="czs-about-l" style="background-image:url(&quot;/assets/czs-about-l.svg&quot;)"></span>关于</a></li><li><a class="flex_center" href="/archives/"><span class="czs-box-l" style="background-image:url(&quot;/assets/czs-box-l.svg&quot;)"></span>归档</a></li></ul></nav></aside><section class="main"><h1>Golang基础</h1><div class="main_post_meta"><time dateTime="Fri Feb 26 2021 04:55:47 GMT+0000 (UTC)">2021-02-27</time> · <!-- -->jianyun2020</div><article><h2 id="%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95">基本语法<a class="anchor" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95">§</a></h2>
+<pre class="language-go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">"fmt"</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 此括号不能写在单独行</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Hello Go~"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2">格式化字符串<a class="anchor" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2">§</a></h3>
+<p>Go语言使用<code>fmt.Sprintf</code>格式化字符串并赋值给新串</p>
+<pre class="language-go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">"fmt"</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// %d表示整型数字，%s表示字符串</span>
+    <span class="token keyword">var</span> code <span class="token operator">=</span> <span class="token number">2021</span>
+    <span class="token keyword">var</span> date <span class="token operator">=</span> <span class="token string">"2021-10-1"</span>
+    <span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">"Code=%d&amp;EndDate=%s"</span>
+    <span class="token keyword">var</span> res <span class="token operator">=</span> fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> code<span class="token punctuation">,</span> date<span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Code=2021&amp;EndDate=2021-10-1</span>
+</code></pre>
+<h2 id="%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型<a class="anchor" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">§</a></h2>
+<p>用于声明函数和变量。</p>
+<p>数据类型的出现是为了把数据分成所需内存大小不同的数据，编程的时候需要用大数据的时候才需要申请大内存，就可以充分利用内存。</p>
+<div class="table_wrapper"><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>布尔型</td>
+<td>值可以是常量true或者false，例如：var b bool = true</td>
+</tr>
+<tr>
+<td>数字类型</td>
+<td>整型int和浮点型float32、float64；支持复数，其中位运算采用补码</td>
+</tr>
+<tr>
+<td>字符串类型</td>
+<td>一串固定长度的字符串连接起来的字符序列</td>
+</tr>
+<tr>
+<td>派生类型</td>
+<td>指针类型(Pointer)</td>
+</tr>
+<tr>
+<td></td>
+<td>数组类型</td>
+</tr>
+<tr>
+<td></td>
+<td>结构化类型(struct)</td>
+</tr>
+<tr>
+<td></td>
+<td>Channel类型</td>
+</tr>
+<tr>
+<td></td>
+<td>函数类型</td>
+</tr>
+<tr>
+<td></td>
+<td>切片类型</td>
+</tr>
+<tr>
+<td></td>
+<td>接口类型(interface)</td>
+</tr>
+<tr>
+<td></td>
+<td>Map类型</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B">数字类型<a class="anchor" href="#%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B">§</a></h3>
+<p>Go也有基于架构的类型，例如：int、uint、uintptr</p>
+<div class="table_wrapper"><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uint8</td>
+<td>无符号8位整型(0~255)</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>无符号16位整型(0~65535)</td>
+</tr>
+<tr>
+<td>unit32</td>
+<td>无符号32位整型</td>
+</tr>
+<tr>
+<td>unit64</td>
+<td>无符号64位整型</td>
+</tr>
+<tr>
+<td>int8</td>
+<td>有符号8位整型(-128~127)</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>有符号16位整型(-32768~32767)</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>有符号32位整型</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>有符号64位整型</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>浮点型</strong></p>
+<div class="table_wrapper"><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>float32</td>
+<td>32位浮点型数</td>
+</tr>
+<tr>
+<td>float64</td>
+<td>64位浮点型数</td>
+</tr>
+<tr>
+<td>complex64</td>
+<td>32位实数和虚数</td>
+</tr>
+<tr>
+<td>complex128</td>
+<td>64位实数和虚数</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>其它数字类型</strong></p>
+<div class="table_wrapper"><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>类似uint8</td>
+</tr>
+<tr>
+<td>rune</td>
+<td>类似uint32</td>
+</tr>
+<tr>
+<td>uint</td>
+<td>32或64位</td>
+</tr>
+<tr>
+<td>int</td>
+<td>与uint一样大小</td>
+</tr>
+<tr>
+<td>uintptr</td>
+<td>无符号整型，用于存放一个指针</td>
+</tr>
+</tbody>
+</table></div></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
