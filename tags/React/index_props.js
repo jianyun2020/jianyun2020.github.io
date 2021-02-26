@@ -113,6 +113,10 @@ export default {
                 "count": 2
             },
             {
+                "name": "Golang",
+                "count": 1
+            },
+            {
                 "name": "UE4",
                 "count": 1
             },
@@ -124,7 +128,7 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 13
+                "count": 14
             },
             {
                 "name": "JavaScript",

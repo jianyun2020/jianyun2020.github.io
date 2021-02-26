@@ -1,34 +1,39 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "tags/README.md",
-    'layoutPath': "tags/_layout.tsx",
-    'outputPath': "tags/index.html",
-    'title': "分类",
+    'pagePath': "posts/Golang基础.md",
+    'layoutPath': "posts/_layout.tsx",
+    'outputPath': "posts/Golang基础.html",
+    'title': "Golang基础",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h1>分类</h1>'
+            __html: '<h1>Golang基础</h1>'
         } }),
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'contentTitle': React.createElement("h1", { key: "0" }, "\u5206\u7C7B"),
+    'contentTitle': React.createElement("h1", { key: "0" }, "Golang\u57FA\u7840"),
     'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
             __html: ''
         } }),
     'toc': null,
-    'author': "sujianyun",
+    'author': "jianyun2020",
     'contributors': [
-        "sujianyun",
         "jianyun2020"
     ],
-    'date': "2021-01-19T04:34:29.000Z",
-    'updated': "2021-01-19T07:00:02.000Z",
+    'date': "2021-02-26T04:55:47.000Z",
+    'updated': null,
     'excerpt': "",
     'cover': undefined,
+    'categories': [
+        "Golang"
+    ],
+    'tags': [
+        "学习笔记"
+    ],
     'blog': {
-        "isPost": false,
+        "isPost": true,
         "posts": [
             {
                 "pagePath": "posts/Golang基础.md",

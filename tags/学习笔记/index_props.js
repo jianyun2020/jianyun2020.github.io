@@ -15,6 +15,24 @@ export default {
         "isPost": false,
         "posts": [
             {
+                "pagePath": "posts/Golang基础.md",
+                "title": "Golang基础",
+                "link": "posts/Golang基础.html",
+                "date": "2021-02-26T04:55:47.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "Golang"
+                ],
+                "tags": [
+                    "学习笔记"
+                ],
+                "excerpt": ""
+            },
+            {
                 "pagePath": "posts/UE4.md",
                 "title": "UE4学习笔记",
                 "link": "posts/UE4.html",
@@ -295,6 +313,10 @@ export default {
                 "count": 2
             },
             {
+                "name": "Golang",
+                "count": 1
+            },
+            {
                 "name": "UE4",
                 "count": 1
             },
@@ -306,7 +328,7 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 13
+                "count": 14
             },
             {
                 "name": "JavaScript",
