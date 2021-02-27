@@ -53,7 +53,7 @@ export default {
                 "title": "原型链",
                 "link": "posts/原型链.html",
                 "date": "2021-02-25T14:45:38.000Z",
-                "updated": "2021-02-27T13:26:39.000Z",
+                "updated": "2021-02-27T13:27:53.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -66,7 +66,7 @@ export default {
                     "原型链",
                     "JavaScript"
                 ],
-                "excerpt": "构造函数 本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分，用new关键字调用。 每个函数再创建时，会自动创建prototype属性，它只想一个对象，这个对象 // 创建方式一 function Person() { // ... } // 创建..."
+                "excerpt": "构造函数 本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分，用new关键字调用。 每个函数再创建时，会自动创建prototype属性，它指向一个对象，这个对象正是调用该构造函数而创建的实例的原型。 // 创建方式..."
             },
             {
                 "pagePath": "posts/UE4.md",
