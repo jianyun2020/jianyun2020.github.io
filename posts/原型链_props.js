@@ -4,27 +4,29 @@ export default {
     'pagePath': "posts/原型链.md",
     'layoutPath': "posts/_layout.tsx",
     'outputPath': "posts/原型链.html",
-    'title': undefined,
+    'title': "原型链",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: ''
+            __html: '<h1>原型链</h1>\n<h2 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数<a class="anchor" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">§</a></h2>\n<p>本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分</p>\n<pre class="language-js"><code class="language-js"><span class="token comment">// 创建方式一</span>\n<span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Person</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token comment">// ...</span>\n<span class="token punctuation">}</span>\n\n<span class="token comment">// 创建方式二</span>\n<span class="token keyword">let</span> <span class="token function-variable function"><span class="token maybe-class-name">Person</span></span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token comment">// ...</span>\n<span class="token punctuation">}</span>\n</code></pre>'
         } }),
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'contentTitle': undefined,
+    'contentTitle': React.createElement("h1", { key: "0" }, "\u539F\u578B\u94FE"),
     'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: ''
+            __html: '<h2 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数<a class="anchor" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">§</a></h2>\n<p>本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分</p>\n<pre class="language-js"><code class="language-js"><span class="token comment">// 创建方式一</span>\n<span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Person</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token comment">// ...</span>\n<span class="token punctuation">}</span>\n\n<span class="token comment">// 创建方式二</span>\n<span class="token keyword">let</span> <span class="token function-variable function"><span class="token maybe-class-name">Person</span></span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token comment">// ...</span>\n<span class="token punctuation">}</span>\n</code></pre>'
         } }),
-    'toc': null,
+    'toc': React.createElement("aside", { dangerouslySetInnerHTML: {
+            __html: '<nav class="toc"><ol><li><a href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</a></li></ol></nav>'
+        } }),
     'author': "jianyun2020",
     'contributors': [
         "jianyun2020"
     ],
     'date': "2021-02-25T14:45:38.000Z",
-    'updated': null,
-    'excerpt': "",
+    'updated': "2021-02-27T13:24:22.000Z",
+    'excerpt': "构造函数 本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分 // 创建方式一 function Person() { // ... } // 创建方式二 let Person = function() { // ... } ",
     'cover': undefined,
     'categories': [
         "面试"
@@ -57,9 +59,10 @@ export default {
             },
             {
                 "pagePath": "posts/原型链.md",
+                "title": "原型链",
                 "link": "posts/原型链.html",
                 "date": "2021-02-25T14:45:38.000Z",
-                "updated": null,
+                "updated": "2021-02-27T13:24:22.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -72,7 +75,7 @@ export default {
                     "原型链",
                     "JavaScript"
                 ],
-                "excerpt": ""
+                "excerpt": "构造函数 本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分 // 创建方式一 function Person() { // ... } // 创建方式二 let Person = function() { // ... } "
             },
             {
                 "pagePath": "posts/UE4.md",

@@ -51,9 +51,10 @@ export default {
             },
             {
                 "pagePath": "posts/原型链.md",
+                "title": "原型链",
                 "link": "posts/原型链.html",
                 "date": "2021-02-25T14:45:38.000Z",
-                "updated": null,
+                "updated": "2021-02-27T13:24:22.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -66,7 +67,7 @@ export default {
                     "原型链",
                     "JavaScript"
                 ],
-                "excerpt": ""
+                "excerpt": "构造函数 本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分 // 创建方式一 function Person() { // ... } // 创建方式二 let Person = function() { // ... } "
             },
             {
                 "pagePath": "posts/UE4.md",
