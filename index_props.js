@@ -54,7 +54,7 @@ export default {
                 "title": "原型链",
                 "link": "posts/原型链.html",
                 "date": "2021-02-25T14:45:38.000Z",
-                "updated": "2021-02-28T14:13:22.000Z",
+                "updated": "2021-02-28T14:15:53.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
