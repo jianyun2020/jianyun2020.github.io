@@ -6,7 +6,7 @@ export default {
     'outputPath': "posts/原型链.html",
     'title': "原型链",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h1>原型链</h1>\n<h2 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数<a class="anchor" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">§</a></h2>\n<p>本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分，用<code>new</code>关键字调用。</p>\n<p><strong>每个函数再创建时，会自动创建<code>prototype</code>属性，它指向一个对象，这个对象正是调用该构造函数而创建的实例的原型。</strong></p>\n<pre class="language-js"><code class="language-js"><span class="token comment">// 创建方式一</span>\n<span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Person</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token comment">// ...</span>\n<span class="token punctuation">}</span>\n\n<span class="token comment">// 创建方式二</span>\n<span class="token keyword">let</span> <span class="token function-variable function"><span class="token maybe-class-name">Person</span></span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token comment">// ...</span>\n<span class="token punctuation">}</span>\n</code></pre>'
+            __html: '<h1>原型链</h1>\n<h2 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数<a class="anchor" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">§</a></h2>\n<p>本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分，用<code>new</code>关键字调用。</p>\n<p>**每个函数再创建时，会自动创建<code>prototype</code>属性，它指向一个对象，这个对象正是调用该构造函数而创建的实例的原型。**每一个JavaScript对象(null除外)在创建的时候就会与之关联另一个对象，这个对象就是我们所说的原型，每一个对象都会从原型&quot;继承&quot;属性。</p>\n<pre class="language-js"><code class="language-js"><span class="token comment">// 创建方式一</span>\n<span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Person</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token comment">// ...</span>\n<span class="token punctuation">}</span>\n\n<span class="token comment">// 创建方式二</span>\n<span class="token keyword">let</span> <span class="token function-variable function"><span class="token maybe-class-name">Person</span></span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token comment">// ...</span>\n<span class="token punctuation">}</span>\n</code></pre>\n<p><strong><code>__proto__</code></strong></p>\n<p>这是每一个JavaScript对象(除了 null )都具有的一个属性，叫<code>__proto__</code>，这个属性会指向该对象的原型。</p>'
         } }),
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'script': React.createElement(React.Fragment, null,
@@ -15,7 +15,7 @@ export default {
         React.createElement("script", { src: "/index.js", type: "module" })),
     'contentTitle': React.createElement("h1", { key: "0" }, "\u539F\u578B\u94FE"),
     'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h2 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数<a class="anchor" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">§</a></h2>\n<p>本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分，用<code>new</code>关键字调用。</p>\n<p><strong>每个函数再创建时，会自动创建<code>prototype</code>属性，它指向一个对象，这个对象正是调用该构造函数而创建的实例的原型。</strong></p>\n<pre class="language-js"><code class="language-js"><span class="token comment">// 创建方式一</span>\n<span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Person</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token comment">// ...</span>\n<span class="token punctuation">}</span>\n\n<span class="token comment">// 创建方式二</span>\n<span class="token keyword">let</span> <span class="token function-variable function"><span class="token maybe-class-name">Person</span></span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token comment">// ...</span>\n<span class="token punctuation">}</span>\n</code></pre>'
+            __html: '<h2 id="%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数<a class="anchor" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">§</a></h2>\n<p>本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分，用<code>new</code>关键字调用。</p>\n<p>**每个函数再创建时，会自动创建<code>prototype</code>属性，它指向一个对象，这个对象正是调用该构造函数而创建的实例的原型。**每一个JavaScript对象(null除外)在创建的时候就会与之关联另一个对象，这个对象就是我们所说的原型，每一个对象都会从原型&quot;继承&quot;属性。</p>\n<pre class="language-js"><code class="language-js"><span class="token comment">// 创建方式一</span>\n<span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Person</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token comment">// ...</span>\n<span class="token punctuation">}</span>\n\n<span class="token comment">// 创建方式二</span>\n<span class="token keyword">let</span> <span class="token function-variable function"><span class="token maybe-class-name">Person</span></span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>\n    <span class="token comment">// ...</span>\n<span class="token punctuation">}</span>\n</code></pre>\n<p><strong><code>__proto__</code></strong></p>\n<p>这是每一个JavaScript对象(除了 null )都具有的一个属性，叫<code>__proto__</code>，这个属性会指向该对象的原型。</p>'
         } }),
     'toc': React.createElement("aside", { dangerouslySetInnerHTML: {
             __html: '<nav class="toc"><ol><li><a href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">构造函数</a></li></ol></nav>'
@@ -25,8 +25,8 @@ export default {
         "jianyun2020"
     ],
     'date': "2021-02-25T14:45:38.000Z",
-    'updated': "2021-02-27T13:27:53.000Z",
-    'excerpt': "构造函数 本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分，用new关键字调用。 每个函数再创建时，会自动创建prototype属性，它指向一个对象，这个对象正是调用该构造函数而创建的实例的原型。 // 创建方式...",
+    'updated': "2021-02-28T14:13:22.000Z",
+    'excerpt': "构造函数 本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分，用new关键字调用。 **每个函数再创建时，会自动创建prototype属性，它指向一个对象，这个对象正是调用该构造函数而创建的实例的原型。**每一个Ja...",
     'cover': undefined,
     'categories': [
         "面试"
@@ -62,7 +62,7 @@ export default {
                 "title": "原型链",
                 "link": "posts/原型链.html",
                 "date": "2021-02-25T14:45:38.000Z",
-                "updated": "2021-02-27T13:27:53.000Z",
+                "updated": "2021-02-28T14:13:22.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -75,7 +75,7 @@ export default {
                     "原型链",
                     "JavaScript"
                 ],
-                "excerpt": "构造函数 本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分，用new关键字调用。 每个函数再创建时，会自动创建prototype属性，它指向一个对象，这个对象正是调用该构造函数而创建的实例的原型。 // 创建方式..."
+                "excerpt": "构造函数 本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分，用new关键字调用。 **每个函数再创建时，会自动创建prototype属性，它指向一个对象，这个对象正是调用该构造函数而创建的实例的原型。**每一个Ja..."
             },
             {
                 "pagePath": "posts/UE4.md",
