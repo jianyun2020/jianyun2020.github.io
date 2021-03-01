@@ -52,6 +52,8 @@ tags:
 16. `Get Children Count`：获取当前容器控件中的子控件数量（需要通过`Get Parent`获取）
 17. `Get Children At`：通过索引获取对应的控件（需要通过`Get Parent`获取）
 18. `Set Is Enabled`：设置控件是否可以和用户交互
+19. `Execute Console Command`：执行控制台命令
+    1.  `DisableAllScreenMessages`：禁止所有屏幕信息
 
 ### `Appearance`
 
