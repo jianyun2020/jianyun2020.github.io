@@ -55,6 +55,14 @@ tags:
 19. `Execute Console Command`：执行控制台命令
     1.  `DisableAllScreenMessages`：禁止所有屏幕信息
 
+### `Sequence`
+
+1. `Varibale Type: Level Sequence Actor`：变量类型
+   1. `get Sequence Player`：获取序列玩家
+      1. `Play`：使用当前播放速率从当前时间光标位置开始向前播放。
+      2. `Play Looping`：从当前时间光标开始向前播放，循环特定次数，（-1表示无线循环）
+      3. `Stop`：停止播放，将时间光标移至最后
+
 ### `Appearance`
 
 1. `Set Brush from Texture`：设置图片
