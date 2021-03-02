@@ -55,6 +55,16 @@ tags:
 19. `Execute Console Command`：执行控制台命令
     1.  `DisableAllScreenMessages`：禁止所有屏幕信息
 
+### `Material`：材质
+
+1. `Set Scalar Parameter Value`：在材料收集实例上设置标量参数值
+
+
+### `Widget`
+
+1. `Remove from Parent`：从其父窗口小部件中删除该窗口小部件。如果将此s小部件添加到播放器的屏幕或视口中，则也会从这些容器中删除。
+
+
 ### `Sequence`
 
 1. `Varibale Type: Level Sequence Actor`：变量类型
@@ -70,6 +80,8 @@ tags:
 ### `Slot`
 
 1. `Slot as Canvas Slot`：将子对象上的插槽对象作为`画布插槽`获取，从而允许你操纵布局信息
+   1. `Set Position`：设置slot的位置
+   2. `Get Position`：获取slot的位置
 
 ### `Layout`
 
