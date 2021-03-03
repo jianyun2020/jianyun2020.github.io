@@ -61,6 +61,10 @@ export default {
                 "count": 1
             },
             {
+                "name": "微信的坑",
+                "count": 1
+            },
+            {
                 "name": "每日总结",
                 "count": 1
             }
@@ -120,6 +124,10 @@ export default {
             },
             {
                 "name": "渐变",
+                "count": 1
+            },
+            {
+                "name": "视频播放",
                 "count": 1
             },
             {

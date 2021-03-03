@@ -39,6 +39,25 @@ export default {
         "isPost": true,
         "posts": [
             {
+                "pagePath": "posts/微信内置浏览器播放视频.md",
+                "title": "微信内置X5内核浏览器播放视频相关问题",
+                "link": "posts/微信内置浏览器播放视频.html",
+                "date": "2021-03-03T12:50:17.000Z",
+                "updated": "2021-03-03T13:18:54.000Z",
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "微信的坑"
+                ],
+                "tags": [
+                    "视频播放"
+                ],
+                "excerpt": "官网 原生video标签 <video id=\"vid\" src=\"./assets/test.mp4\" poster=\"./assets/test.png\" controls></video> X5内核视频两种播放形态 1. 页面内播放 X5内核视频在用户点击后默认会进入全屏播放，前端可以设置video的x5-plays...",
+                "cover": "images/wx01.png"
+            },
+            {
                 "pagePath": "posts/Golang基础.md",
                 "title": "Golang基础",
                 "link": "posts/Golang基础.html",
@@ -404,6 +423,10 @@ export default {
                 "count": 1
             },
             {
+                "name": "微信的坑",
+                "count": 1
+            },
+            {
                 "name": "每日总结",
                 "count": 1
             }
@@ -463,6 +486,10 @@ export default {
             },
             {
                 "name": "渐变",
+                "count": 1
+            },
+            {
+                "name": "视频播放",
                 "count": 1
             },
             {
