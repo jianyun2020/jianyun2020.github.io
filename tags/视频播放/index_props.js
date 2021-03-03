@@ -62,10 +62,6 @@ export default {
             {
                 "name": "微信的坑",
                 "count": 1
-            },
-            {
-                "name": "每日总结",
-                "count": 1
             }
         ],
         "tags": [
@@ -115,10 +111,6 @@ export default {
             },
             {
                 "name": "垃圾回收机制",
-                "count": 1
-            },
-            {
-                "name": "每日总结",
                 "count": 1
             },
             {

@@ -138,24 +138,6 @@ export default {
                 "cover": "images/lifeold.png"
             },
             {
-                "pagePath": "posts/2021-1-29.md",
-                "title": "每日总结",
-                "link": "posts/2021-1-29.html",
-                "date": "2021-01-29T11:38:40.000Z",
-                "updated": "2021-01-31T15:15:06.000Z",
-                "author": "jianyun2020",
-                "contributors": [
-                    "jianyun2020"
-                ],
-                "categories": [
-                    "每日总结"
-                ],
-                "tags": [
-                    "每日总结"
-                ],
-                "excerpt": "周末时间利用"
-            },
-            {
                 "pagePath": "posts/前端基础面试题.md",
                 "title": "HTML篇",
                 "link": "posts/前端基础面试题.html",
@@ -427,10 +409,6 @@ export default {
             {
                 "name": "微信的坑",
                 "count": 1
-            },
-            {
-                "name": "每日总结",
-                "count": 1
             }
         ],
         "tags": [
@@ -480,10 +458,6 @@ export default {
             },
             {
                 "name": "垃圾回收机制",
-                "count": 1
-            },
-            {
-                "name": "每日总结",
                 "count": 1
             },
             {
