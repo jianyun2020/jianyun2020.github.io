@@ -53,16 +53,18 @@ export default {
                 "title": "每日总结",
                 "link": "posts/111.html",
                 "date": "2021-03-04T13:28:28.000Z",
-                "updated": null,
+                "updated": "2021-03-04T13:37:41.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "每日总结"
+                    "JavaScript"
                 ],
                 "tags": [
-                    "每日总结"
+                    "面试",
+                    "原型链",
+                    "学习笔记"
                 ],
                 "excerpt": "周末时间利用"
             },
@@ -108,18 +110,18 @@ export default {
                 "title": "原型链",
                 "link": "posts/原型链.html",
                 "date": "2021-02-25T14:45:38.000Z",
-                "updated": "2021-02-28T14:15:53.000Z",
+                "updated": "2021-03-04T13:37:41.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "面试"
+                    "JavaScript"
                 ],
                 "tags": [
                     "面试",
                     "原型链",
-                    "JavaScript"
+                    "学习笔记"
                 ],
                 "excerpt": "构造函数 本质就是函数，与普通函数一样，一般命名首字母大写来与普通函数区分，用new关键字调用。 **每个函数再创建时，会自动创建prototype属性，它指向一个对象，这个对象正是调用该构造函数而创建的实例的原型。**每一个Ja..."
             },
@@ -410,7 +412,7 @@ export default {
         "categories": [
             {
                 "name": "面试",
-                "count": 6
+                "count": 5
             },
             {
                 "name": "React",
@@ -418,6 +420,10 @@ export default {
             },
             {
                 "name": "CSS",
+                "count": 2
+            },
+            {
+                "name": "JavaScript",
                 "count": 2
             },
             {
@@ -439,23 +445,19 @@ export default {
             {
                 "name": "微信的坑",
                 "count": 1
-            },
-            {
-                "name": "每日总结",
-                "count": 1
             }
         ],
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 14
-            },
-            {
-                "name": "JavaScript",
-                "count": 7
+                "count": 16
             },
             {
                 "name": "面试",
+                "count": 7
+            },
+            {
+                "name": "JavaScript",
                 "count": 6
             },
             {
@@ -465,6 +467,10 @@ export default {
             {
                 "name": "CSS",
                 "count": 3
+            },
+            {
+                "name": "原型链",
+                "count": 2
             },
             {
                 "name": "数据结构与算法",
@@ -487,15 +493,7 @@ export default {
                 "count": 1
             },
             {
-                "name": "原型链",
-                "count": 1
-            },
-            {
                 "name": "垃圾回收机制",
-                "count": 1
-            },
-            {
-                "name": "每日总结",
                 "count": 1
             },
             {

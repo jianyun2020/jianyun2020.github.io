@@ -98,7 +98,7 @@ export default {
         "categories": [
             {
                 "name": "面试",
-                "count": 6
+                "count": 5
             },
             {
                 "name": "React",
@@ -106,6 +106,10 @@ export default {
             },
             {
                 "name": "CSS",
+                "count": 2
+            },
+            {
+                "name": "JavaScript",
                 "count": 2
             },
             {
@@ -127,23 +131,19 @@ export default {
             {
                 "name": "微信的坑",
                 "count": 1
-            },
-            {
-                "name": "每日总结",
-                "count": 1
             }
         ],
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 14
-            },
-            {
-                "name": "JavaScript",
-                "count": 7
+                "count": 16
             },
             {
                 "name": "面试",
+                "count": 7
+            },
+            {
+                "name": "JavaScript",
                 "count": 6
             },
             {
@@ -153,6 +153,10 @@ export default {
             {
                 "name": "CSS",
                 "count": 3
+            },
+            {
+                "name": "原型链",
+                "count": 2
             },
             {
                 "name": "数据结构与算法",
@@ -175,15 +179,7 @@ export default {
                 "count": 1
             },
             {
-                "name": "原型链",
-                "count": 1
-            },
-            {
                 "name": "垃圾回收机制",
-                "count": 1
-            },
-            {
-                "name": "每日总结",
                 "count": 1
             },
             {
