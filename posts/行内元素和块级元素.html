@@ -1,0 +1,63 @@
+<!doctype html><html class="" data-reactroot=""><head><link rel="icon" type="image/png" href="/favicon.png"/>
+<meta data-react-helmet="true" charset="utf-8"/><meta data-react-helmet="true" http-equiv="x-ua-compatible" content="ie=edge"/><meta data-react-helmet="true" name="description" content="此博客主要用来记录一些学习笔记，方便以后复查。"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1"/>
+<title data-react-helmet="true">行内元素和块级元素 · jianyuns&#x27;Blog</title>
+<link data-react-helmet="true" rel="stylesheet" href="/assets/index.css"/><link data-react-helmet="true" id="prismTheme" rel="stylesheet" href="/assets/prism.css"/>
+<script data-react-helmet="true" >
+    const shouldSetIsDark = document.cookie.includes('is_dark=1') ? true : document.cookie.includes('is_dark=0') ? false : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (shouldSetIsDark) {
+      document.documentElement.classList.add('is_dark');
+      document.getElementById('prismTheme').href = "/assets/prism_tomorrow.css";
+    }
+  </script>
+</head><body><a class="czs-menu-l show_on_mobile aside_button_open" href="#" style="background-image:url(&quot;/assets/czs-menu-l.svg&quot;)"></a><a class="show_on_mobile aside_button_text" href="/">jianyuns&#x27;Blog</a><aside class="hide_on_mobile"><a class="czs-menu-l show_on_mobile aside_button_close" href="#" style="background-image:url(&quot;/assets/czs-close-l.svg&quot;)"></a><h1><a href="/">jianyuns&#x27;Blog</a></h1><p class="description">此博客主要用来记录一些学习笔记，方便以后复查。</p><ul class="social list_style_none"><li class="flex_center"><a class="czs-github-logo" href="https://github.com/jianyun2020" target="_blank" style="background-image:url(&quot;/assets/czs-github-logo.svg&quot;)"></a></li><li class="flex_center"><a class="czs-message-l" href="mailto:sujianyun2020@163.com" target="_blank" style="background-image:url(&quot;/assets/czs-message-l.svg&quot;)"></a></li><li style="flex-grow:1"></li><li class="toggle_dark flex_center"><span class="czs-sun" style="background-image:url(&quot;/assets/czs-sun.svg&quot;)"></span><span class="czs-sun-l" style="background-image:url(&quot;/assets/czs-sun-l.svg&quot;)"></span><span class="czs-moon" style="background-image:url(&quot;/assets/czs-moon.svg&quot;)"></span><span class="czs-moon-l" style="background-image:url(&quot;/assets/czs-moon-l.svg&quot;)"></span></li></ul><nav><ul class="menu list_style_none"><li><a class="flex_center" href="/"><span class="czs-home-l" style="background-image:url(&quot;/assets/czs-home-l.svg&quot;)"></span>首页</a></li><li><a class="flex_center" href="/categories/"><span class="czs-category-l" style="background-image:url(&quot;/assets/czs-category-l.svg&quot;)"></span>分类</a></li><li><a class="flex_center" href="/tags/"><span class="czs-tag-l" style="background-image:url(&quot;/assets/czs-tag-l.svg&quot;)"></span>标签</a></li><li><a class="flex_center" href="/about/"><span class="czs-about-l" style="background-image:url(&quot;/assets/czs-about-l.svg&quot;)"></span>关于</a></li><li><a class="flex_center" href="/archives/"><span class="czs-box-l" style="background-image:url(&quot;/assets/czs-box-l.svg&quot;)"></span>归档</a></li></ul></nav></aside><section class="main"><h1>行内元素和块级元素</h1><div class="main_post_meta"><time dateTime="Thu Mar 04 2021 13:28:28 GMT+0000 (UTC)">2021-03-05</time> · <!-- -->jianyun2020</div><article><h2 id="%E5%B8%B8%E7%94%A8%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0">常用行内元素<a class="anchor" href="#%E5%B8%B8%E7%94%A8%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0">§</a></h2>
+<ul>
+<li>a：锚点</li>
+<li>span：常用内联容器，定义文本内区块</li>
+<li>label：表格标签</li>
+<li>strong：粗体强调</li>
+<li>em：强调</li>
+<li>br：换行</li>
+<li>img：图片</li>
+<li>input：输入框</li>
+<li>select：项目选择</li>
+<li>textarea：多行文本输入框</li>
+<li>cite：引用</li>
+</ul>
+<h2 id="%E5%B8%B8%E7%94%A8%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0">常用块级元素<a class="anchor" href="#%E5%B8%B8%E7%94%A8%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0">§</a></h2>
+<ul>
+<li>div：常用块级容器，也是css layout的主要标签</li>
+<li>h1~h6：1~6级标题</li>
+<li>p：段落</li>
+<li>form：交互表单</li>
+<li>ul：无序列表</li>
+<li>li：用于表示列表(ul/ol)里的条目</li>
+<li>ol：有序列表</li>
+<li>dl：定义列表</li>
+<li>address： 地址</li>
+<li>hr：水平分隔线</li>
+<li>table：表格</li>
+<li>fieldset：</li>
+</ul>
+<h2 id="%E5%8C%BA%E5%88%AB">区别<a class="anchor" href="#%E5%8C%BA%E5%88%AB">§</a></h2>
+<ol>
+<li>块级元素会独占一行，其宽度自动填满其父元素宽度，行内元素不会独占一行，相邻的行内元素会排列在同一行里（默认会有小间隙），直到一行排不下，才会换行，其宽度随元素的内容而变化</li>
+<li>块级元素可以设置 width, height属性，【注意：块级元素即使设置了宽度，仍然是独占一行的】，行内元素设置width，height无效;</li>
+<li>块级元素可以设置margin 和 padding.行内元素的水平方向的padding-left,padding-right,margin-left,margin-right 都产生边距效果，但是竖直方向的padding-top,padding-bottom,margin-top,margin-bottom都不会产生边距效果。（水平方向有效，竖直方向无效）</li>
+<li>行内元素与块级元素直观上的区别，行内元素会在一条直线上排列，都是同一行的，水平方向排列，块级元素各占据一行，垂直方向排列。块级元素从新行开始结束接着一个断行。</li>
+<li>块级元素可以包含行内元素和块级元素。行内元素不能包含块级元素。</li>
+<li>行内元素与块级元素属性的不同，主要是盒模型属性上，行内元素设置width无效，height无效(可以设置line-height)，margin上下无效，padding上下无效</li>
+</ol>
+<pre class="language-css"><code class="language-css">    display：inline 行内元素/内联元素
+    <span class="token property">display</span><span class="token punctuation">:</span>block 块级元素
+    <span class="token property">display</span><span class="token punctuation">:</span>inline-block 设置成行内块级元素。
+</code></pre>
+<blockquote>
+<p>行内块级元素:和其他元素同一行（行内元素特点），可以设置元素的宽高等（块级元&gt; 素特点）；这样的元素有img input；它们为行内元素，但可以改变宽和高；</p>
+</blockquote>
+<ol start="7">
+<li>行内元素属性标签的宽度是直接由内部的文字或者图片等内容撑开的</li>
+<li>行内元素属性标签内部不能嵌套行属性标签（a链接内不能嵌套其他链接）</li>
+<li>块级元素属性标签的宽度假如不做设置，会直接默认为父元素宽度的100%</li>
+<li>块级元素属性标签是可以直接嵌套的</li>
+<li>p标签中不能嵌套div标签</li>
+</ol></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

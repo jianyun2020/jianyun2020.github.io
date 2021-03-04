@@ -1,59 +1,36 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "categories/CSS/",
+    'pagePath': "tags/每日总结/",
     'layoutPath': "archives/_layout.tsx",
-    'outputPath': "categories/CSS/index.html",
+    'outputPath': "tags/每日总结/index.html",
     'head': null,
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'title': "CSS",
+    'title': "每日总结",
     'content': null,
     'blog': {
         "isPost": false,
         "posts": [
             {
-                "pagePath": "posts/css_渐变.md",
-                "title": "CSS渐变",
-                "link": "posts/css_渐变.html",
-                "date": "2021-01-25T09:32:57.000Z",
+                "pagePath": "posts/111.md",
+                "title": "每日总结",
+                "link": "posts/111.html",
+                "date": "2021-03-04T13:28:28.000Z",
                 "updated": null,
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "CSS"
+                    "每日总结"
                 ],
                 "tags": [
-                    "CSS",
-                    "学习笔记",
-                    "渐变"
+                    "每日总结"
                 ],
-                "excerpt": "CSS渐变<image>类型的一种特殊类型<gradient>表示，由两种或多种颜色之间的渐进过渡组成。有三种类型的渐变： - 线性（由linear-gradient()函数创建） - 径向（由radial-gradient()函数创建） - 圆锥（由conic-gradient()函数创...",
-                "cover": "./images/deg.png"
-            },
-            {
-                "pagePath": "posts/css_background.md",
-                "title": "CSS的background属性详解",
-                "link": "posts/css_background.html",
-                "date": "2021-01-25T07:07:55.000Z",
-                "updated": "2021-01-25T08:30:22.000Z",
-                "author": "jianyun2020",
-                "contributors": [
-                    "jianyun2020"
-                ],
-                "categories": [
-                    "CSS"
-                ],
-                "tags": [
-                    "CSS",
-                    "学习笔记",
-                    "background"
-                ],
-                "excerpt": "background是一中CSS简写属性，可以在一次声明中定义一个或多个属性：background-clip、background-color、background-image、background-origin、background-position、background-repeat、background-size、background-attac..."
+                "excerpt": "周末时间利用"
             }
         ],
         "categories": [
