@@ -55,6 +55,10 @@ tags:
 19. `Execute Console Command`：执行控制台命令
     1.  `DisableAllScreenMessages`：禁止所有屏幕信息
 
+### `Flow Control`
+
+1. `Delay`：延迟执行潜在操作（在几秒钟内指定）。倒计时时再次调用将被忽略。
+
 ### `Material`：材质
 
 1. `Set Scalar Parameter Value`：在材料收集实例上设置标量参数值
