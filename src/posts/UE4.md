@@ -280,7 +280,7 @@ tags:
 |||左/右：0,宽-1|
 |||上/下：0,高-1|
 
-## 空间变换
+### 空间变换
 
 应该始终使用 X To Y 的形式对空间之间的变换命名。
 
@@ -291,3 +291,8 @@ WorldToView
 TranslatedWorldToView
 
 TangentToWorld
+
+## 变量(Variable)
+
+1. 文字颜色变量类型：`Slate Color`
+2. 图片颜色变量类型：`Linear Color`
