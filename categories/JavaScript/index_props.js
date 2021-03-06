@@ -15,6 +15,26 @@ export default {
         "isPost": false,
         "posts": [
             {
+                "pagePath": "posts/继承.md",
+                "title": "继承",
+                "link": "posts/继承.html",
+                "date": "2021-03-04T13:28:28.000Z",
+                "updated": "2021-03-06T15:24:01.000Z",
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "JavaScript"
+                ],
+                "tags": [
+                    "学习笔记",
+                    "继承",
+                    "面试"
+                ],
+                "excerpt": ""
+            },
+            {
                 "pagePath": "posts/111.md",
                 "title": "每日总结",
                 "link": "posts/111.html",
@@ -65,11 +85,11 @@ export default {
                 "count": 4
             },
             {
-                "name": "CSS",
-                "count": 2
+                "name": "JavaScript",
+                "count": 3
             },
             {
-                "name": "JavaScript",
+                "name": "CSS",
                 "count": 2
             },
             {
@@ -96,11 +116,11 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 16
+                "count": 17
             },
             {
                 "name": "面试",
-                "count": 7
+                "count": 8
             },
             {
                 "name": "JavaScript",
@@ -144,6 +164,10 @@ export default {
             },
             {
                 "name": "渐变",
+                "count": 1
+            },
+            {
+                "name": "继承",
                 "count": 1
             },
             {

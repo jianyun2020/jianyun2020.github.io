@@ -1,35 +1,41 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "README.md",
-    'layoutPath': "_layout.tsx",
-    'outputPath': "index.html",
-    'title': undefined,
+    'pagePath': "posts/继承.md",
+    'layoutPath': "posts/_layout.tsx",
+    'outputPath': "posts/继承.html",
+    'title': "继承",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: ''
+            __html: '<h1>继承</h1>'
         } }),
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'contentTitle': undefined,
+    'contentTitle': React.createElement("h1", { key: "0" }, "\u7EE7\u627F"),
     'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
             __html: ''
         } }),
     'toc': null,
-    'author': "jianyun",
+    'author': "jianyun2020",
     'contributors': [
-        "jianyun",
-        "sujianyun",
         "jianyun2020"
     ],
-    'date': "2021-01-19T03:54:31.000Z",
-    'updated': "2021-01-19T07:00:02.000Z",
+    'date': "2021-03-04T13:28:28.000Z",
+    'updated': "2021-03-06T15:24:01.000Z",
     'excerpt': "",
     'cover': undefined,
+    'categories': [
+        "JavaScript"
+    ],
+    'tags': [
+        "学习笔记",
+        "继承",
+        "面试"
+    ],
     'blog': {
-        "isPost": false,
+        "isPost": true,
         "posts": [
             {
                 "pagePath": "posts/行内元素和块级元素.md",

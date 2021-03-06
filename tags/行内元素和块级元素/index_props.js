@@ -43,11 +43,11 @@ export default {
                 "count": 4
             },
             {
-                "name": "CSS",
-                "count": 2
+                "name": "JavaScript",
+                "count": 3
             },
             {
-                "name": "JavaScript",
+                "name": "CSS",
                 "count": 2
             },
             {
@@ -74,11 +74,11 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 16
+                "count": 17
             },
             {
                 "name": "面试",
-                "count": 7
+                "count": 8
             },
             {
                 "name": "JavaScript",
@@ -122,6 +122,10 @@ export default {
             },
             {
                 "name": "渐变",
+                "count": 1
+            },
+            {
+                "name": "继承",
                 "count": 1
             },
             {
