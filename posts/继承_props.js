@@ -6,7 +6,7 @@ export default {
     'outputPath': "posts/继承.html",
     'title': "继承",
     'content': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: '<h1>继承</h1>'
+            __html: '<h1>继承</h1>\n<p>ada</p>'
         } }),
     'head': React.createElement("link", { href: "/favicon.png", rel: "icon", type: "image/png" }),
     'script': React.createElement(React.Fragment, null,
@@ -15,7 +15,7 @@ export default {
         React.createElement("script", { src: "/index.js", type: "module" })),
     'contentTitle': React.createElement("h1", { key: "0" }, "\u7EE7\u627F"),
     'contentBody': React.createElement("article", { dangerouslySetInnerHTML: {
-            __html: ''
+            __html: '<p>ada</p>'
         } }),
     'toc': null,
     'author': "jianyun2020",
@@ -23,8 +23,8 @@ export default {
         "jianyun2020"
     ],
     'date': "2021-03-04T13:28:28.000Z",
-    'updated': "2021-03-06T15:24:01.000Z",
-    'excerpt': "",
+    'updated': "2021-03-07T07:29:44.000Z",
+    'excerpt': "ada",
     'cover': undefined,
     'categories': [
         "JavaScript"
@@ -60,7 +60,7 @@ export default {
                 "title": "继承",
                 "link": "posts/继承.html",
                 "date": "2021-03-04T13:28:28.000Z",
-                "updated": "2021-03-06T15:24:01.000Z",
+                "updated": "2021-03-07T07:29:44.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -73,7 +73,7 @@ export default {
                     "继承",
                     "面试"
                 ],
-                "excerpt": ""
+                "excerpt": "ada"
             },
             {
                 "pagePath": "posts/111.md",
