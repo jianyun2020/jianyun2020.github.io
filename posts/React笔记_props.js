@@ -61,7 +61,7 @@ export default {
                 "title": "继承",
                 "link": "posts/继承.html",
                 "date": "2021-03-04T13:28:28.000Z",
-                "updated": "2021-03-07T07:29:44.000Z",
+                "updated": "2021-03-08T13:18:57.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -74,7 +74,7 @@ export default {
                     "继承",
                     "面试"
                 ],
-                "excerpt": "ada"
+                "excerpt": "原型链继承 function Parent() { this.name = 'kevin'; } Parent.prototype.getName = function() { console.log(this.name); } function Child() { } Child.prototype = new Parent(); var child1 = new Child(); console.log..."
             },
             {
                 "pagePath": "posts/111.md",
