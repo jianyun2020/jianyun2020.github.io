@@ -296,3 +296,4 @@ TangentToWorld
 
 1. 文字颜色变量类型：`Slate Color`
 2. 图片颜色变量类型：`Linear Color`
+3. 图片变量类型：`Slate Brush`
