@@ -55,6 +55,29 @@ tags:
 19. `Execute Console Command`：执行控制台命令
     1.  `DisableAllScreenMessages`：禁止所有屏幕信息
 
+### `Game`
+
+1. `Quit Game`：退出当前游戏
+
+### `Rendering`
+
+1. `Get Supported Fullscreen Resolution`：获得支持的全屏分辨率列表
+
+### `Settings`
+
+1. `Get Game User Settings`：返回游戏本地的设置（分辨率，窗口模式，缩放设置等）
+   1. `Get Fullscreen Mode`：返回用户设定的窗口全屏模式
+      1. `Switch on EWindowMode`：从`Fullscreen、Windowed Fullscreen、Windowed`匹配与输入相同的输出值。
+   2. `Set Fullscreen Mode`：设置用户设定的窗口模式
+   3. `Set Screen Resolution`：设置屏幕分辨率
+   4. `Apply Resolution Settings`：应用分辨率设置
+   5. ``
+
+
+### `Window`
+
+1. `Get Window Mode`：返回当前窗口的模式
+
 ### `Transformation`
 
 1. `Set Relative Scale 3D`：设置相对于其父项的组件的非均匀比例
