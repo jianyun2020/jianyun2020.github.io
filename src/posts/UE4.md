@@ -55,6 +55,7 @@ tags:
 19. `Execute Console Command`：执行控制台命令
     1.  `DisableAllScreenMessages`：禁止所有屏幕信息
 
+
 ### `Game`
 
 1. `Quit Game`：退出当前游戏
@@ -112,7 +113,8 @@ tags:
 
 ### `Appearance`
 
-1. `Set Brush from Texture`：设置图片
+1. `Image控件变量`
+   1. `Set Brush from Texture`：设置图片
 
 ### `Slot`
 
@@ -157,6 +159,8 @@ tags:
 ### `Array`
 
 1. `GET`：输入一个数组和一个索引，返回该索引对应元素的拷贝
+2. `Clear`：清除数组中的所有元素
+3. `Length`：获取数组长度
 
 ### `String`
 
@@ -320,3 +324,5 @@ TangentToWorld
 1. 文字颜色变量类型：`Slate Color`
 2. 图片颜色变量类型：`Linear Color`
 3. 图片变量类型：`Slate Brush`
+4. 图片数组变量类型：`Texture 2D`
+5. 定时器变量类型：`Timer Handle`
