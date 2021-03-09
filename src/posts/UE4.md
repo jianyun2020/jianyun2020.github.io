@@ -54,6 +54,11 @@ tags:
 19. `Execute Console Command`：执行控制台命令
     1.  `DisableAllScreenMessages`：禁止所有屏幕信息
 
+### `Viewport`
+
+1. `Get Mouse Position on Platform`：获得鼠标在当前平台的位置
+2. `Get Mouse Position on Viewport`：获得鼠标在当前视口的位置
+
 ### `Time`
 
 1. `Set Timer by Event`：设定一个计时器来执行事件委托，设置已经存在的计时器（如设置自身）将会更新参数。
