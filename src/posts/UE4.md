@@ -37,8 +37,7 @@ tags:
 
 ## 函数
 
-1. `Set Timer by Event`：设定一个计时器来执行事件委托，设置已经存在的计时器（如设置自身）将会更新参数。
-2. `Clear and Invalidate Timer by Handle`：手动清除设置的定时器
+
 3. `Quit Game`：退出游戏
 4. `Is Valid`：如果对象可用（不为`null`或者`not pending kill`则返回`true`
 7. `Break Rotator`：将旋转器分解为以度为单位的侧倾角（Roll），俯仰角（Pitch）和偏航角（Yaw）
@@ -55,6 +54,10 @@ tags:
 19. `Execute Console Command`：执行控制台命令
     1.  `DisableAllScreenMessages`：禁止所有屏幕信息
 
+### `Time`
+
+1. `Set Timer by Event`：设定一个计时器来执行事件委托，设置已经存在的计时器（如设置自身）将会更新参数。
+2. `Clear and Invalidate Timer by Handle`：手动清除设置的定时器
 
 ### `Game`
 
@@ -326,3 +329,4 @@ TangentToWorld
 3. 图片变量类型：`Slate Brush`
 4. 图片数组变量类型：`Texture 2D`
 5. 定时器变量类型：`Timer Handle`
+6. 字体变量类型：`Slate Font Info`
