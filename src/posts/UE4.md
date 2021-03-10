@@ -54,6 +54,14 @@ tags:
 19. `Execute Console Command`：执行控制台命令
     1.  `DisableAllScreenMessages`：禁止所有屏幕信息
 
+### `Development`
+
+1. `Set Hidden in Game`：设置`Scene Component`的显示隐藏
+
+### `User Interface`
+
+1. `Get User Widget Object`：通过`Widget Component`控件返回用户控件对象
+
 ### `Viewport`
 
 1. `Get Mouse Position on Platform`：获得鼠标在当前平台的位置
@@ -335,3 +343,4 @@ TangentToWorld
 4. 图片数组变量类型：`Texture 2D`
 5. 定时器变量类型：`Timer Handle`
 6. 字体变量类型：`Slate Font Info`
+7. Widget变量类型：`Widget Component`
