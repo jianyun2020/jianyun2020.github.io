@@ -172,11 +172,18 @@ tags:
 
 1. `Get All Children`：获取`Panel`下的所有子控件
 
+### `Map`
+
+1. `Keys`：输出一个包含当前map中的所有key的数组
+2. `Find`：输出对应的key的值
+
 ### `Array`
 
 1. `GET`：输入一个数组和一个索引，返回该索引对应元素的拷贝
 2. `Clear`：清除数组中的所有元素
 3. `Length`：获取数组长度
+4. `Add`：添加一个元素到数组
+5. `Contains`：判断数组是否包含一个元素，若包含则返回true
 
 ### `String`
 
@@ -344,3 +351,11 @@ TangentToWorld
 5. 定时器变量类型：`Timer Handle`
 6. 字体变量类型：`Slate Font Info`
 7. Widget变量类型：`Widget Component`
+
+## Actor
+
+1. Static Mesh Component：
+   1. Events:
+      1. On Begin Cursor Over：鼠标悬浮时触发
+      2. On End Cursor Over：鼠标移出时触发
+   2. 
