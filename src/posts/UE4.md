@@ -38,7 +38,6 @@ tags:
 ## 函数
 
 
-3. `Quit Game`：退出游戏
 4. `Is Valid`：如果对象可用（不为`null`或者`not pending kill`则返回`true`
 7. `Break Rotator`：将旋转器分解为以度为单位的侧倾角（Roll），俯仰角（Pitch）和偏航角（Yaw）
 8. `Set Render Transform Angle`：设置渲染变换角度
@@ -54,25 +53,41 @@ tags:
 19. `Execute Console Command`：执行控制台命令
     1.  `DisableAllScreenMessages`：禁止所有屏幕信息
 
-### `Viewport`
+### 
+
+### Audio
+
+1. Play Sound 2D：直接播放无衰减的声音，适用与UI声音
+
+### Development
+
+1. `Set Hidden in Game`：设置`Scene Component`的显示隐藏
+
+### User Interface
+
+1. `Get User Widget Object`：通过`Widget Component`控件返回用户控件对象
+
+### Viewport
 
 1. `Get Mouse Position on Platform`：获得鼠标在当前平台的位置
 2. `Get Mouse Position on Viewport`：获得鼠标在当前视口的位置
+3. `Add to Viewport`：将User Widget添加到视口
+4. 
 
-### `Time`
+### Time
 
 1. `Set Timer by Event`：设定一个计时器来执行事件委托，设置已经存在的计时器（如设置自身）将会更新参数。
 2. `Clear and Invalidate Timer by Handle`：手动清除设置的定时器
 
-### `Game`
+### Game
 
 1. `Quit Game`：退出当前游戏
 
-### `Rendering`
+### Rendering
 
 1. `Get Supported Fullscreen Resolution`：获得支持的全屏分辨率列表
 
-### `Settings`
+### Settings
 
 1. `Get Game User Settings`：返回游戏本地的设置（分辨率，窗口模式，缩放设置等）
    1. `Get Fullscreen Mode`：返回用户设定的窗口全屏模式
@@ -80,38 +95,38 @@ tags:
    2. `Set Fullscreen Mode`：设置用户设定的窗口模式
    3. `Set Screen Resolution`：设置屏幕分辨率
    4. `Apply Resolution Settings`：应用分辨率设置
-   5. ``
 
 
-### `Window`
+
+### Window
 
 1. `Get Window Mode`：返回当前窗口的模式
 
-### `Transformation`
+### Transformation
 
 1. `Set Relative Scale 3D`：设置相对于其父项的组件的非均匀比例
 
 
-### `User Interface`
+### User Interface
 
 1. `Get User Widget Of Object`：返回此组件显示的用户小部件对象
 
 
-### `Flow Control`
+### Flow Control
 
 1. `Delay`：延迟执行潜在操作（在几秒钟内指定）。倒计时时再次调用将被忽略。
 
-### `Material`：材质
+### Material：材质
 
 1. `Set Scalar Parameter Value`：在材料收集实例上设置标量参数值
 
 
-### `Widget`
+### Widget
 
 1. `Remove from Parent`：从其父窗口小部件中删除该窗口小部件。如果将此s小部件添加到播放器的屏幕或视口中，则也会从这些容器中删除。
 
 
-### `Sequence`
+### Sequence
 
 1. `Varibale Type: Level Sequence Actor`：变量类型
    1. `get Sequence Player`：获取序列玩家
@@ -119,67 +134,77 @@ tags:
       2. `Play Looping`：从当前时间光标开始向前播放，循环特定次数，（-1表示无线循环）
       3. `Stop`：停止播放，将时间光标移至最后
 
-### `Appearance`
+### Appearance
 
-1. `Image控件变量`
+1. Image控件变量
    1. `Set Brush from Texture`：设置图片
+2. Widget
+   1. `Is in Viewport`：判断widget是否已显示
 
-### `Slot`
+### Slot
 
 1. `Slot as Canvas Slot`：将子对象上的插槽对象作为`画布插槽`获取，从而允许你操纵布局信息
    1. `Set Position`：设置slot的位置
    2. `Get Position`：获取slot的位置
 
-### `Layout`
+### Layout
 
-#### `Canvas Slot`
+#### Canvas Slot
 
 1. `set Position`：设置插槽的位置
 
-### `Game`
+### Game
 
 1. `Get Player Controller`：返回玩家控制器的索引
    1. `Get HUD`：获取当前的屏幕
 2. `Get Player Camera Manager`：返回指定玩家索引的玩家摄像机管理器
    1. `Get Camera Rotation`：返回相机的当前旋转
 
-### `Math`
+### Math
 
-#### `Float`
+#### Float
 
 1. `Truncate`：四舍五入
 2. `Map Range Unclamped`：从一个范围映射到另一个范围
   
 
-### `Button`
+### Button
 
 1. `Set Style`：设置按钮的倍增背景色
 
-### `Text`
+### Text
 
 1. `Set Text`：设置`Text`控件的text
 2. `Set Color and Opacity`：设置`Text`控件字体的颜色和透明度
 
-### `Panel`
+### Panel
 
 1. `Get All Children`：获取`Panel`下的所有子控件
 
-### `Array`
+### Map
+
+1. `Keys`：输出一个包含当前map中的所有key的数组
+2. `Find`：输出对应的key的值
+
+### Array
 
 1. `GET`：输入一个数组和一个索引，返回该索引对应元素的拷贝
 2. `Clear`：清除数组中的所有元素
 3. `Length`：获取数组长度
+4. `Add`：添加一个元素到数组
+5. `Contains`：判断数组是否包含一个元素，若包含则返回true
+6. `Make Array`：创建一个数组
 
-### `String`
+### String
 
 1. `Append`：拼接字符串，返回新字符串
 
-### `Animation`
+### Animation
 
 1. `Is Animation Playing`：判断一个动画是否播放
 2. `Reverse Animation`：如果动画已播放，则反转播放动画
 
-### `Transform`
+### Transform
 
 1. `Set Render Scale`
 
@@ -335,3 +360,13 @@ TangentToWorld
 4. 图片数组变量类型：`Texture 2D`
 5. 定时器变量类型：`Timer Handle`
 6. 字体变量类型：`Slate Font Info`
+7. Widget变量类型：`Widget Component`
+
+## Actor
+
+1. Static Mesh Component：
+   1. Events:
+      1. `On Begin Cursor Over`：鼠标悬浮时触发
+      2. `On End Cursor Over`：鼠标移出时触发
+   2. `Set Material`：设置材质
+2. `GetActorLocation`：返回当前Actor中RootComponent的位置
