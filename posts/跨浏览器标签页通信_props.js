@@ -83,7 +83,7 @@ export default {
                 "title": "history和hash两种路由",
                 "link": "posts/history和hash两种路由.html",
                 "date": "2021-03-11T04:59:20.000Z",
-                "updated": null,
+                "updated": "2021-03-11T05:40:11.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
