@@ -105,6 +105,10 @@ export default {
                 "count": 4
             },
             {
+                "name": "HTML",
+                "count": 3
+            },
+            {
                 "name": "JavaScript",
                 "count": 3
             },
@@ -121,26 +125,26 @@ export default {
                 "count": 1
             },
             {
-                "name": "HTML",
-                "count": 1
-            },
-            {
                 "name": "UE4",
                 "count": 1
             },
             {
                 "name": "微信的坑",
                 "count": 1
+            },
+            {
+                "name": "算法",
+                "count": 1
             }
         ],
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 17
+                "count": 20
             },
             {
                 "name": "面试",
-                "count": 8
+                "count": 11
             },
             {
                 "name": "JavaScript",
@@ -179,6 +183,10 @@ export default {
                 "count": 1
             },
             {
+                "name": "动态规划",
+                "count": 1
+            },
+            {
                 "name": "垃圾回收机制",
                 "count": 1
             },
@@ -200,6 +208,14 @@ export default {
             },
             {
                 "name": "跨域",
+                "count": 1
+            },
+            {
+                "name": "跨页面通信",
+                "count": 1
+            },
+            {
+                "name": "路由",
                 "count": 1
             },
             {

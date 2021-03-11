@@ -35,8 +35,7 @@
 </ol>
 <h3 id="%E4%BC%98%E7%82%B9">优点：<a class="anchor" href="#%E4%BC%98%E7%82%B9">§</a></h3>
 <h2 id="%E5%87%BD%E6%95%B0">函数<a class="anchor" href="#%E5%87%BD%E6%95%B0">§</a></h2>
-<ol start="3">
-<li><code>Quit Game</code>：退出游戏</li>
+<ol start="4">
 <li><code>Is Valid</code>：如果对象可用（不为<code>null</code>或者<code>not pending kill</code>则返回<code>true</code></li>
 <li><code>Break Rotator</code>：将旋转器分解为以度为单位的侧倾角（Roll），俯仰角（Pitch）和偏航角（Yaw）</li>
 <li><code>Set Render Transform Angle</code>：设置渲染变换角度</li>
@@ -55,33 +54,40 @@
 </ol>
 </li>
 </ol>
-<h3 id="development"><code>Development</code><a class="anchor" href="#development">§</a></h3>
+<h3 id=""><a class="anchor" href="#">§</a></h3>
+<h3 id="audio">Audio<a class="anchor" href="#audio">§</a></h3>
+<ol>
+<li>Play Sound 2D：直接播放无衰减的声音，适用与UI声音</li>
+</ol>
+<h3 id="development">Development<a class="anchor" href="#development">§</a></h3>
 <ol>
 <li><code>Set Hidden in Game</code>：设置<code>Scene Component</code>的显示隐藏</li>
 </ol>
-<h3 id="user-interface"><code>User Interface</code><a class="anchor" href="#user-interface">§</a></h3>
+<h3 id="user-interface">User Interface<a class="anchor" href="#user-interface">§</a></h3>
 <ol>
 <li><code>Get User Widget Object</code>：通过<code>Widget Component</code>控件返回用户控件对象</li>
 </ol>
-<h3 id="viewport"><code>Viewport</code><a class="anchor" href="#viewport">§</a></h3>
+<h3 id="viewport">Viewport<a class="anchor" href="#viewport">§</a></h3>
 <ol>
 <li><code>Get Mouse Position on Platform</code>：获得鼠标在当前平台的位置</li>
 <li><code>Get Mouse Position on Viewport</code>：获得鼠标在当前视口的位置</li>
+<li><code>Add to Viewport</code>：将User Widget添加到视口</li>
+<li></li>
 </ol>
-<h3 id="time"><code>Time</code><a class="anchor" href="#time">§</a></h3>
+<h3 id="time">Time<a class="anchor" href="#time">§</a></h3>
 <ol>
 <li><code>Set Timer by Event</code>：设定一个计时器来执行事件委托，设置已经存在的计时器（如设置自身）将会更新参数。</li>
 <li><code>Clear and Invalidate Timer by Handle</code>：手动清除设置的定时器</li>
 </ol>
-<h3 id="game"><code>Game</code><a class="anchor" href="#game">§</a></h3>
+<h3 id="game">Game<a class="anchor" href="#game">§</a></h3>
 <ol>
 <li><code>Quit Game</code>：退出当前游戏</li>
 </ol>
-<h3 id="rendering"><code>Rendering</code><a class="anchor" href="#rendering">§</a></h3>
+<h3 id="rendering">Rendering<a class="anchor" href="#rendering">§</a></h3>
 <ol>
 <li><code>Get Supported Fullscreen Resolution</code>：获得支持的全屏分辨率列表</li>
 </ol>
-<h3 id="settings"><code>Settings</code><a class="anchor" href="#settings">§</a></h3>
+<h3 id="settings">Settings<a class="anchor" href="#settings">§</a></h3>
 <ol>
 <li><code>Get Game User Settings</code>：返回游戏本地的设置（分辨率，窗口模式，缩放设置等）
 <ol>
@@ -93,35 +99,34 @@
 <li><code>Set Fullscreen Mode</code>：设置用户设定的窗口模式</li>
 <li><code>Set Screen Resolution</code>：设置屏幕分辨率</li>
 <li><code>Apply Resolution Settings</code>：应用分辨率设置</li>
-<li>``</li>
 </ol>
 </li>
 </ol>
-<h3 id="window"><code>Window</code><a class="anchor" href="#window">§</a></h3>
+<h3 id="window">Window<a class="anchor" href="#window">§</a></h3>
 <ol>
 <li><code>Get Window Mode</code>：返回当前窗口的模式</li>
 </ol>
-<h3 id="transformation"><code>Transformation</code><a class="anchor" href="#transformation">§</a></h3>
+<h3 id="transformation">Transformation<a class="anchor" href="#transformation">§</a></h3>
 <ol>
 <li><code>Set Relative Scale 3D</code>：设置相对于其父项的组件的非均匀比例</li>
 </ol>
-<h3 id="user-interface-1"><code>User Interface</code><a class="anchor" href="#user-interface-1">§</a></h3>
+<h3 id="user-interface-1">User Interface<a class="anchor" href="#user-interface-1">§</a></h3>
 <ol>
 <li><code>Get User Widget Of Object</code>：返回此组件显示的用户小部件对象</li>
 </ol>
-<h3 id="flow-control"><code>Flow Control</code><a class="anchor" href="#flow-control">§</a></h3>
+<h3 id="flow-control">Flow Control<a class="anchor" href="#flow-control">§</a></h3>
 <ol>
 <li><code>Delay</code>：延迟执行潜在操作（在几秒钟内指定）。倒计时时再次调用将被忽略。</li>
 </ol>
-<h3 id="material%E6%9D%90%E8%B4%A8"><code>Material</code>：材质<a class="anchor" href="#material%E6%9D%90%E8%B4%A8">§</a></h3>
+<h3 id="material%E6%9D%90%E8%B4%A8">Material：材质<a class="anchor" href="#material%E6%9D%90%E8%B4%A8">§</a></h3>
 <ol>
 <li><code>Set Scalar Parameter Value</code>：在材料收集实例上设置标量参数值</li>
 </ol>
-<h3 id="widget"><code>Widget</code><a class="anchor" href="#widget">§</a></h3>
+<h3 id="widget">Widget<a class="anchor" href="#widget">§</a></h3>
 <ol>
 <li><code>Remove from Parent</code>：从其父窗口小部件中删除该窗口小部件。如果将此s小部件添加到播放器的屏幕或视口中，则也会从这些容器中删除。</li>
 </ol>
-<h3 id="sequence"><code>Sequence</code><a class="anchor" href="#sequence">§</a></h3>
+<h3 id="sequence">Sequence<a class="anchor" href="#sequence">§</a></h3>
 <ol>
 <li><code>Varibale Type: Level Sequence Actor</code>：变量类型
 <ol>
@@ -135,15 +140,20 @@
 </ol>
 </li>
 </ol>
-<h3 id="appearance"><code>Appearance</code><a class="anchor" href="#appearance">§</a></h3>
+<h3 id="appearance">Appearance<a class="anchor" href="#appearance">§</a></h3>
 <ol>
-<li><code>Image控件变量</code>
+<li>Image控件变量
 <ol>
 <li><code>Set Brush from Texture</code>：设置图片</li>
 </ol>
 </li>
+<li>Widget
+<ol>
+<li><code>Is in Viewport</code>：判断widget是否已显示</li>
 </ol>
-<h3 id="slot"><code>Slot</code><a class="anchor" href="#slot">§</a></h3>
+</li>
+</ol>
+<h3 id="slot">Slot<a class="anchor" href="#slot">§</a></h3>
 <ol>
 <li><code>Slot as Canvas Slot</code>：将子对象上的插槽对象作为<code>画布插槽</code>获取，从而允许你操纵布局信息
 <ol>
@@ -152,12 +162,12 @@
 </ol>
 </li>
 </ol>
-<h3 id="layout"><code>Layout</code><a class="anchor" href="#layout">§</a></h3>
-<h4 id="canvas-slot"><code>Canvas Slot</code><a class="anchor" href="#canvas-slot">§</a></h4>
+<h3 id="layout">Layout<a class="anchor" href="#layout">§</a></h3>
+<h4 id="canvas-slot">Canvas Slot<a class="anchor" href="#canvas-slot">§</a></h4>
 <ol>
 <li><code>set Position</code>：设置插槽的位置</li>
 </ol>
-<h3 id="game-1"><code>Game</code><a class="anchor" href="#game-1">§</a></h3>
+<h3 id="game-1">Game<a class="anchor" href="#game-1">§</a></h3>
 <ol>
 <li><code>Get Player Controller</code>：返回玩家控制器的索引
 <ol>
@@ -170,48 +180,49 @@
 </ol>
 </li>
 </ol>
-<h3 id="math"><code>Math</code><a class="anchor" href="#math">§</a></h3>
-<h4 id="float"><code>Float</code><a class="anchor" href="#float">§</a></h4>
+<h3 id="math">Math<a class="anchor" href="#math">§</a></h3>
+<h4 id="float">Float<a class="anchor" href="#float">§</a></h4>
 <ol>
 <li><code>Truncate</code>：四舍五入</li>
 <li><code>Map Range Unclamped</code>：从一个范围映射到另一个范围</li>
 </ol>
-<h3 id="button"><code>Button</code><a class="anchor" href="#button">§</a></h3>
+<h3 id="button">Button<a class="anchor" href="#button">§</a></h3>
 <ol>
 <li><code>Set Style</code>：设置按钮的倍增背景色</li>
 </ol>
-<h3 id="text"><code>Text</code><a class="anchor" href="#text">§</a></h3>
+<h3 id="text">Text<a class="anchor" href="#text">§</a></h3>
 <ol>
 <li><code>Set Text</code>：设置<code>Text</code>控件的text</li>
 <li><code>Set Color and Opacity</code>：设置<code>Text</code>控件字体的颜色和透明度</li>
 </ol>
-<h3 id="panel"><code>Panel</code><a class="anchor" href="#panel">§</a></h3>
+<h3 id="panel">Panel<a class="anchor" href="#panel">§</a></h3>
 <ol>
 <li><code>Get All Children</code>：获取<code>Panel</code>下的所有子控件</li>
 </ol>
-<h3 id="map"><code>Map</code><a class="anchor" href="#map">§</a></h3>
+<h3 id="map">Map<a class="anchor" href="#map">§</a></h3>
 <ol>
 <li><code>Keys</code>：输出一个包含当前map中的所有key的数组</li>
 <li><code>Find</code>：输出对应的key的值</li>
 </ol>
-<h3 id="array"><code>Array</code><a class="anchor" href="#array">§</a></h3>
+<h3 id="array">Array<a class="anchor" href="#array">§</a></h3>
 <ol>
 <li><code>GET</code>：输入一个数组和一个索引，返回该索引对应元素的拷贝</li>
 <li><code>Clear</code>：清除数组中的所有元素</li>
 <li><code>Length</code>：获取数组长度</li>
 <li><code>Add</code>：添加一个元素到数组</li>
 <li><code>Contains</code>：判断数组是否包含一个元素，若包含则返回true</li>
+<li><code>Make Array</code>：创建一个数组</li>
 </ol>
-<h3 id="string"><code>String</code><a class="anchor" href="#string">§</a></h3>
+<h3 id="string">String<a class="anchor" href="#string">§</a></h3>
 <ol>
 <li><code>Append</code>：拼接字符串，返回新字符串</li>
 </ol>
-<h3 id="animation"><code>Animation</code><a class="anchor" href="#animation">§</a></h3>
+<h3 id="animation">Animation<a class="anchor" href="#animation">§</a></h3>
 <ol>
 <li><code>Is Animation Playing</code>：判断一个动画是否播放</li>
 <li><code>Reverse Animation</code>：如果动画已播放，则反转播放动画</li>
 </ol>
-<h3 id="transform"><code>Transform</code><a class="anchor" href="#transform">§</a></h3>
+<h3 id="transform">Transform<a class="anchor" href="#transform">§</a></h3>
 <ol>
 <li><code>Set Render Scale</code></li>
 </ol>
@@ -470,11 +481,12 @@
 <ol>
 <li>Events:
 <ol>
-<li>On Begin Cursor Over：鼠标悬浮时触发</li>
-<li>On End Cursor Over：鼠标移出时触发</li>
+<li><code>On Begin Cursor Over</code>：鼠标悬浮时触发</li>
+<li><code>On End Cursor Over</code>：鼠标移出时触发</li>
 </ol>
 </li>
-<li></li>
+<li><code>Set Material</code>：设置材质</li>
 </ol>
 </li>
+<li><code>GetActorLocation</code>：返回当前Actor中RootComponent的位置</li>
 </ol></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

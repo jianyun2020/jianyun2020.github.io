@@ -19,7 +19,7 @@ export default {
                 "title": "UE4学习笔记",
                 "link": "posts/UE4.html",
                 "date": "2021-02-01T04:46:51.000Z",
-                "updated": "2021-03-10T07:43:26.000Z",
+                "updated": "2021-03-10T08:27:53.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -45,6 +45,10 @@ export default {
                 "count": 4
             },
             {
+                "name": "HTML",
+                "count": 3
+            },
+            {
                 "name": "JavaScript",
                 "count": 3
             },
@@ -61,26 +65,26 @@ export default {
                 "count": 1
             },
             {
-                "name": "HTML",
-                "count": 1
-            },
-            {
                 "name": "UE4",
                 "count": 1
             },
             {
                 "name": "微信的坑",
                 "count": 1
+            },
+            {
+                "name": "算法",
+                "count": 1
             }
         ],
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 17
+                "count": 20
             },
             {
                 "name": "面试",
-                "count": 8
+                "count": 11
             },
             {
                 "name": "JavaScript",
@@ -119,6 +123,10 @@ export default {
                 "count": 1
             },
             {
+                "name": "动态规划",
+                "count": 1
+            },
+            {
                 "name": "垃圾回收机制",
                 "count": 1
             },
@@ -140,6 +148,14 @@ export default {
             },
             {
                 "name": "跨域",
+                "count": 1
+            },
+            {
+                "name": "跨页面通信",
+                "count": 1
+            },
+            {
+                "name": "路由",
                 "count": 1
             },
             {
