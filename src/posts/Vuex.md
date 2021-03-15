@@ -19,3 +19,53 @@ Vuex 是一个专为 Vue.js 应用程序开发的**状态管理模式**。它采
 
 # 最简单的 Store
 
+```js
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+const store = new Vuex.Store({
+    state: {
+        count: 0
+    },
+    mutations: {
+        increment (state) {
+            state.count++
+        }
+    }
+})
+
+// 现在，你可以通过 store.state 来获取状态对象，以及通过 store.commit 方法触发状态变更：
+store.commit('increment')
+
+console.log(store.state.count) // 1
+
+// 为了在 Vue 组件中访问 this.$store property，你需要为 Vue 实例提供创建好的 store。Vuex 提供了一个从根组件向所有子组件，以 store 选项的方式“注入”该 store 的机制：
+new Vue({
+    el: '#app',
+    store: store
+})
+
+// 如果使用 ES6，你也可以以 ES6 对象的 property 简写 (用在对象某个 property 的 key 和被传入的变量同名时)：
+
+new Vue({
+  el: '#app',
+  store
+})
+
+// 现在我们可以从组件的方法提交一个变更：
+methods: {
+    increment () {
+        this.$store.commit('increment')
+        console.log(this.$store.state.count)
+    }
+}
+```
+
+*再次强调，我们通过提交 mutation 的方式，而非直接改变 store.state.count，是因为我们想要更明确地追踪到状态的变化。*
+
+由于 store 中的状态是响应式的，在组件中调用 store 中的状态简单到仅需要在**计算属性**中返回即可。触发变化也仅仅是在组件的 **methods 中提交 mutation**。
+
+# state
+
