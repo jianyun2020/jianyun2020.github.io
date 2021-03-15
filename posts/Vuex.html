@@ -19,4 +19,49 @@
 <p>你不能直接改变 store 中的状态。改变 store 中的状态的唯一途径就是显式地<strong>提交 (commit) mutation</strong>。这样使得我们可以方便地跟踪每一个状态的变化，从而让我们能够实现一些工具帮助我们更好地了解我们的应用。</p>
 </li>
 </ol>
-<h1>最简单的 Store</h1></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
+<h1>最简单的 Store</h1>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">Vue</span></span> <span class="token keyword module">from</span> <span class="token string">'vue'</span>
+<span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">Vuex</span></span> <span class="token keyword module">from</span> <span class="token string">'vuex'</span>
+
+<span class="token maybe-class-name">Vue</span><span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">Vuex</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    state<span class="token operator">:</span> <span class="token punctuation">{</span>
+        count<span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    mutations<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token function">increment</span> <span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            state<span class="token punctuation">.</span><span class="token property-access">count</span><span class="token operator">++</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 现在，你可以通过 store.state 来获取状态对象，以及通过 store.commit 方法触发状态变更：</span>
+store<span class="token punctuation">.</span><span class="token method function property-access">commit</span><span class="token punctuation">(</span><span class="token string">'increment'</span><span class="token punctuation">)</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span><span class="token property-access">state</span><span class="token punctuation">.</span><span class="token property-access">count</span><span class="token punctuation">)</span> <span class="token comment">// 1</span>
+
+<span class="token comment">// 为了在 Vue 组件中访问 this.$store property，你需要为 Vue 实例提供创建好的 store。Vuex 提供了一个从根组件向所有子组件，以 store 选项的方式“注入”该 store 的机制：</span>
+<span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    el<span class="token operator">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
+    store<span class="token operator">:</span> store
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 如果使用 ES6，你也可以以 ES6 对象的 property 简写 (用在对象某个 property 的 key 和被传入的变量同名时)：</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token operator">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
+  store
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 现在我们可以从组件的方法提交一个变更：</span>
+methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">increment</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">$store</span><span class="token punctuation">.</span><span class="token method function property-access">commit</span><span class="token punctuation">(</span><span class="token string">'increment'</span><span class="token punctuation">)</span>
+        <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">$store</span><span class="token punctuation">.</span><span class="token property-access">state</span><span class="token punctuation">.</span><span class="token property-access">count</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><em>再次强调，我们通过提交 mutation 的方式，而非直接改变 store.state.count，是因为我们想要更明确地追踪到状态的变化。</em></p>
+<p>由于 store 中的状态是响应式的，在组件中调用 store 中的状态简单到仅需要在<strong>计算属性</strong>中返回即可。触发变化也仅仅是在组件的 <strong>methods 中提交 mutation</strong>。</p>
+<h1>state</h1></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
