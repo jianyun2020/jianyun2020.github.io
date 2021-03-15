@@ -1,38 +1,37 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "tags/UE4/",
+    'pagePath': "tags/Vuex/",
     'layoutPath': "archives/_layout.tsx",
-    'outputPath': "tags/UE4/index.html",
+    'outputPath': "tags/Vuex/index.html",
     'head': null,
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'title': "UE4",
+    'title': "Vuex",
     'content': null,
     'blog': {
         "isPost": false,
         "posts": [
             {
-                "pagePath": "posts/UE4.md",
-                "title": "UE4学习笔记",
-                "link": "posts/UE4.html",
-                "date": "2021-02-01T04:46:51.000Z",
-                "updated": "2021-03-11T09:31:40.000Z",
+                "pagePath": "posts/Vuex.md",
+                "title": "Vuex",
+                "link": "posts/Vuex.html",
+                "date": "2021-03-15T02:10:17.000Z",
+                "updated": null,
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "UE4"
+                    "Vuex"
                 ],
                 "tags": [
-                    "UE4",
+                    "Vuex",
                     "学习笔记"
                 ],
-                "excerpt": " 1. 常用快捷键 2. 变更路线节点：Reroute Node 3. Execute Console Command命令 1. 设置分辨率r.setRes 1920x1080 2. r.ScreenPercentage 200：双倍渲染 UE4像素流送系统 特点： 1. 流送并非播放预先录制的视频片段，而是播放...",
-                "cover": "images/shortcut_key1.png"
+                "excerpt": "Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 每一个 Vuex 应用的核心就是 store（仓库）。“store”基本上就是一个容..."
             }
         ],
         "categories": [

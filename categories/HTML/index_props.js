@@ -109,6 +109,10 @@ export default {
                 "count": 1
             },
             {
+                "name": "Vuex",
+                "count": 1
+            },
+            {
                 "name": "微信的坑",
                 "count": 1
             },
@@ -120,7 +124,7 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 20
+                "count": 21
             },
             {
                 "name": "面试",
@@ -156,6 +160,10 @@ export default {
             },
             {
                 "name": "UE4",
+                "count": 1
+            },
+            {
+                "name": "Vuex",
                 "count": 1
             },
             {

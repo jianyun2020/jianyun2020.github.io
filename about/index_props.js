@@ -31,6 +31,25 @@ export default {
         "isPost": false,
         "posts": [
             {
+                "pagePath": "posts/Vuex.md",
+                "title": "Vuex",
+                "link": "posts/Vuex.html",
+                "date": "2021-03-15T02:10:17.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "Vuex"
+                ],
+                "tags": [
+                    "Vuex",
+                    "学习笔记"
+                ],
+                "excerpt": "Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 每一个 Vuex 应用的核心就是 store（仓库）。“store”基本上就是一个容..."
+            },
+            {
                 "pagePath": "posts/跨浏览器标签页通信.md",
                 "title": "跨浏览器标签页通信",
                 "link": "posts/跨浏览器标签页通信.html",
@@ -525,6 +544,10 @@ export default {
                 "count": 1
             },
             {
+                "name": "Vuex",
+                "count": 1
+            },
+            {
                 "name": "微信的坑",
                 "count": 1
             },
@@ -536,7 +559,7 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 20
+                "count": 21
             },
             {
                 "name": "面试",
@@ -572,6 +595,10 @@ export default {
             },
             {
                 "name": "UE4",
+                "count": 1
+            },
+            {
+                "name": "Vuex",
                 "count": 1
             },
             {
