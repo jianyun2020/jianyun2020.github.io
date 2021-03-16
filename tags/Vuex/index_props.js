@@ -19,7 +19,7 @@ export default {
                 "title": "Vuex",
                 "link": "posts/Vuex.html",
                 "date": "2021-03-15T02:10:17.000Z",
-                "updated": "2021-03-15T05:16:50.000Z",
+                "updated": "2021-03-15T06:40:38.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"

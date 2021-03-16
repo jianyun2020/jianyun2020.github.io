@@ -39,7 +39,7 @@ export default {
                 "title": "每日总结",
                 "link": "posts/111.html",
                 "date": "2021-03-04T13:28:28.000Z",
-                "updated": "2021-03-04T13:37:41.000Z",
+                "updated": "2021-03-16T04:32:09.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
