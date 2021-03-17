@@ -19,13 +19,13 @@ export default {
                 "title": "每日总结",
                 "link": "posts/111.html",
                 "date": "2021-03-04T13:28:28.000Z",
-                "updated": "2021-03-16T04:32:09.000Z",
+                "updated": "2021-03-17T08:00:55.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "JavaScript"
+                    "Vue"
                 ],
                 "tags": [
                     "面试",
@@ -69,11 +69,15 @@ export default {
                 "count": 3
             },
             {
-                "name": "JavaScript",
+                "name": "Vue",
                 "count": 3
             },
             {
                 "name": "CSS",
+                "count": 2
+            },
+            {
+                "name": "JavaScript",
                 "count": 2
             },
             {
@@ -89,10 +93,6 @@ export default {
                 "count": 1
             },
             {
-                "name": "Vuex",
-                "count": 1
-            },
-            {
                 "name": "微信的坑",
                 "count": 1
             },
@@ -104,7 +104,7 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 21
+                "count": 22
             },
             {
                 "name": "面试",
@@ -140,6 +140,10 @@ export default {
             },
             {
                 "name": "UE4",
+                "count": 1
+            },
+            {
+                "name": "Vue Router",
                 "count": 1
             },
             {

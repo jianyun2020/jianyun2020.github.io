@@ -38,17 +38,36 @@ export default {
         "isPost": true,
         "posts": [
             {
-                "pagePath": "posts/Vuex.md",
-                "title": "Vuex",
-                "link": "posts/Vuex.html",
-                "date": "2021-03-15T02:10:17.000Z",
-                "updated": "2021-03-15T06:40:38.000Z",
+                "pagePath": "posts/Vue Router.md",
+                "title": "Vue Router",
+                "link": "posts/Vue Router.html",
+                "date": "2021-03-17T08:01:47.000Z",
+                "updated": null,
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "Vuex"
+                    "Vue"
+                ],
+                "tags": [
+                    "Vue Router",
+                    "学习笔记"
+                ],
+                "excerpt": ""
+            },
+            {
+                "pagePath": "posts/Vuex.md",
+                "title": "Vuex",
+                "link": "posts/Vuex.html",
+                "date": "2021-03-15T02:10:17.000Z",
+                "updated": "2021-03-17T08:00:55.000Z",
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "Vue"
                 ],
                 "tags": [
                     "Vuex",
@@ -161,13 +180,13 @@ export default {
                 "title": "每日总结",
                 "link": "posts/111.html",
                 "date": "2021-03-04T13:28:28.000Z",
-                "updated": "2021-03-16T04:32:09.000Z",
+                "updated": "2021-03-17T08:00:55.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "JavaScript"
+                    "Vue"
                 ],
                 "tags": [
                     "面试",
@@ -531,11 +550,15 @@ export default {
                 "count": 3
             },
             {
-                "name": "JavaScript",
+                "name": "Vue",
                 "count": 3
             },
             {
                 "name": "CSS",
+                "count": 2
+            },
+            {
+                "name": "JavaScript",
                 "count": 2
             },
             {
@@ -551,10 +574,6 @@ export default {
                 "count": 1
             },
             {
-                "name": "Vuex",
-                "count": 1
-            },
-            {
                 "name": "微信的坑",
                 "count": 1
             },
@@ -566,7 +585,7 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 21
+                "count": 22
             },
             {
                 "name": "面试",
@@ -602,6 +621,10 @@ export default {
             },
             {
                 "name": "UE4",
+                "count": 1
+            },
+            {
+                "name": "Vue Router",
                 "count": 1
             },
             {

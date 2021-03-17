@@ -35,26 +35,6 @@ export default {
                 "excerpt": "原型链继承 function Parent() { this.name = 'kevin'; } Parent.prototype.getName = function() { console.log(this.name); } function Child() { } Child.prototype = new Parent(); var child1 = new Child(); console.log..."
             },
             {
-                "pagePath": "posts/111.md",
-                "title": "每日总结",
-                "link": "posts/111.html",
-                "date": "2021-03-04T13:28:28.000Z",
-                "updated": "2021-03-16T04:32:09.000Z",
-                "author": "jianyun2020",
-                "contributors": [
-                    "jianyun2020"
-                ],
-                "categories": [
-                    "JavaScript"
-                ],
-                "tags": [
-                    "面试",
-                    "原型链",
-                    "学习笔记"
-                ],
-                "excerpt": "周末时间利用"
-            },
-            {
                 "pagePath": "posts/原型链.md",
                 "title": "原型链",
                 "link": "posts/原型链.html",
@@ -89,11 +69,15 @@ export default {
                 "count": 3
             },
             {
-                "name": "JavaScript",
+                "name": "Vue",
                 "count": 3
             },
             {
                 "name": "CSS",
+                "count": 2
+            },
+            {
+                "name": "JavaScript",
                 "count": 2
             },
             {
@@ -109,10 +93,6 @@ export default {
                 "count": 1
             },
             {
-                "name": "Vuex",
-                "count": 1
-            },
-            {
                 "name": "微信的坑",
                 "count": 1
             },
@@ -124,7 +104,7 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 21
+                "count": 22
             },
             {
                 "name": "面试",
@@ -160,6 +140,10 @@ export default {
             },
             {
                 "name": "UE4",
+                "count": 1
+            },
+            {
+                "name": "Vue Router",
                 "count": 1
             },
             {

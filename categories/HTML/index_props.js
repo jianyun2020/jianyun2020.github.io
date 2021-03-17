@@ -89,11 +89,15 @@ export default {
                 "count": 3
             },
             {
-                "name": "JavaScript",
+                "name": "Vue",
                 "count": 3
             },
             {
                 "name": "CSS",
+                "count": 2
+            },
+            {
+                "name": "JavaScript",
                 "count": 2
             },
             {
@@ -109,10 +113,6 @@ export default {
                 "count": 1
             },
             {
-                "name": "Vuex",
-                "count": 1
-            },
-            {
                 "name": "微信的坑",
                 "count": 1
             },
@@ -124,7 +124,7 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 21
+                "count": 22
             },
             {
                 "name": "面试",
@@ -160,6 +160,10 @@ export default {
             },
             {
                 "name": "UE4",
+                "count": 1
+            },
+            {
+                "name": "Vue Router",
                 "count": 1
             },
             {

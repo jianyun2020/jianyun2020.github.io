@@ -1,38 +1,37 @@
 import projectConfig from '/pagic.config.js';
 export default {
     config: { "root": "/", ...projectConfig, branch: 'main' },
-    'pagePath': "tags/background/",
+    'pagePath': "tags/Vue Router/",
     'layoutPath': "archives/_layout.tsx",
-    'outputPath': "tags/background/index.html",
+    'outputPath': "tags/Vue Router/index.html",
     'head': null,
     'script': React.createElement(React.Fragment, null,
         React.createElement("script", { src: "https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js" }),
         React.createElement("script", { src: "https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js" }),
         React.createElement("script", { src: "/index.js", type: "module" })),
-    'title': "background",
+    'title': "Vue Router",
     'content': null,
     'blog': {
         "isPost": false,
         "posts": [
             {
-                "pagePath": "posts/css_background.md",
-                "title": "CSS的background属性详解",
-                "link": "posts/css_background.html",
-                "date": "2021-01-25T07:07:55.000Z",
-                "updated": "2021-01-25T08:30:22.000Z",
+                "pagePath": "posts/Vue Router.md",
+                "title": "Vue Router",
+                "link": "posts/Vue Router.html",
+                "date": "2021-03-17T08:01:47.000Z",
+                "updated": null,
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "CSS"
+                    "Vue"
                 ],
                 "tags": [
-                    "CSS",
-                    "学习笔记",
-                    "background"
+                    "Vue Router",
+                    "学习笔记"
                 ],
-                "excerpt": "background是一中CSS简写属性，可以在一次声明中定义一个或多个属性：background-clip、background-color、background-image、background-origin、background-position、background-repeat、background-size、background-attac..."
+                "excerpt": ""
             }
         ],
         "categories": [
