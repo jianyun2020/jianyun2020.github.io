@@ -45,7 +45,7 @@ export default {
                 "title": "Vue Router",
                 "link": "posts/Vue Router.html",
                 "date": "2021-03-17T08:01:47.000Z",
-                "updated": null,
+                "updated": "2021-03-17T08:25:14.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
@@ -57,7 +57,7 @@ export default {
                     "Vue Router",
                     "学习笔记"
                 ],
-                "excerpt": ""
+                "excerpt": "基础 起步 用 Vue.js + Vue Router 创建单页应用，感觉很自然：使用 Vue.js ，我们已经可以通过组合组件来组成应用程序，当你要把 Vue Router 添加进来，我们需要做的是，将组件 (components) 映射到路由 (routes)，然后告诉 V..."
             },
             {
                 "pagePath": "posts/Vuex.md",
