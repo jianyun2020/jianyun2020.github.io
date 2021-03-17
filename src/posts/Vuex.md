@@ -1,6 +1,6 @@
 ---
 categories:
-    - Vuex
+    - Vue
 tags:
     - Vuex
     - 学习笔记
