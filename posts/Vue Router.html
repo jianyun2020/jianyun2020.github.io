@@ -658,4 +658,86 @@ router<span class="token punctuation">.</span><span class="token method function
 <li>触发 DOM 更新。</li>
 <li>调用 beforeRouteEnter 守卫中传给 next 的回调函数，创建好的组件实例会作为回调函数的参数传入。</li>
 </ol>
-<h3 id="%E8%B7%AF%E7%94%B1%E5%85%83%E4%BF%A1%E6%81%AF">路由元信息<a class="anchor" href="#%E8%B7%AF%E7%94%B1%E5%85%83%E4%BF%A1%E6%81%AF">§</a></h3></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
+<h3 id="%E8%B7%AF%E7%94%B1%E5%85%83%E4%BF%A1%E6%81%AF">路由元信息<a class="anchor" href="#%E8%B7%AF%E7%94%B1%E5%85%83%E4%BF%A1%E6%81%AF">§</a></h3>
+<p>定义路由的时候可以配置 <code>meta</code> 字段：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      path<span class="token operator">:</span> <span class="token string">'/foo'</span><span class="token punctuation">,</span>
+      component<span class="token operator">:</span> <span class="token maybe-class-name">Foo</span><span class="token punctuation">,</span>
+      children<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          path<span class="token operator">:</span> <span class="token string">'bar'</span><span class="token punctuation">,</span>
+          component<span class="token operator">:</span> <span class="token maybe-class-name">Bar</span><span class="token punctuation">,</span>
+          <span class="token comment">// a meta field</span>
+          meta<span class="token operator">:</span> <span class="token punctuation">{</span> requiresAuth<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>那么如何访问这个 <code>meta</code> 字段呢？</p>
+<p>首先，我们称呼 <code>routes</code> 配置中的每个路由对象为 路由记录。路由记录可以是嵌套的，因此，当一个路由匹配成功后，他可能匹配多个路由记录</p>
+<p>例如，根据上面的路由配置，/foo/bar 这个 URL 将会匹配父路由记录以及子路由记录。</p>
+<p>一个路由匹配到的所有路由记录会暴露为 <code>$route</code> 对象 (还有在导航守卫中的路由对象) 的 <code>$route.matched</code> 数组。因此，我们需要遍历 <code>$route.matched</code> 来检查路由记录中的 <code>meta</code> 字段。</p>
+<p>下面例子展示在全局导航守卫中检查元字段：</p>
+<pre class="language-js"><code class="language-js">router<span class="token punctuation">.</span><span class="token method function property-access">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> <span class="token keyword module">from</span><span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>to<span class="token punctuation">.</span><span class="token property-access">matched</span><span class="token punctuation">.</span><span class="token method function property-access">some</span><span class="token punctuation">(</span>record<span class="token punctuation">.</span><span class="token property-access">meta</span><span class="token punctuation">.</span><span class="token property-access">requireAuth</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// this route requires auth, check if logged in</span>
+        <span class="token comment">// if not, redirect to login page.</span>
+        <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>auth<span class="token punctuation">.</span><span class="token method function property-access">loggedIn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                path<span class="token operator">:</span> <span class="token string">'/login'</span><span class="token punctuation">,</span>
+                query<span class="token operator">:</span> <span class="token punctuation">{</span> redirect<span class="token operator">:</span> to<span class="token punctuation">.</span><span class="token property-access">fullPath</span> <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+            <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+        <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 确保一定要调用 next()</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="%E8%BF%87%E6%B8%A1%E5%8A%A8%E6%95%88">过渡动效<a class="anchor" href="#%E8%BF%87%E6%B8%A1%E5%8A%A8%E6%95%88">§</a></h3>
+<p><code>&lt;router-view&gt;</code> 是基本的动态组件，所以我们可以用 <code>&lt;transition&gt;</code> 组件给它添加一些过渡效果（同vue中的transition）：</p>
+<pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span>transition<span class="token operator">></span>
+    <span class="token operator">&lt;</span>router<span class="token operator">-</span>view<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>view<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>transition<span class="token operator">></span>
+</code></pre>
+<h4 id="%E5%8D%95%E4%B8%AA%E8%B7%AF%E7%94%B1%E7%9A%84%E8%BF%87%E6%B8%A1">单个路由的过渡<a class="anchor" href="#%E5%8D%95%E4%B8%AA%E8%B7%AF%E7%94%B1%E7%9A%84%E8%BF%87%E6%B8%A1">§</a></h4>
+<p>上面的用法会给所有路由设置一样的过渡效果，如果你想让每个路由组件有各自的过渡效果，可以在各路由组件内使用 <code>&lt;transition&gt;</code> 并设置不同的 <code>name</code>。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token maybe-class-name">Foo</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    template<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+        &lt;transition name="slide">
+            &lt;div class="foo">...&lt;/div>
+        &lt;/transition>
+    </span><span class="token template-punctuation string">`</span></span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token maybe-class-name">Bar</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    template<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+        &lt;transition name="fade">
+            &lt;div class="bar">...&lt;/div>
+        &lt;/transition>
+    </span><span class="token template-punctuation string">`</span></span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="%E5%9F%BA%E4%BA%8E%E8%B7%AF%E7%94%B1%E7%9A%84%E5%8A%A8%E6%80%81%E8%BF%87%E6%B8%A1">基于路由的动态过渡<a class="anchor" href="#%E5%9F%BA%E4%BA%8E%E8%B7%AF%E7%94%B1%E7%9A%84%E5%8A%A8%E6%80%81%E8%BF%87%E6%B8%A1">§</a></h4>
+<p>还可以基于当前路由与目标路由的变化关系，动态设置过渡效果：</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- 使用动态的 transition name --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span> <span class="token attr-name">:name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>transitionName<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-view</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">></span></span>
+</code></pre>
+<pre class="language-js"><code class="language-js"><span class="token comment">// 接着在父组件内</span>
+<span class="token comment">// watch $route 决定使用哪种过渡</span>
+watch<span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token string">'$route'</span> <span class="token punctuation">(</span>to<span class="token punctuation">,</span> <span class="token keyword module">from</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> toDepth <span class="token operator">=</span> to<span class="token punctuation">.</span><span class="token property-access">path</span><span class="token punctuation">.</span><span class="token method function property-access">split</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">length</span>
+    <span class="token keyword">const</span> fromDepth <span class="token operator">=</span> <span class="token keyword module">from</span><span class="token punctuation">.</span><span class="token property-access">path</span><span class="token punctuation">.</span><span class="token method function property-access">split</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">length</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">transitionName</span> <span class="token operator">=</span> toDepth <span class="token operator">&lt;</span> fromDepth <span class="token operator">?</span> <span class="token string">'slide-right'</span> <span class="token operator">:</span> <span class="token string">'slide-left'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="%E6%95%B0%E6%8D%AE%E8%8E%B7%E5%8F%96">数据获取<a class="anchor" href="#%E6%95%B0%E6%8D%AE%E8%8E%B7%E5%8F%96">§</a></h3></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
