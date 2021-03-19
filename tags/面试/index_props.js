@@ -36,26 +36,6 @@ export default {
                 "cover": "../posts/images/html.gif"
             },
             {
-                "pagePath": "posts/动态规划.md",
-                "title": "动态规划",
-                "link": "posts/动态规划.html",
-                "date": "2021-03-11T04:59:20.000Z",
-                "updated": null,
-                "author": "jianyun2020",
-                "contributors": [
-                    "jianyun2020"
-                ],
-                "categories": [
-                    "算法"
-                ],
-                "tags": [
-                    "面试",
-                    "动态规划",
-                    "学习笔记"
-                ],
-                "excerpt": "动态规划（英语：Dynamic programming，简称 DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。 动态规划常常适用于有重叠子问题和最优子结..."
-            },
-            {
                 "pagePath": "posts/history和hash两种路由.md",
                 "title": "history和hash两种路由",
                 "link": "posts/history和hash两种路由.html",
@@ -77,24 +57,24 @@ export default {
                 "cover": "images/chuantong.png"
             },
             {
-                "pagePath": "posts/继承.md",
-                "title": "继承",
-                "link": "posts/继承.html",
-                "date": "2021-03-04T13:28:28.000Z",
-                "updated": "2021-03-08T13:18:57.000Z",
+                "pagePath": "posts/动态规划.md",
+                "title": "动态规划",
+                "link": "posts/动态规划.html",
+                "date": "2021-03-11T04:59:20.000Z",
+                "updated": null,
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "JavaScript"
+                    "算法"
                 ],
                 "tags": [
-                    "学习笔记",
-                    "继承",
-                    "面试"
+                    "面试",
+                    "动态规划",
+                    "学习笔记"
                 ],
-                "excerpt": "原型链继承 function Parent() { this.name = 'kevin'; } Parent.prototype.getName = function() { console.log(this.name); } function Child() { } Child.prototype = new Parent(); var child1 = new Child(); console.log..."
+                "excerpt": "动态规划（英语：Dynamic programming，简称 DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。 动态规划常常适用于有重叠子问题和最优子结..."
             },
             {
                 "pagePath": "posts/111.md",
@@ -115,6 +95,26 @@ export default {
                     "学习笔记"
                 ],
                 "excerpt": "周末时间利用"
+            },
+            {
+                "pagePath": "posts/继承.md",
+                "title": "继承",
+                "link": "posts/继承.html",
+                "date": "2021-03-04T13:28:28.000Z",
+                "updated": "2021-03-08T13:18:57.000Z",
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "JavaScript"
+                ],
+                "tags": [
+                    "学习笔记",
+                    "继承",
+                    "面试"
+                ],
+                "excerpt": "原型链继承 function Parent() { this.name = 'kevin'; } Parent.prototype.getName = function() { console.log(this.name); } function Child() { } Child.prototype = new Parent(); var child1 = new Child(); console.log..."
             },
             {
                 "pagePath": "posts/原型链.md",
