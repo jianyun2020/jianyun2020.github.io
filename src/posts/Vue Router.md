@@ -1038,3 +1038,20 @@ export default {
 ```
 
 在为后面的视图获取数据时，用户会停留在当前的界面，因此建议在数据获取期间，显示一些进度条或者别的指示。如果数据获取失败，同样有必要展示一些全局的错误提醒。
+
+### 滚动行为
+
+使用前端路由，当切换到新路由时，想要页面滚到顶部，或者是保持原先的滚动位置，就像重新加载页面那样。 `vue-router` 能做到，而且更好，它让你可以自定义路由切换时页面如何滚动。
+
+注意: 这个功能只在支持 `history.pushState` 的浏览器中可用。
+
+当创建一个 `Router` 实例，你可以提供一个 `scrollBehavior` 方法：
+
+```js
+const router = new VueRouter({
+    routes: [...],
+    scrollBehavior (to, from, savedPosition) {
+        // return 期望滚动到哪个位置
+    }
+})
+```
