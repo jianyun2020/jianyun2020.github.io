@@ -1055,3 +1055,65 @@ const router = new VueRouter({
     }
 })
 ```
+
+`scrollBehavior` 方法接收 `to` 和 `from` 路由对象。第三个参数 `savedPosition` 当且仅当 `popstate` 导航 (通过浏览器的 前进/后退 按钮触发) 时才可用。
+
+这个方法返回滚动位置的对象信息，长这样：
+
+- { x: number, y: number }
+- { selector: string, offset? : { x: number, y: number }} (offset 只在 2.6.0+ 支持)
+如果返回一个 falsy (译者注：falsy 不是 false，参考这里)的值，或者是一个空对象，那么不会发生滚动。
+
+举例：
+
+```js
+scrollBehavior (to, from, savedPosition) {
+  return { x: 0, y: 0 }
+}
+```
+
+对于所有路由导航，简单地让页面滚动到顶部。
+
+返回 `savedPosition`，在按下 后退/前进 按钮时，就会像浏览器的原生表现那样：
+
+```js
+scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+        return savedPosition
+    } else {
+        return {
+            x: 0,
+            y: 0
+        }
+    }
+}
+```
+
+如果你要模拟“滚动到锚点”的行为：
+
+```js
+scrollBehavior (to, from, savedPosition) {
+  if (to.hash) {
+    return {
+      selector: to.hash
+    }
+  }
+}
+```
+
+#### 异步滚动
+
+你也可以返回一个 `Promise` 来得出预期的位置描述：
+
+```js
+scrollBehavior (to, from, savedPosition) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve({x: 0, y: 0})
+        }, 500)
+    })
+}
+```
+
+将其挂载到从页面级别的过渡组件的事件上，令其滚动行为和页面过渡一起良好运行是可能的。但是考虑到用例的多样性和复杂性，我们仅提供这个原始的接口，以支持不同用户场景的具体实现。
+
