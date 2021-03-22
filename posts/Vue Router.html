@@ -847,4 +847,138 @@ watch<span class="token operator">:</span> <span class="token punctuation">{</sp
         <span class="token comment">// return 期望滚动到哪个位置</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
+</code></pre>
+<p><code>scrollBehavior</code> 方法接收 <code>to</code> 和 <code>from</code> 路由对象。第三个参数 <code>savedPosition</code> 当且仅当 <code>popstate</code> 导航 (通过浏览器的 前进/后退 按钮触发) 时才可用。</p>
+<p>这个方法返回滚动位置的对象信息，长这样：</p>
+<ul>
+<li>{ x: number, y: number }</li>
+<li>{ selector: string, offset? : { x: number, y: number }} (offset 只在 2.6.0+ 支持)
+如果返回一个 falsy (译者注：falsy 不是 false，参考这里)的值，或者是一个空对象，那么不会发生滚动。</li>
+</ul>
+<p>举例：</p>
+<pre class="language-js"><code class="language-js"><span class="token function">scrollBehavior</span> <span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> <span class="token keyword module">from</span><span class="token punctuation">,</span> savedPosition</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>对于所有路由导航，简单地让页面滚动到顶部。</p>
+<p>返回 <code>savedPosition</code>，在按下 后退/前进 按钮时，就会像浏览器的原生表现那样：</p>
+<pre class="language-js"><code class="language-js"><span class="token function">scrollBehavior</span> <span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> <span class="token keyword module">from</span><span class="token punctuation">,</span> savedPosition</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>savedPosition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">return</span> savedPosition
+    <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+            x<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            y<span class="token operator">:</span> <span class="token number">0</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>如果你要模拟“滚动到锚点”的行为：</p>
+<pre class="language-js"><code class="language-js"><span class="token function">scrollBehavior</span> <span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> <span class="token keyword module">from</span><span class="token punctuation">,</span> savedPosition</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>to<span class="token punctuation">.</span><span class="token property-access">hash</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+      selector<span class="token operator">:</span> to<span class="token punctuation">.</span><span class="token property-access">hash</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="%E5%BC%82%E6%AD%A5%E6%BB%9A%E5%8A%A8">异步滚动<a class="anchor" href="#%E5%BC%82%E6%AD%A5%E6%BB%9A%E5%8A%A8">§</a></h4>
+<p>你也可以返回一个 <code>Promise</code> 来得出预期的位置描述：</p>
+<pre class="language-js"><code class="language-js"><span class="token function">scrollBehavior</span> <span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> <span class="token keyword module">from</span><span class="token punctuation">,</span> savedPosition</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+            <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">{</span>x<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>将其挂载到从页面级别的过渡组件的事件上，令其滚动行为和页面过渡一起良好运行是可能的。但是考虑到用例的多样性和复杂性，我们仅提供这个原始的接口，以支持不同用户场景的具体实现。</p>
+<h4 id="%E5%B9%B3%E6%BB%91%E6%BB%9A%E5%8A%A8">平滑滚动<a class="anchor" href="#%E5%B9%B3%E6%BB%91%E6%BB%9A%E5%8A%A8">§</a></h4>
+<p>只需将 <code>behavior</code> 选项添加到 <code>scrollBehavior</code> 内部返回的对象中，就可以为支持它的浏览器启用原生平滑滚动：</p>
+<pre class="language-js"><code class="language-js"><span class="token function">scrollBehavior</span> <span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> <span class="token keyword module">from</span><span class="token punctuation">,</span> savedPosition</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>to<span class="token punctuation">.</span><span class="token property-access">hash</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+      selector<span class="token operator">:</span> to<span class="token punctuation">.</span><span class="token property-access">hash</span><span class="token punctuation">,</span>
+      behavior<span class="token operator">:</span> <span class="token string">'smooth'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD">路由懒加载<a class="anchor" href="#%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD">§</a></h3>
+<p>当打包构建应用时，<code>JavaScript</code> 包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了。</p>
+<p>结合 <code>Vue 的异步组件</code>和 <code>Webpack 的代码分割</code>功能，轻松实现路由组件的<code>懒加载</code>。</p>
+<p>首先，可以将异步组件定义为返回一个 <code>Promise</code> 的工厂函数 (该函数返回的 Promise 应该 resolve 组件本身)：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">Foo</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token known-class-name class-name">Promise</span><span class="token punctuation">.</span><span class="token method function property-access">resolve</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token comment">/* 组件定义对象 */</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>第二，在 Webpack 2 中，我们可以使用动态 import语法来定义代码分块点 (split point)：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span><span class="token punctuation">(</span><span class="token string">'./Foo.vue'</span><span class="token punctuation">)</span> <span class="token comment">// 返回 Promise</span>
+</code></pre>
+<blockquote>
+<p>注意
+如果您使用的是 Babel，你将需要添加 syntax-dynamic-import 插件，才能使 Babel 可以正&gt; 确地解析语法。</p>
+</blockquote>
+<p>结合这两者，这就是如何定义一个能够被 Webpack 自动代码分割的异步组件。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">Foo</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword module">import</span><span class="token punctuation">(</span><span class="token string">'./Foo.vue'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>在路由配置中什么都不需要改变，只需要像往常一样使用 Foo：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">VueRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">'/foo'</span><span class="token punctuation">,</span> component<span class="token operator">:</span> <span class="token maybe-class-name">Foo</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="%E6%8A%8A%E7%BB%84%E4%BB%B6%E6%8C%89%E7%BB%84%E5%88%86%E5%9D%97">把组件按组分块<a class="anchor" href="#%E6%8A%8A%E7%BB%84%E4%BB%B6%E6%8C%89%E7%BB%84%E5%88%86%E5%9D%97">§</a></h4>
+<p>有时候我们想把某个路由下的所有组件都打包在同个异步块 (chunk) 中。只需要使用 <code>命名 chunk</code>，一个特殊的注释语法来提供 chunk name (需要 Webpack &gt; 2.4)。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">Foo</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword module">import</span><span class="token punctuation">(</span><span class="token comment">/* webpackChunkName: "group-foo" */</span> <span class="token string">'./Foo.vue'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">Bar</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword module">import</span><span class="token punctuation">(</span><span class="token comment">/* webpackChunkName: "group-foo" */</span> <span class="token string">'./Bar.vue'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token function-variable function"><span class="token maybe-class-name">Baz</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token keyword module">import</span><span class="token punctuation">(</span><span class="token comment">/* webpackChunkName: "group-foo" */</span> <span class="token string">'./Baz.vue'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Webpack 会将任何一个异步模块与相同的块名称组合到相同的异步块中。</p>
+<h3 id="%E5%AF%BC%E8%88%AA%E6%95%85%E9%9A%9C">导航故障<a class="anchor" href="#%E5%AF%BC%E8%88%AA%E6%95%85%E9%9A%9C">§</a></h3>
+<p>当使用 <code>router-link</code> 组件时，<code>Vue Router</code> 会自动调用 <code>router.push</code> 来触发一次导航。 虽然大多数链接的预期行为是将用户导航到一个新页面，但也有少数情况下用户将留在同一页面上：</p>
+<ul>
+<li>用户已经位于他们正在尝试导航到的页面</li>
+<li>一个导航守卫通过调用 next(false) 中断了这次导航</li>
+<li>一个导航守卫抛出了一个错误，或者调用了 next(new Error())</li>
+</ul>
+<p>当使用 <code>router-link</code> 组件时，这些失败都不会打印出错误。然而，如果你使用 <code>router.push</code> 或者 <code>router.replace</code> 的话，可能会在控制台看到一条 &quot;<code>Uncaught (in promise) Error</code>&quot; 这样的错误，后面跟着一条更具体的消息。让我们来了解一下如何区分导航故障。</p>
+<blockquote>
+<p>背景故事</p>
+<p>在 v3.2.0 中，可以通过使用 router.push 的两个可选的回调函数：onComplete 和 onAbort 来暴露导航故障。从版本 3.1.0 开始，router.push 和 router.replace 在没有提供 onComplete/onAbort 回调的情况下会返回一个 Promise。这个 Promise 的 resolve 和 reject 将分别用来代替 onComplete 和 onAbort 的调用</p>
+</blockquote>
+<h4 id="%E6%A3%80%E6%B5%8B%E5%AF%BC%E8%88%AA%E6%95%85%E9%9A%9C">检测导航故障<a class="anchor" href="#%E6%A3%80%E6%B5%8B%E5%AF%BC%E8%88%AA%E6%95%85%E9%9A%9C">§</a></h4>
+<p>导航故障是一个 <code>Error</code> 实例，附带了一些额外的属性。要检查一个错误是否来自于路由器，可以使用 <code>isNavigationFailure</code> 函数：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token maybe-class-name">VueRouter</span></span> <span class="token keyword module">from</span> <span class="token string">'vue-router'</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> isNavigationFailure<span class="token punctuation">,</span> <span class="token maybe-class-name">NavigationFailureType</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token maybe-class-name">VueRouter</span>
+
+<span class="token comment">// 正在尝试访问 admin 页面</span>
+router<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token string">'/admin'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword control-flow">catch</span><span class="token punctuation">(</span><span class="token parameter">failure</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token function">isNavigationFailure</span><span class="token punctuation">(</span>failure<span class="token punctuation">,</span> <span class="token maybe-class-name">NavigationFailureType</span><span class="token punctuation">.</span><span class="token property-access">redirected</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 向用户显示一个小通知</span>
+    <span class="token function">showToast</span><span class="token punctuation">(</span><span class="token string">'Login in order to access the admin panel'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>提示</p>
+<p>如果你忽略第二个参数：isNavigationFailure(failure)，那么就只会检查这个错误是不是一个导航故障。</p>
+</blockquote>
+<h4 id="navigationfailuretype">NavigationFailureType<a class="anchor" href="#navigationfailuretype">§</a></h4>
+<p><code>NavigationFailureType</code> 可以帮助开发者来区分不同类型的导航故障。有四种不同的类型：</p>
+<ul>
+<li>redirected：在导航守卫中调用了 next(newLocation) 重定向到了其他地方。</li>
+<li>aborted：在导航守卫中调用了 next(false) 中断了本次导航。</li>
+<li>cancelled：在当前导航还没有完成之前又有了一个新的导航。比如，在等待导航守卫的过程中又调用了 router.push。</li>
+<li>duplicated：导航被阻止，因为我们已经在目标位置了。</li>
+</ul>
+<h4 id="%E5%AF%BC%E8%88%AA%E6%95%85%E9%9A%9C%E7%9A%84%E5%B1%9E%E6%80%A7">导航故障的属性<a class="anchor" href="#%E5%AF%BC%E8%88%AA%E6%95%85%E9%9A%9C%E7%9A%84%E5%B1%9E%E6%80%A7">§</a></h4>
+<p>所有的导航故障都会有 <code>to</code> 和 <code>from</code> 属性，用来表达这次失败的导航的当前位置和目标位置。</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// 正在尝试访问 admin 页面</span>
+router<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span><span class="token string">'/admin'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword control-flow">catch</span><span class="token punctuation">(</span><span class="token parameter">failure</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token function">isNavigationFailure</span><span class="token punctuation">(</span>failure<span class="token punctuation">,</span> <span class="token maybe-class-name">NavigationFailureType</span><span class="token punctuation">.</span><span class="token property-access">redirected</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    failure<span class="token punctuation">.</span><span class="token property-access">to</span><span class="token punctuation">.</span><span class="token property-access">path</span> <span class="token comment">// '/admin'</span>
+    failure<span class="token punctuation">.</span><span class="token keyword module">from</span><span class="token punctuation">.</span><span class="token property-access">path</span> <span class="token comment">// '/'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>在所有情况下，<code>to</code> 和 <code>from</code> 都是规范化的路由位置。</p></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

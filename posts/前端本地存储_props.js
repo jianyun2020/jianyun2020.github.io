@@ -44,7 +44,7 @@ export default {
                 "title": "Vue Router",
                 "link": "posts/Vue Router.html",
                 "date": "2021-03-17T08:01:47.000Z",
-                "updated": "2021-03-19T05:30:51.000Z",
+                "updated": "2021-03-22T09:30:18.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
