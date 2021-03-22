@@ -1117,3 +1117,126 @@ scrollBehavior (to, from, savedPosition) {
 
 将其挂载到从页面级别的过渡组件的事件上，令其滚动行为和页面过渡一起良好运行是可能的。但是考虑到用例的多样性和复杂性，我们仅提供这个原始的接口，以支持不同用户场景的具体实现。
 
+#### 平滑滚动
+
+只需将 `behavior` 选项添加到 `scrollBehavior` 内部返回的对象中，就可以为支持它的浏览器启用原生平滑滚动：
+
+```js
+scrollBehavior (to, from, savedPosition) {
+  if (to.hash) {
+    return {
+      selector: to.hash,
+      behavior: 'smooth',
+    }
+  }
+}
+```
+
+### 路由懒加载
+
+当打包构建应用时，`JavaScript` 包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了。
+
+结合 `Vue 的异步组件`和 `Webpack 的代码分割`功能，轻松实现路由组件的`懒加载`。
+
+首先，可以将异步组件定义为返回一个 `Promise` 的工厂函数 (该函数返回的 Promise 应该 resolve 组件本身)：
+
+```js
+const Foo = () => Promise.resolve({ /* 组件定义对象 */ })
+```
+
+第二，在 Webpack 2 中，我们可以使用动态 import语法来定义代码分块点 (split point)：
+
+```js
+import('./Foo.vue') // 返回 Promise
+```
+
+> 注意
+> 如果您使用的是 Babel，你将需要添加 syntax-dynamic-import 插件，才能使 Babel 可以正> 确地解析语法。
+
+结合这两者，这就是如何定义一个能够被 Webpack 自动代码分割的异步组件。
+
+```js
+const Foo = () => import('./Foo.vue')
+```
+
+在路由配置中什么都不需要改变，只需要像往常一样使用 Foo：
+
+```js
+const router = new VueRouter({
+  routes: [
+    { path: '/foo', component: Foo }
+  ]
+})
+```
+
+#### 把组件按组分块
+
+有时候我们想把某个路由下的所有组件都打包在同个异步块 (chunk) 中。只需要使用 `命名 chunk`，一个特殊的注释语法来提供 chunk name (需要 Webpack > 2.4)。
+
+```js
+const Foo = () => import(/* webpackChunkName: "group-foo" */ './Foo.vue')
+const Bar = () => import(/* webpackChunkName: "group-foo" */ './Bar.vue')
+const Baz = () => import(/* webpackChunkName: "group-foo" */ './Baz.vue')
+```
+
+Webpack 会将任何一个异步模块与相同的块名称组合到相同的异步块中。
+
+### 导航故障
+
+当使用 `router-link` 组件时，`Vue Router` 会自动调用 `router.push` 来触发一次导航。 虽然大多数链接的预期行为是将用户导航到一个新页面，但也有少数情况下用户将留在同一页面上：
+
+- 用户已经位于他们正在尝试导航到的页面
+- 一个导航守卫通过调用 next(false) 中断了这次导航
+- 一个导航守卫抛出了一个错误，或者调用了 next(new Error())
+
+当使用 `router-link` 组件时，这些失败都不会打印出错误。然而，如果你使用 `router.push` 或者 `router.replace` 的话，可能会在控制台看到一条 "`Uncaught (in promise) Error`" 这样的错误，后面跟着一条更具体的消息。让我们来了解一下如何区分导航故障。
+
+> 背景故事
+> 
+> 在 v3.2.0 中，可以通过使用 router.push 的两个可选的回调函数：onComplete 和 onAbort 来暴露导航故障。从版本 3.1.0 开始，router.push 和 router.replace 在没有提供 onComplete/onAbort 回调的情况下会返回一个 Promise。这个 Promise 的 resolve 和 reject 将分别用来代替 onComplete 和 onAbort 的调用
+
+#### 检测导航故障
+
+导航故障是一个 `Error` 实例，附带了一些额外的属性。要检查一个错误是否来自于路由器，可以使用 `isNavigationFailure` 函数：
+
+```js
+import VueRouter from 'vue-router'
+const { isNavigationFailure, NavigationFailureType } = VueRouter
+
+// 正在尝试访问 admin 页面
+router.push('/admin').catch(failure => {
+  if (isNavigationFailure(failure, NavigationFailureType.redirected)) {
+    // 向用户显示一个小通知
+    showToast('Login in order to access the admin panel')
+  }
+})
+```
+
+> 提示
+>
+>如果你忽略第二个参数：isNavigationFailure(failure)，那么就只会检查这个错误是不是一个导航故障。
+
+#### NavigationFailureType
+
+`NavigationFailureType` 可以帮助开发者来区分不同类型的导航故障。有四种不同的类型：
+
+- redirected：在导航守卫中调用了 next(newLocation) 重定向到了其他地方。
+- aborted：在导航守卫中调用了 next(false) 中断了本次导航。
+- cancelled：在当前导航还没有完成之前又有了一个新的导航。比如，在等待导航守卫的过程中又调用了 router.push。
+- duplicated：导航被阻止，因为我们已经在目标位置了。
+
+#### 导航故障的属性
+
+所有的导航故障都会有 `to` 和 `from` 属性，用来表达这次失败的导航的当前位置和目标位置。
+
+```js
+// 正在尝试访问 admin 页面
+router.push('/admin').catch(failure => {
+  if (isNavigationFailure(failure, NavigationFailureType.redirected)) {
+    failure.to.path // '/admin'
+    failure.from.path // '/'
+  }
+})
+```
+
+在所有情况下，`to` 和 `from` 都是规范化的路由位置。
