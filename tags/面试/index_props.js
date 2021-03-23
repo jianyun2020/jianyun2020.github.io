@@ -77,26 +77,6 @@ export default {
                 "excerpt": "动态规划（英语：Dynamic programming，简称 DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。 动态规划常常适用于有重叠子问题和最优子结..."
             },
             {
-                "pagePath": "posts/111.md",
-                "title": "每日总结",
-                "link": "posts/111.html",
-                "date": "2021-03-04T13:28:28.000Z",
-                "updated": "2021-03-21T13:23:39.000Z",
-                "author": "jianyun2020",
-                "contributors": [
-                    "jianyun2020"
-                ],
-                "categories": [
-                    "Vue"
-                ],
-                "tags": [
-                    "面试",
-                    "原型链",
-                    "学习笔记"
-                ],
-                "excerpt": "周末时间利用 s 1111"
-            },
-            {
                 "pagePath": "posts/继承.md",
                 "title": "继承",
                 "link": "posts/继承.html",
@@ -292,7 +272,7 @@ export default {
             },
             {
                 "name": "面试",
-                "count": 11
+                "count": 10
             },
             {
                 "name": "JavaScript",
@@ -305,10 +285,6 @@ export default {
             {
                 "name": "CSS",
                 "count": 3
-            },
-            {
-                "name": "原型链",
-                "count": 2
             },
             {
                 "name": "数据结构与算法",
@@ -327,6 +303,10 @@ export default {
                 "count": 1
             },
             {
+                "name": "Vue",
+                "count": 1
+            },
+            {
                 "name": "Vue Router",
                 "count": 1
             },
@@ -340,6 +320,10 @@ export default {
             },
             {
                 "name": "动态规划",
+                "count": 1
+            },
+            {
+                "name": "原型链",
                 "count": 1
             },
             {

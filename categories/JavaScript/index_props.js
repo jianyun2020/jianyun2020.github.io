@@ -108,7 +108,7 @@ export default {
             },
             {
                 "name": "面试",
-                "count": 11
+                "count": 10
             },
             {
                 "name": "JavaScript",
@@ -121,10 +121,6 @@ export default {
             {
                 "name": "CSS",
                 "count": 3
-            },
-            {
-                "name": "原型链",
-                "count": 2
             },
             {
                 "name": "数据结构与算法",
@@ -143,6 +139,10 @@ export default {
                 "count": 1
             },
             {
+                "name": "Vue",
+                "count": 1
+            },
+            {
                 "name": "Vue Router",
                 "count": 1
             },
@@ -156,6 +156,10 @@ export default {
             },
             {
                 "name": "动态规划",
+                "count": 1
+            },
+            {
+                "name": "原型链",
                 "count": 1
             },
             {
