@@ -46,11 +46,11 @@ export default {
                 "count": 4
             },
             {
-                "name": "HTML",
-                "count": 3
+                "name": "Vue",
+                "count": 4
             },
             {
-                "name": "Vue",
+                "name": "HTML",
                 "count": 3
             },
             {
@@ -85,7 +85,7 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 22
+                "count": 23
             },
             {
                 "name": "面试",
@@ -104,6 +104,10 @@ export default {
                 "count": 3
             },
             {
+                "name": "Vue",
+                "count": 2
+            },
+            {
                 "name": "数据结构与算法",
                 "count": 2
             },
@@ -117,10 +121,6 @@ export default {
             },
             {
                 "name": "UE4",
-                "count": 1
-            },
-            {
-                "name": "Vue",
                 "count": 1
             },
             {

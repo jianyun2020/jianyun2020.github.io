@@ -15,27 +15,6 @@ export default {
         "isPost": false,
         "posts": [
             {
-                "pagePath": "posts/跨浏览器标签页通信.md",
-                "title": "跨浏览器标签页通信",
-                "link": "posts/跨浏览器标签页通信.html",
-                "date": "2021-03-11T04:59:20.000Z",
-                "updated": null,
-                "author": "jianyun2020",
-                "contributors": [
-                    "jianyun2020"
-                ],
-                "categories": [
-                    "HTML"
-                ],
-                "tags": [
-                    "面试",
-                    "跨页面通信",
-                    "学习笔记"
-                ],
-                "excerpt": "在浏览器中，我们可以同时打开多个Tab页，每个Tab页可以粗略理解为一个“独立”的运行环境，即使是全局对象也不会在多个Tab间共享。然而有些时候，我们希望能在这些“独立”的Tab页面之间同步页面的数据、信息或状态。 正如下面...",
-                "cover": "../posts/images/html.gif"
-            },
-            {
                 "pagePath": "posts/history和hash两种路由.md",
                 "title": "history和hash两种路由",
                 "link": "posts/history和hash两种路由.html",
@@ -55,6 +34,27 @@ export default {
                 ],
                 "excerpt": "什么是SPA SPA 是 single page web application 的简称，译为单页Web应用。 简单的说 SPA 就是一个WEB项目只有一个 HTML 页面，一旦页面加载完成，SPA 不会因为用户的操作而进行页面的重新加载或跳转。 取而代之的是利用 JS 动...",
                 "cover": "images/chuantong.png"
+            },
+            {
+                "pagePath": "posts/跨浏览器标签页通信.md",
+                "title": "跨浏览器标签页通信",
+                "link": "posts/跨浏览器标签页通信.html",
+                "date": "2021-03-11T04:59:20.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "HTML"
+                ],
+                "tags": [
+                    "面试",
+                    "跨页面通信",
+                    "学习笔记"
+                ],
+                "excerpt": "在浏览器中，我们可以同时打开多个Tab页，每个Tab页可以粗略理解为一个“独立”的运行环境，即使是全局对象也不会在多个Tab间共享。然而有些时候，我们希望能在这些“独立”的Tab页面之间同步页面的数据、信息或状态。 正如下面...",
+                "cover": "../posts/images/html.gif"
             },
             {
                 "pagePath": "posts/行内元素和块级元素.md",
@@ -85,11 +85,11 @@ export default {
                 "count": 4
             },
             {
-                "name": "HTML",
-                "count": 3
+                "name": "Vue",
+                "count": 4
             },
             {
-                "name": "Vue",
+                "name": "HTML",
                 "count": 3
             },
             {
@@ -124,7 +124,7 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 22
+                "count": 23
             },
             {
                 "name": "面试",
@@ -143,6 +143,10 @@ export default {
                 "count": 3
             },
             {
+                "name": "Vue",
+                "count": 2
+            },
+            {
                 "name": "数据结构与算法",
                 "count": 2
             },
@@ -156,10 +160,6 @@ export default {
             },
             {
                 "name": "UE4",
-                "count": 1
-            },
-            {
-                "name": "Vue",
                 "count": 1
             },
             {

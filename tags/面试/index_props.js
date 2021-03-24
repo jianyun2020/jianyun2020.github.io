@@ -15,9 +15,9 @@ export default {
         "isPost": false,
         "posts": [
             {
-                "pagePath": "posts/跨浏览器标签页通信.md",
-                "title": "跨浏览器标签页通信",
-                "link": "posts/跨浏览器标签页通信.html",
+                "pagePath": "posts/动态规划.md",
+                "title": "动态规划",
+                "link": "posts/动态规划.html",
                 "date": "2021-03-11T04:59:20.000Z",
                 "updated": null,
                 "author": "jianyun2020",
@@ -25,15 +25,14 @@ export default {
                     "jianyun2020"
                 ],
                 "categories": [
-                    "HTML"
+                    "算法"
                 ],
                 "tags": [
                     "面试",
-                    "跨页面通信",
+                    "动态规划",
                     "学习笔记"
                 ],
-                "excerpt": "在浏览器中，我们可以同时打开多个Tab页，每个Tab页可以粗略理解为一个“独立”的运行环境，即使是全局对象也不会在多个Tab间共享。然而有些时候，我们希望能在这些“独立”的Tab页面之间同步页面的数据、信息或状态。 正如下面...",
-                "cover": "../posts/images/html.gif"
+                "excerpt": "动态规划（英语：Dynamic programming，简称 DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。 动态规划常常适用于有重叠子问题和最优子结..."
             },
             {
                 "pagePath": "posts/history和hash两种路由.md",
@@ -57,9 +56,9 @@ export default {
                 "cover": "images/chuantong.png"
             },
             {
-                "pagePath": "posts/动态规划.md",
-                "title": "动态规划",
-                "link": "posts/动态规划.html",
+                "pagePath": "posts/跨浏览器标签页通信.md",
+                "title": "跨浏览器标签页通信",
+                "link": "posts/跨浏览器标签页通信.html",
                 "date": "2021-03-11T04:59:20.000Z",
                 "updated": null,
                 "author": "jianyun2020",
@@ -67,14 +66,15 @@ export default {
                     "jianyun2020"
                 ],
                 "categories": [
-                    "算法"
+                    "HTML"
                 ],
                 "tags": [
                     "面试",
-                    "动态规划",
+                    "跨页面通信",
                     "学习笔记"
                 ],
-                "excerpt": "动态规划（英语：Dynamic programming，简称 DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。 动态规划常常适用于有重叠子问题和最优子结..."
+                "excerpt": "在浏览器中，我们可以同时打开多个Tab页，每个Tab页可以粗略理解为一个“独立”的运行环境，即使是全局对象也不会在多个Tab间共享。然而有些时候，我们希望能在这些“独立”的Tab页面之间同步页面的数据、信息或状态。 正如下面...",
+                "cover": "../posts/images/html.gif"
             },
             {
                 "pagePath": "posts/继承.md",
@@ -229,11 +229,11 @@ export default {
                 "count": 4
             },
             {
-                "name": "HTML",
-                "count": 3
+                "name": "Vue",
+                "count": 4
             },
             {
-                "name": "Vue",
+                "name": "HTML",
                 "count": 3
             },
             {
@@ -268,7 +268,7 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 22
+                "count": 23
             },
             {
                 "name": "面试",
@@ -287,6 +287,10 @@ export default {
                 "count": 3
             },
             {
+                "name": "Vue",
+                "count": 2
+            },
+            {
                 "name": "数据结构与算法",
                 "count": 2
             },
@@ -300,10 +304,6 @@ export default {
             },
             {
                 "name": "UE4",
-                "count": 1
-            },
-            {
-                "name": "Vue",
                 "count": 1
             },
             {

@@ -40,6 +40,26 @@ export default {
         "isPost": true,
         "posts": [
             {
+                "pagePath": "posts/Vue.md",
+                "title": "Vue",
+                "link": "posts/Vue.html",
+                "date": "2021-03-24T12:28:00.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "Vue"
+                ],
+                "tags": [
+                    "Vue",
+                    "学习笔记"
+                ],
+                "excerpt": "Vue 实例 创建一个Vue实例 var vm = new Vue({ // 选项 }) 所有的 Vue 组件都是 Vue 实例，并且接受相同的选项对象 (一些根实例特有的选项除外)。 数据与方法 当一个 Vue 实例被创建时，它将 data 对象中的所有的 property 加入...",
+                "cover": "images/vue_life.png"
+            },
+            {
                 "pagePath": "posts/Vue Router.md",
                 "title": "Vue Router",
                 "link": "posts/Vue Router.html",
@@ -78,9 +98,9 @@ export default {
                 "excerpt": "Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 每一个 Vuex 应用的核心就是 store（仓库）。“store”基本上就是一个容..."
             },
             {
-                "pagePath": "posts/跨浏览器标签页通信.md",
-                "title": "跨浏览器标签页通信",
-                "link": "posts/跨浏览器标签页通信.html",
+                "pagePath": "posts/动态规划.md",
+                "title": "动态规划",
+                "link": "posts/动态规划.html",
                 "date": "2021-03-11T04:59:20.000Z",
                 "updated": null,
                 "author": "jianyun2020",
@@ -88,15 +108,14 @@ export default {
                     "jianyun2020"
                 ],
                 "categories": [
-                    "HTML"
+                    "算法"
                 ],
                 "tags": [
                     "面试",
-                    "跨页面通信",
+                    "动态规划",
                     "学习笔记"
                 ],
-                "excerpt": "在浏览器中，我们可以同时打开多个Tab页，每个Tab页可以粗略理解为一个“独立”的运行环境，即使是全局对象也不会在多个Tab间共享。然而有些时候，我们希望能在这些“独立”的Tab页面之间同步页面的数据、信息或状态。 正如下面...",
-                "cover": "../posts/images/html.gif"
+                "excerpt": "动态规划（英语：Dynamic programming，简称 DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。 动态规划常常适用于有重叠子问题和最优子结..."
             },
             {
                 "pagePath": "posts/history和hash两种路由.md",
@@ -120,9 +139,9 @@ export default {
                 "cover": "images/chuantong.png"
             },
             {
-                "pagePath": "posts/动态规划.md",
-                "title": "动态规划",
-                "link": "posts/动态规划.html",
+                "pagePath": "posts/跨浏览器标签页通信.md",
+                "title": "跨浏览器标签页通信",
+                "link": "posts/跨浏览器标签页通信.html",
                 "date": "2021-03-11T04:59:20.000Z",
                 "updated": null,
                 "author": "jianyun2020",
@@ -130,33 +149,33 @@ export default {
                     "jianyun2020"
                 ],
                 "categories": [
-                    "算法"
+                    "HTML"
                 ],
                 "tags": [
                     "面试",
-                    "动态规划",
+                    "跨页面通信",
                     "学习笔记"
                 ],
-                "excerpt": "动态规划（英语：Dynamic programming，简称 DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。 动态规划常常适用于有重叠子问题和最优子结..."
+                "excerpt": "在浏览器中，我们可以同时打开多个Tab页，每个Tab页可以粗略理解为一个“独立”的运行环境，即使是全局对象也不会在多个Tab间共享。然而有些时候，我们希望能在这些“独立”的Tab页面之间同步页面的数据、信息或状态。 正如下面...",
+                "cover": "../posts/images/html.gif"
             },
             {
-                "pagePath": "posts/111.md",
-                "title": "Vue",
-                "link": "posts/111.html",
+                "pagePath": "posts/行内元素和块级元素.md",
+                "title": "行内元素和块级元素",
+                "link": "posts/行内元素和块级元素.html",
                 "date": "2021-03-04T13:28:28.000Z",
-                "updated": "2021-03-23T05:44:05.000Z",
+                "updated": null,
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "Vue"
+                    "HTML"
                 ],
                 "tags": [
-                    "Vue",
-                    "学习笔记"
+                    "行内元素和块级元素"
                 ],
-                "excerpt": ""
+                "excerpt": "常用行内元素 - a：锚点 - span：常用内联容器，定义文本内区块 - label：表格标签 - strong：粗体强调 - em：强调 - br：换行 - img：图片 - input：输入框 - select：项目选择 - textarea：多行文本输入框 - cite：引用 常用..."
             },
             {
                 "pagePath": "posts/继承.md",
@@ -179,22 +198,23 @@ export default {
                 "excerpt": "原型链继承 function Parent() { this.name = 'kevin'; } Parent.prototype.getName = function() { console.log(this.name); } function Child() { } Child.prototype = new Parent(); var child1 = new Child(); console.log..."
             },
             {
-                "pagePath": "posts/行内元素和块级元素.md",
-                "title": "行内元素和块级元素",
-                "link": "posts/行内元素和块级元素.html",
+                "pagePath": "posts/111.md",
+                "title": "Vue",
+                "link": "posts/111.html",
                 "date": "2021-03-04T13:28:28.000Z",
-                "updated": null,
+                "updated": "2021-03-23T05:44:05.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
                 ],
                 "categories": [
-                    "HTML"
+                    "Vue"
                 ],
                 "tags": [
-                    "行内元素和块级元素"
+                    "Vue",
+                    "学习笔记"
                 ],
-                "excerpt": "常用行内元素 - a：锚点 - span：常用内联容器，定义文本内区块 - label：表格标签 - strong：粗体强调 - em：强调 - br：换行 - img：图片 - input：输入框 - select：项目选择 - textarea：多行文本输入框 - cite：引用 常用..."
+                "excerpt": ""
             },
             {
                 "pagePath": "posts/微信内置浏览器播放视频.md",
@@ -457,26 +477,6 @@ export default {
                 "excerpt": "background是一中CSS简写属性，可以在一次声明中定义一个或多个属性：background-clip、background-color、background-image、background-origin、background-position、background-repeat、background-size、background-attac..."
             },
             {
-                "pagePath": "posts/List.md",
-                "title": "数据结构与算法JavaScript-列表",
-                "link": "posts/List.html",
-                "date": "2021-01-22T08:08:14.000Z",
-                "updated": "2021-01-25T02:27:19.000Z",
-                "author": "jianyun2020",
-                "contributors": [
-                    "jianyun2020"
-                ],
-                "categories": [
-                    "数据结构与算法"
-                ],
-                "tags": [
-                    "JavaScript",
-                    "数据结构与算法",
-                    "学习笔记"
-                ],
-                "excerpt": "列表的抽象数据类型定义 方法和方法 说明 listSize(属性) 列表的元素个数 pos(属性) 列表的当前位置 length(属性) 返回列表中元素的个数 clear(方法) 清空列表中的所有元素 toString(方法) 返回列表的字符串形式 getElement(方..."
-            },
-            {
                 "pagePath": "posts/元素渲染.md",
                 "title": "React-元素渲染",
                 "link": "posts/元素渲染.html",
@@ -495,6 +495,26 @@ export default {
                     "React"
                 ],
                 "excerpt": "元素是构成React应用的最小砖块，其描述了你在屏幕上想看到的内容。 const element = <h1>Hello, World</h1>; 与浏览器的 DOM 元素不同，React 元素是创建开销极小的普通对象。React DOM 会负责更新 DOM 来与 React 元素保持一..."
+            },
+            {
+                "pagePath": "posts/List.md",
+                "title": "数据结构与算法JavaScript-列表",
+                "link": "posts/List.html",
+                "date": "2021-01-22T08:08:14.000Z",
+                "updated": "2021-01-25T02:27:19.000Z",
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "数据结构与算法"
+                ],
+                "tags": [
+                    "JavaScript",
+                    "数据结构与算法",
+                    "学习笔记"
+                ],
+                "excerpt": "列表的抽象数据类型定义 方法和方法 说明 listSize(属性) 列表的元素个数 pos(属性) 列表的当前位置 length(属性) 返回列表中元素的个数 clear(方法) 清空列表中的所有元素 toString(方法) 返回列表的字符串形式 getElement(方..."
             },
             {
                 "pagePath": "posts/JSX简介.md",
@@ -547,11 +567,11 @@ export default {
                 "count": 4
             },
             {
-                "name": "HTML",
-                "count": 3
+                "name": "Vue",
+                "count": 4
             },
             {
-                "name": "Vue",
+                "name": "HTML",
                 "count": 3
             },
             {
@@ -586,7 +606,7 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 22
+                "count": 23
             },
             {
                 "name": "面试",
@@ -605,6 +625,10 @@ export default {
                 "count": 3
             },
             {
+                "name": "Vue",
+                "count": 2
+            },
+            {
                 "name": "数据结构与算法",
                 "count": 2
             },
@@ -618,10 +642,6 @@ export default {
             },
             {
                 "name": "UE4",
-                "count": 1
-            },
-            {
-                "name": "Vue",
                 "count": 1
             },
             {

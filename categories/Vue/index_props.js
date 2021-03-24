@@ -15,6 +15,26 @@ export default {
         "isPost": false,
         "posts": [
             {
+                "pagePath": "posts/Vue.md",
+                "title": "Vue",
+                "link": "posts/Vue.html",
+                "date": "2021-03-24T12:28:00.000Z",
+                "updated": null,
+                "author": "jianyun2020",
+                "contributors": [
+                    "jianyun2020"
+                ],
+                "categories": [
+                    "Vue"
+                ],
+                "tags": [
+                    "Vue",
+                    "学习笔记"
+                ],
+                "excerpt": "Vue 实例 创建一个Vue实例 var vm = new Vue({ // 选项 }) 所有的 Vue 组件都是 Vue 实例，并且接受相同的选项对象 (一些根实例特有的选项除外)。 数据与方法 当一个 Vue 实例被创建时，它将 data 对象中的所有的 property 加入...",
+                "cover": "images/vue_life.png"
+            },
+            {
                 "pagePath": "posts/Vue Router.md",
                 "title": "Vue Router",
                 "link": "posts/Vue Router.html",
@@ -82,11 +102,11 @@ export default {
                 "count": 4
             },
             {
-                "name": "HTML",
-                "count": 3
+                "name": "Vue",
+                "count": 4
             },
             {
-                "name": "Vue",
+                "name": "HTML",
                 "count": 3
             },
             {
@@ -121,7 +141,7 @@ export default {
         "tags": [
             {
                 "name": "学习笔记",
-                "count": 22
+                "count": 23
             },
             {
                 "name": "面试",
@@ -140,6 +160,10 @@ export default {
                 "count": 3
             },
             {
+                "name": "Vue",
+                "count": 2
+            },
+            {
                 "name": "数据结构与算法",
                 "count": 2
             },
@@ -153,10 +177,6 @@ export default {
             },
             {
                 "name": "UE4",
-                "count": 1
-            },
-            {
-                "name": "Vue",
                 "count": 1
             },
             {
