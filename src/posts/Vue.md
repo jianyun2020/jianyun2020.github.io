@@ -822,3 +822,672 @@ data: {
   Not A/B/C
 </div>
 ```
+
+类似于 `v-else`，`v-else-if` 也必须紧跟在带 `v-if` 或者 `v-else-if` 的元素之后。
+
+## 用 `key` 管理可复用的元素
+
+`Vue` 会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染。这么做除了使 `Vue` 变得非常快之外，还有其它一些好处。例如，如果你允许用户在不同的登录方式之间切换：
+
+```html
+<template v-if="loginType === 'username'">
+  <label>Username</label>
+  <iniput placeholder="Enter your username" >
+</template>
+<template v-else>
+  <label>Email</label>
+  <input placeholder="Enter your email address" >
+</template>
+```
+
+那么在上面的代码中切换 `loginType` 将不会清除用户已经输入的内容。因为两个模板使用了相同的元素，`<input>` 不会被替换掉——仅仅是替换了它的 `placeholder`。
+
+这样也不总是符合实际需求，所以 `Vue` 为你提供了一种方式来表达“这两个元素是`完全独立`的，`不要复用`它们”。只需添加一个具有唯一值的 `key attribute` 即可：
+
+```html
+<template v-if="loginType === 'username'">
+  <label>Username</label>
+  <input placeholder="Enter your username" key="username-input">
+</template>
+<template v-else>
+  <label>Email</label>
+  <input placeholder="Enter your email address" key="email-input">
+</template>
+```
+
+注意，`<label>` 元素仍然会被高效地复用，因为它们没有添加 `key attribute`。
+
+## v-show
+
+另一个用于根据条件展示元素的选项是 `v-show` 指令。用法大致一样：
+
+```html
+<h1 v-show="ok">Hello!</h1>
+```
+
+不同的是带有 `v-show` 的元素`始终会被渲染并保留在 DOM 中`。v-show 只是简单地切换元素的 `CSS property display`。
+
+> 注意，v-show 不支持 `<template>` 元素，也不支持 v-else。
+
+## v-if vs v-show
+
+`v-if` 是“真正”的条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建。
+
+`v-if` 也是惰性的：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。
+
+相比之下，`v-show` 就简单得多——不管初始条件是什么，`元素总是会被渲染`，并且只是简单地基于 `CSS` 进行切换。
+
+一般来说，`v-if` 有`更高的切换开销`，而 `v-show` 有`更高的初始渲染开销`。因此，如果需要`非常频繁地切换`，则`使用 v-show 较好`；如果在运行时`条件很少改变`，则使用 `v-if 较好`。
+
+## v-if 与 v-for 一起使用
+
+> 不推荐同时使用 v-if 和 v-for。
+> 当 v-if 与 v-for 一起使用时，v-for 具有比 v-if 更高的优先级。
+
+
+# 列表渲染
+
+## 用 v-for 把一个数组对应为一组元素
+
+我们可以用 `v-for` 指令基于一个数组来渲染一个列表。`v-for` 指令需要使用 `item in items` 形式的特殊语法，其中 `items` 是源数据数组，而 `item` 则是被迭代的数组元素的别名。
+
+```html
+<ul id="example">
+  <li v-for="item in items" :key="item.message">
+    {{ item.message }}
+  </li>
+</li>
+```
+
+```js
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  }
+})
+```
+
+在 `v-for` 块中，我们可以访问所有父作用域的 `property`。`v-for` 还支持一个可选的第二个参数，即`当前项的索引`。
+
+```html
+<ul id="example-2">
+  <li v-for="(item, index) in items">
+    {{ parentMessage }} - {{ index }} - {{ item.message }}
+  </li>
+</ul>
+```
+
+```js
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    parentMessage: 'Parent',
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  }
+})
+```
+
+你也可以用 `of` 替代 `in` 作为分隔符，因为它更接近 `JavaScript 迭代器`的语法：
+
+```html
+<div v-for="item of items"></div>
+```
+
+## 在 v-for 里使用对象
+
+你也可以用 v-for 来遍历一个对象的 property。
+
+```html
+<ul id="v-for-object" class="demo">
+  <li v-for="value in object">
+    {{ value }}
+  </li>
+</ul>
+```
+
+```js
+new Vue({
+  el: '#v-for-object',
+  data: {
+    object: {
+      title: 'How to do lists in Vue',
+      author: 'Jane Doe',
+      publishedAt: '2016-04-10'
+    }
+  }
+})
+```
+
+你也可以提供第二个的参数为 property 名称 (也就是键名)：
+
+```html
+<div v-for="(value, name) in object">
+  {{ name }}: {{ value }}
+</div>
+```
+
+还可以用第三个参数作为索引：
+
+```html
+<div v-for="(value, name, index) in object">
+  {{ index }}. {{ name }}: {{ value }}
+</div>
+```
+
+> 在遍历对象时，会按 Object.keys() 的结果遍历，但是不能保证它的结果在不同的 JavaScript 引擎下都一致。
+
+## 维护状态
+
+当 Vue 正在更新使用 v-for 渲染的元素列表时，它默认使用“就地更新”的策略。如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序，而是就地更新每个元素，并且确保它们在每个索引位置正确渲染。这个类似 Vue 1.x 的 track-by="$index"。
+
+这个默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出。
+
+为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而`重用`和`重新排序`现有元素，你需要为每项提供一个`唯一 key attribute`：
+
+```html
+<div v-for="item in items" v-bind:key="item.id">
+  <!-- 内容 -->
+</div>
+```
+
+建议尽可能在使用 v-for 时提供 key attribute，除非遍历输出的 DOM 内容非常简单，或者是刻意依赖默认行为以获取性能上的提升。
+
+因为它是 Vue 识别节点的一个通用机制，key 并不仅与 v-for 特别关联。后面我们将在指南中看到，它还具有其它用途。
+
+> 不要使用对象或数组之类的非基本类型值作为 v-for 的 key。请用`字符串`或`数值类型`的值。
+
+## 数组更新检测
+
+### 变更方法 (改变原数组)
+
+Vue 将被侦听的数组的变更方法进行了包裹，所以它们也将会触发视图更新。这些被包裹过的方法包括：
+
+- push()
+- pop()
+- shift()
+- unshift()
+- splice()
+- sort()
+- reverse()
+
+### 替换数组 （返回新数组）
+
+变更方法，顾名思义，会变更调用了这些方法的原始数组。相比之下，也有非变更方法，例如 `filter()`、`concat()` 和 `slice()`。它们不会变更原始数组，而总是返回一个新数组。当使用非变更方法时，可以用新数组替换旧数组：
+
+```js
+example1.items = example1.items.filter(function (item) {
+  return item.message.match(/Foo/)
+})
+```
+
+你可能认为这将导致 Vue 丢弃现有 DOM 并重新渲染整个列表。幸运的是，事实并非如此。Vue 为了使得 DOM 元素得到最大范围的重用而实现了一些智能的`启发式方法`，所以用一个`含有相同元素的数组去替换原来的数组是非常高效的操作`。
+
+### 注意事项
+
+由于 JavaScript 的限制，Vue `不能检测数组和对象的变化`。深入响应式原理中有相关的讨论。
+
+## 显示过滤/排序后的结果
+
+显示过滤/排序后的结果
+有时，我们想要显示一个数组经过过滤或排序后的版本，而不实际变更或重置原始数据。在这种情况下，可以创建一个`计算属性`，来返回过滤或排序后的数组。
+
+例如：
+
+```html
+<li v-for="n in eventNumbers">{{ n }}</li>
+```
+
+```js
+data: {
+  numbers: [ 1, 2, 3, 4, 5 ]
+},
+computed: {
+  eventNumbers: function () {
+    return this.number.filter(function (number) {
+      return number % 2 === 0
+    })
+  }
+}
+```
+
+`在计算属性不适用的情况下 (例如，在嵌套 v-for 循环中) 你可以使用一个方法`：
+
+```html
+<ul v-for="set in sets">
+  <li v-for="n in event(set)">{{ n }}</li>
+</ul>
+```
+
+```js
+data: {
+  sets: [[ 1, 2, 3, 4, 5 ], [6, 7, 8, 9, 10]]
+},
+methods: {
+  even: function (numbers) {
+    return numbers.filter(function (number) {
+      return number % 2 === 0
+    })
+  }
+}
+```
+
+## 在 v-for 里使用值范围
+
+v-for 也可以接受整数。在这种情况下，它会把模板重复对应次数。
+
+```html
+<div>
+  <span v-for="n in 10">{{ n }} </span>
+</div>
+```
+
+## 在 `<template>` 上使用 v-for
+
+类似于 v-if，你也可以利用带有 v-for 的 `<template>` 来循环渲染一段包含多个元素的内容。比如：
+
+```html
+<ul>
+  <template v-for="item in items">
+    <li>{{ item.msg }}</li>
+    <li class="divider" role="presentation"></li>
+  </template>
+</ul>
+```
+
+## v-for 与 v-if 一同使用
+
+> 注意我们不推荐在同一元素上使用 v-if 和 v-for
+
+当它们`处于同一节点`，`v-for 的优先级比 v-if 更高`，`这意味着 v-if 将分别重复运行于每个 v-for 循环中`。当你只想为部分项渲染节点时，这种优先级的机制会十分有用，如下：
+
+```html
+<li v-for="todo in todos" v-if="!todo.isComplete">
+  {{ todo }}
+</li>
+```
+
+上面的代码将只渲染未完成的 todo。
+
+而如果你的目的是有条件地跳过循环的执行，那么可以将 v-if 置于外层元素 (或 `<template>`) 上。如：
+
+```html
+<ul v-if="todos.length">
+  <li v-for="todo in todos">
+    {{ todo }}
+  </li>
+</ul>
+<p v-else>No todos left!</p>
+```
+
+## 在组件上使用 v-for
+
+在自定义组件上，你可以像在任何普通元素上一样使用 v-for。
+
+```html
+<my-component v-for="item in items" :key="item.id"></my-component>
+```
+
+> 2.2.0+ 的版本里，当在组件上使用 v-for 时，key 现在是必须的。
+
+然而，`任何数据都不会被自动传递到组件里`，因为`组件有自己独立的作用域`。为了把迭代数据传递到组件里，我们要`使用 prop`：
+
+```html
+<my-component
+  v-for="(item, index) in items"
+  v-bind:item="item"
+  v-bind:index="index"
+  v-bind:key="item.id"
+>
+</my-component>
+```
+
+不自动将 item 注入到组件里的`原因`是，这`会使得组件与 v-for 的运作紧密耦合`。`明确组件数据的来源能够使组件在其他场合重复使用`。
+
+下面是一个简单的 todo 列表的完整例子：
+
+```html
+<div id="toto-list-example">
+  <form v-on:submit.prevent="addNewTodo">
+    <label for="new-todo">Add a todo</label>
+    <input 
+      v-model="newTodoText"
+      id="new-todo"
+      placeholder="E.g. Feed the cat"
+    >
+    <button>Add</button>
+  </form>
+
+  <ul>
+    <li
+      is="todo-item"
+      v-for="(todo, index) in todos"
+      v-bind:key="todo.id"
+      v-bind:title="todo.title"
+      v-on:remove="todos.splice(index, 1)"
+    ></li>>
+  </ul>
+</div>
+```
+
+> 注意这里的 is="todo-item" attribute。这种做法在使用 DOM 模板时是十分必要的，因为在 `<ul>` 元素内只有 `<li>` 元素会被看作有效内容。这样做实现的效果与 `<todo-item>` 相同，但是可以避开一些潜在的浏览器解析错误。
+
+```js
+Vue.component('todo-item', {
+  template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit(\'remove\')">Remove</button>\
+    </li>\
+  ',
+  props: ['title']
+})
+
+new Vue({
+  el: '#todo-list-example',
+  data: {
+    newTodoText: '',
+    todos: [
+      {
+        id: 1,
+        title: 'Do the dishes',
+      },
+      {
+        id: 2,
+        title: 'Take out the trash',
+      },
+      {
+        id: 3,
+        title: 'Mow the lawn'
+      }
+    ],
+    nextTodoId: 4
+  },
+  methods: {
+    addNewTodo: function () {
+      this.todos.push({
+        id: this.nextTodoId++,
+        title: this.newTodoText
+      })
+      this.newTodoText = ''
+    }
+  }
+})
+```
+
+# 时间处理
+
+## 监听事件
+
+可以用 `v-on 指令监听 DOM 事件`，并在触发时运行一些 JavaScript 代码。
+
+```html
+<div id="example-1">
+  <button v-on:click="counter += 1">Add 1</button>
+  <p>The button above has been clicked {{ counter }} times.</p>
+</div>
+```
+
+```js
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    counter: 0
+  }
+})
+```
+
+## 事件处理方法
+
+然而许多事件处理逻辑会更为复杂，所以直接把 JavaScript 代码写在 v-on 指令中是不可行的。因此 v-on 还可以接收一个`需要调用的方法名称`。
+
+示例：
+
+```html
+<div id="example-2">
+  <!-- `greet` 是在下面定义的方法名 -->
+  <button v-on:click="greet">Greet</button>
+</div>
+```
+
+```js
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    name: 'Vue.js'
+  },
+  // 在 `methods` 对象中定义方法
+  methods: {
+    greet: function (event) {
+      // `this` 在方法里指向当前 Vue 实例
+      alert('Hello ' + this.name + '!')
+      // `event` 是原生 DOM 事件
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
+  }
+})
+
+// 也可以用 JavaScript 直接调用方法
+example2.greet() // => 'Hello Vue.js!'
+```
+
+## 内联处理器中的方法
+
+除了直接绑定到一个方法，也可以在内联 JavaScript 语句中调用方法：
+
+```html
+<div id="example-3">
+  <button v-on:click="say('hi')">Say hi</button>
+  <button v-on:click="say('what')">Say what</button>
+</div>
+```
+
+```js
+new Vue({
+  el: '#example-3',
+  methods: {
+    say: function (message) {
+      alert(message)
+    }
+  }
+})
+```
+
+有时也需要在内联语句处理器中`访问原始的 DOM 事件`。可以用特殊变量 `$event` 把它传入方法：
+
+```html
+<button v-on:click="warn('Form cannot be submitted yet.', $event)">
+  Submit
+</button>
+```
+
+```js
+// ...
+methods: {
+  warn: function (message, event) {
+    // 现在我们可以访问原生事件对象
+    if (event) {
+      event.preventDefault()
+    }
+    alert(message)
+  }
+}
+```
+
+## 事件修饰符
+
+在事件处理程序中调用 `event.preventDefault()` 或 `event.stopPropagation()` 是非常常见的需求。尽管我们可以在方法中轻松实现这点，但更好的方式是：方法只有纯粹的数据逻辑，而不是去处理 DOM 事件细节。
+
+为了解决这个问题，Vue.js 为 v-on 提供了`事件修饰符`。之前提过，`修饰符是由点开头的指令后缀来表示的`。
+
+- `.stop`
+- `.prevent`
+- `.capture`
+- `.self`
+- `.once`
+- `.passive`
+
+```html
+<!-- 阻止单机事件继续传播 -->
+<a v-on:click.stop="doThis"></a>
+
+<!-- 提交事件不再重载页面 -->
+<form v-on:submit.prevent="onSubmit"></form>
+
+<!-- 修饰符可以串联 -->
+<a v-on:click.stop.prevent="doThat"></a>
+
+<!-- 只有修饰符 -->
+<form v-on:submit.prevent></form>
+
+<!-- 添加事件监听器时使用事件捕获模式 -->
+<!-- 即内部元素触发的事件优先在此处理，然后才交由内部元素进行处理 -->
+<div v-on:click.capture="doThis"></div>
+
+<!-- 只在当 event.target 是当前元素自身时触发处理函数 -->
+<!-- 即事件不是从内部元素触发的 -->
+<div v-on:click.self="doThat"></div>
+
+```
+
+> 使用修饰符时，`顺序很重要`；相应的代码会以同样的顺序产生。因此，用 `v-on:click.prevent.self 会阻止所有的点击`，而 `v-on:click.self.prevent 只会阻止对元素自身的点击`。
+
+> 2.1.4 新增
+
+<!-- 点击事件将只会触发一次 -->
+<a v-on:click.once="doThis"></a>
+
+不像其它只能对原生的 DOM 事件起作用的修饰符，`.once 修饰符还能被用到自定义的组件事件上`。
+
+> 2.3.0 新增
+
+Vue 还对应 `addEventListener` 中的 `passive` 选项提供了 `.passive` 修饰符。
+
+```html
+<!-- 滚动事件的默认行为 (即滚动行为) 将会立即触发 -->
+<!-- 而不会等待 `onScroll` 完成  -->
+<!-- 这其中包含 `event.preventDefault()` 的情况 -->
+<div v-on:scroll.passive="onScroll">...</div>
+```
+
+**这个 .passive 修饰符尤其能够提升移动端的性能。**
+
+> 不要把 `.passive 和 .prevent 一起使用`，因为 `.prevent 将会被忽略`，同时浏览器可能会向你展示一个警告。请记住，`.passive 会告诉浏览器你不想阻止事件的默认行为`。
+
+## 按键修饰符
+
+在监听键盘事件时，我们经常需要检查详细的按键。Vue 允许为 v-on 在监听键盘事件时添加按键修饰符：
+
+```html
+<!-- 只有在 `key` 是 `Enter` 时调用 `vm.submit()` -->
+<input v-on:keyup.enter="submit">
+```
+
+你可以直接将 `KeyboardEvent.key` 暴露的任意有效按键名转换为 `kebab-case` 来作为修饰符。
+
+```html
+<input v-on:keyup.page-down="onPageDown">
+```
+
+在上述示例中，处理函数只会在 `$event.key` 等于 `PageDown` 时被调用。
+
+## 按键码
+
+> keyCode 的事件用法已经被废弃了并可能不会被最新的浏览器支持。
+
+使用 keyCode attribute 也是允许的：
+
+```html
+<input v-on:keyup.13="submit">
+```
+
+为了在必要的情况下支持旧浏览器，Vue 提供了绝大多数常用的按键码的别名：
+
+- `.enter`
+- `.tab`
+- `.delete` (捕获“删除”和“退格”键)
+- `.esc`
+- `.space`
+- `.up`
+- `.down`
+- `.left`
+- `.right`
+
+> 有一些按键 (.esc 以及所有的方向键) 在 IE9 中有不同的 key 值, 如果你想支持 IE9，这些内置的别名应该是首选。
+
+你还可以通过全局 `config.keyCodes` 对象自定义按键修饰符别名：
+
+```js
+// 可以使用 `v-on:keyup.f1`
+Vue.config.keyCodes.f1 = 112
+```
+
+## 系统修饰键
+
+> 2.1.0 新增
+
+可以用如下修饰符来实现仅在按下相应按键时才触发鼠标或键盘事件的监听器。
+
+- `.ctrl`
+- `.alt`
+- `.shift`
+- `.meta`
+
+> 注意：在 Mac 系统键盘上，meta 对应 command 键 (⌘)。在 Windows 系统键盘 meta 对应 Windows 徽标键 (⊞)。在 Sun 操作系统键盘上，meta 对应实心宝石键 (◆)。在其他特定键盘上，尤其在 MIT 和 Lisp 机器的键盘、以及其后继产品，比如 Knight 键盘、space-cadet 键盘，meta 被标记为“META”。在 Symbolics 键盘上，meta 被标记为“META”或者“Meta”。
+
+例如：
+
+```html
+<!-- Alt + C -->
+<input v-on:keyup.alt.67="clear">
+
+<!-- Ctrl + Click -->
+<div v-on:click.ctrl="doSomething">Do something</div>
+```
+
+> 请注意修饰键与常规按键不同，在和 keyup 事件一起用时，事件触发时修饰键必须处于按下状态。换句话说，只有在按住 ctrl 的情况下释放其它按键，才能触发 keyup.ctrl。而单单释放 ctrl 也不会触发事件。如果你想要这样的行为，请为 ctrl 换用 keyCode：keyup.17。
+
+## .exact 修饰符
+
+> 2.5.0 新增
+
+.exact 修饰符允许你控制由精确的系统修饰符组合触发的事件。
+
+```html
+<!-- 即使 Alt 或 Shift 被一同按下时也会触发 -->
+<button v-on:click.ctrl="onClick">A</button>
+
+<!-- 有且只有 Ctrl 被按下的时候才触发 -->
+<button v-on:click.ctrl.exact="onCtrlClick">A</button>
+
+<!-- 没有任何系统修饰符被按下的时候才触发 -->
+<button v-on:click.exact="onClick">A</button>
+```
+
+## 鼠标按钮修饰符
+
+> 2.2.0 新增
+
+- `.left`
+- `.right`
+- `.middle`
+
+这些修饰符会限制处理函数仅响应特定的鼠标按钮。
+
+## 为什么在 HTML 中监听事件？
+
+你可能注意到这种事件监听的方式违背了`关注点分离` (separation of concern) 这个长期以来的优良传统。但不必担心，因为所有的 Vue.js 事件处理方法和表达式都严格绑定在当前视图的 ViewModel 上，它不会导致任何维护上的困难。实际上，使用 v-on 有几个好处：
+
+1. 扫一眼 HTML 模板便能轻松定位在 JavaScript 代码里对应的方法。
+
+2. 因为你无须在 JavaScript 里手动绑定事件，你的 ViewModel 代码可以是非常纯粹的逻辑，和 DOM 完全解耦，更易于测试。
+
+3. 当一个 ViewModel 被销毁时，所有的事件处理器都会自动被删除。你无须担心如何清理它们。
