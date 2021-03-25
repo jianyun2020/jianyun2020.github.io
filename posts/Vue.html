@@ -1275,4 +1275,47 @@ vm<span class="token punctuation">.</span><span class="token property-access">se
 </code></pre>
 <h2 id="%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%8A%E4%BD%BF%E7%94%A8-v-model">在组件上使用 v-model<a class="anchor" href="#%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%8A%E4%BD%BF%E7%94%A8-v-model">§</a></h2>
 <p>HTML 原生的输入元素类型并不总能满足需求。幸好，Vue 的组件系统允许你创建具有完全自定义行为且可复用的输入组件。这些输入组件甚至可以和 v-model 一起使用！</p>
-<h1>组件基础</h1></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>
+<h1>组件基础</h1>
+<p>组件是可复用的 Vue 实例, 所以它们与 new Vue 接收相同的选项，例如 <code>data</code>、<code>computed</code>、<code>watch</code>、<code>methods</code> 以及<code>生命周期钩子</code>等。仅有的例外是像 el 这样根实例特有的选项。</p>
+<h2 id="data-%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0">data 必须是一个函数<a class="anchor" href="#data-%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0">§</a></h2>
+<p>一个组件的 data 选项必须是一个函数，因此每个实例可以维护一份被返回对象的<code>独立的拷贝</code>：</p>
+<pre class="language-js"><code class="language-js"><span class="token function-variable function">data</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow">return</span> <span class="token punctuation">{</span>
+    count<span class="token operator">:</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="%E7%BB%84%E4%BB%B6%E7%9A%84%E7%BB%84%E7%BB%87">组件的组织<a class="anchor" href="#%E7%BB%84%E4%BB%B6%E7%9A%84%E7%BB%84%E7%BB%87">§</a></h2>
+<p>通常一个应用会以一棵嵌套的组件树的形式来组织。</p>
+<p>为了能在模板中使用，这些组件必须先注册以便 Vue 能够识别。这里有两种组件的注册类型：<code>全局注册</code>和<code>局部注册</code>。至此，我们的组件都只是通过 Vue.component 全局注册的：</p>
+<pre class="language-js"><code class="language-js"><span class="token maybe-class-name">Vue</span><span class="token punctuation">.</span><span class="token method function property-access">component</span><span class="token punctuation">(</span><span class="token string">'my-component-name'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ... options ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>全局注册的组件可以用在其被注册之后的任何 (通过 new Vue) 新创建的 Vue 根实例，也包括其组件树中的所有子组件的模板中。</p>
+<h2 id="%E9%80%9A%E8%BF%87-prop-%E5%90%91%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE">通过 Prop 向子组件传递数据<a class="anchor" href="#%E9%80%9A%E8%BF%87-prop-%E5%90%91%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE">§</a></h2>
+<p>Prop 是你可以在组件上注册的一些自定义 attribute, 为了给博文组件传递一个标题，我们可以用一个 props 选项将其包含在该组件可接受的 prop 列表中：</p>
+<pre class="language-js"><code class="language-js"><span class="token maybe-class-name">Vue</span><span class="token punctuation">.</span><span class="token method function property-access">component</span><span class="token punctuation">(</span><span class="token string">'blog-post'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  props<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  template<span class="token operator">:</span> <span class="token string">'&lt;h3>{{ title }}&lt;/h3>'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="%E5%8D%95%E4%B8%AA%E6%A0%B9%E5%85%83%E7%B4%A0">单个根元素<a class="anchor" href="#%E5%8D%95%E4%B8%AA%E6%A0%B9%E5%85%83%E7%B4%A0">§</a></h2>
+<p>每个组件必须只有一个根元素</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>blog-post</span>
+  <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post in posts<span class="token punctuation">"</span></span>
+  <span class="token attr-name"><span class="token namespace">v-bind:</span>key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post.id<span class="token punctuation">"</span></span>
+  <span class="token attr-name"><span class="token namespace">v-bind:</span>title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post.title<span class="token punctuation">"</span></span>
+  <span class="token attr-name"><span class="token namespace">v-bind:</span>content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post.content<span class="token punctuation">"</span></span>
+  <span class="token attr-name"><span class="token namespace">v-bind:</span>publishedAt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post.publishedAt<span class="token punctuation">"</span></span>
+  <span class="token attr-name"><span class="token namespace">v-bind:</span>comments</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post.comments<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>blog-post</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>精简prop的方式</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>blog-post</span>
+  <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post in posts<span class="token punctuation">"</span></span>
+  <span class="token attr-name"><span class="token namespace">v-bind:</span>key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post.id<span class="token punctuation">"</span></span>
+  <span class="token attr-name"><span class="token namespace">v-bind:</span>post</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>blog-post</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="%E7%9B%91%E5%90%AC%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BA%8B%E4%BB%B6">监听子组件事件<a class="anchor" href="#%E7%9B%91%E5%90%AC%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BA%8B%E4%BB%B6">§</a></h2></article></section><footer>Powered by <a href="https://github.com/xcatliu/pagic" target="_blank">Pagic</a></footer><script src="https://cdn.pagic.org/react@16.13.1/umd/react.production.min.js"></script><script src="https://cdn.pagic.org/react-dom@16.13.1/umd/react-dom.production.min.js"></script><script type="module" src="/index.js"></script></body></html>

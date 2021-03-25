@@ -36,7 +36,7 @@ export default {
                 "title": "Vue",
                 "link": "posts/Vue.html",
                 "date": "2021-03-24T12:28:00.000Z",
-                "updated": "2021-03-25T09:25:05.000Z",
+                "updated": "2021-03-25T10:45:33.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
