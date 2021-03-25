@@ -1759,3 +1759,69 @@ HTML 原生的输入元素类型并不总能满足需求。幸好，Vue 的组�
 
 # 组件基础
 
+组件是可复用的 Vue 实例, 所以它们与 new Vue 接收相同的选项，例如 `data`、`computed`、`watch`、`methods` 以及`生命周期钩子`等。仅有的例外是像 el 这样根实例特有的选项。
+
+## data 必须是一个函数
+
+一个组件的 data 选项必须是一个函数，因此每个实例可以维护一份被返回对象的`独立的拷贝`：
+
+```js
+data: function () {
+  return {
+    count: 0
+  }
+}
+```
+
+## 组件的组织
+
+通常一个应用会以一棵嵌套的组件树的形式来组织。
+
+为了能在模板中使用，这些组件必须先注册以便 Vue 能够识别。这里有两种组件的注册类型：`全局注册`和`局部注册`。至此，我们的组件都只是通过 Vue.component 全局注册的：
+
+```js
+Vue.component('my-component-name', {
+  // ... options ...
+})
+```
+
+全局注册的组件可以用在其被注册之后的任何 (通过 new Vue) 新创建的 Vue 根实例，也包括其组件树中的所有子组件的模板中。
+
+## 通过 Prop 向子组件传递数据
+
+Prop 是你可以在组件上注册的一些自定义 attribute, 为了给博文组件传递一个标题，我们可以用一个 props 选项将其包含在该组件可接受的 prop 列表中：
+
+```js
+Vue.component('blog-post', {
+  props: ['title'],
+  template: '<h3>{{ title }}</h3>'
+})
+```
+
+## 单个根元素
+
+每个组件必须只有一个根元素
+
+```html
+<blog-post
+  v-for="post in posts"
+  v-bind:key="post.id"
+  v-bind:title="post.title"
+  v-bind:content="post.content"
+  v-bind:publishedAt="post.publishedAt"
+  v-bind:comments="post.comments"
+></blog-post>
+```
+
+精简prop的方式
+
+```html
+<blog-post
+  v-for="post in posts"
+  v-bind:key="post.id"
+  v-bind:post="post"
+></blog-post>
+```
+
+## 监听子组件事件
+
