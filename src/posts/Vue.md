@@ -1822,3 +1822,5 @@ Vue.component('blog-post', {
   v-bind:post="post"
 ></blog-post>
 ```
+
+
