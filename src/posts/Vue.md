@@ -1822,6 +1822,3 @@ Vue.component('blog-post', {
   v-bind:post="post"
 ></blog-post>
 ```
-
-## 监听子组件事件
-
