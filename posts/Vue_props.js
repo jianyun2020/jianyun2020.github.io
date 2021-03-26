@@ -25,7 +25,7 @@ export default {
         "jianyun2020"
     ],
     'date': "2021-03-24T12:28:00.000Z",
-    'updated': "2021-03-26T05:22:46.000Z",
+    'updated': "2021-03-26T08:25:10.000Z",
     'excerpt': "Vue 实例 创建一个Vue实例 var vm = new Vue({ // 选项 }) 所有的 Vue 组件都是 Vue 实例，并且接受相同的选项对象 (一些根实例特有的选项除外)。 数据与方法 当一个 Vue 实例被创建时，它将 data 对象中的所有的 property 加入...",
     'cover': "images/vue_life.png",
     'categories': [
@@ -43,7 +43,7 @@ export default {
                 "title": "Vue",
                 "link": "posts/Vue.html",
                 "date": "2021-03-24T12:28:00.000Z",
-                "updated": "2021-03-26T05:22:46.000Z",
+                "updated": "2021-03-26T08:25:10.000Z",
                 "author": "jianyun2020",
                 "contributors": [
                     "jianyun2020"
