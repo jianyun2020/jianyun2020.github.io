@@ -82,6 +82,7 @@ tags:
 ### Game
 
 1. `Quit Game`：退出当前游戏
+2. `Load Stream Level`：
 
 ### Rendering
 
