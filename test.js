@@ -1,6 +1,13 @@
-//注意：这只能在实现了NodeList.prototype[Symbol.iterator]的平台上运行
-let articleParagraphs = document.querySelectorAll("article > p");
+Object.prototype.objCustom = function () {}
+Array.prototype.arrCustom = function () {}
 
-for (let paragraph of articleParagraphs) {
-  paragraph.classList.add("read");
+let iterable = [3, 5, 7]
+iterable.foo = 'hello'
+
+for (let i in iterable) {
+    console.log(i) // 0, 1, 2, "foo", "arrCustom", "objCustom"
+}
+
+for (let i of iterable) {
+    console.log(i) 
 }
