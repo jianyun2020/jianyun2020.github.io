@@ -34,3 +34,4 @@ print(tf.__version__)
 
 ![](../posts/images/fashion-mnist-sprite.png)
 
+Fashion MNIST 旨在临时替代经典 MNIST 数据集，后者常被用作计算机视觉机器学习程序的“Hello, World”。MNIST 数据集包含手写数字（0、1、2 等）的图像，其格式与您将使用的衣物图像的格式相同。
