@@ -37,7 +37,7 @@ tags:
 
 ## 函数
 
-
+1. `Unload Stream Level`: 卸载流式关卡
 4. `Is Valid`：如果对象可用（不为`null`或者`not pending kill`则返回`true`
 7. `Break Rotator`：将旋转器分解为以度为单位的侧倾角（Roll），俯仰角（Pitch）和偏航角（Yaw）
 8. `Set Render Transform Angle`：设置渲染变换角度
