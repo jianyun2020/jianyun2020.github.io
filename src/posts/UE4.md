@@ -55,6 +55,7 @@ tags:
 ### Game
 
 1. `Unload Stream Level`: 卸载流式关卡
+2. `Load Stream Level`：加载流式关卡
 
 
 ### Utilities
@@ -62,11 +63,30 @@ tags:
 1. `Get all Actors with Tag`：通过tag查找场景中所有的actor
 2. `Get all Actors Of Class`：通过class查找场景中所有的actor
 3. `Get all Actors with Interface`：通过interface查找场景中所有的actor
-4. ``
+4. `DestroyActor`：销毁actor
+5. `Select`：返回索引对应的选项
+
+#### Macros
+
+1. `Local String`：局部临时变量
+2. `Assign`：给变量赋值
+
+#### Flow Control
+
+1. `Delay`：延迟执行潜在操作（在几秒钟内指定）。倒计时时再次调用将被忽略。
+2. `Retriggerable Delay`：执行一个可在触发的动作
+
+### Media
+
+#### Media Player
+
+1. `Open Source`：打开媒体文件
+2. `Bind Event to On End Reached`：媒体文件播放完后触发的事件
 
 ### Widget
 
 1. `Get All Widgets with Interface`：通过interface查找场景中所有的widget
+2. `Get All Widgets Of Class`：通过class查找场景中所有的widget
 
 
 ### Audio
@@ -111,6 +131,13 @@ tags:
    3. `Set Screen Resolution`：设置屏幕分辨率
    4. `Apply Resolution Settings`：应用分辨率设置
 
+### Variable
+
+#### Playback
+
+1. Level Sequence Actor
+   1. `Get Sequence Player`：读取变量SequencePlayer的值
+
 
 
 ### Window
@@ -126,10 +153,6 @@ tags:
 
 1. `Get User Widget Of Object`：返回此组件显示的用户小部件对象
 
-
-### Flow Control
-
-1. `Delay`：延迟执行潜在操作（在几秒钟内指定）。倒计时时再次调用将被忽略。
 
 ### Material：材质
 
