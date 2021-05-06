@@ -64,6 +64,10 @@ tags:
 3. `Get all Actors with Interface`：通过interface查找场景中所有的actor
 4. ``
 
+### Widget
+
+1. `Get All Widgets with Interface`：通过interface查找场景中所有的widget
+
 
 ### Audio
 
