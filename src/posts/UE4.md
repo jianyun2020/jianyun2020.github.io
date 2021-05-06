@@ -37,7 +37,6 @@ tags:
 
 ## 函数
 
-1. `Unload Stream Level`: 卸载流式关卡
 4. `Is Valid`：如果对象可用（不为`null`或者`not pending kill`则返回`true`
 7. `Break Rotator`：将旋转器分解为以度为单位的侧倾角（Roll），俯仰角（Pitch）和偏航角（Yaw）
 8. `Set Render Transform Angle`：设置渲染变换角度
@@ -53,7 +52,18 @@ tags:
 19. `Execute Console Command`：执行控制台命令
     1.  `DisableAllScreenMessages`：禁止所有屏幕信息
 
-### 
+### Game
+
+1. `Unload Stream Level`: 卸载流式关卡
+
+
+### Utilities
+
+1. `Get all Actors with Tag`：通过tag查找场景中所有的actor
+2. `Get all Actors Of Class`：通过class查找场景中所有的actor
+3. `Get all Actors with Interface`：通过interface查找场景中所有的actor
+4. ``
+
 
 ### Audio
 
