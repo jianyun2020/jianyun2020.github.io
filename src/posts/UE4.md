@@ -51,6 +51,7 @@ tags:
 18. `Set Is Enabled`：设置控件是否可以和用户交互
 19. `Execute Console Command`：执行控制台命令
     1.  `DisableAllScreenMessages`：禁止所有屏幕信息
+    2.  `r.VSync`: 开启/关闭垂直同步（可能依赖于是否原生全屏）。（默认（关闭）r.VSync 0, 开启：r.VSync 1）
 
 ### Game
 
